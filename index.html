@@ -307,20 +307,75 @@
 
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
+    // アーカイブデータ
     const archiveData = {
         'archive1': {
-            title: 'FPGA SiP and Evolvable Hardware',
+            title: 'Precision Tech: Diffraction Limit & SWaP Strategy',
             audio: '3d.mp3',
-            en: `<b>A:</b> For the Mars mission, we’re proposing the FPGA SiP integrated with 3D stacking technology.<br><b>B:</b> Why not use a standard radiation-hardened ASIC?<br><b>A:</b> Maintenance is impossible in deep space. With FPGA, we can remotely reconfigure the hardware logic.`,
-            jp: `<b>A：</b> 火星ミッションに向けて、3D積層技術を統合したFPGA SiPを提案しています。<br><b>B：</b> 標準的な放射線耐性ASICを使わないのはなぜですか？<br><b>A：</b> 深宇宙では物理的なメンテナンスが不可能です。FPGAなら、遠隔でロジックを再構成できます。`
+            en: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
+                 <b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. Addressing the diffraction limit is indispensable, as simply increasing sensor resolution is no longer sufficient.<br>
+                 <b>B:</b> I understand the physical constraints. But can't we compensate for blur using AI-based post-processing?<br>
+                 <b>A:</b> Unfortunately, AI cannot restore "information that was never captured" due to vibrations. Our AO system uses deformable mirrors to cancel these errors in real-time.<br>
+                 <b>B:</b> So for AI analysis to be truly reliable, we need "True Imaging" at the physical layer?<br>
+                 <b>A:</b> Exactly. By neutralizing the wavefront error before the light hits the sensor, we provide the high-fidelity data your AI needs to achieve target yields.<br><br>
+                 
+                 <b>Case 2: [Space] SWaP and Signal Integrity</b><br>
+                 <b>A:</b> We are integrating high-reliability interconnects for a new LEO satellite constellation. SWaP requirements—Size, Weight, and Power—are extremely stringent.<br>
+                 <b>B:</b> Our modular connectors can reduce total mass by 30% while maintaining the robustness required for launch.<br>
+                 <b>A:</b> I’m concerned about Signal Integrity (SI) under harsh thermal cycling in orbit. A single failure means mission failure.<br>
+                 <b>B:</b> Our connectors feature unique vibration-proof locking mechanisms. We provide data on EMI shielding to ensure stable transmission.<br>
+                 <b>A:</b> Let's proceed with benchmarking. Reliability is our non-negotiable priority.`,
+            
+            jp: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
+                 （2nmプロセスにおける「回折限界」と「補償光学」）<br>
+                 <b>A：</b> 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。単にセンサーの解像度を上げるだけではもはや不十分であり、回折限界への対処は不可欠です。<br>
+                 <b>B：</b> 物理的な制約は理解しています。しかし、AIベースの後処理でボケを補正することはできないのでしょうか？<br>
+                 <b>A：</b> 残念ながら、振動のせいで「そもそも取り込まれなかった情報」をAIで復元することは不可能です。我々のAOシステムは可変形状ミラーを使用し、これらのエラーをリアルタイムで打ち消します。<br>
+                 <b>B：</b> つまり、AI解析を真に信頼できるものにするためには、物理レイヤーでの「真の結像（True Imaging）」が必要だということですね？<br>
+                 <b>A：</b> その通りです。光がセンサーに届く前に波面収差を中和することで、歩留まり目標の達成に必要な高忠実度データをAIに提供できるのです。<br><br>
+                 
+                 <b>Case 2: [Space] SWaP and Signal Integrity</b><br>
+                 （宇宙防衛分野における「SWaP」と「信号整合性」）<br>
+                 <b>A：</b> 新しい低軌道（LEO）衛星コンステレーション用に高信頼性のインターコネクトを統合しています。サイズ、重量、電力の「SWaP」要件は極めて厳格です。<br>
+                 <b>B：</b> 弊社のモジュール式コネクタは、打ち上げに必要な堅牢性を維持しつつ、全体の質量を30%削減できます。<br>
+                 <b>A：</b> 軌道上の過酷な熱サイクル下での信号整合性（SI）を懸念しています。たった一つの故障がミッションの失敗を意味します。<br>
+                 <b>B：</b> 弊社のコネクタは独自の防振ロッキング機構を備えています。また、安定した伝送を保証するためにEMI（電磁妨害）シールドのデータも提供します。<br>
+                 <b>A：</b> ベンチマークを進めましょう。信頼性は我々にとって譲れない最優先事項です。`
         },
-        'archive2': {
-            title: '2nm Process and Dynamic Optics',
-            audio: 'nano.mp3',
-            en: `<b>A:</b> Our latest report shows traditional static lenses cannot maintain precision at the 2nm node due to micro-vibrations.<br><b>B:</b> Aberrations are inconsistent, making it hard for AI to differentiate defects.<br><b>A:</b> We are moving to a Dynamic Optical System to actively control aberrations.`,
-            jp: `<b>A：</b> 最新のレポートによると、2nmノードでは微振動により従来の固定レンズでは精度を維持できません。<br><b>B：</b> 収差が不安定で、AIが欠陥を判別するのが難しくなっています。<br><b>A：</b> だからこそ、収差を能動的に制御する「動的光学系」へ移行しています。`
+       'archive2': {
+            title: 'Next-Gen Computing & Sub-nanoscale Control',
+            audio: 'yield.mp3',
+            en: `<b>Case 1: FPGA SiP and Evolvable Hardware</b><br>
+                 <b>A (Chronix Engineer):</b> For the Mars mission, we’re proposing the FPGA SiP integrated with 3D stacking technology.<br>
+                 <b>B (Overseas Tech Partner):</b> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.<br>
+                 <b>A:</b> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.<br>
+                 <b>B:</b> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?<br>
+                 <b>A:</b> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.<br><br>
+                 
+                 <b>Case 2: 2nm Process and Dynamic Optics</b><br>
+                 <b>A (Chronix Engineer):</b> Our latest yield report shows that at the 2nm node, traditional static lenses cannot maintain the required precision due to micro-vibrations.<br>
+                 <b>B (Domestic Customer):</b> We’ve noticed the same. The aberrations are inconsistent, making it hard for our AI to differentiate between a defect and a blur.<br>
+                 <b>A:</b> This is why we’re moving to a Dynamic Optical System. By actively controlling aberrations at the physical layer, we can stabilize the image before the AI processing starts.<br>
+                 <b>B:</b> So, instead of trying to "fix" a bad photo with software, you’re ensuring the "perfect shot" from the beginning?<br>
+                 <b>A:</b> Precisely. It breaks the stagnation in yield rates and provides the foundation for the next generation of sub-nanoscale manufacturing.`,
+            
+            jp: `<b>Case 1: FPGA SiP and Evolvable Hardware</b><br>
+                 （極限環境での「進化するハードウェア」）<br>
+                 <b>A：</b> 火星ミッションに向けて、3D積層技術を統合したFPGA SiPを提案しています。<br>
+                 <b>B：</b> 標準的な放射線耐性ASICを使わないのはなぜですか？ 通常はそちらの方が電力効率が良いはずですが。<br>
+                 <b>A：</b> その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAなら、ハードウェア・ロジックを遠隔で再構成し、予期せぬ故障や新しい任務に適応させることができます。<br>
+                 <b>B：</b> なるほど。3D統合によって、放射線遮蔽された極小の面積に高密度な処理機能を詰め込めるということですね？<br>
+                 <b>A：</b> まさに。過酷な環境下で生き残り、自ら最適化できる「進化するハードウェア」を作ることが狙いです。<br><br>
+                 
+                 <b>Case 2: 2nm Process and Dynamic Optics</b><br>
+                 （動的光学系による収差制御）<br>
+                 <b>A：</b> 最新の歩留まりレポートによると、2nmノードでは従来の固定レンズでは微振動による精度を維持できないことが示されています。<br>
+                 <b>B：</b> 我々も同じことに気づいていました。収差が一定ではなく、AIが「欠陥」と「ボケ」を判別するのが難しくなっています。<br>
+                 <b>A：</b> だからこそ「動的光学系」への移行を進めているのです。物理層で収差を能動的に制御することで、AI処理の前に画像を安定させることができます。<br>
+                 <b>B：</b> つまり、ソフトで後から直そうとするのではなく、最初から「完璧な一枚」を撮れるようにするということですね？<br>
+                 <b>A：</b> その通りです。これにより歩留まりの停滞を打破し、次世代製造の基盤を提供します。`
         }
-    };
+        
 
     function openArchiveModal(id) {
         const data = archiveData[id];
