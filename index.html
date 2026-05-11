@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHRONIX | GLOBAL TECH DAILY</title>
+    <style>
+        :root {
+            --primary-blue: #004a99;
+            --accent-orange: #d35400;
+            --dark-bg: #1a1a1a;
+            --light-gray: #f4f4f4;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #fff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--primary-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo { font-weight: bold; font-size: 1.5rem; }
+        .logo span { color: var(--primary-blue); }
+
+        nav a { margin-left: 20px; text-decoration: none; color: #666; font-size: 0.9rem; }
+
+        .container { display: flex; flex-wrap: wrap; width: 100%; }
+
+        /* セクション共通 */
+        .section {
+            flex: 1;
+            min-width: 500px;
+            padding: 40px 5%;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* マシンビジョン側 */
+        .vision-section { background: linear-gradient(rgba(0,30,60,0.8), rgba(0,30,60,0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000'); background-size: cover; border-right: 1px solid #444; }
+        
+        /* 宇宙・防衛側 */
+        .space-section { background: linear-gradient(rgba(40,20,0,0.8), rgba(40,20,0,0.8)), url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=1000'); background-size: cover; }
+
+        h2 { border-left: 5px solid; padding-left: 15px; margin-bottom: 20px; }
+        .vision-section h2 { border-color: #00aaff; }
+        .space-section h2 { border-color: var(--accent-orange); }
+
+        .audio-player {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .script-box {
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            height: 250px;
+            overflow-y: auto;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .script-line { margin-bottom: 10px; }
+        .speaker { font-weight: bold; color: #ffcc00; }
+
+        .phrase-card {
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        /* トレンドレポート誘導 */
+        .report-cta {
+            background: var(--light-gray);
+            padding: 40px 5%;
+            text-align: center;
+            width: 100%;
+        }
+
+        .report-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .report-item {
+            background: white;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--primary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
+        .btn-orange { background: var(--accent-orange); }
+
+        footer { background: var(--dark-bg); color: #999; text-align: center; padding: 20px; font-size: 0.8rem; }
+
+        @media (max-width: 1000px) {
+            .section { min-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">CHRONIX <span>GLOBAL TECH DAILY</span></div>
+    <nav>
+        <a href="#">Archives</a>
+        <a href="#">Trend Reports</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="section vision-section">
+        <h2>Case 1: Multispectral Analysis</h2>
+        <p><strong>テーマ：Silios社のSnapshot技術</strong></p>
+        
+        <div class="audio-player">
+            <span>▶ Morning Listen: Snapshot vs Traditional (01:45)</span>
+        </div>
+
+        <div class="script-box">
+            <div class="script-line"><span class="speaker">A:</span> We are integrating the Silios multispectral sensor into your production line.</div>
+            <div class="script-line"><span class="speaker">B:</span> How does it compare to traditional spectroscopy?</div>
+            <div class="script-line"><span class="speaker">A:</span> It eliminates errors caused by moving objects. Snapshot technology is the key.</div>
+            <div class="script-line"><span class="speaker">B:</span> So we can perform non-destructive testing in real-time?</div>
+            <div class="script-line"><span class="speaker">A:</span> Exactly.</div>
+        </div>
+
+        <div class="phrase-card">
+            <strong>💡 今日の重要単語</strong><br>
+            • Multispectral (マルチスペクトル)<br>
+            • Non-destructive testing (非破壊検査)
+        </div>
+    </div>
+
+    <div class="section space-section">
+        <h2>Case 2: Satellite Laser Terminal</h2>
+        <p><strong>テーマ：Cedrat社 圧電アクチュエータ</strong></p>
+
+        <div class="audio-player">
+            <span>▶ Morning Listen: Space-Grade Precision (02:10)</span>
+        </div>
+
+        <div class="script-box">
+            <div class="script-line"><span class="speaker">A:</span> We’ve selected piezoelectric actuators from Cedrat Technologies.</div>
+            <div class="script-line"><span class="speaker">B:</span> Our actuators provide nanometer-level precision even in vacuum.</div>
+            <div class="script-line"><span class="speaker">A:</span> How do they handle high-frequency vibrations during launch?</div>
+            <div class="script-line"><span class="speaker">B:</span> The mechanical amplification design ensures high stiffness.</div>
+        </div>
+
+        <div class="phrase-card">
+            <strong>💡 今日の重要単語</strong><br>
+            • Piezoelectric actuator (圧電アクチュエータ)<br>
+            • Mechanical amplification (機械的増幅)
+        </div>
+    </div>
+</div>
+
+<div class="report-cta">
+    <h3>Related TREND REPORTS</h3>
+    <p>英会話で紹介した技術の、より詳細な市場動向・技術資料はこちらから</p>
+    <div class="report-grid">
+        <div class="report-item">
+            <h4>Machine Vision Trends 2026</h4>
+            <p>Snapshot分光が変えるインライン検査の未来</p>
+            <a href="#" class="btn">PDFダウンロード</a>
+        </div>
+        <div class="report-item" style="border-color: var(--accent-orange);">
+            <h4>Aerospace & Defense Tech</h4>
+            <p>極限環境における精密駆動の最新要件</p>
+            <a href="#" class="btn btn-orange">PDFダウンロード</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 CHRONIX Co., Ltd. Morning Broadcast: May 11, 2026<br>
+    夕方18:00更新：半導体収差制御 / 宇宙エッジFPGA
+</footer>
+
+</body>
+</html>
