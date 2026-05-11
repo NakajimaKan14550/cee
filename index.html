@@ -208,52 +208,12 @@
     </div>
 </div>
 
-<div class="archive-section">
-    <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
-    <div class="archive-grid">
-        <div class="archive-card" onclick="openArchiveModal('swap_archive')">
-            <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
-                <span style="font-size: 0.7rem; opacity: 0.8;">SPACE ARCHIVE</span>
-                <h4 style="margin: 10px 0 0 0;">SWaP and Signal Integrity</h4>
-            </div>
-            <div style="padding: 20px; font-size: 0.85rem; color: #666;">衛星の信号整合性とSWaP要件。</div>
-        </div>
-        <div class="archive-card" onclick="openArchiveModal('diff_archive')">
-            <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
-                <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
-                <h4 style="margin: 10px 0 0 0;">Breaking the Diffraction Limit</h4>
-            </div>
-            <div style="padding: 20px; font-size: 0.85rem; color: #666;">2nm検査ラインと補償光学。</div>
-        </div>
-    </div>
-</div>
-
-<div id="archiveModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:3000; padding:20px; overflow-y:auto;">
-    <div style="max-width:800px; margin:40px auto; background:#fff; border-radius:15px; padding:40px; position:relative;">
-        <span onclick="closeArchiveModal()" style="position:absolute; top:20px; right:25px; font-size:35px; cursor:pointer;">&times;</span>
-        <h2 id="modalTitle"></h2>
-        <div id="modalAudioBtn" class="audio-btn" style="margin: 20px 0;"></div>
-        <div id="modalEnScript" style="background:#f8fafc; padding:20px; border-radius:10px; margin-bottom: 15px;"></div>
-        <div id="modalJpScript" style="background:#fff7ed; padding:20px; border-radius:10px;"></div>
-    </div>
-</div>
-
-<footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
-    <p style="font-size: 1.5rem; font-weight: bold;">クロニクス株式会社</p>
-    <address style="font-style: normal; color: #cbd5e1; font-size: 0.9rem;">
-        〒160-0023 東京都新宿区西新宿3-2-11 新宿三井ビルディング二号館 904室<br>
-        TEL 03-5322-7191 / FAX 03-5322-7790
-    </address>
-    <a href="mailto:sales@chronix.co.jp" style="display: inline-block; background: var(--accent-orange); color: white; padding: 15px 40px; border-radius: 5px; text-decoration: none; margin-top: 25px; font-weight: bold;">メールでお問い合わせ</a>
-</footer>
-
 <script>
     let currentAudio = null;
     let currentBtnId = null;
 
     function toggleAudio(fileName, btnId) {
         const btn = document.getElementById(btnId);
-        // アイコン要素がない場合のフォールバック
         const icon = btn.querySelector('.audio-icon') || btn; 
         
         if (currentAudio && currentBtnId === btnId) {
@@ -281,7 +241,7 @@
         currentAudio.play().then(() => { 
             icon.innerText = '⏸️'; 
         }).catch(() => { 
-            console.log("Audio not found"); 
+            console.log("Audio not found: " + fileName); 
         });
 
         currentAudio.onended = () => { 
@@ -302,7 +262,7 @@
         img.classList.toggle('zoomed'); 
     }
 
-    // アーカイブデータオブジェクトの修正
+    // アーカイブデータオブジェクト（構文エラーを修正済み）
     const archiveData = {
         'mv_archive': {
             title: 'Breaking the Diffraction Limit',
@@ -319,7 +279,29 @@
                  <b>B:</b> 物理的な制約は理解しています。しかし、AIベースの後処理でボケを補正することはできないのでしょうか？<br>
                  <b>A:</b> 残念ながら、振動のせいで「そもそも取り込まれなかった情報」をAIで復元することは不可能です。我々のAOシステムは可変形状ミラーを使用し、これらのエラーをリアルタイムで打ち消します。<br>
                  <b>B:</b> つまり、AI解析を真に信頼できるものにするためには、物理レイヤーでの「真の結像（True Imaging）」が必要だということですね？<br>
-                 <b>A:</b> その通りです。光がセンサーに届く前に波面収差を中和することで、歩留まり目標の達成に必要な高忠実度データをAIに提供できるのです。`
+                 <b>A:</b> その通りです。光がセンサーに届く前に波面収差を中和することで、歩留まり目標の達成に必要な高忠実度データをAIに提供できるのです。`,
+            study: `
+                <div style="margin-top:20px; padding-top:20px; border-top:2px solid var(--vision-blue);">
+                    <h4 style="color:var(--vision-blue); margin-bottom:10px;">💡 今日の重要単語 / Key Vocabulary</h4>
+                    <div style="font-size:0.9rem; line-height:1.8;">
+                        <b>Indispensable:</b> 不可欠な（現場で「絶対に必要」と言う時の強い表現です）<br>
+                        <b>Diffraction limit:</b> 回折限界（光の性質からくる解像度の物理的限界）<br>
+                        <b>Misconception:</b> 誤解、思い込み（議論の前提を正す時に役立ちます）<br>
+                        <b>Deformable mirrors:</b> 可変形状ミラー（AOの心臓部となる鏡）<br>
+                        <b>Neutralize:</b> 中和する、打ち消す（ノイズや誤差をゼロにするイメージ）<br>
+                        <b>High-fidelity:</b> 高忠実度（情報を寸分違わず再現していること）<br>
+                        <b>Non-negotiable:</b> 交渉の余地がない（最優先事項を強調する決め台詞）
+                    </div>
+                    <h4 style="color:var(--vision-blue); margin-top:20px; margin-bottom:10px;">📝 実践フレーズ / Useful Phrases</h4>
+                    <div style="background:#f0f7ff; padding:15px; border-radius:8px; border-left:5px solid var(--vision-blue); font-size:0.9rem;">
+                        <b>"Addressing [A] is no longer optional; it is indispensable."</b><br>
+                        （[A]への対処はもはや任意ではなく、不可欠です。）<br><br>
+                        <b>"AI cannot restore information that was never captured."</b><br>
+                        （AIは、そもそも取り込まれなかった情報を復元することはできません。）<br><br>
+                        <b>"Reliability starts at the physical contact point of [B]."</b><br>
+                        （信頼性は、[B]という物理的な接点から始まります。）
+                    </div>
+                </div>`
         },
         'swap_archive': {
             title: 'FPGA SiP and Evolvable Hardware',
@@ -333,85 +315,7 @@
             jp: `<b>Case 2: [Space] FPGA SiP and Evolvable Hardware</b><br>
                  （テーマ：メンテナンス不能な極限環境での「進化する回路」）<br><br>
                  <b>A（クロニクス・エンジニア）：</b>火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。<br>
-                 <b>B（海外テックパートナー）：</b>標準的な放射線耐性ASICを使わないのはなぜですか？ 通常、そちらの方が電力効率が良いはずですが。<br>
-                 <b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。<br>
-                 <b>B：</b>なるほど。つまり3D統合（積層）技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？<br>
-                 <b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。`
-            // Space用の学習セクション
-            study: `
-                <div style="margin-top:20px; padding-top:20px; border-top:2px solid var(--space-orange);">
-                    <h4 style="color:var(--space-orange); margin-bottom:10px;">💡 重要単語 / Key Vocabulary</h4>
-                    <div style="font-size:0.9rem; line-height:1.8;">
-                        <b>FPGA:</b> 製造後に構成書き換え可能な集積回路<br>
-                        <b>SiP (System-in-Package):</b> 複数チップを1つの封止にしたもの<br>
-                        <b>3D Stacking:</b> 3次元積層技術<br>
-                        <b>Reconfigure:</b> 再構成する（後から変更する）<br>
-                        <b>Evolvable Hardware:</b> 進化型ハードウェア
-                    </div>
-                    <h4 style="color:var(--space-orange); margin-top:20px; margin-bottom:10px;">📝 実践フレーズ</h4>
-                    <div style="background:#fdf6e3; padding:15px; border-radius:8px; border-left:5px solid #b58900; font-size:0.9rem;">
-                        <b>"It allows you to pack high-density processing into a tiny footprint."</b><br>
-                        （これにより高密度な処理機能を極小の設置面積に詰め込むことができます。）<br><br>
-                        <b>"Reliability starts at the physical contact point of [B]."</b><br>
-                        （信頼性は、[B]という物理的な接点から始まります。）
-                    </div>
-                </div>`
-        }
-        },
-        'diff_archive': {
-            title: 'Breaking the Diffraction Limit',
-            audio: 'nano.mp3',
-            en: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
-                 <b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines...`,
-            jp: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
-                 （2nmプロセスにおける「回折限界」と「補償光学」）<br><br>
-                 <b>A:</b> 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。`
-            // Machine Vision用の学習セクションを追加
-        study: `
-            <div style="margin-top:20px; padding-top:20px; border-top:2px solid var(--vision-blue);">
-                <h4 style="color:var(--vision-blue); margin-bottom:10px;">💡 今日の重要単語 / Key Vocabulary</h4>
-                <div style="font-size:0.9rem; line-height:1.8;">
-                    <b>Indispensable:</b> 不可欠な（現場で「絶対に必要」と言う時の強い表現です）<br>
-                    <b>Diffraction limit:</b> 回折限界（光の性質からくる解像度の物理的限界）<br>
-                    <b>Misconception:</b> 誤解、思い込み（議論の前提を正す時に役立ちます）<br>
-                    <b>Deformable mirrors:</b> 可変形状ミラー（AOの心臓部となる鏡）<br>
-                    <b>Neutralize:</b> 中和する、打ち消す（ノイズや誤差をゼロにするイメージ）<br>
-                    <b>High-fidelity:</b> 高忠実度（情報を寸分違わず再現していること）<br>
-                    <b>Non-negotiable:</b> 交渉の余地がない（最優先事項を強調する決め台詞）
-                </div>
-                <h4 style="color:var(--vision-blue); margin-top:20px; margin-bottom:10px;">📝 実践フレーズ / Useful Phrases</h4>
-                <div style="background:#f0f7ff; padding:15px; border-radius:8px; border-left:5px solid var(--vision-blue); font-size:0.9rem;">
-                    <b>"Addressing [A] is no longer optional; it is indispensable."</b><br>
-                    （[A]への対処はもはや任意ではなく、不可欠です。）<br><br>
-                    <b>"AI cannot restore information that was never captured."</b><br>
-                    （AIは、そもそも取り込まれなかった情報を復元することはできません。）<br><br>
-                    <b>"Reliability starts at the physical contact point of [B]."</b><br>
-                    （信頼性は、[B]という物理的な接点から始まります。）
-                </div>
-            </div>`
-    },
-
-    function openArchiveModal(id) {
-        const data = archiveData[id];
-        if (!data) return; // データがない場合は何もしない
-        
-        document.getElementById('modalTitle').innerText = data.title;
-        document.getElementById('modalEnScript').innerHTML = data.en;
-        document.getElementById('modalJpScript').innerHTML = data.jp;
-        // 再生ボタンのHTMLを生成
-        document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">▶️</span><span onclick="toggleAudio('${data.audio}', 'modalAudioBtn')" style="cursor:pointer; font-weight:bold; margin-left:10px;">LISTEN TO ARCHIVE AUDIO</span>`;
-        document.getElementById('archiveModal').style.display = 'block';
-    }
-
-    function closeArchiveModal() {
-        document.getElementById('archiveModal').style.display = 'none';
-        if (currentAudio) { 
-            currentAudio.pause(); 
-            currentAudio = null; 
-            currentBtnId = null;
-        }
-    }
-</script>
+                 <b>B（海外テックパートナー）：</b>標準的な放射線耐性ASIC
 
 </body>
 </html>
