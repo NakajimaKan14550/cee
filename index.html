@@ -17,11 +17,10 @@
 
         body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif; margin: 0; padding: 0; background-color: #fff; line-height: 1.6; }
 
-        /* Header & Navigation Fix */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 10px 5%; background: #fff; border-bottom: 1px solid #ddd; min-height: 70px;
-            flex-wrap: wrap; /* スマホで折り返しを許可 */
+            flex-wrap: wrap;
         }
 
         .logo-link { display: flex; align-items: center; text-decoration: none; color: #333; }
@@ -31,12 +30,10 @@
         nav { display: flex; align-items: center; }
         nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 500; white-space: nowrap; }
 
-        /* Intro Message */
         .intro-banner {
             background: #f0f4f8; padding: 20px 5%; border-bottom: 1px solid #e1e8ed; font-size: 0.95rem; color: #444;
         }
 
-        /* Hero Container */
         .hero-container { display: flex; height: 650px; width: 100%; overflow: hidden; color: var(--text-white); }
 
         .hero-section {
@@ -52,7 +49,6 @@
         .theme-sub { font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
         .hero-section h1 { font-size: 1.8rem; margin: 0 0 15px 0; line-height: 1.2; font-weight: 800; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
         
-        /* Script Box */
         .script-window {
             background: rgba(0,0,0,0.65); border-radius: 8px; padding: 15px; margin-bottom: 15px;
             font-size: 0.85rem; height: 180px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px);
@@ -62,7 +58,6 @@
 
         .meta-footer { display: flex; justify-content: space-between; align-items: center; }
         
-        /* Audio Button Style */
         .audio-btn {
             display: flex; align-items: center; background: rgba(255,255,255,0.2);
             padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.3); 
@@ -70,7 +65,6 @@
         }
         .audio-btn:hover { background: rgba(255,255,255,0.4); transform: scale(1.05); }
 
-        /* Translation Toggle Section */
         .translation-container {
             max-width: 1200px; margin: 20px auto; padding: 0 5%;
         }
@@ -87,7 +81,6 @@
         .trans-item { margin-bottom: 20px; }
         .trans-title { font-weight: bold; color: var(--vision-blue); border-bottom: 1px solid #eee; margin-bottom: 10px; }
 
-        /* Study Section */
         .study-section { padding: 40px 5%; background: #fff; border-bottom: 1px solid #eee; }
         .study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .vocab-list h3, .phrase-list h3 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 10px; }
@@ -95,13 +88,11 @@
         .vocab-en { font-weight: bold; color: var(--vision-blue); }
         .phrase-box { background: #fdf6e3; padding: 15px; border-radius: 5px; border-left: 5px solid #b58900; }
 
-        /* Image Zoom Utility */
         .zoomed {
             position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(2);
             z-index: 2000; cursor: zoom-out; box-shadow: 0 0 50px rgba(0,0,0,0.5);
         }
 
-        /* Responsive Design */
         @media (max-width: 900px) {
             header { flex-direction: column; align-items: flex-start; padding: 15px 5%; }
             .site-title { border-left: none; padding-left: 0; margin-top: 5px; font-size: 0.95rem; }
@@ -127,49 +118,49 @@
 </header>
 
 <div class="intro-banner">
-    <strong>おはようございます！5月11日、朝の定期配信です。</strong><br>
-    本日のテーマは、トレンドレポートから「分光・波面センシング」と「精密駆動・ナノポジショニング」をピックアップしました。
+    <strong>こんにちは！5月11日、夕方の定期配信です。</strong><br>
+    本日のテーマは、トレンドレポートから「FPGA SiPと3D積層技術」と「2nmプロセスの収差制御」をピックアップしました。
 </div>
 
 <div class="hero-container">
     <div class="hero-section vision-hero">
-        <div class="label">Morning Broadcast</div>
-        <p class="theme-sub" style="color: #4db8ff;">テーマ：Siliosの技術を用いた「見えない成分」の可視化</p>
-        <h1>Case 1: Single-Shot Multispectral Analysis</h1>
+        <div class="label">Semiconductor / Vision</div>
+        <p class="theme-sub" style="color: #4db8ff;">テーマ：動的光学系による収差制御（中島漢 講師）</p>
+        <h1>Case 2: 2nm Process and Dynamic Optics</h1>
         
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> We are integrating the Silios multispectral sensor into your production line. It captures both color and spectral data in a single shot.</div>
-            <div class="script-line"><span class="speaker">B:</span> That sounds efficient. But how does it compare to traditional spectroscopy in terms of accuracy?</div>
-            <div class="script-line"><span class="speaker">A:</span> The key is the Snapshot technology. Unlike scanning methods, it eliminates errors caused by moving objects. We can detect subtle chemical changes in real-time.</div>
-            <div class="script-line"><span class="speaker">B:</span> I see. So we can perform non-destructive testing for quality control without slowing down the conveyor belt?</div>
-            <div class="script-line"><span class="speaker">A:</span> Exactly. It visualizes "invisible changes" by analyzing the unique spectral signature of each material.</div>
+            <div class="script-line"><span class="speaker">A:</span> Our latest yield report shows that at the 2nm node, traditional static lenses cannot maintain the required precision due to micro-vibrations.</div>
+            <div class="script-line"><span class="speaker">B:</span> We’ve noticed the same. The aberrations are inconsistent, making it hard for our AI to differentiate between a defect and a blur.</div>
+            <div class="script-line"><span class="speaker">A:</span> This is why we’re moving to a Dynamic Optical System. By actively controlling aberrations at the physical layer, we can stabilize the image before the AI processing starts.</div>
+            <div class="script-line"><span class="speaker">B:</span> So, instead of trying to "fix" a bad photo with software, you’re ensuring the "perfect shot" from the beginning?</div>
+            <div class="script-line"><span class="speaker">A:</span> Precisely. It breaks the stagnation in yield rates and provides the foundation for the next generation of sub-nanoscale manufacturing.</div>
         </div>
 
         <div class="meta-footer">
-            <div class="audio-btn" onclick="playAudio('nano.mp3')">
+            <div class="audio-btn" onclick="playAudio('yield.mp3')">
                 <span class="audio-icon">🔊</span>
-                <span><strong>MORNING LISTEN:</strong><br>'Real-time Quality Control'</span>
+                <span><strong>EVENING LISTEN:</strong><br>'Physical Layer Correction'</span>
             </div>
         </div>
     </div>
 
     <div class="hero-section space-hero">
-        <div class="label">Section 2: Aerospace</div>
-        <p class="theme-sub" style="color: #ffaa00;">テーマ：Cedrat社の圧電アクチュエータによる極限の動き</p>
-        <h1>Case 2: Nano-Positioning in Harsh Environments</h1>
+        <div class="label">Space / FPGA</div>
+        <p class="theme-sub" style="color: #ffaa00;">テーマ：極限環境での「進化する回路」FPGA SiP</p>
+        <h1>Case 1: FPGA SiP and Evolvable Hardware</h1>
 
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> For the satellite's laser communication terminal, we’ve selected piezoelectric actuators from Cedrat Technologies.</div>
-            <div class="script-line"><span class="speaker">B:</span> Good choice. Our actuators provide nanometer-level precision even under extreme vacuum and thermal conditions.</div>
-            <div class="script-line"><span class="speaker">A:</span> We’re particularly interested in the smart mechatronics integration. How do they handle high-frequency vibrations during launch?</div>
-            <div class="script-line"><span class="speaker">B:</span> The mechanical amplification design ensures high stiffness. It’s built to withstand heavy G-loads while maintaining sub-micro-radian pointing accuracy.</div>
-            <div class="script-line"><span class="speaker">A:</span> Perfect. That precision-to-weight ratio is exactly what our SWaP strategy requires.</div>
+            <div class="script-line"><span class="speaker">A:</span> For the Mars mission, we’re proposing the FPGA SiP integrated with 3D stacking technology.</div>
+            <div class="script-line"><span class="speaker">B:</span> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</div>
+            <div class="script-line"><span class="speaker">A:</span> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.</div>
+            <div class="script-line"><span class="speaker">B:</span> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?</div>
+            <div class="script-line"><span class="speaker">A:</span> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.</div>
         </div>
 
         <div class="meta-footer">
-            <div class="audio-btn" onclick="playAudio('space.m4a')">
+            <div class="audio-btn" onclick="playAudio('3d.mp3')">
                 <span class="audio-icon">🔊</span>
-                <span><strong>MORNING LISTEN:</strong><br>'Space-Grade Precision'</span>
+                <span><strong>EVENING LISTEN:</strong><br>'Evolvable Systems'</span>
             </div>
         </div>
     </div>
@@ -181,20 +172,20 @@
     </button>
     <div class="translation-content" id="transContent">
         <div class="trans-item">
-            <div class="trans-title">Case 1: ワンショット・マルチスペクトル分析</div>
-            <p><strong>A（エンジニア）：</strong> お客様の生産ラインに、Silios社のマルチスペクトル・センサーを統合しようとしています。これは、カラーデータと分光データの両方をワンショット（一度の撮影）で捉えることができます。</p>
-            <p><strong>B（顧客）：</strong> それは効率的ですね。しかし、精度の面では従来の分光法と比べてどうなのでしょうか？</p>
-            <p><strong>A：</strong> 鍵となるのは「スナップショット技術」です。スキャニング方式とは異なり、移動する物体によって生じるエラーを排除できます。リアルタイムで微細な化学変化を検知できるのです。</p>
-            <p><strong>B：</strong> なるほど。つまり、コンベアベルトを止めることなく品質管理ができるということですね。</p>
-            <p><strong>A：</strong> その通りです。それぞれの材料が持つ固有の「分光シグネチャー」を分析することで、目に見えない変化を可視化します。</p>
+            <div class="trans-title">Case 1: FPGA SiP and Evolvable Hardware</div>
+            <p><strong>A（エンジニア）：</strong> 火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。</p>
+            <p><strong>B（パートナー）：</strong> 標準的な放射線耐性ASICを使わないのはなぜですか？ 通常、そちらの方が電力効率が良いはずですが。</p>
+            <p><strong>A：</strong> その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAなら、ハードウェア・ロジックを遠隔で再構成し、予期せぬセンサーの故障や新しいミッション要件に適応させることができます。</p>
+            <p><strong>B：</strong> なるほど。つまり3D統合によって、放射線遮蔽された極小の設置面積に高密度な処理機能を詰め込めるということですね？</p>
+            <p><strong>A：</strong> まさに。最も過酷な環境下で生き残り、自ら最適化できる「進化するハードウェア」を構築することが狙いです。</p>
         </div>
         <div class="trans-item">
-            <div class="trans-title">Case 2: 極限環境下でのナノ・ポジショニング</div>
-            <p><strong>A（エンジニア）：</strong> 人工衛星のレーザー通信ターミナル用に、Cedrat Technologies社の圧電アクチュエータを選定しました。</p>
-            <p><strong>B（サプライヤー）：</strong> 良い選択ですね。弊社の補償アクチュエータは、極限の真空や熱環境下であっても、ナノメートル単位の精度を提供します。</p>
-            <p><strong>A：</strong> 我々が特に注目しているのは、スマート・メカトロニクスの統合です。打ち上げ時の高周波振動にはどのように対処していますか？</p>
-            <p><strong>B：</strong> 機械的増幅設計により、高い剛性を確保しています。重いG荷重に耐えつつ、サブマイクロラジアン単位の指向精度を維持できるように設計されています。</p>
-            <p><strong>A：</strong> 完璧です。その「精度対重量比」こそ、我々のSWaP戦略が求めているものです。</p>
+            <div class="trans-title">Case 2: 2nm Process and Dynamic Optics</div>
+            <p><strong>A（エンジニア）：</strong> 最新の歩留まりレポートによると、2nmノードでは従来の固定レンズでは微振動による必要な精度を維持できないことが示されています。</p>
+            <p><strong>B（顧客）：</strong> 我々も同じことに気づいていました。収差が一定ではなく、AIが「欠陥」と「ボケ」を判別するのが難しくなっています。</p>
+            <p><strong>A：</strong> だからこそ「動的光学系」への移行を進めているのです。物理層で収差を能動的に制御することで、AI処理が始まる前に画像を安定させることができます。</p>
+            <p><strong>B：</strong> つまり、ソフトウェアで「悪い写真」を直そうとするのではなく、最初から「完璧な一枚」を撮れるようにするということですね？</p>
+            <p><strong>A：</strong> その通りです。これにより歩留まりの停滞を打破し、次世代のサブナノスケール製造の基盤を提供します。</p>
         </div>
     </div>
 </div>
@@ -202,55 +193,25 @@
 <div class="study-section">
     <div class="study-grid">
         <div class="vocab-list">
-            <h3>💡 今日の重要単語</h3>
-            <div class="vocab-item"><span class="vocab-en">Multispectral:</span> マルチスペクトル</div>
-            <div class="vocab-item"><span class="vocab-en">Spectroscopy:</span> 分光法</div>
-            <div class="vocab-item"><span class="vocab-en">Non-destructive testing (NDT):</span> 非破壊検査</div>
-            <div class="vocab-item"><span class="vocab-en">Spectral signature:</span> 分光シグネチャー</div>
-            <div class="vocab-item"><span class="vocab-en">Piezoelectric actuator:</span> 圧電アクチュエータ</div>
-            <div class="vocab-item"><span class="vocab-en">Mechanical amplification:</span> 機械的増幅</div>
+            <h3>💡 今日の重要単語（復習用）</h3>
+            <div class="vocab-item"><span class="vocab-en">Evolvable hardware:</span> 進化型ハードウェア</div>
+            <div class="vocab-item"><span class="vocab-en">Radiation-shielded:</span> 放射線遮蔽された</div>
+            <div class="vocab-item"><span class="vocab-en">Footprint:</span> 設置面積（サイズ）</div>
+            <div class="vocab-item"><span class="vocab-en">Stagnation:</span> 停滞</div>
+            <div class="vocab-item"><span class="vocab-en">Sub-nanoscale:</span> サブナノスケール</div>
+            <div class="vocab-item"><span class="vocab-en">Aberration:</span> 収差</div>
         </div>
         <div class="phrase-list">
-            <h3>📝 実踐フレーズ</h3>
+            <h3>📝 実践フレーズ</h3>
             <div class="phrase-box">
-                <strong>"It eliminates errors caused by [A]."</strong><br>
-                （それは[A]によって引き起こされるエラーを排除します。）<br><br>
-                <strong>"It's built to withstand [B]."</strong><br>
-                （それは[B]に耐えられるように設計されています。）
+                <strong>"It allows you to [A] into a tiny footprint."</strong><br>
+                （これにより[A]を極小の設置面積に詰め込むことができます。）<br><br>
+                <strong>"Instead of trying to fix [B], you're ensuring [C]."</strong><br>
+                （[B]を直そうとするのではなく、[C]を確実に実現しています。）
             </div>
             <p style="margin-top:20px; font-size: 0.9rem; color: #666;">
-                朝のレッスンは以上です。今日の業務も、ナノ精度の集中力でいきましょう！
+                夕方のレッスンは以上です。物理限界への挑戦こそが、新しい技術の扉を開きます！
             </p>
-        </div>
-    </div>
-</div>
-
-<div class="archive-section" style="padding: 60px 5%; background-color: #fff;">
-    <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">
-        DAILY ARCHIVES <span style="font-size: 0.9rem; color: #999; font-weight: normal; margin-left: 10px;">過去の配信を振り返る</span>
-    </h3>
-    
-    <div class="archive-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
-        <div class="archive-card" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
-            <div style="height: 120px; background: linear-gradient(45deg, var(--vision-blue), #00aaff); color: white; padding: 20px; position: relative;">
-                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 10</span>
-                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">Hyperspectral Imaging in Agriculture</h4>
-            </div>
-            <div style="padding: 15px; font-size: 0.85rem; color: #666;">
-                農業分野におけるハイパースペクトルカメラの活用。
-                <div style="margin-top: 10px; color: var(--vision-blue); font-weight: bold;">VIEW LESSON →</div>
-            </div>
-        </div>
-
-        <div class="archive-card" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
-            <div style="height: 120px; background: linear-gradient(45deg, var(--space-orange), #ffaa00); color: white; padding: 20px; position: relative;">
-                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 09</span>
-                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">Space-Grade FPGA Architecture</h4>
-            </div>
-            <div style="padding: 15px; font-size: 0.85rem; color: #666;">
-                放射線耐性を備えたFPGAの設計と、宇宙エッジコンピューティング。
-                <div style="margin-top: 10px; color: var(--space-orange); font-weight: bold;">VIEW LESSON →</div>
-            </div>
         </div>
     </div>
 </div>
@@ -285,12 +246,13 @@
         currentAudio = new Audio(fileName);
         currentAudio.play().catch(error => {
             console.error("再生失敗:", error);
+            alert("音声ファイルが見つかりません: " + fileName);
         });
     }
 
     function toggleTranslation() {
         const content = document.getElementById('transContent');
-        const btn = event.target;
+        const btn = event.currentTarget;
         if (content.style.display === 'block') {
             content.style.display = 'none';
             btn.innerHTML = '🔍 スクリプトの和訳を見る';
