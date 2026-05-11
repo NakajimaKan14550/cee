@@ -337,6 +337,26 @@
                  <b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。<br>
                  <b>B：</b>なるほど。つまり3D統合（積層）技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？<br>
                  <b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。`
+            // Space用の学習セクション
+            study: `
+                <div style="margin-top:20px; padding-top:20px; border-top:2px solid var(--space-orange);">
+                    <h4 style="color:var(--space-orange); margin-bottom:10px;">💡 重要単語 / Key Vocabulary</h4>
+                    <div style="font-size:0.9rem; line-height:1.8;">
+                        <b>FPGA:</b> 製造後に構成書き換え可能な集積回路<br>
+                        <b>SiP (System-in-Package):</b> 複数チップを1つの封止にしたもの<br>
+                        <b>3D Stacking:</b> 3次元積層技術<br>
+                        <b>Reconfigure:</b> 再構成する（後から変更する）<br>
+                        <b>Evolvable Hardware:</b> 進化型ハードウェア
+                    </div>
+                    <h4 style="color:var(--space-orange); margin-top:20px; margin-bottom:10px;">📝 実践フレーズ</h4>
+                    <div style="background:#fdf6e3; padding:15px; border-radius:8px; border-left:5px solid #b58900; font-size:0.9rem;">
+                        <b>"It allows you to pack high-density processing into a tiny footprint."</b><br>
+                        （これにより高密度な処理機能を極小の設置面積に詰め込むことができます。）<br><br>
+                        <b>"Reliability starts at the physical contact point of [B]."</b><br>
+                        （信頼性は、[B]という物理的な接点から始まります。）
+                    </div>
+                </div>`
+        }
         },
         'diff_archive': {
             title: 'Breaking the Diffraction Limit',
@@ -346,8 +366,30 @@
             jp: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
                  （2nmプロセスにおける「回折限界」と「補償光学」）<br><br>
                  <b>A:</b> 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。`
-        }
-    };
+            // Machine Vision用の学習セクションを追加
+        study: `
+            <div style="margin-top:20px; padding-top:20px; border-top:2px solid var(--vision-blue);">
+                <h4 style="color:var(--vision-blue); margin-bottom:10px;">💡 今日の重要単語 / Key Vocabulary</h4>
+                <div style="font-size:0.9rem; line-height:1.8;">
+                    <b>Indispensable:</b> 不可欠な（現場で「絶対に必要」と言う時の強い表現です）<br>
+                    <b>Diffraction limit:</b> 回折限界（光の性質からくる解像度の物理的限界）<br>
+                    <b>Misconception:</b> 誤解、思い込み（議論の前提を正す時に役立ちます）<br>
+                    <b>Deformable mirrors:</b> 可変形状ミラー（AOの心臓部となる鏡）<br>
+                    <b>Neutralize:</b> 中和する、打ち消す（ノイズや誤差をゼロにするイメージ）<br>
+                    <b>High-fidelity:</b> 高忠実度（情報を寸分違わず再現していること）<br>
+                    <b>Non-negotiable:</b> 交渉の余地がない（最優先事項を強調する決め台詞）
+                </div>
+                <h4 style="color:var(--vision-blue); margin-top:20px; margin-bottom:10px;">📝 実践フレーズ / Useful Phrases</h4>
+                <div style="background:#f0f7ff; padding:15px; border-radius:8px; border-left:5px solid var(--vision-blue); font-size:0.9rem;">
+                    <b>"Addressing [A] is no longer optional; it is indispensable."</b><br>
+                    （[A]への対処はもはや任意ではなく、不可欠です。）<br><br>
+                    <b>"AI cannot restore information that was never captured."</b><br>
+                    （AIは、そもそも取り込まれなかった情報を復元することはできません。）<br><br>
+                    <b>"Reliability starts at the physical contact point of [B]."</b><br>
+                    （信頼性は、[B]という物理的な接点から始まります。）
+                </div>
+            </div>`
+    },
 
     function openArchiveModal(id) {
         const data = archiveData[id];
