@@ -223,39 +223,91 @@
     
     <div class="archive-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-        <div class="archive-card" style="border: 1px solid #eee; background: #fff; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
+        <div class="archive-card" onclick="openArchiveModal('morning1')" style="border: 1px solid #eee; background: #fff; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
             <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
                 <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 11 MORNING</span>
                 <h4 style="margin: 10px 0 0 0; font-size: 1rem;">Single-Shot Multispectral Analysis</h4>
             </div>
             <div style="padding: 15px; font-size: 0.85rem; color: #666;">
-                Siliosの技術を用いた「見えない成分」の可視化。ワンショット分光技術。
+                Siliosの技術を用いた「見えない成分」の可視化。
                 <div style="margin-top: 10px; color: var(--vision-blue); font-weight: bold;">VIEW LESSON →</div>
             </div>
         </div>
 
-        <div class="archive-card" style="border: 1px solid #eee; background: #fff; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
+        <div class="archive-card" onclick="openArchiveModal('morning2')" style="border: 1px solid #eee; background: #fff; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
             <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
                 <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 11 MORNING</span>
                 <h4 style="margin: 10px 0 0 0; font-size: 1rem;">Nano-Positioning in Space</h4>
             </div>
             <div style="padding: 15px; font-size: 0.85rem; color: #666;">
-                Cedrat社圧電アクチュエータによる極限環境下での精密制御とSWaP戦略。
+                Cedrat社圧電アクチュエータによる精密制御。
                 <div style="margin-top: 10px; color: var(--space-orange); font-weight: bold;">VIEW LESSON →</div>
-            </div>
-        </div>
-
-        <div class="archive-card" style="border: 1px solid #eee; background: #fff; border-radius: 8px; overflow: hidden; opacity: 0.7;">
-            <div style="height: 120px; background: #ccc; color: white; padding: 20px;">
-                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 10</span>
-                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">Hyperspectral Imaging</h4>
-            </div>
-            <div style="padding: 15px; font-size: 0.85rem; color: #666;">
-                農業・環境モニタリングへの応用。
             </div>
         </div>
     </div>
 </div>
+
+<div id="archiveModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:3000; padding:20px; overflow-y:auto;">
+    <div style="max-width:800px; margin:40px auto; background:#fff; border-radius:12px; padding:30px; position:relative;">
+        <span onclick="closeArchiveModal()" style="position:absolute; top:15px; right:20px; font-size:30px; cursor:pointer; color:#999;">&times;</span>
+        
+        <h2 id="modalTitle" style="color:var(--vision-blue); margin-top:0;"></h2>
+        
+        <div id="modalAudioBtn" class="audio-btn" style="background:#f1f5f9; color:#333; margin-bottom:20px; display:inline-flex;">
+            </div>
+
+        <div style="display:grid; grid-template-columns:1fr; gap:20px;">
+            <div style="background:#f8fafc; padding:20px; border-radius:8px;">
+                <h4 style="margin-top:0; color:#444; border-bottom:1px solid #ddd; padding-bottom:5px;">English Script</h4>
+                <div id="modalEnScript" style="font-size:0.95rem; line-height:1.6;"></div>
+            </div>
+            <div style="background:#fff7ed; padding:20px; border-radius:8px;">
+                <h4 style="margin-top:0; color:#c2410c; border-bottom:1px solid #fed7aa; padding-bottom:5px;">Japanese Translation</h4>
+                <div id="modalJpScript" style="font-size:0.9rem; line-height:1.6;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // アーカイブデータ
+    const archiveData = {
+        'morning1': {
+            title: 'Single-Shot Multispectral Analysis',
+            audio: 'nano.mp3',
+            en: `<b>A:</b> We are integrating the Silios multispectral sensor into your production line. It captures both color and spectral data in a single shot.<br>
+                 <b>B:</b> That sounds efficient. But how does it compare to traditional spectroscopy in terms of accuracy?<br>
+                 <b>A:</b> The key is the Snapshot technology. Unlike scanning methods, it eliminates errors caused by moving objects.`,
+            jp: `<b>A（エンジニア）：</b> Silios社のマルチスペクトル・センサーを生産ラインに統合しています。一度の撮影でカラーと分光データの両方を捉えます。<br>
+                 <b>B（顧客）：</b> 効率的ですね。精度の面で従来の分光法と比べるとどうですか？<br>
+                 <b>A：</b> 鍵はスナップショット技術です。スキャン方式と異なり、移動物体によるエラーを排除できます。`
+        },
+        'morning2': {
+            title: 'Nano-Positioning in Harsh Environments',
+            audio: 'space.m4a',
+            en: `<b>A:</b> For the satellite's laser communication terminal, we’ve selected piezoelectric actuators from Cedrat Technologies.<br>
+                 <b>B:</b> Good choice. Our actuators provide nanometer-level precision even under extreme vacuum and thermal conditions.<br>
+                 <b>A:</b> How do they handle high-frequency vibrations during launch?`,
+            jp: `<b>A（エンジニア）：</b> 衛星のレーザー通信用にCedrat社の圧電アクチュエータを採用しました。<br>
+                 <b>B（サプライヤー）：</b> 良い選択です。真空や極端な熱条件下でもナノメートル単位の精度を発揮します。<br>
+                 <b>A：</b> 打ち上げ時の高周波振動にはどう対処していますか？`
+        }
+    };
+
+    function openArchiveModal(id) {
+        const data = archiveData[id];
+        document.getElementById('modalTitle').innerText = data.title;
+        document.getElementById('modalEnScript').innerHTML = data.en;
+        document.getElementById('modalJpScript').innerHTML = data.jp;
+        document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">🔊</span><span onclick="playAudio('${data.audio}')" style="cursor:pointer; margin-left:10px;"><strong>LISTEN TO AUDIO</strong></span>`;
+        document.getElementById('archiveModal').style.display = 'block';
+    }
+
+    function closeArchiveModal() {
+        document.getElementById('archiveModal').style.display = 'none';
+        if (currentAudio) currentAudio.pause();
+    }
+</script>
 
 <footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
     <div class="footer-info">
