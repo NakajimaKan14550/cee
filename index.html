@@ -282,23 +282,41 @@
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
    const archiveData = {
-        'swap_archive': {
-            title: 'SWaP and Signal Integrity',
-            audio: '3d.mp3',
-            en: `<b>Case 2: [Space] SWaP and Signal Integrity</b><br>
-                 <b>A:</b> We are integrating high-reliability interconnects for a new LEO satellite constellation. SWaP requirements—Size, Weight, and Power—are extremely stringent.<br>
-                 <b>B:</b> Our modular connectors can reduce total mass by 30% while maintaining the robustness required for launch.<br>
-                 <b>A:</b> I’m concerned about Signal Integrity (SI) under harsh thermal cycling in orbit. A single failure means mission failure.<br>
-                 <b>B:</b> Our connectors feature unique vibration-proof locking mechanisms. We provide data on EMI shielding to ensure stable transmission.<br>
-                 <b>A:</b> Let's proceed with benchmarking. Reliability is our non-negotiable priority.`,
-            jp: `<b>Case 2: [Space] SWaP and Signal Integrity</b><br>
-                 （宇宙防衛分野における「SWaP」と「信号整合性」）<br><br>
-                 <b>A:</b> 新しい低軌道（LEO）衛星コンステレーション用に高信頼性のインターコネクトを統合しています。サイズ、重量、電力の「SWaP」要件は極めて厳格です。<br>
-                 <b>B:</b> 弊社のモジュール式コネクタは、打ち上げに必要な堅牢性を維持しつつ、全体の質量を30%削減できます。<br>
-                 <b>A:</b> 軌道上の過酷な熱サイクル下での信号整合性（SI）を懸念しています。たった一つの故障がミッションの失敗を意味します。<br>
-                 <b>B:</b> 弊社のコネクタは独自の防振ロッキング機構を備えています。また、安定した伝送を保証するためにEMI（電磁妨害）シールドのデータも提供します。<br>
-                 <b>A:</b> ベンチマークを進めましょう。信頼性は我々にとって譲れない最優先事項です。`
+        'mv_archive': {
+            title: 'Breaking the Diffraction Limit',
+            audio: 'nano.mp3',
+            en: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br><br>
+                 <b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. Addressing the diffraction limit is indispensable, as simply increasing sensor resolution is no longer sufficient.<br>
+                 <b>B:</b> I understand the physical constraints. But can't we compensate for blur using AI-based post-processing?<br>
+                 <b>A:</b> Unfortunately, AI cannot restore "information that was never captured" due to vibrations. Our AO system uses deformable mirrors to cancel these errors in real-time.<br>
+                 <b>B:</b> So for AI analysis to be truly reliable, we need "True Imaging" at the physical layer?<br>
+                 <b>A:</b> Exactly. By neutralizing the wavefront error before the light hits the sensor, we provide the high-fidelity data your AI needs to achieve target yields.`,
+            jp: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
+                 （2nmプロセスにおける「回折限界」と「補償光学」）<br><br>
+                 <b>A:</b> 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。単にセンサーの解像度を上げるだけではもはや不十分であり、回折限界への対処は不可欠です。<br>
+                 <b>B:</b> 物理的な制約は理解しています。しかし、AIベースの後処理でボケを補正することはできないのでしょうか？<br>
+                 <b>A:</b> 残念ながら、振動のせいで「そもそも取り込まれなかった情報」をAIで復元することは不可能です。我々のAOシステムは可変形状ミラーを使用し、これらのエラーをリアルタイムで打ち消します。<br>
+                 <b>B:</b> つまり、AI解析を真に信頼できるものにするためには、物理レイヤーでの「真の結像（True Imaging）」が必要だということですね？<br>
+                 <b>A:</b> その通りです。光がセンサーに届く前に波面収差を中和することで、歩留まり目標の達成に必要な高忠実度データをAIに提供できるのです。`
         },
+        'swap_archive': {
+            title: 'FPGA SiP and Evolvable Hardware',
+            audio: '3d.mp3',
+            en: `<b>Case 2: [Space] FPGA SiP and Evolvable Hardware</b><br><br>
+                 <b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.<br>
+                 <b>B:</b> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.<br>
+                 <b>A:</b> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.<br>
+                 <b>B:</b> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?<br>
+                 <b>A:</b> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.`,
+            jp: `<b>Case 2: [Space] FPGA SiP and Evolvable Hardware</b><br>
+                 （テーマ：メンテナンス不能な極限環境での「進化する回路」）<br><br>
+                 <b>A（クロニクス・エンジニア）：</b>火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。<br>
+                 <b>B（海外テックパートナー）：</b>標準的な放射線耐性ASICを使わないのはなぜですか？ 通常、そちらの方が電力効率が良いはずですが。<br>
+                 <b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。<br>
+                 <b>B：</b>なるほど。つまり3D統合（積層）技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？<br>
+                 <b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。`
+        }
+    };
         'diff_archive': {
             title: 'Breaking the Diffraction Limit',
             audio: 'nano.mp3',
