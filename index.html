@@ -253,23 +253,42 @@
 
     function toggleAudio(fileName, btnId) {
         const btn = document.getElementById(btnId);
-        const icon = btn.querySelector('.audio-icon');
+        // アイコン要素がない場合のフォールバック
+        const icon = btn.querySelector('.audio-icon') || btn; 
+        
         if (currentAudio && currentBtnId === btnId) {
-            if (!currentAudio.paused) { currentAudio.pause(); icon.innerText = '▶️'; }
-            else { currentAudio.play(); icon.innerText = '⏸️'; }
+            if (!currentAudio.paused) { 
+                currentAudio.pause(); 
+                icon.innerText = '▶️'; 
+            } else { 
+                currentAudio.play(); 
+                icon.innerText = '⏸️'; 
+            }
             return;
         }
+
         if (currentAudio) {
             currentAudio.pause();
             if (currentBtnId) {
                 const prevBtn = document.getElementById(currentBtnId);
-                if(prevBtn && prevBtn.querySelector('.audio-icon')) prevBtn.querySelector('.audio-icon').innerText = '▶️';
+                const prevIcon = prevBtn.querySelector('.audio-icon') || prevBtn;
+                if(prevIcon) prevIcon.innerText = '▶️';
             }
         }
+
         currentAudio = new Audio(fileName);
         currentBtnId = btnId;
-        currentAudio.play().then(() => { icon.innerText = '⏸️'; }).catch(() => { console.log("Audio not found"); });
-        currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
+        currentAudio.play().then(() => { 
+            icon.innerText = '⏸️'; 
+        }).catch(() => { 
+            console.log("Audio not found"); 
+        });
+
+        currentAudio.onended = () => { 
+            icon.innerText = '▶️'; 
+            currentAudio = null; 
+            currentBtnId = null; 
+        };
     }
 
     function toggleTranslation() {
@@ -279,9 +298,12 @@
         document.querySelector('.translation-btn').innerHTML = isOpen ? '🔍 スクリプトの和訳を見る' : '🔼 和訳を閉じる';
     }
 
-    function toggleZoom(img) { img.classList.toggle('zoomed'); }
+    function toggleZoom(img) { 
+        img.classList.toggle('zoomed'); 
+    }
 
-   const archiveData = {
+    // アーカイブデータオブジェクトの修正
+    const archiveData = {
         'mv_archive': {
             title: 'Breaking the Diffraction Limit',
             audio: 'nano.mp3',
@@ -315,8 +337,7 @@
                  <b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。<br>
                  <b>B：</b>なるほど。つまり3D統合（積層）技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？<br>
                  <b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。`
-        }
-    };
+        },
         'diff_archive': {
             title: 'Breaking the Diffraction Limit',
             audio: 'nano.mp3',
@@ -330,16 +351,23 @@
 
     function openArchiveModal(id) {
         const data = archiveData[id];
+        if (!data) return; // データがない場合は何もしない
+        
         document.getElementById('modalTitle').innerText = data.title;
         document.getElementById('modalEnScript').innerHTML = data.en;
         document.getElementById('modalJpScript').innerHTML = data.jp;
+        // 再生ボタンのHTMLを生成
         document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">▶️</span><span onclick="toggleAudio('${data.audio}', 'modalAudioBtn')" style="cursor:pointer; font-weight:bold; margin-left:10px;">LISTEN TO ARCHIVE AUDIO</span>`;
         document.getElementById('archiveModal').style.display = 'block';
     }
 
     function closeArchiveModal() {
         document.getElementById('archiveModal').style.display = 'none';
-        if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+        if (currentAudio) { 
+            currentAudio.pause(); 
+            currentAudio = null; 
+            currentBtnId = null;
+        }
     }
 </script>
 
