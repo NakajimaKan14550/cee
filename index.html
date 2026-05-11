@@ -3,207 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chronix Machine Vision Learning</title>
+    <title>技術で学ぶ英語：Chronix Global Link</title>
     <style>
         :root {
-            --bg-dark: #121417;
-            --card-bg: #1e2227;
-            --accent-blue: #4db8ff;
-            --accent-orange: #ffa500;
+            --bg-dark: #0f1114;
+            --card-bg: #1a1d22;
+            --vision-blue: #004a99;
+            --space-orange: #a65a2a;
             --text-main: #e0e0e0;
-            --text-sub: #a0a0a0;
-            --translation-color: #8db596; /* 読みやすい緑がかったグレー */
+            --translation-text: #94a3b8;
+            --accent-gold: #ffcc00;
         }
 
-        body { 
-            font-family: 'Inter', 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif; 
-            background-color: var(--bg-dark); 
-            color: var(--text-main); 
-            margin: 0; 
-            padding: 20px;
+        body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; background: var(--bg-dark); color: var(--text-main); margin: 0; line-height: 1.6; }
+
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 5%; background: #1a1d22; border-bottom: 1px solid #333; height: 70px;
         }
 
-        .container { max-width: 1200px; margin: 0 auto; }
+        .logo-link { display: flex; align-items: center; text-decoration: none; color: #fff; }
+        .site-title { font-size: 1.1rem; font-weight: bold; border-left: 1px solid #555; padding-left: 15px; margin-left: 15px; }
 
-        header { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; }
-        .site-title { font-size: 1.2rem; font-weight: bold; letter-spacing: 1px; }
+        .intro-banner { background: #1e293b; padding: 20px 5%; border-bottom: 1px solid #334155; font-size: 0.95rem; color: #cbd5e1; }
 
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-
-        /* Case Card */
-        .case-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #333;
+        /* Hero Container */
+        .hero-container { display: flex; height: 700px; width: 100%; border-bottom: 2px solid #000; }
+        .hero-section {
+            flex: 1; position: relative; padding: 30px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            background-size: cover; background-position: center;
         }
 
-        .case-header { margin-bottom: 20px; }
-        .case-label { font-size: 0.7rem; color: var(--text-sub); text-transform: uppercase; margin-bottom: 5px; }
-        .case-title { font-size: 1.4rem; margin: 0; color: #fff; }
-        .case-subtitle { font-size: 0.9rem; color: var(--accent-blue); margin-top: 5px; }
+        .vision-hero { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('cee.png'); }
+        .space-hero { background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('cee2.png'); border-left: 2px solid #000; }
 
-        /* Script Box - 英文と和訳を統合 */
+        .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; background: rgba(0,0,0,0.6); display: inline-block; padding: 4px 12px; border: 1px solid #444; }
+        h1 { font-size: 1.6rem; margin: 5px 0 15px 0; color: #fff; font-weight: 800; }
+
+        /* Script Scroll Box (English + Japanese) */
         .script-scroll-box {
-            background: #16191d;
-            border-radius: 8px;
-            padding: 20px;
-            height: 450px;
-            overflow-y: auto;
-            border: 1px solid #2a2d32;
-            margin-bottom: 20px;
+            background: rgba(15, 17, 20, 0.85); border-radius: 8px; padding: 20px;
+            height: 400px; overflow-y: auto; border: 1px solid #334155;
+            backdrop-filter: blur(10px); margin-bottom: 20px;
         }
 
-        .line-group { margin-bottom: 20px; border-bottom: 1px solid #2a2d32; padding-bottom: 15px; }
-        .line-group:last-child { border-bottom: none; }
+        .line-pair { margin-bottom: 18px; padding-bottom: 15px; border-bottom: 1px solid #2d3748; }
+        .line-pair:last-child { border-bottom: none; }
 
-        .en-line { font-size: 1rem; line-height: 1.5; color: #fff; font-weight: 500; }
-        .jp-line { font-size: 0.85rem; line-height: 1.5; color: var(--translation-color); margin-top: 8px; }
-        
-        .speaker-tag { font-weight: bold; color: var(--accent-orange); margin-right: 8px; }
+        .speaker { font-weight: bold; color: var(--accent-gold); margin-right: 8px; }
+        .en-text { font-size: 0.95rem; color: #fff; line-height: 1.4; }
+        .jp-text { font-size: 0.85rem; color: var(--translation-text); margin-top: 6px; line-height: 1.4; font-style: italic; }
 
-        /* Audio Controls */
-        .audio-bar {
-            display: flex;
-            align-items: center;
-            background: #2a2d32;
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
+        /* Audio Button */
+        .audio-btn {
+            display: flex; align-items: center; background: #2d3748;
+            padding: 12px 20px; border-radius: 8px; border: 1px solid #475569;
+            font-size: 0.85rem; cursor: pointer; transition: 0.3s; width: fit-content;
         }
-        .audio-bar:hover { background: #353940; }
-        .play-icon { font-size: 1.5rem; margin-right: 15px; }
-        .audio-info { font-size: 0.8rem; }
-        .audio-info b { display: block; font-size: 0.9rem; }
+        .audio-btn:hover { background: #334155; }
+        .audio-btn.playing { background: var(--vision-blue); border-color: #3b82f6; }
+        .audio-icon { margin-right: 12px; font-size: 1.1rem; }
 
-        /* Scrollbar styling */
-        .script-scroll-box::-webkit-scrollbar { width: 6px; }
-        .script-scroll-box::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
+        /* Archive Section */
+        .archive-section { padding: 60px 5%; background-color: var(--bg-dark); }
+        .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .archive-card { border: 1px solid #333; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer; background: #1a1d22; }
+        .archive-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 
-        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+        footer { background: #000; color: #666; text-align: center; padding: 40px; font-size: 0.8rem; border-top: 1px solid #222; }
+
+        @media (max-width: 900px) { .hero-container { flex-direction: column; height: auto; } .hero-section { height: 650px; } }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <div class="site-title">CHRONIX GLOBAL LINK | <span style="font-weight: normal; font-size: 0.9rem;">Machine Vision Series</span></div>
-    </header>
+<header>
+    <a href="#" class="logo-link">
+        <div class="site-title">CHRONIX GLOBAL LINK | Machine Vision</div>
+    </a>
+    <nav style="font-size: 0.8rem; color: #999;">MAY 11, 2026</nav>
+</header>
 
-    <div class="grid">
-        <div class="case-card">
-            <div class="case-header">
-                <div class="case-label">Case 01: Industrial Inspection</div>
-                <h2 class="case-title">Single-Shot Multispectral</h2>
-                <div class="case-subtitle">生産ラインにおける「成分」の可視化</div>
+<div class="intro-banner">
+    <strong>Morning Update:</strong> 本日は生産現場と宇宙開発、双方で不可欠な「マシンビジョン」の英語表現を学習します。
+</div>
+
+<div class="hero-container">
+    <div class="hero-section vision-hero">
+        <div class="label">Case 01: Industrial MV</div>
+        <p style="color: #4db8ff; font-weight: bold; margin: 0; font-size: 0.9rem;">Single-Shot Multispectral Analysis</p>
+        <h1>「見えない成分」の可視化</h1>
+        
+        <div class="script-scroll-box">
+            <div class="line-pair">
+                <div class="en-text"><span class="speaker">A:</span> We are integrating the Silios multispectral sensor into your production line. It captures both color and spectral data in a single shot.</div>
+                <div class="jp-text">お客様の生産ラインに、Silios社のマルチスペクトル・センサーを統合しようとしています。これはカラーデータと分光データの両方を一度の撮影で捉えることができます。</div>
             </div>
-
-            <div class="script-scroll-box">
-                <div class="line-group">
-                    <div class="en-line"><span class="speaker-tag">A:</span> We are integrating the Silios multispectral sensor into your production line. It captures both color and spectral data in a single shot.</div>
-                    <div class="jp-line">お客様の生産ラインに、Silios社のマルチスペクトル・センサーを統合しようとしています。これはカラーデータと分光データの両方を一度の撮影（ワンショット）で捉えることができます。</div>
-                </div>
-                <div class="line-group">
-                    <div class="en-line"><span class="speaker-tag">B:</span> That sounds efficient. But how does it compare to traditional spectroscopy in terms of accuracy?</div>
-                    <div class="jp-line">それは効率的ですね。しかし、精度の面では従来の分光法と比べてどうなのでしょうか？</div>
-                </div>
-                <div class="line-group">
-                    <div class="en-line"><span class="speaker-tag">A:</span> The key is the Snapshot technology. Unlike scanning methods, it eliminates errors caused by moving objects. We can detect subtle chemical changes in real-time.</div>
-                    <div class="jp-line">鍵となるのはスナップショット技術です。スキャン方式とは異なり、移動体によるエラーを排除できるため、リアルタイムで微細な化学変化を検知できます。</div>
-                </div>
-                <div class="line-group">
-                    <div class="en-line"><span class="speaker-tag">B:</span> I see. So we can perform non-destructive testing for quality control without slowing down the conveyor belt?</div>
-                    <div class="jp-line">なるほど。つまり、コンベアを止めずに品質管理のための非破壊検査ができるということですね。</div>
-                </div>
-                <div class="line-group">
-                    <div class="en-line"><span class="speaker-tag">A:</span> Exactly. It visualizes "invisible changes" by analyzing the unique spectral signature of each material.</div>
-                    <div class="jp-line">その通りです。各材料が持つ固有の「分光シグネチャー」を分析することで、目に見えない変化を可視化します。</div>
-                </div>
+            <div class="line-pair">
+                <div class="en-text"><span class="speaker">B:</span> That sounds efficient. But how does it compare to traditional spectroscopy in terms of accuracy?</div>
+                <div class="jp-text">それは効率的ですね。しかし、精度の面では従来の分光法と比べてどうなのでしょうか？</div>
             </div>
-
-            <div class="audio-bar" onclick="toggleAudio('nano.mp3', this)">
-                <span class="play-icon">▶</span>
-                <div class="audio-info">
-                    <b>LISTEN: Real-time QC</b>
-                    5/11 Morning Lesson
-                </div>
+            <div class="line-pair">
+                <div class="en-text"><span class="speaker">A:</span> The key is the Snapshot technology. Unlike scanning methods, it eliminates errors caused by moving objects. We can detect subtle chemical changes in real-time.</div>
+                <div class="jp-text">鍵はスナップショット技術です。スキャン方式と異なり、移動体によるエラーを排除し、リアルタイムで微細な化学変化を検知できます。</div>
+            </div>
+            <div class="line-pair">
+                <div class="en-text"><span class="speaker">B:</span> I see. So we can perform non-destructive testing for quality control without slowing down the conveyor belt?</div>
+                <div class="jp-text">なるほど。つまりコンベアを止めずに品質管理のための非破壊検査ができるということですね。</div>
             </div>
         </div>
 
-        <div class="case-card">
-            <div class="case-header">
-                <div class="case-label" style="color: var(--accent-orange);">Case 02: Space Exploration</div>
-                <h2 class="case-title">Nano-Positioning in Space</h2>
-                <div class="case-subtitle">極限環境下での光学系ナノ制御</div>
-            </div>
+        <div class="audio-btn" id="btn-nano" onclick="handleAudio('nano.mp3', 'btn-nano')">
+            <span class="audio-icon">▶️</span>
+            <span><strong>MORNING LISTEN</strong><br>Real-time Quality Control</span>
+        </div>
+    </div>
 
-            <div class="script-scroll-box">
-                <div class="line-group">
-                    <div class="en-line"><span class="speaker-tag">A:</span> For the satellite's laser communication terminal, we’ve selected piezoelectric actuators from Cedrat Technologies.</div>
-                    <div class="jp-line">人工衛星のレーザー通信ターミナル用に、Cedrat社の圧電アクチュエータを選定しました。</div>
-                </div>
-                <div class="line-group">
-                    <div class="en-line"><span class="speaker-tag">B:</span> Good choice. Our actuators provide nanometer-level precision even under extreme vacuum and thermal conditions.</div>
-                    <div class="jp-line">良い選択ですね。弊社の補償アクチュエータは、極限の真空や熱環境下であっても、ナノメートル単位の精度を提供します。</div>
-                </div>
-                <div class="line-group">
-                    <div class="en-line"><span class="speaker-tag">A:</span> We’re particularly interested in the smart mechatronics integration. How do they handle high-frequency vibrations during launch?</div>
-                    <div class="jp-line">特にスマート・メカトロニクスの統合に注目しています。打ち上げ時の高周波振動にはどのように対処していますか？</div>
-                </div>
-                <div class="line-group">
-                    <div class="en-line"><span class="speaker-tag">B:</span> The mechanical amplification design ensures high stiffness. It’s built to withstand heavy G-loads while maintaining sub-micro-radian pointing accuracy.</div>
-                    <div class="jp-line">機械的増幅設計により、高い剛性を確保しています。重いG荷重に耐えつつ、サブマイクロラジアン単位の指向精度を維持するように設計されています。</div>
-                </div>
-                <div class="line-group">
-                    <div class="en-line"><span class="speaker-tag">A:</span> Perfect. That precision-to-weight ratio is exactly what our SWaP strategy requires.</div>
-                    <div class="jp-line">完璧です。その精度対重量比こそ、我々のSWaP戦略（小型・軽量・低電力）が求めているものです。</div>
-                </div>
-            </div>
+    <div class="hero-section space-hero">
+        <div class="label" style="border-color: var(--space-orange);">Case 02: Aerospace MV</div>
+        <p style="color: #ffaa00; font-weight: bold; margin: 0; font-size: 0.9rem;">Nano-Positioning in Harsh Environments</p>
+        <h1>極限環境下での光学系制御</h1>
 
-            <div class="audio-bar" onclick="toggleAudio('space.m4a', this)">
-                <span class="play-icon">▶</span>
-                <div class="audio-info">
-                    <b>LISTEN: Space-Grade Precision</b>
-                    5/11 Morning Lesson
-                </div>
+        <div class="script-scroll-box">
+            <div class="line-pair">
+                <div class="en-text"><span class="speaker">A:</span> For the satellite's laser communication terminal, we’ve selected piezoelectric actuators from Cedrat Technologies.</div>
+                <div class="jp-text">衛星のレーザー通信ターミナル用に、Cedrat社の圧電アクチュエータを選定しました。</div>
             </div>
+            <div class="line-pair">
+                <div class="en-text"><span class="speaker">B:</span> Good choice. Our actuators provide nanometer-level precision even under extreme vacuum and thermal conditions.</div>
+                <div class="jp-text">良い選択です。弊社の補償アクチュエータは、極限の真空や熱環境下でもナノメートル単位の精度を提供します。</div>
+            </div>
+            <div class="line-pair">
+                <div class="en-text"><span class="speaker">A:</span> We’re particularly interested in the smart mechatronics integration. How do they handle high-frequency vibrations during launch?</div>
+                <div class="jp-text">スマート・メカトロニクスの統合に注目しています。打ち上げ時の高周波振動にはどう対処していますか？</div>
+            </div>
+            <div class="line-pair">
+                <div class="en-text"><span class="speaker">B:</span> The mechanical amplification design ensures high stiffness. It’s built to withstand heavy G-loads while maintaining sub-micro-radian pointing accuracy.</div>
+                <div class="jp-text">機械的増幅設計により高い剛性を確保しています。重いG荷重に耐えつつ、サブマイクロラジアン単位の指向精度を維持します。</div>
+            </div>
+        </div>
+
+        <div class="audio-btn" id="btn-space" onclick="handleAudio('space.m4a', 'btn-space')">
+            <span class="audio-icon">▶️</span>
+            <span><strong>MORNING LISTEN</strong><br>Space-Grade Precision</span>
         </div>
     </div>
 </div>
 
+<div class="archive-section">
+    <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">
+        DAILY ARCHIVES <span style="font-size: 0.9rem; color: #666; font-weight: normal; margin-left: 10px;">過去のマシンビジョン・レッスン</span>
+    </h3>
+    
+    <div class="archive-grid">
+        <div class="archive-card">
+            <div style="height: 120px; background: linear-gradient(45deg, var(--vision-blue), #00aaff); color: white; padding: 20px;">
+                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 10</span>
+                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">Hyperspectral Imaging</h4>
+            </div>
+            <div style="padding: 15px; font-size: 0.85rem; color: #999;">農業分野における成分分析カメラ。</div>
+        </div>
+
+        <div class="archive-card">
+            <div style="height: 120px; background: linear-gradient(45deg, var(--space-orange), #ffaa00); color: white; padding: 20px;">
+                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 09</span>
+                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">Radiation Hardened MV</h4>
+            </div>
+            <div style="padding: 15px; font-size: 0.85rem; color: #999;">宇宙用カメラの放射線耐性設計。</div>
+        </div>
+
+        <div class="archive-card">
+            <div style="height: 120px; background: linear-gradient(45deg, #334155, #64748b); color: white; padding: 20px;">
+                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 08</span>
+                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">AI Defect Detection</h4>
+            </div>
+            <div style="padding: 15px; font-size: 0.85rem; color: #999;">深層学習を用いた自動外観検査。</div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 CHRONIX Co., Ltd. | Machine Vision English Academy
+</footer>
+
 <script>
-    let activeAudio = null;
-    let activeBar = null;
+    let currentAudio = null;
+    let currentBtnId = null;
 
-    function toggleAudio(src, element) {
-        const icon = element.querySelector('.play-icon');
-        
-        if (activeAudio && activeBar === element) {
-            if (activeAudio.paused) {
-                activeAudio.play();
-                icon.innerText = '⏸';
-            } else {
-                activeAudio.pause();
-                icon.innerText = '▶';
+    function handleAudio(fileName, btnId) {
+        const btn = document.getElementById(btnId);
+        const icon = btn.querySelector('.audio-icon');
+
+        if (currentAudio && currentBtnId === btnId) {
+            if (!currentAudio.paused) {
+                currentAudio.pause();
+                btn.classList.remove('playing');
+                icon.innerText = '▶️';
+                return;
             }
-            return;
         }
 
-        if (activeAudio) {
-            activeAudio.pause();
-            activeBar.querySelector('.play-icon').innerText = '▶';
+        if (currentAudio) {
+            currentAudio.pause();
+            document.getElementById(currentBtnId).classList.remove('playing');
+            document.getElementById(currentBtnId).querySelector('.audio-icon').innerText = '▶️';
         }
 
-        activeAudio = new Audio(src);
-        activeBar = element;
-        activeAudio.play();
-        icon.innerText = '⏸';
+        currentAudio = new Audio(fileName);
+        currentBtnId = btnId;
+        
+        currentAudio.play().then(() => {
+            btn.classList.add('playing');
+            icon.innerText = '⏸';
+        }).catch(err => {
+            console.error("Audio error:", err);
+            alert("音声ファイルが見つかりません");
+        });
 
-        activeAudio.onended = () => {
-            icon.innerText = '▶';
+        currentAudio.onended = () => {
+            btn.classList.remove('playing');
+            icon.innerText = '▶️';
         };
     }
 </script>
