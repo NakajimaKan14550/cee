@@ -8,6 +8,7 @@
         :root {
             --vision-blue: #003366;
             --space-orange: #8a4a1d;
+            --accent-orange: #f97316;
             --text-white: #ffffff;
             --bg-light: #f8f9fa;
         }
@@ -16,16 +17,19 @@
 
         body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif; margin: 0; padding: 0; background-color: #fff; line-height: 1.6; }
 
+        /* Header & Navigation Fix */
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 5%; background: #fff; border-bottom: 1px solid #ddd; height: 70px;
+            padding: 10px 5%; background: #fff; border-bottom: 1px solid #ddd; min-height: 70px;
+            flex-wrap: wrap; /* スマホで折り返しを許可 */
         }
 
         .logo-link { display: flex; align-items: center; text-decoration: none; color: #333; }
-        .logo-img { height: 40px; width: auto; margin-right: 15px; }
+        .logo-img { height: 40px; width: auto; margin-right: 15px; cursor: zoom-in; transition: transform 0.3s ease; }
         .site-title { font-size: 1.1rem; font-weight: bold; border-left: 1px solid #ccc; padding-left: 15px; }
 
-        nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 500; }
+        nav { display: flex; align-items: center; }
+        nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 500; white-space: nowrap; }
 
         /* Intro Message */
         .intro-banner {
@@ -65,8 +69,23 @@
             font-size: 0.8rem; cursor: pointer; transition: 0.3s;
         }
         .audio-btn:hover { background: rgba(255,255,255,0.4); transform: scale(1.05); }
-        .audio-btn:active { transform: scale(0.95); }
-        .audio-icon { margin-right: 12px; font-size: 1.1rem; }
+
+        /* Translation Toggle Section */
+        .translation-container {
+            max-width: 1200px; margin: 20px auto; padding: 0 5%;
+        }
+        .translation-btn {
+            width: 100%; background: #f1f5f9; border: 1px solid #cbd5e1; padding: 12px;
+            font-weight: bold; cursor: pointer; border-radius: 5px; color: var(--vision-blue);
+            display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
+        .translation-btn:hover { background: #e2e8f0; }
+        .translation-content {
+            display: none; background: #fff; border: 1px solid #eee; padding: 20px; 
+            margin-top: 10px; border-radius: 5px; font-size: 0.9rem; line-height: 1.8;
+        }
+        .trans-item { margin-bottom: 20px; }
+        .trans-title { font-weight: bold; color: var(--vision-blue); border-bottom: 1px solid #eee; margin-bottom: 10px; }
 
         /* Study Section */
         .study-section { padding: 40px 5%; background: #fff; border-bottom: 1px solid #eee; }
@@ -76,11 +95,21 @@
         .vocab-en { font-weight: bold; color: var(--vision-blue); }
         .phrase-box { background: #fdf6e3; padding: 15px; border-radius: 5px; border-left: 5px solid #b58900; }
 
-        footer { background: #111; color: #999; text-align: center; padding: 40px; font-size: 0.8rem; }
+        /* Image Zoom Utility */
+        .zoomed {
+            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(2);
+            z-index: 2000; cursor: zoom-out; box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
 
+        /* Responsive Design */
         @media (max-width: 900px) {
+            header { flex-direction: column; align-items: flex-start; padding: 15px 5%; }
+            .site-title { border-left: none; padding-left: 0; margin-top: 5px; font-size: 0.95rem; }
+            nav { width: 100%; justify-content: flex-start; margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px; }
+            nav a { margin-left: 0; margin-right: 15px; font-size: 0.75rem; }
+            
             .hero-container { flex-direction: column; height: auto; }
-            .hero-section { height: 500px; }
+            .hero-section { height: 500px; border-left: none; border-top: 2px solid #000; }
             .study-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -89,7 +118,7 @@
 
 <header>
     <a href="https://nakajimakan14550.github.io/home/" class="logo-link">
-        <img src="logo.png" alt="Logo" class="logo-img">
+        <img src="logo.png" alt="Logo" class="logo-img" onclick="toggleZoom(this)">
         <div class="site-title">技術で学ぶ英語：Chronix Global Link</div>
     </a>
     <nav>
@@ -146,6 +175,30 @@
     </div>
 </div>
 
+<div class="translation-container">
+    <button class="translation-btn" onclick="toggleTranslation()">
+        🔍 スクリプトの和訳を見る
+    </button>
+    <div class="translation-content" id="transContent">
+        <div class="trans-item">
+            <div class="trans-title">Case 1: ワンショット・マルチスペクトル分析</div>
+            <p><strong>A（エンジニア）：</strong> お客様の生産ラインに、Silios社のマルチスペクトル・センサーを統合しようとしています。これは、カラーデータと分光データの両方をワンショット（一度の撮影）で捉えることができます。</p>
+            <p><strong>B（顧客）：</strong> それは効率的ですね。しかし、精度の面では従来の分光法と比べてどうなのでしょうか？</p>
+            <p><strong>A：</strong> 鍵となるのは「スナップショット技術」です。スキャニング方式とは異なり、移動する物体によって生じるエラーを排除できます。リアルタイムで微細な化学変化を検知できるのです。</p>
+            <p><strong>B：</strong> なるほど。つまり、コンベアベルトを止めることなく品質管理ができるということですね。</p>
+            <p><strong>A：</strong> その通りです。それぞれの材料が持つ固有の「分光シグネチャー」を分析することで、目に見えない変化を可視化します。</p>
+        </div>
+        <div class="trans-item">
+            <div class="trans-title">Case 2: 極限環境下でのナノ・ポジショニング</div>
+            <p><strong>A（エンジニア）：</strong> 人工衛星のレーザー通信ターミナル用に、Cedrat Technologies社の圧電アクチュエータを選定しました。</p>
+            <p><strong>B（サプライヤー）：</strong> 良い選択ですね。弊社の補償アクチュエータは、極限の真空や熱環境下であっても、ナノメートル単位の精度を提供します。</p>
+            <p><strong>A：</strong> 我々が特に注目しているのは、スマート・メカトロニクスの統合です。打ち上げ時の高周波振動にはどのように対処していますか？</p>
+            <p><strong>B：</strong> 機械的増幅設計により、高い剛性を確保しています。重いG荷重に耐えつつ、サブマイクロラジアン単位の指向精度を維持できるように設計されています。</p>
+            <p><strong>A：</strong> 完璧です。その「精度対重量比」こそ、我々のSWaP戦略が求めているものです。</p>
+        </div>
+    </div>
+</div>
+
 <div class="study-section">
     <div class="study-grid">
         <div class="vocab-list">
@@ -172,37 +225,12 @@
     </div>
 </div>
 
-<footer>
-    &copy; 2026 CHRONIX Co., Ltd. <br>
-    夕方18:00更新予定：「半導体収差制御」と「宇宙エッジFPGA」
-</footer>
-
-<script>
-    let currentAudio = null;
-
-    function playAudio(fileName) {
-        // すでに再生中のものがあれば停止
-        if (currentAudio) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
-        }
-        
-        // 新しい音声を再生
-        currentAudio = new Audio(fileName);
-        currentAudio.play().catch(error => {
-            console.error("音声の再生に失敗しました。ファイルパスを確認してください:", error);
-            alert("音声ファイル " + fileName + " が見つからないか、ブラウザで再生できません。");
-        });
-    }
-</script>
-
-    <div class="archive-section" style="padding: 60px 5%; background-color: #fff;">
+<div class="archive-section" style="padding: 60px 5%; background-color: #fff;">
     <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">
         DAILY ARCHIVES <span style="font-size: 0.9rem; color: #999; font-weight: normal; margin-left: 10px;">過去の配信を振り返る</span>
     </h3>
     
     <div class="archive-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
-        
         <div class="archive-card" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
             <div style="height: 120px; background: linear-gradient(45deg, var(--vision-blue), #00aaff); color: white; padding: 20px; position: relative;">
                 <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 10</span>
@@ -224,27 +252,58 @@
                 <div style="margin-top: 10px; color: var(--space-orange); font-weight: bold;">VIEW LESSON →</div>
             </div>
         </div>
-
-        <div class="archive-card" style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
-            <div style="height: 120px; background: linear-gradient(45deg, var(--vision-blue), #00aaff); color: white; padding: 20px; position: relative;">
-                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 08</span>
-                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">Defect Detection with Deep Learning</h4>
-            </div>
-            <div style="padding: 15px; font-size: 0.85rem; color: #666;">
-                ディープラーニングを用いた外観検査の自動化と、学習データの最適化。
-                <div style="margin-top: 10px; color: var(--vision-blue); font-weight: bold;">VIEW LESSON →</div>
-            </div>
-        </div>
-
     </div>
-
-    <style>
-        .archive-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-    </style>
 </div>
+
+<footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
+    <div class="footer-info">
+        <p class="company-name" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">クロニクス株式会社</p>
+        <address class="footer-address" style="font-style: normal; line-height: 1.8; color: #cbd5e1;">
+            <p>〒160-0023 東京都新宿区西新宿3-2-11 新宿三井ビルディング二号館 904室</p>
+            <div class="contact-grid" style="display: flex; justify-content: center; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
+                <p><strong>TEL</strong> 03-5322-7191</p>
+                <p><strong>FAX</strong> 03-5322-7790</p>
+            </div>
+        </address>
+        <a href="mailto:sales@chronix.co.jp" class="btn-contact" style="display: inline-block; background: #f97316; color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold;">
+            メールでお問い合わせ
+        </a>
+        <p style="margin-top: 50px; font-size: 0.8rem; color: #64748b; letter-spacing: 0.05em;">
+            © 2026 CHRONIX
+        </p>
+    </div>
+</footer>
+
+<script>
+    let currentAudio = null;
+
+    function playAudio(fileName) {
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+        currentAudio = new Audio(fileName);
+        currentAudio.play().catch(error => {
+            console.error("再生失敗:", error);
+        });
+    }
+
+    function toggleTranslation() {
+        const content = document.getElementById('transContent');
+        const btn = event.target;
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+            btn.innerHTML = '🔍 スクリプトの和訳を見る';
+        } else {
+            content.style.display = 'block';
+            btn.innerHTML = '🔼 和訳を閉じる';
+        }
+    }
+
+    function toggleZoom(img) {
+        img.classList.toggle('zoomed');
+    }
+</script>
 
 </body>
 </html>
