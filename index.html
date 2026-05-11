@@ -3,262 +3,361 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chronix Global Link | Technical English for Engineers</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>技術で学ぶ英語：Chronix Global Link</title>
     <style>
         :root {
-            --primary: #004a99;
-            --secondary: #00a1e4;
-            --accent: #ff6b00;
-            --dark: #1a1a1a;
-            --light: #f4f7f9;
-            --white: #ffffff;
-            --gray: #666;
+            --vision-blue: #003366;
+            --space-orange: #8a4a1d;
+            --accent-orange: #f97316;
+            --text-white: #ffffff;
+            --bg-light: #f8f9fa;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: var(--dark); background: var(--light); }
+        * { box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; margin: 0; padding: 0; background-color: #fff; line-height: 1.6; color: #333; }
 
-        /* Header */
-        header { background: var(--white); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); sticky: top; z-index: 1000; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); display: flex; align-items: center; gap: 10px; }
-        .logo span { color: var(--secondary); }
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 5%; background: #fff; border-bottom: 1px solid #ddd; min-height: 70px;
+        }
+        .logo-link { display: flex; align-items: center; text-decoration: none; color: #333; }
+        .logo-img { height: 40px; width: auto; margin-right: 15px; cursor: zoom-in; transition: transform 0.3s ease; }
+        .site-title { font-size: 1.1rem; font-weight: bold; border-left: 1px solid #ccc; padding-left: 15px; }
+        nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 500; }
 
-        /* Hero Section */
-        .hero-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: #ddd; height: 500px; }
-        .hero-panel { position: relative; overflow: hidden; cursor: pointer; transition: 0.5s; background-size: cover; background-position: center; }
-        .hero-panel:hover { flex: 1.2; }
-        .hero-panel::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.4); transition: 0.3s; }
-        .hero-panel:hover::after { background: rgba(0,0,0,0.2); }
+        .intro-banner { background: #f0f4f8; padding: 25px 5%; border-bottom: 1px solid #e1e8ed; font-size: 0.95rem; color: #444; }
+
+        .hero-container { display: flex; height: 650px; width: 100%; overflow: hidden; color: var(--text-white); }
+        .hero-section { flex: 1; position: relative; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; background-size: cover; background-position: center; }
+        .vision-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee.png'); }
+        .space-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee2.png'); border-left: 2px solid #000; }
+
+        .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; background: rgba(0,0,0,0.6); display: inline-block; padding: 4px 12px; border-radius: 2px; }
+        .theme-sub { font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
+        .hero-section h1 { font-size: 2.2rem; margin: 0 0 15px 0; line-height: 1.1; font-weight: 800; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
         
-        .panel-content { position: absolute; bottom: 40px; left: 40px; z-index: 10; color: white; }
-        .label { background: var(--accent); padding: 4px 12px; font-size: 0.8rem; font-weight: bold; border-radius: 4px; margin-bottom: 10px; display: inline-block; }
-        .panel-title { font-size: 2rem; margin-bottom: 5px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+        .script-window {
+            background: rgba(0,0,0,0.7); border-radius: 12px; padding: 20px; margin-bottom: 20px;
+            font-size: 0.9rem; height: 220px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px);
+        }
+        .speaker { font-weight: bold; color: #ffcc00; margin-right: 8px; }
+        .script-line { margin-bottom: 12px; }
 
-        /* Conversation Section */
-        .main-content { padding: 4rem 5%; max-width: 1200px; margin: 0 auto; }
-        .conv-card { background: var(--white); border-radius: 12px; padding: 2.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 3rem; }
-        .conv-header { display: flex; align-items: center; gap: 15px; margin-bottom: 2rem; border-bottom: 2px solid var(--light); padding-bottom: 1rem; }
-        
-        .bubble { margin-bottom: 1.5rem; position: relative; padding-left: 60px; }
-        .bubble-icon { position: absolute; left: 0; top: 0; width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; }
-        .icon-a { background: var(--primary); }
-        .icon-b { background: var(--secondary); }
-        .bubble-text { background: #f8f9fa; padding: 1.5rem; border-radius: 0 15px 15px 15px; border: 1px solid #eee; position: relative; }
-        .translation { color: #666; font-size: 0.9rem; margin-top: 10px; border-top: 1px dashed #ddd; padding-top: 10px; display: none; }
-        
-        /* Audio Button */
-        .audio-btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 30px; cursor: pointer; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; transition: 0.3s; }
-        .audio-btn:hover { background: var(--secondary); }
+        .audio-btn {
+            display: inline-flex; align-items: center; background: rgba(255,255,255,0.15);
+            padding: 12px 25px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.4); 
+            font-size: 0.85rem; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(5px);
+        }
+        .audio-btn:hover { background: rgba(255,255,255,0.3); transform: translateY(-2px); }
+        .audio-icon { margin-right: 12px; font-size: 1.2rem; }
 
-        /* Vocabulary & Phrases */
-        .study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
-        .study-box { background: var(--white); padding: 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .study-box h3 { border-left: 5px solid var(--accent); padding-left: 15px; margin-bottom: 1.5rem; }
-        
-        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #eee; }
-        th { color: var(--primary); font-size: 0.9rem; }
-        .phrase-item { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; }
-        .phrase-en { font-weight: bold; color: var(--primary); display: block; }
-        .phrase-jp { font-size: 0.9rem; color: var(--gray); }
+        .translation-container { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
+        .translation-btn {
+            width: 100%; background: #fff; border: 2px solid var(--vision-blue); padding: 15px;
+            font-weight: bold; cursor: pointer; border-radius: 8px; color: var(--vision-blue);
+            transition: all 0.3s; font-size: 1rem;
+        }
+        .translation-btn:hover { background: var(--vision-blue); color: #fff; }
+        .translation-content { display: none; background: #fcfcfc; border: 1px solid #eee; padding: 30px; margin-top: 15px; border-radius: 12px; }
+        .trans-item { margin-bottom: 40px; }
+        .trans-title { font-weight: bold; color: var(--vision-blue); border-bottom: 3px solid #f0f0f0; margin-bottom: 15px; font-size: 1.2rem; }
 
-        /* Archive Section */
-        .archive-section { background: #e9ecef; padding: 4rem 5%; }
-        .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
-        .archive-card { background: white; padding: 1.5rem; border-radius: 8px; border-top: 4px solid var(--primary); cursor: pointer; transition: 0.3s; }
-        .archive-card:hover { transform: translateY(-5px); }
-        
-        .toggle-trans { color: var(--secondary); font-size: 0.8rem; cursor: pointer; text-decoration: underline; margin-top: 5px; display: inline-block; }
+        .study-section { padding: 60px 5%; background: #fff; }
+        .study-box { margin-bottom: 60px; padding: 30px; border-radius: 15px; border: 1px solid #eee; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
+        .study-grid-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; margin-top: 25px; }
+        .vocab-item { margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; font-size: 0.95rem; }
+        .vocab-en { font-weight: bold; color: var(--vision-blue); }
+        .phrase-box { background: #fdf6e3; padding: 25px; border-radius: 10px; border-left: 6px solid #b58900; }
 
-        footer { background: var(--dark); color: white; padding: 3rem 5%; text-align: center; }
+        .archive-section { padding: 60px 5%; background-color: #f8f9fa; }
+        .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .archive-card { border: none; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; overflow: hidden;}
+        .archive-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
-        @media (max-width: 768px) {
-            .hero-container, .study-grid { grid-template-columns: 1fr; }
-            .hero-container { height: 600px; }
+        .zoomed { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(2); z-index: 2000; cursor: zoom-out; }
+
+        @media (max-width: 900px) {
+            .hero-container { flex-direction: column; height: auto; }
+            .hero-section { height: 500px; }
+            .study-grid-inner { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo"><i class="fas fa-network-wired"></i> Chronix <span>Global Link</span></div>
-    <nav style="font-size: 0.9rem; font-weight: bold;">TECHNICAL ENGLISH FOR ENGINEERS</nav>
+    <a href="https://nakajimakan14550.github.io/home/" class="logo-link">
+        <img src="logo.png" alt="Logo" class="logo-img" onclick="toggleZoom(this)">
+        <div class="site-title">技術で学ぶ英語：Chronix Global Link</div>
+    </a>
+    <nav>
+        <a href="#">Archives</a> <a href="#">Trend Reports</a> <a href="#">Contact</a>
+    </nav>
 </header>
 
-<section class="hero-container">
-    <div class="hero-panel" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc4b?auto=format&fit=crop&q=80&w=1000')" onclick="loadContent('case1')">
-        <div class="panel-content">
-            <span class="label">New: Thermal Intelligence</span>
-            <div class="panel-title">AI Era Thermal Management</div>
-            <p>A (Chronix) × B (Calumino - Australia)</p>
-        </div>
-    </div>
-    <div class="hero-panel" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1000')" onclick="loadContent('case2')">
-        <div class="panel-content">
-            <span class="label">Space & Defense</span>
-            <div class="panel-title">Starlink Optical Link</div>
-            <p>A (Chronix) × B (SpaceX Partner)</p>
-        </div>
-    </div>
-</section>
+<div class="intro-banner">
+    <strong>こんにちは！5月11日の定期配信です。</strong><br>
+    本日のテーマは、最新の「回折限界と補償光学」および「LEO衛星のSWaP要件」をピックアップしました。
+</div>
 
-<div class="main-content" id="learning-area">
-    <div class="conv-card">
-        <div class="conv-header">
-            <i class="fas fa-comments-alt fa-2x" style="color:var(--primary)"></i>
-            <h2 id="current-title">English Conversation: Thermal Intelligence in the AI Era</h2>
+<div class="hero-container">
+    <div class="hero-section vision-hero">
+        <div class="label">Machine Vision</div>
+        <p class="theme-sub" style="color: #4db8ff;">テーマ：2nmプロセスにおける「回折限界」と「補償光学」</p>
+        <h1>Breaking the Diffraction Limit</h1>
+        <div class="script-window">
+            <div class="script-line"><span class="speaker">A:</span> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. Addressing the diffraction limit is indispensable, as simply increasing sensor resolution is no longer sufficient.</div>
+            <div class="script-line"><span class="speaker">B:</span> I understand the physical constraints. But can't we compensate for blur using AI-based post-processing?</div>
+            <div class="script-line"><span class="speaker">A:</span> Unfortunately, AI cannot restore "information that was never captured" due to vibrations. Our AO system uses deformable mirrors to cancel these errors in real-time.</div>
+            <div class="script-line"><span class="speaker">B:</span> So for AI analysis to be truly reliable, we need "True Imaging" at the physical layer?</div>
+            <div class="script-line"><span class="speaker">A:</span> Exactly. By neutralizing the wavefront error before the light hits the sensor, we provide the high-fidelity data your AI needs to achieve target yields.</div>
         </div>
-
-        <button class="audio-btn" id="btn-ao" onclick="toggleAudio('ao')">
-            <i class="fas fa-play"></i> <span>Play English Audio</span>
-        </button>
-
-        <div id="conversation-bubbles">
+        <div class="meta-footer">
+            <div id="btn-ao" class="audio-btn" onclick="toggleAudio('nano.mp3', 'btn-ao')">
+                <span class="audio-icon">▶️</span>
+                <span><strong>LISTEN:</strong><br>'Breaking the Diffraction Limit'</span>
             </div>
+        </div>
     </div>
 
-    <div class="study-grid">
-        <div class="study-box">
-            <h3><i class="fas fa-book-open"></i> Technical Vocabulary</h3>
-            <table id="vocab-table">
-                </table>
+    <div class="hero-section space-hero">
+        <div class="label">Space / Defense</div>
+        <p class="theme-sub" style="color: #ffaa00;">テーマ：衛星コンステレーションの「SWaP」と「信号整合性」</p>
+        <h1>SWaP and Signal Integrity</h1>
+        <div class="script-window">
+            <div class="script-line"><span class="speaker">A:</span> We are integrating high-reliability interconnects for a new LEO satellite constellation. SWaP requirements—Size, Weight, and Power—are extremely stringent.</div>
+            <div class="script-line"><span class="speaker">B:</span> Our modular connectors can reduce total mass by 30% while maintaining the robustness required for launch.</div>
+            <div class="script-line"><span class="speaker">A:</span> I’m concerned about Signal Integrity (SI) under harsh thermal cycling in orbit. A single failure means mission failure.</div>
+            <div class="script-line"><span class="speaker">B:</span> Our connectors feature unique vibration-proof locking mechanisms. We provide data on EMI shielding to ensure stable transmission.</div>
+            <div class="script-line"><span class="speaker">A:</span> Let's proceed with benchmarking. Reliability is our non-negotiable priority.</div>
         </div>
-        <div class="study-box">
-            <h3><i class="fas fa-lightbulb"></i> Useful Phrases</h3>
-            <div id="phrase-list">
-                </div>
+        <div class="meta-footer">
+            <div id="btn-si" class="audio-btn" onclick="toggleAudio('3d.mp3', 'btn-si')">
+                <span class="audio-icon">▶️</span>
+                <span><strong>LISTEN:</strong><br>'SWaP and Signal Integrity'</span>
+            </div>
         </div>
     </div>
 </div>
 
-<section class="archive-section">
-    <h2 style="margin-bottom: 2rem; text-align: center;">Archives</h2>
-    <div class="archive-grid" id="archive-container">
+<div class="translation-container">
+    <button class="translation-btn" onclick="toggleTranslation()">🔍 スクリプトの和訳を見る</button>
+    <div class="translation-content" id="transContent">
+        <div class="trans-item">
+            <div class="trans-title">Case 1: [Vision] Breaking the Diffraction Limit</div>
+            <p>（2nmプロセスにおける「回折限界」と「補償光学」）</p>
+            <p>A: 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。単にセンサーの解像度を上げるだけではもはや不十分であり、回折限界への対処は不可欠です。</p>
+            <p>B: 物理的な制約は理解しています。しかし、AIベースの後処理でボケを補正することはできないのでしょうか？</p>
+            <p>A: 残念ながら、振動のせいで「そもそも取り込まれなかった情報」をAIで復元することは不可能です。我々のAOシステムは可変形状ミラーを使用し、これらのエラーをリアルタイムで打ち消します。</p>
+            <p>B: つまり、AI解析を真に信頼できるものにするためには、物理レイヤーでの「真の結像（True Imaging）」が必要だということですね？</p>
+            <p>A: その通りです。光がセンサーに届く前に波面収差を中和することで、歩留まり目標の達成に必要な高忠実度データをAIに提供できるのです。</p>
         </div>
-</section>
+        <div class="trans-item">
+            <div class="trans-title">Case 2: [Space] SWaP and Signal Integrity</div>
+            <p>（宇宙防衛分野における「SWaP」と「信号整合性」）</p>
+            <p>A: 新しい低軌道（LEO）衛星コンステレーション用に高信頼性のインターコネクトを統合しています。サイズ、重量、電力の「SWaP」要件は極めて厳格です。</p>
+            <p>B: 弊社のモジュール式コネクタは、打ち上げに必要な堅牢性を維持しつつ、全体の質量を30%削減できます。</p>
+            <p>A: 軌道上の過酷な熱サイクル下での信号整合性（SI）を懸念しています。たった一つの故障がミッションの失敗を意味します。</p>
+            <p>B: 弊社のコネクタは独自の防振ロッキング機構を備えています。また、安定した伝送を保証するためにEMI（電磁妨害）シールドのデータも提供します。</p>
+            <p>A: ベンチマークを進めましょう。信頼性は我々にとって譲れない最優先事項です。</p>
+        </div>
+    </div>
+</div>
 
-<footer>
-    <p>&copy; 2026 Chronix Technology. Specialized in Machine Vision, Space, and AI Infrastructure.</p>
+<div class="study-section">
+    <div class="study-box" style="border-top: 5px solid var(--vision-blue);">
+        <h3 style="color: var(--vision-blue); border-color: var(--vision-blue);">【Machine Vision】 学習セクション</h3>
+        <div class="study-grid-inner">
+            <div class="vocab-list">
+                <h4>💡 重要単語 / Key Vocabulary</h4>
+                <div class="vocab-item"><span class="vocab-en">Indispensable:</span> 不可欠な</div>
+                <div class="vocab-item"><span class="vocab-en">Diffraction limit:</span> 回折限界</div>
+                <div class="vocab-item"><span class="vocab-en">Misconception:</span> 誤解、思い込み</div>
+                <div class="vocab-item"><span class="vocab-en">Deformable mirrors:</span> 可変形状ミラー</div>
+                <div class="vocab-item"><span class="vocab-en">Neutralize:</span> 中和する、打ち消す</div>
+                <div class="vocab-item"><span class="vocab-en">High-fidelity:</span> 高忠実度</div>
+                <div class="vocab-item"><span class="vocab-en">Non-negotiable:</span> 譲れない、交渉の余地のない</div>
+            </div>
+            <div class="phrase-list">
+                <h4>📝 実践フレーズ / Useful Phrases</h4>
+                <div class="phrase-box">
+                    <strong>"Addressing [A] is no longer optional; it is indispensable."</strong><br>
+                    （[A]への対処はもはや任意ではなく、不可欠です。）<br><br>
+                    <strong>"AI cannot restore information that was never captured."</strong><br>
+                    （AIは、そもそも取り込まれなかった情報を復元することはできません。）
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="study-box" style="border-top: 5px solid var(--space-orange);">
+        <h3 style="color: var(--space-orange); border-color: var(--space-orange);">【Space】 学習セクション</h3>
+        <div class="study-grid-inner">
+            <div class="vocab-list">
+                <h4>💡 重要単語 / Key Vocabulary</h4>
+                <div class="vocab-item"><span class="vocab-en">SWaP:</span> Size, Weight, and Power</div>
+                <div class="vocab-item"><span class="vocab-en">Stringent:</span> 厳格な、厳しい</div>
+                <div class="vocab-item"><span class="vocab-en">Robustness:</span> 堅牢性、頑強性</div>
+                <div class="vocab-item"><span class="vocab-en">Signal Integrity (SI):</span> 信号整合性</div>
+                <div class="vocab-item"><span class="vocab-en">EMI shielding:</span> 電磁妨害シールド</div>
+            </div>
+            <div class="phrase-list">
+                <h4>📝 実践フレーズ / Useful Phrases</h4>
+                <div class="phrase-box" style="border-left-color: var(--space-orange); background: #fff5eb;">
+                    <strong>"A single failure means mission failure."</strong><br>
+                    （たった一つの失敗がミッションの失敗を意味します。）<br><br>
+                    <strong>"Reliability starts at the physical contact point of [B]."</strong><br>
+                    （信頼性は、[B]という物理的な接点から始まります。）
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="archive-section">
+    <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
+    <div class="archive-grid">
+        <div class="archive-card" onclick="openArchiveModal('mv_archive')">
+            <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
+                <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
+                <h4 style="margin: 10px 0 0 0;">2nm Process and Dynamic Optics</h4>
+            </div>
+            <div style="padding: 20px; font-size: 0.85rem; color: #666;">
+                収差制御による歩留まり停滞の打破。<br>
+                <span style="color: var(--vision-blue); font-weight: bold; margin-top: 10px; display: block;">VIEW LESSON →</span>
+            </div>
+        </div>
+        <div class="archive-card" onclick="openArchiveModal('sp_archive')">
+            <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
+                <span style="font-size: 0.7rem; opacity: 0.8;">SPACE ARCHIVE</span>
+                <h4 style="margin: 10px 0 0 0;">FPGA SiP and Evolvable Hardware</h4>
+            </div>
+            <div style="padding: 20px; font-size: 0.85rem; color: #666;">
+                深宇宙での自己再構成型ハードウェア。<br>
+                <span style="color: var(--space-orange); font-weight: bold; margin-top: 10px; display: block;">VIEW LESSON →</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="archiveModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:3000; padding:20px; overflow-y:auto;">
+    <div style="max-width:800px; margin:40px auto; background:#fff; border-radius:15px; padding:40px; position:relative;">
+        <span onclick="closeArchiveModal()" style="position:absolute; top:20px; right:25px; font-size:35px; cursor:pointer; color:#999;">&times;</span>
+        <h2 id="modalTitle" style="color:var(--vision-blue);"></h2>
+        <div id="modalAudioBtn" class="audio-btn" style="background:#f1f5f9; color:#333; margin: 20px 0;"></div>
+        <div style="background:#f8fafc; padding:20px; border-radius:10px; margin-bottom: 15px;">
+            <h4 style="margin:0 0 10px 0; color:#444;">English Script</h4>
+            <div id="modalEnScript" style="font-size:0.95rem; line-height:1.6;"></div>
+        </div>
+        <div style="background:#fff7ed; padding:20px; border-radius:10px;">
+            <h4 style="margin:0 0 10px 0; color:#c2410c;">Japanese Translation</h4>
+            <div id="modalJpScript" style="font-size:0.9rem; line-height:1.6;"></div>
+        </div>
+    </div>
+</div>
+
+<footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
+    <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">クロニクス株式会社</p>
+    <address style="font-style: normal; color: #cbd5e1; font-size: 0.9rem;">
+        〒160-0023 東京都新宿区西新宿3-2-11 新宿三井ビルディング二号館 904室<br>
+        TEL 03-5322-7191 / FAX 03-5322-7790
+    </address>
+    <a href="mailto:sales@chronix.co.jp" style="display: inline-block; background: var(--accent-orange); color: white; padding: 15px 40px; border-radius: 5px; text-decoration: none; margin-top: 25px; font-weight: bold;">メールでお問い合わせ</a>
 </footer>
 
 <script>
-    const archiveData = [
-        {
-            title: "Machine Vision & LiDAR Integration",
-            date: "2026.04.10",
-            case: "Case 1 Archive",
-            summary: "LiDAR vs Stereo Vision for autonomous robotics."
-        },
-        {
-            title: "SiC Semiconductor Supply Chain",
-            date: "2026.03.15",
-            case: "Case 1 Archive",
-            summary: "Next-gen power modules for EV infrastructure."
-        }
-    ];
+    let currentAudio = null;
+    let currentBtnId = null;
 
-    const cases = {
-        case1: {
-            title: "Thermal Intelligence in the AI Era",
-            bubbles: [
-                { role: 'A', name: 'Chronix', text: "With the rise of high-density AI servers, traditional temperature sensors—which only measure a single point—are no longer enough. We are seeing 'micro-hotspots' that appear and disappear in seconds. Our clients need a way to monitor the thermal distribution across the entire rack in real-time, but they are also very concerned about privacy and data security inside the server room.", trans: "高密度AIサーバの台頭により、一点のみを測定する従来の温度センサではもはや不十分です。数秒で発生・消失する『マイクロ・ホットスポット』が見受けられます。当社の顧客はラック全体の熱分布をリアルタイムで監視する方法を必要としていますが、サーバ室内のプライバシーやデータセキュリティも非常に懸念しています。" },
-                { role: 'B', name: 'Calumino', text: "That is exactly why our privacy-protected thermal sensors are gaining traction. Unlike standard high-resolution thermography, our technology provides enough spatial resolution to detect a thermal anomaly without identifying individual faces or sensitive hardware details. We use a bolometer-based array that captures the 'thermal footprint' of the airflow. Have you considered how this data can be integrated into the DCIM (Data Center Infrastructure Management) systems for predictive maintenance?", trans: "まさにそれが、当社のプライバシー保護型熱センサが注目されている理由です。標準的な高解像度サーモグラフィとは異なり、当社の技術は個人の顔や機密性の高いハードウェアの詳細を特定することなく、熱異常を検知するのに十分な空間解像度を提供します。気流の『熱の足跡』を捉えるボロメーターベースのアレイを使用しています。このデータを予兆保全のためにDCIM（データセンター・インフラ管理）システムに統合することを検討されたことはありますか？" },
-                { role: 'A', name: 'Chronix', text: "Integration is key. We want to use the thermal data to trigger an immediate increase in fan speed or to shift workloads before a component fails. However, the environment is electrically noisy. How do your sensors handle Electromagnetic Interference (EMI), and what is the refresh rate? We need to capture those transient heat spikes before they lead to a thermal shutdown.", trans: "統合こそが鍵です。コンポーネントが故障する前に、熱データを使用してファン速度を即座に上げたり、ワークロードをシフトしたりしたいと考えています。しかし、環境は電気ノイズが多いです。貴社のセンサは電磁干渉（EMI）にどのように対応していますか？また、リフレッシュレートはどのくらいですか？熱によるシャットダウンに至る前に、これらの一時的な熱スパイクを捉える必要があります。" }
-            ],
-            vocab: [
-                { en: "Thermal distribution", jp: "温度分布", note: "空間内の温度の広がり方。" },
-                { en: "Micro-hotspots", jp: "微小な熱溜まり", note: "局所的に極高温になる箇所。故障の原因。" },
-                { en: "Bolometer", jp: "ボロメーター", note: "赤外線の熱エネルギーを抵抗値の変化として捉える検知器。" },
-                { en: "PUE", jp: "電力使用効率", note: "データセンターのエネルギー効率を示す指標（1に近いほど良い）。" },
-                { en: "Transient heat spikes", jp: "一時的な急激な温度上昇", note: "一瞬だけ発生する熱のピーク。" },
-                { en: "NETD", jp: "ノイズ等価温度差", note: "赤外線センサの感度（細かい温度差を見分けられるか）。" }
-            ],
-            phrases: [
-                { en: "We need to identify 'micro-hotspots' before they escalate.", jp: "深刻化する前に「マイクロ・ホットスポット」を特定する必要があります。" },
-                { en: "Privacy-protected imaging is a must-have for this facility.", jp: "この施設において、プライバシー保護に配慮したイメージングは必須です。" },
-                { en: "Can we automate the cooling system based on the live thermal map?", jp: "リアルタイムの熱マップに基づいて冷却システムを自動化できますか？" }
-            ]
+    function toggleAudio(fileName, btnId) {
+        const btn = document.getElementById(btnId);
+        const icon = btn.querySelector('.audio-icon');
+
+        if (currentAudio && currentBtnId === btnId) {
+            if (!currentAudio.paused) {
+                currentAudio.pause(); icon.innerText = '▶️';
+            } else {
+                currentAudio.play(); icon.innerText = '⏸️';
+            }
+            return;
+        }
+
+        if (currentAudio) {
+            currentAudio.pause();
+            if (currentBtnId) {
+                const prevBtn = document.getElementById(currentBtnId);
+                if(prevBtn && prevBtn.querySelector('.audio-icon')) prevBtn.querySelector('.audio-icon').innerText = '▶️';
+            }
+        }
+
+        currentAudio = new Audio(fileName);
+        currentBtnId = btnId;
+        currentAudio.play().then(() => { icon.innerText = '⏸️'; })
+        .catch(() => { console.log("Audio not found"); });
+
+        currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
+    }
+
+    function toggleTranslation() {
+        const content = document.getElementById('transContent');
+        const btn = document.querySelector('.translation-btn');
+        const isOpen = content.style.display === 'block';
+        content.style.display = isOpen ? 'none' : 'block';
+        btn.innerHTML = isOpen ? '🔍 スクリプトの和訳を見る' : '🔼 和訳を閉じる';
+    }
+
+    function toggleZoom(img) { img.classList.toggle('zoomed'); }
+
+    const archiveData = {
+        'mv_archive': {
+            title: '2nm Process and Dynamic Optics',
+            audio: 'yield.mp3',
+            en: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
+                 <b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. Addressing the diffraction limit is indispensable, as simply increasing sensor resolution is no longer sufficient.<br>
+                 <b>B:</b> I understand the physical constraints. But can't we compensate for blur using AI-based post-processing?<br>
+                 <b>A:</b> Unfortunately, AI cannot restore "information that was never captured" due to vibrations. Our AO system uses deformable mirrors to cancel these errors in real-time.<br>
+                 <b>B:</b> So for AI analysis to be truly reliable, we need "True Imaging" at the physical layer?<br>
+                 <b>A:</b> Exactly. By neutralizing the wavefront error before the light hits the sensor, we provide the high-fidelity data your AI needs to achieve target yields.`,
+            jp: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
+                 （2nmプロセスにおける「回折限界」と「補償光学」）<br><br>
+                 <b>A:</b> 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。単にセンサーの解像度を上げるだけではもはや不十分であり、回折限界への対処は不可欠です。<br>
+                 <b>B:</b> 物理的な制約は理解しています。しかし、AIベースの後処理でボケを補正することはできないのでしょうか？<br>
+                 <b>A:</b> 残念ながら、振動のせいで「そもそも取り込まれなかった情報」をAIで復元することは不可能です。我々のAOシステムは可変形状ミラーを使用し、これらのエラーをリアルタイムで打ち消します。<br>
+                 <b>B:</b> つまり、AI解析を真に信頼できるものにするためには、物理レイヤーでの「真の結像（True Imaging）」が必要だということですね？<br>
+                 <b>A:</b> その通りです。光がセンサーに届く前に波面収差を中和することで、歩留まり目標の達成に必要な高忠実度データをAIに提供できるのです。`
         },
-        case2: {
-            title: "Space & Defense: Starlink Optical Link",
-            bubbles: [
-                { role: 'A', name: 'Chronix', text: "The demand for laser communication in LEO (Low Earth Orbit) is surging.", trans: "低軌道におけるレーザー通信の需要が急増しています。" },
-                { role: 'B', name: 'SpaceX Partner', text: "Optical inter-satellite links (OISLs) are the backbone of the next-gen constellation.", trans: "衛星間光リンク(OISL)は次世代コンステレーションのバックボーンです。" }
-            ],
-            vocab: [
-                { en: "LEO", jp: "低軌道", note: "高度2,000km以下の地球周回軌道。" },
-                { en: "Optical Link", jp: "光通信リンク", note: "電波ではなくレーザーを用いた通信。" }
-            ],
-            phrases: [
-                { en: "Maintaining line-of-sight is critical for laser links.", jp: "レーザーリンクにとって視線の維持は極めて重要です。" }
-            ]
+        'sp_archive': {
+            title: 'FPGA SiP and Evolvable Hardware',
+            audio: '3d.mp3',
+            en: `<b>Case 2: [Space] SWaP and Signal Integrity</b><br>
+                 <b>A:</b> We are integrating high-reliability interconnects for a new LEO satellite constellation. SWaP requirements—Size, Weight, and Power—are extremely stringent.<br>
+                 <b>B:</b> Our modular connectors can reduce total mass by 30% while maintaining the robustness required for launch.<br>
+                 <b>A:</b> I’m concerned about Signal Integrity (SI) under harsh thermal cycling in orbit. A single failure means mission failure.<br>
+                 <b>B:</b> Our connectors feature unique vibration-proof locking mechanisms. We provide data on EMI shielding to ensure stable transmission.<br>
+                 <b>A:</b> Let's proceed with benchmarking. Reliability is our non-negotiable priority.`,
+            jp: `<b>Case 2: [Space] SWaP and Signal Integrity</b><br>
+                 （宇宙防衛分野における「SWaP」と「信号整合性」）<br><br>
+                 <b>A:</b> 新しい低軌道（LEO）衛星コンステレーション用に高信頼性のインターコネクトを統合しています。サイズ、重量、電力の「SWaP」要件は極めて厳格です。<br>
+                 <b>B:</b> 弊社のモジュール式コネクタは、打ち上げに必要な堅牢性を維持しつつ、全体の質量を30%削減できます。<br>
+                 <b>A:</b> 軌道上の過酷な熱サイクル下での信号整合性（SI）を懸念しています。たった一つの故障がミッションの失敗を意味します。<br>
+                 <b>B:</b> 弊社のコネクタは独自の防振ロッキング機構を備えています。また、安定した伝送を保証するためにEMI（電磁妨害）シールドのデータも提供します。<br>
+                 <b>A:</b> ベンチマークを進めましょう。信頼性は我々にとって譲れない最優先事項です。`
         }
     };
 
-    function loadContent(caseKey) {
-        const data = cases[caseKey];
-        document.getElementById('current-title').innerText = data.title;
-        
-        // Render Bubbles
-        const bubbleContainer = document.getElementById('conversation-bubbles');
-        bubbleContainer.innerHTML = data.bubbles.map(b => `
-            <div class="bubble">
-                <div class="bubble-icon icon-${b.role.toLowerCase()}">${b.role}</div>
-                <div class="bubble-text">
-                    <strong>${b.name}:</strong><br>${b.text}
-                    <div class="toggle-trans" onclick="this.nextElementSibling.style.display='block'; this.style.display='none'">[和訳を表示]</div>
-                    <div class="translation">${b.trans}</div>
-                </div>
-            </div>
-        `).join('');
-
-        // Render Vocab
-        const vocabTable = document.getElementById('vocab-table');
-        vocabTable.innerHTML = `<tr><th>English</th><th>Japanese</th><th>Context</th></tr>` + 
-            data.vocab.map(v => `<tr><td><strong>${v.en}</strong></td><td>${v.jp}</td><td style="font-size:0.8rem">${v.note}</td></tr>`).join('');
-
-        // Render Phrases
-        const phraseList = document.getElementById('phrase-list');
-        phraseList.innerHTML = data.phrases.map(p => `
-            <div class="phrase-item">
-                <span class="phrase-en">${p.en}</span>
-                <span class="phrase-jp">${p.jp}</span>
-            </div>
-        `).join('');
-        
-        window.scrollTo({ top: document.getElementById('learning-area').offsetTop - 100, behavior: 'smooth' });
+    function openArchiveModal(id) {
+        const data = archiveData[id];
+        document.getElementById('modalTitle').innerText = data.title;
+        document.getElementById('modalEnScript').innerHTML = data.en;
+        document.getElementById('modalJpScript').innerHTML = data.jp;
+        document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">▶️</span><span onclick="toggleAudio('${data.audio}', 'modalAudioBtn')" style="cursor:pointer; font-weight:bold; margin-left:10px;">LISTEN TO ARCHIVE AUDIO</span>`;
+        document.getElementById('archiveModal').style.display = 'block';
     }
 
-    function renderArchive() {
-        const container = document.getElementById('archive-container');
-        container.innerHTML = archiveData.map(item => `
-            <div class="archive-card">
-                <div style="font-size: 0.8rem; color: var(--accent); font-weight: bold;">${item.date} | ${item.case}</div>
-                <h4 style="margin: 5px 0;">${item.title}</h4>
-                <p style="font-size: 0.85rem; color: #666;">${item.summary}</p>
-            </div>
-        `).join('');
+    function closeArchiveModal() {
+        document.getElementById('archiveModal').style.display = 'none';
+        if (currentAudio) { currentAudio.pause(); currentAudio = null; }
     }
-
-    function toggleAudio(id) {
-        const btn = document.getElementById('btn-' + id);
-        const icon = btn.querySelector('i');
-        const text = btn.querySelector('span');
-        
-        if (icon.classList.contains('fa-play')) {
-            icon.classList.replace('fa-play', 'fa-stop');
-            text.innerText = "Playing... (Demo Mode)";
-            setTimeout(() => {
-                icon.classList.replace('fa-stop', 'fa-play');
-                text.innerText = "Play English Audio";
-            }, 3000);
-        }
-    }
-
-    // Initialize
-    loadContent('case1');
-    renderArchive();
 </script>
 
 </body>
