@@ -14,23 +14,26 @@
 
         * { box-sizing: border-box; }
 
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; background-color: #fff; }
+        body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif; margin: 0; padding: 0; background-color: #fff; line-height: 1.6; }
 
         header {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 5%; background: #fff; border-bottom: 1px solid #ddd;
-            height: 70px;
+            padding: 10px 5%; background: #fff; border-bottom: 1px solid #ddd; height: 70px;
         }
 
-        /* ロゴとタイトルを横並びに */
         .logo-link { display: flex; align-items: center; text-decoration: none; color: #333; }
         .logo-img { height: 40px; width: auto; margin-right: 15px; }
         .site-title { font-size: 1.1rem; font-weight: bold; border-left: 1px solid #ccc; padding-left: 15px; }
 
         nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 500; }
 
+        /* Intro Message */
+        .intro-banner {
+            background: #f0f4f8; padding: 20px 5%; border-bottom: 1px solid #e1e8ed; font-size: 0.95rem; color: #444;
+        }
+
         /* Hero Container */
-        .hero-container { display: flex; height: 550px; width: 100%; overflow: hidden; color: var(--text-white); }
+        .hero-container { display: flex; height: 650px; width: 100%; overflow: hidden; color: var(--text-white); }
 
         .hero-section {
             flex: 1; position: relative; padding: 40px;
@@ -38,53 +41,47 @@
             background-size: cover; background-position: center;
         }
 
-        .vision-hero {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee.png');
-        }
+        .vision-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee.png'); }
+        .space-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee2.png'); border-left: 2px solid #000; }
 
-        .space-hero {
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee2.png');
-            border-left: 2px solid #000;
-        }
-
-        .label {
-            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
-            margin-bottom: 15px; background: rgba(0,0,0,0.5);
-            display: inline-block; padding: 4px 12px;
-        }
-
-        .hero-section h1 {
-            font-size: 2.2rem; margin: 0 0 25px 0; line-height: 1.1;
-            font-weight: 800; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-        }
+        .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; background: rgba(0,0,0,0.5); display: inline-block; padding: 4px 12px; }
+        .theme-sub { font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
+        .hero-section h1 { font-size: 1.8rem; margin: 0 0 15px 0; line-height: 1.2; font-weight: 800; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
         
-        .meta-info { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        /* Script Box */
+        .script-window {
+            background: rgba(0,0,0,0.65); border-radius: 8px; padding: 15px; margin-bottom: 15px;
+            font-size: 0.85rem; height: 180px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px);
+        }
+        .speaker { font-weight: bold; color: #ffcc00; margin-right: 5px; }
+        .script-line { margin-bottom: 8px; }
 
+        .meta-footer { display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Audio Button Style */
         .audio-btn {
-            display: flex; align-items: center; background: rgba(255,255,255,0.15);
-            padding: 15px 25px; border-radius: 50px; backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;
+            display: flex; align-items: center; background: rgba(255,255,255,0.2);
+            padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.3); 
+            font-size: 0.8rem; cursor: pointer; transition: 0.3s;
         }
-        .audio-icon { margin-right: 12px; font-size: 1.2rem; }
+        .audio-btn:hover { background: rgba(255,255,255,0.4); transform: scale(1.05); }
+        .audio-btn:active { transform: scale(0.95); }
+        .audio-icon { margin-right: 12px; font-size: 1.1rem; }
 
-        .key-phrases-box {
-            background: rgba(0,0,0,0.7); padding: 15px 20px; border-radius: 5px;
-            font-size: 0.8rem; line-height: 1.5; border-left: 4px solid #00aaff;
-            max-width: 320px;
-        }
+        /* Study Section */
+        .study-section { padding: 40px 5%; background: #fff; border-bottom: 1px solid #eee; }
+        .study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .vocab-list h3, .phrase-list h3 { font-size: 1.1rem; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .vocab-item { margin-bottom: 8px; font-size: 0.9rem; }
+        .vocab-en { font-weight: bold; color: var(--vision-blue); }
+        .phrase-box { background: #fdf6e3; padding: 15px; border-radius: 5px; border-left: 5px solid #b58900; }
 
-        /* Trend Report */
-        .report-section { padding: 60px 5%; background-color: var(--bg-light); text-align: center; }
-        .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-top: 40px; }
-        .report-card { display: flex; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: left; }
-        .report-img-side { width: 120px; background: #1a2a3a; color: #fff; padding: 20px; text-align: center; font-size: 0.75rem; font-weight: bold; display: flex; align-items: center; }
-        .report-content { padding: 25px; flex: 1; }
-        .download-btn { color: var(--vision-blue); font-weight: bold; text-decoration: none; font-size: 0.9rem; margin-top: 10px; display: inline-block; }
+        footer { background: #111; color: #999; text-align: center; padding: 40px; font-size: 0.8rem; }
 
-        @media (max-width: 1000px) {
+        @media (max-width: 900px) {
             .hero-container { flex-direction: column; height: auto; }
-            .hero-section { height: 450px; }
-            .site-title { font-size: 0.9rem; }
+            .hero-section { height: 500px; }
+            .study-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -96,72 +93,108 @@
         <div class="site-title">技術で学ぶ英語：Chronix Global Link</div>
     </a>
     <nav>
-        <a href="#">Top</a> <a href="#">Archives</a> <a href="#">Trend Reports</a> <a href="#">Contact</a>
+        <a href="#">Archives</a> <a href="#">Trend Reports</a> <a href="#">Contact</a>
     </nav>
 </header>
 
+<div class="intro-banner">
+    <strong>おはようございます！5月11日、朝の定期配信です。</strong><br>
+    本日のテーマは、トレンドレポートから「分光・波面センシング」と「精密駆動・ナノポジショニング」をピックアップしました。
+</div>
+
 <div class="hero-container">
     <div class="hero-section vision-hero">
-        <div class="label">Factory Automation: May 11</div>
-        <p style="color: #4db8ff; font-weight: bold; margin: 0 0 5px 0;">THEME: In-line Multispectral Inspection</p>
-        <h1>Case 1: Snapshot Analysis in Factory Line</h1>
-        <div class="meta-info">
-            <div class="audio-btn">
+        <div class="label">Morning Broadcast</div>
+        <p class="theme-sub" style="color: #4db8ff;">テーマ：Siliosの技術を用いた「見えない成分」の可視化</p>
+        <h1>Case 1: Single-Shot Multispectral Analysis</h1>
+        
+        <div class="script-window">
+            <div class="script-line"><span class="speaker">A:</span> We are integrating the Silios multispectral sensor into your production line. It captures both color and spectral data in a single shot.</div>
+            <div class="script-line"><span class="speaker">B:</span> That sounds efficient. But how does it compare to traditional spectroscopy in terms of accuracy?</div>
+            <div class="script-line"><span class="speaker">A:</span> The key is the Snapshot technology. Unlike scanning methods, it eliminates errors caused by moving objects. We can detect subtle chemical changes in real-time.</div>
+            <div class="script-line"><span class="speaker">B:</span> I see. So we can perform non-destructive testing for quality control without slowing down the conveyor belt?</div>
+            <div class="script-line"><span class="speaker">A:</span> Exactly. It visualizes "invisible changes" by analyzing the unique spectral signature of each material.</div>
+        </div>
+
+        <div class="meta-footer">
+            <div class="audio-btn" onclick="playAudio('nano.m4a')">
                 <span class="audio-icon">🔊</span>
                 <span><strong>MORNING LISTEN:</strong><br>'Real-time Quality Control'</span>
-            </div>
-            <div class="key-phrases-box">
-                <strong style="color: #aaa;">KEY PHRASES</strong><br>
-                • Eliminates errors caused by moving objects.<br>
-                • Non-destructive chemical detection.
             </div>
         </div>
     </div>
 
     <div class="hero-section space-hero">
-        <div class="label">Space & Defense: May 11</div>
-        <p style="color: #ffaa00; font-weight: bold; margin: 0 0 5px 0;">THEME: Extreme Environment Positioning</p>
-        <h1>Case 2: Satellite Laser Terminal</h1>
-        <div class="meta-info">
-            <div class="audio-btn">
+        <div class="label">Section 2: Aerospace</div>
+        <p class="theme-sub" style="color: #ffaa00;">テーマ：Cedrat社の圧電アクチュエータによる極限の動き</p>
+        <h1>Case 2: Nano-Positioning in Harsh Environments</h1>
+
+        <div class="script-window">
+            <div class="script-line"><span class="speaker">A:</span> For the satellite's laser communication terminal, we’ve selected piezoelectric actuators from Cedrat Technologies.</div>
+            <div class="script-line"><span class="speaker">B:</span> Good choice. Our actuators provide nanometer-level precision even under extreme vacuum and thermal conditions.</div>
+            <div class="script-line"><span class="speaker">A:</span> We’re particularly interested in the smart mechatronics integration. How do they handle high-frequency vibrations during launch?</div>
+            <div class="script-line"><span class="speaker">B:</span> The mechanical amplification design ensures high stiffness. It’s built to withstand heavy G-loads while maintaining sub-micro-radian pointing accuracy.</div>
+            <div class="script-line"><span class="speaker">A:</span> Perfect. That precision-to-weight ratio is exactly what our SWaP strategy requires.</div>
+        </div>
+
+        <div class="meta-footer">
+            <div class="audio-btn" onclick="playAudio('space.m4a')">
                 <span class="audio-icon">🔊</span>
                 <span><strong>MORNING LISTEN:</strong><br>'Space-Grade Precision'</span>
             </div>
-            <div class="key-phrases-box" style="border-left-color: #ffaa00;">
-                <strong style="color: #aaa;">KEY PHRASES</strong><br>
-                • Built to withstand high G-loads.<br>
-                • Nanometer-level precision.
-            </div>
         </div>
     </div>
 </div>
 
-<div class="report-section">
-    <h2 style="font-size: 1.8rem; margin: 0;">LATEST TREND REPORTS</h2>
-    <div class="report-grid">
-        <div class="report-card">
-            <div class="report-img-side">MACHINE<br>VISION<br>2026</div>
-            <div class="report-content">
-                <h4>Machine Vision Trends 2026</h4>
-                <p>工場内インライン検査の自動化と分光技術の最新動向。</p>
-                <a href="#" class="download-btn">Download PDF →</a>
-            </div>
+<div class="study-section">
+    <div class="study-grid">
+        <div class="vocab-list">
+            <h3>💡 今日の重要単語</h3>
+            <div class="vocab-item"><span class="vocab-en">Multispectral:</span> マルチスペクトル</div>
+            <div class="vocab-item"><span class="vocab-en">Spectroscopy:</span> 分光法</div>
+            <div class="vocab-item"><span class="vocab-en">Non-destructive testing (NDT):</span> 非破壊検査</div>
+            <div class="vocab-item"><span class="vocab-en">Spectral signature:</span> 分光シグネチャー</div>
+            <div class="vocab-item"><span class="vocab-en">Piezoelectric actuator:</span> 圧電アクチュエータ</div>
+            <div class="vocab-item"><span class="vocab-en">Mechanical amplification:</span> 機械的増幅</div>
         </div>
-        <div class="report-card">
-            <div class="report-img-side" style="background:var(--space-orange);">SPACE<br>& DEFENSE<br>2026</div>
-            <div class="report-content">
-                <h4>Aerospace & Defense Tech</h4>
-                <p>宇宙・防衛分野における精密駆動技術の要件定義。</p>
-                <a href="#" class="download-btn">Download PDF →</a>
+        <div class="phrase-list">
+            <h3>📝 実踐フレーズ</h3>
+            <div class="phrase-box">
+                <strong>"It eliminates errors caused by [A]."</strong><br>
+                （それは[A]によって引き起こされるエラーを排除します。）<br><br>
+                <strong>"It's built to withstand [B]."</strong><br>
+                （それは[B]に耐えられるように設計されています。）
             </div>
+            <p style="margin-top:20px; font-size: 0.9rem; color: #666;">
+                朝のレッスンは以上です。今日の業務も、ナノ精度の集中力でいきましょう！
+            </p>
         </div>
     </div>
 </div>
 
-<footer style="background: #111; color: #666; text-align: center; padding: 40px; font-size: 0.8rem;">
+<footer>
     &copy; 2026 CHRONIX Co., Ltd. <br>
-    Update 18:00 JST: Semiconductor Control / Space-Edge FPGA
+    夕方18:00更新予定：「半導体収差制御」と「宇宙エッジFPGA」
 </footer>
+
+<script>
+    let currentAudio = null;
+
+    function playAudio(fileName) {
+        // すでに再生中のものがあれば停止
+        if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+        
+        // 新しい音声を再生
+        currentAudio = new Audio(fileName);
+        currentAudio.play().catch(error => {
+            console.error("音声の再生に失敗しました。ファイルパスを確認してください:", error);
+            alert("音声ファイル " + fileName + " が見つからないか、ブラウザで再生できません。");
+        });
+    }
+</script>
 
 </body>
 </html>
