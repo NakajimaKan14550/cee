@@ -262,7 +262,7 @@
         img.classList.toggle('zoomed'); 
     }
 
-    // アーカイブデータオブジェクト（構文エラーを修正済み）
+    // アーカイブデータオブジェクト（完全に修復しました）
     const archiveData = {
         'mv_archive': {
             title: 'Breaking the Diffraction Limit',
@@ -315,7 +315,67 @@
             jp: `<b>Case 2: [Space] FPGA SiP and Evolvable Hardware</b><br>
                  （テーマ：メンテナンス不能な極限環境での「進化する回路」）<br><br>
                  <b>A（クロニクス・エンジニア）：</b>火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。<br>
-                 <b>B（海外テックパートナー）：</b>標準的な放射線耐性ASIC
+                 <b>B（海外テックパートナー）：</b>標準的な放射線耐性ASICを使わないのはなぜですか？ 通常、そちらの方が電力効率が良いはずですが。<br>
+                 <b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。<br>
+                 <b>B：</b>なるほど。つまり3D統合（積層）技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？<br>
+                 <b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。`,
+            study: `
+                <div style="margin-top:20px; padding-top:20px; border-top:2px solid var(--space-orange);">
+                    <h4 style="color:var(--space-orange); margin-bottom:10px;">💡 重要単語 / Key Vocabulary</h4>
+                    <div style="font-size:0.9rem; line-height:1.8;">
+                        <b>FPGA:</b> 製造後に構成書き換え可能な集積回路<br>
+                        <b>SiP (System-in-Package):</b> 複数チップを1つの封止にしたもの<br>
+                        <b>3D Stacking:</b> 3次元積層技術<br>
+                        <b>Reconfigure:</b> 再構成する（後から変更する）<br>
+                        <b>Evolvable Hardware:</b> 進化型ハードウェア
+                    </div>
+                    <h4 style="color:var(--space-orange); margin-top:20px; margin-bottom:10px;">📝 実践フレーズ</h4>
+                    <div style="background:#fdf6e3; padding:15px; border-radius:8px; border-left:5px solid #b58900; font-size:0.9rem;">
+                        <b>"It allows you to pack high-density processing into a tiny footprint."</b><br>
+                        （これにより高密度な処理機能を極小の設置面積に詰め込むことができます。）<br><br>
+                        <b>"Reliability starts at the physical contact point of [B]."</b><br>
+                        （信頼性は、[B]という物理的な接点から始まります。）
+                    </div>
+                </div>`
+        },
+        'diff_archive': {
+            title: 'Breaking the Diffraction Limit',
+            audio: 'nano.mp3',
+            en: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
+                 <b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines...`,
+            jp: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
+                 （2nmプロセスにおける「回折限界」と「補償光学」）<br><br>
+                 <b>A:</b> 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。`,
+            study: `<p style="font-size:0.8rem; color:#666;">詳細データ準備中...</p>`
+        }
+    };
+
+    function openArchiveModal(id) {
+        const data = archiveData[id];
+        if (!data) return;
+        
+        document.getElementById('modalTitle').innerText = data.title;
+        document.getElementById('modalEnScript').innerHTML = data.en;
+        
+        let jpContent = data.jp;
+        if (data.study) {
+            jpContent += data.study;
+        }
+        document.getElementById('modalJpScript').innerHTML = jpContent;
+        
+        document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">▶️</span><span onclick="toggleAudio('${data.audio}', 'modalAudioBtn')" style="cursor:pointer; font-weight:bold; margin-left:10px;">LISTEN TO ARCHIVE AUDIO</span>`;
+        document.getElementById('archiveModal').style.display = 'block';
+    }
+
+    function closeArchiveModal() {
+        document.getElementById('archiveModal').style.display = 'none';
+        if (currentAudio) { 
+            currentAudio.pause(); 
+            currentAudio = null; 
+            currentBtnId = null;
+        }
+    }
+</script>
 
 </body>
 </html>
