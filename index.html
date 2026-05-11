@@ -23,41 +23,32 @@
             line-height: 1.6; 
         }
 
-        /* --- Header & Navigation --- */
+        /* --- Header --- */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 10px 5%; background: #fff; border-bottom: 1px solid var(--border-light); 
             position: sticky; top: 0; z-index: 1000;
         }
-
         .logo-container { display: flex; align-items: center; }
-        .logo-img { height: 40px; width: auto; margin-right: 15px; cursor: zoom-in; transition: all 0.3s ease; }
+        .logo-img { height: 40px; width: auto; margin-right: 15px; }
         .site-title { font-size: 1.1rem; font-weight: bold; border-left: 1px solid var(--border-light); padding-left: 15px; color: var(--main-navy); }
 
-        nav { display: flex; align-items: center; }
         nav a { margin-left: 20px; text-decoration: none; color: var(--main-navy); font-size: 0.85rem; font-weight: 600; }
 
         /* --- Hero Section --- */
-        .intro-banner {
-            background: #fff; padding: 20px 5%; border-bottom: 1px solid var(--border-light); font-size: 0.95rem;
-        }
-
         .hero-container { display: grid; grid-template-columns: 1fr 1fr; min-height: 650px; background: var(--main-navy); }
-
         .hero-section {
             position: relative; padding: 60px 40px;
             display: flex; flex-direction: column; justify-content: flex-end;
             background-size: cover; background-position: center;
             color: #fff;
         }
-
         .vision-hero { background-image: linear-gradient(rgba(9,26,45,0.4), rgba(9,26,45,0.9)), url('cee.png'); }
         .space-hero { background-image: linear-gradient(rgba(9,26,45,0.4), rgba(9,26,45,0.9)), url('cee2.png'); border-left: 1px solid rgba(255,255,255,0.1); }
 
         .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; background: var(--accent-orange); display: inline-block; padding: 4px 12px; font-weight: bold; }
         .hero-section h1 { font-size: 2.2rem; margin: 10px 0; line-height: 1.2; }
         
-        /* --- Script Box --- */
         .script-window {
             background: rgba(255,255,255,0.05); border-radius: 4px; padding: 20px; margin: 20px 0;
             font-size: 0.9rem; height: 220px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.1); backdrop-filter: blur(10px);
@@ -73,231 +64,157 @@
 
         /* --- Content Layout --- */
         .main-content { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
-        
-        .translation-btn {
-            width: 100%; background: #fff; border: 1px solid var(--border-light); padding: 15px;
-            font-weight: bold; cursor: pointer; border-radius: 4px; color: var(--main-navy); transition: 0.2s;
-        }
-        .translation-btn:hover { background: var(--bg-slate); }
-        
-        .translation-content {
-            display: none; background: #fff; border: 1px solid var(--border-light); padding: 30px; 
-            margin-top: 10px; border-radius: 4px;
-        }
-        .trans-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .trans-title { font-weight: bold; color: var(--main-navy); border-bottom: 2px solid var(--accent-orange); margin-bottom: 15px; display: inline-block; }
+        .translation-btn { width: 100%; background: #fff; border: 1px solid var(--border-light); padding: 15px; font-weight: bold; cursor: pointer; border-radius: 4px; color: var(--main-navy); }
+        .translation-content { display: none; background: #fff; border: 1px solid var(--border-light); padding: 30px; margin-top: 10px; border-radius: 4px; }
 
-        /* --- Study Section --- */
-        .study-section { background: #fff; padding: 60px 0; border-top: 1px solid var(--border-light); }
-        .study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        
-        .vocab-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--bg-slate); font-size: 0.9rem; }
-        .vocab-en { font-weight: bold; color: var(--main-navy); }
-        
-        .phrase-box { background: var(--bg-slate); padding: 30px; border-radius: 4px; border-left: 4px solid var(--accent-orange); }
-
-        /* --- Archive Section --- */
-        .archive-section { padding: 80px 0; }
-        .archive-title { font-size: 1.5rem; font-weight: bold; margin-bottom: 40px; display: flex; align-items: center; }
-        .archive-title::after { content: ""; flex: 1; height: 1px; background: var(--border-light); margin-left: 20px; }
-        
-        .archive-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .archive-card { background: #fff; border: 1px solid var(--border-light); border-radius: 4px; transition: 0.3s; cursor: pointer; overflow: hidden; }
-        .archive-card:hover { transform: translateY(-5px); border-color: var(--accent-orange); }
-        .card-head { padding: 20px; color: #fff; }
-        .blue-head { background: var(--main-navy); }
-        .orange-head { background: var(--accent-orange); }
-
-        /* --- Zoom Utility --- */
-        img { cursor: zoom-in; transition: all 0.3s ease; }
-        .zoomed { 
-            position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(1.5); 
-            z-index: 2000; cursor: zoom-out; box-shadow: 0 0 100px rgba(0,0,0,0.5); 
+        /* --- Archive Modal --- */
+        #archiveModal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(9, 26, 45, 0.95); z-index: 3000; padding: 20px; overflow-y: auto;
         }
+        .modal-body {
+            max-width: 900px; margin: 40px auto; background: #fff; border-radius: 8px; 
+            padding: 40px; position: relative;
+        }
+        .close-modal { position: absolute; top: 20px; right: 25px; font-size: 30px; cursor: pointer; color: var(--main-navy); }
 
         /* --- Footer --- */
         footer { background: var(--main-navy); color: #fff; padding: 60px 20px; text-align: center; }
 
-        @media (max-width: 900px) {
-            .hero-container, .trans-grid, .study-grid { grid-template-columns: 1fr; }
-            .hero-section { min-height: 500px; }
-        }
+        @media (max-width: 900px) { .hero-container { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo-container">
-        <a href="https://nakajimakan14550.github.io/home/">
-            <img src="logo.png" alt="Chronix Logo" class="logo-img" id="header-logo">
-        </a>
+        <a href="#"><img src="logo.png" alt="Chronix Logo" class="logo-img"></a>
         <div class="site-title">Technical Briefing: Global Link</div>
     </div>
-    <nav>
-        <a href="#">Archives</a>
-        <a href="#">Solutions</a>
-        <a href="#">Contact</a>
-    </nav>
+    <nav><a href="#archives">Archives</a><a href="#">Solutions</a><a href="#">Contact</a></nav>
 </header>
 
 <div class="intro-banner">
-    <strong>Daily Update: May 11, 2026</strong> | 物理的制約の克服と信号整合性の最適化に関する最新レポート。
+    <strong>Daily Update: May 11, 2026</strong> | テーマ：物理レイヤーでのエラー排除と信号整合性の最適化
 </div>
 
 <section class="hero-container">
     <article class="hero-section vision-hero">
-        <div class="label">Optical Physics</div>
+        <div class="label">Vision / Physics</div>
         <h1>Breaking the Diffraction Limit</h1>
-        <p>2nm製造プロセスにおける「真の結像」の実現</p>
-        
+        <p>2nmプロセスにおける「物理層でのエラー排除」</p>
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> Addressing the <strong>diffraction limit</strong> is indispensable in next-gen 2nm inspection. Simply increasing sensor resolution is no longer sufficient.</div>
-            <div class="script-line"><span class="speaker">B:</span> Can't we compensate for blur using AI-based post-processing?</div>
-            <div class="script-line"><span class="speaker">A:</span> AI cannot restore "information that was never captured" due to vibrations. Our AO system uses <strong>deformable mirrors</strong> to cancel these errors in real-time.</div>
+            <div class="script-line"><span class="speaker">A:</span> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. Addressing the <strong>diffraction limit</strong> is indispensable.</div>
+            <div class="script-line"><span class="speaker">B:</span> I understand the physical constraints. But can't we compensate for blur using AI-based post-processing?</div>
+            <div class="script-line"><span class="speaker">A:</span> Unfortunately, AI cannot restore "information that was never captured" due to vibrations. Our AO system uses <strong>deformable mirrors</strong> to cancel these errors in real-time.</div>
             <div class="script-line"><span class="speaker">B:</span> So for AI analysis to be reliable, we need "True Imaging" at the physical layer?</div>
-            <div class="script-line"><span class="speaker">A:</span> Exactly. By neutralizing wavefront aberrations, we provide the high-fidelity data needed for target yields.</div>
+            <div class="script-line"><span class="speaker">A:</span> Exactly. By neutralizing wavefront error before the sensor, we provide the <strong>high-fidelity data</strong> your AI needs.</div>
         </div>
-
-        <div class="audio-btn" onclick="playAudio('ao.mp3')">
-            <span>🔊 LISTEN: Physical Layer Fidelity</span>
-        </div>
+        <div class="audio-btn" onclick="playAudio('ao.mp3')">🔊 LISTEN: Physical Fidelity</div>
     </article>
 
     <article class="hero-section space-hero">
-        <div class="label">Aerospace & Defense</div>
+        <div class="label">Space / Defense</div>
         <h1>SWaP & Signal Integrity</h1>
-        <p>LEO衛星コンステレーションにおける高信頼性インターコネクト</p>
-        
+        <p>LEO衛星における「信号の信頼性」確保</p>
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> We’re reviewing interconnects for a new LEO constellation. <strong>SWaP</strong> requirements—Size, Weight, and Power—are extremely stringent.</div>
-            <div class="script-line"><span class="speaker">B:</span> Our modular connectors can reduce total mass by 30% while maintaining the <strong>robustness</strong> required for launch.</div>
-            <div class="script-line"><span class="speaker">A:</span> I’m concerned about Signal Integrity (SI) under harsh thermal cycling. A single failure means mission failure.</div>
+            <div class="script-line"><span class="speaker">A:</span> We are integrating high-reliability interconnects for a new LEO constellation. <strong>SWaP</strong> requirements are extremely stringent.</div>
+            <div class="script-line"><span class="speaker">B:</span> Our modular connectors can reduce total mass by 30% while maintaining launch <strong>robustness</strong>.</div>
+            <div class="script-line"><span class="speaker">A:</span> I’m concerned about <strong>Signal Integrity (SI)</strong> under harsh thermal cycling. A single failure means mission failure.</div>
             <div class="script-line"><span class="speaker">B:</span> Our connectors feature unique vibration-proof locking. We provide EMI shielding data to ensure stable transmission.</div>
-            <div class="script-line"><span class="speaker">A:</span> Reliability is our non-negotiable priority. Let's proceed with benchmarking.</div>
+            <div class="script-line"><span class="speaker">A:</span> Let's proceed with benchmarking. Reliability is our <strong>non-negotiable</strong> priority.</div>
         </div>
-
-        <div class="audio-btn" onclick="playAudio('space.mp3')">
-            <span>🔊 LISTEN: Mission Critical SI</span>
-        </div>
+        <div class="audio-btn" onclick="playAudio('nicomatic.mp3')">🔊 LISTEN: Mission Critical SI</div>
     </article>
 </section>
 
 <div class="main-content">
-    <button class="translation-btn" onclick="toggleTranslation()">🔍 スクリプトの技術解説・和訳を表示</button>
-    
+    <button class="translation-btn" onclick="toggleTranslation()">🔍 和文（日本語訳）のみを表示</button>
     <div class="translation-content" id="transContent">
-        <div class="trans-grid">
-            <div class="trans-item">
-                <span class="trans-title">Case 1: 回折限界と動的光学系</span>
-                <p>2nmノードでは、物理的な回折限界により従来の固定レンズでは精度維持が困難です。本システムは可変形状ミラーを用いた補償光学（AO）により、光がセンサーに届く前に波面収差をリアルタイムで制御。AI処理の「前段」で物理的な高忠実度データを確保します。</p>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div>
+                <h4 style="color:var(--main-navy); border-bottom: 2px solid var(--accent-orange); padding-bottom:10px;">Case 1: 2nmプロセスと補償光学</h4>
+                <p>次世代2nm検査ラインに補償光学（AO）システムを統合しています。単に解像度を上げるだけでは不十分であり、回折限界への対処は不可欠です。振動のせいで「そもそも取り込まれなかった情報」をAIで復元することは不可能です。AOシステムは可変形状ミラーを用い、光がセンサーに届く前に物理的なエラーをリアルタイムで中和します。</p>
             </div>
-            <div class="trans-item">
-                <span class="trans-title">Case 2: SWaP要件と信号整合性</span>
-                <p>宇宙防衛分野におけるSWaP（小型・軽量・低消費電力）への要求は極めて厳格です。独自の防振ロッキング機構とEMIシールドを備えたモジュール式コネクタにより、質量を30%削減しつつ、軌道上の過酷な熱サイクル下での信号整合性（SI）を担保します。</p>
+            <div>
+                <h4 style="color:var(--main-navy); border-bottom: 2px solid var(--accent-orange); padding-bottom:10px;">Case 2: 宇宙用SWaP要件と信号整合性</h4>
+                <p>新しいLEO衛星コンステレーション用に高信頼性インターコネクトを統合しています。SWaP（サイズ・重量・電力）要件は極めて厳格です。30%の軽量化を図りつつ、過酷な熱サイクル下での信号整合性（SI）を担保。独自の防振ロッキング機構により、たった一つの接続不良も許されないミッションクリティカルな要求に応えます。</p>
             </div>
         </div>
     </div>
 
-    <section class="study-section">
-        <div class="study-grid">
-            <div class="vocab-list">
-                <h3 style="border-bottom: 2px solid var(--main-navy); padding-bottom: 10px;">💡 Key Vocabulary</h3>
-                <div class="vocab-item"><span class="vocab-en">Diffraction limit</span><span>回折限界（物理的な解像限界）</span></div>
-                <div class="vocab-item"><span class="vocab-en">High-fidelity</span><span>高忠実度（正確な再現性）</span></div>
-                <div class="vocab-item"><span class="vocab-en">Stringent</span><span>厳格な（要件・基準）</span></div>
-                <div class="vocab-item"><span class="vocab-en">Robustness</span><span>堅牢性</span></div>
-                <div class="vocab-item"><span class="vocab-en">Non-negotiable</span><span>譲歩できない（最優先の）</span></div>
-            </div>
-            <div class="phrase-list">
-                <h3 style="border-bottom: 2px solid var(--main-navy); padding-bottom: 10px;">📝 Useful Phrases</h3>
-                <div class="phrase-box">
-                    <strong>"Addressing [A] is indispensable."</strong><br>
-                    （[A]への対処は不可欠です。）<br><br>
-                    <strong>"It allows you to pack [B] into a tiny footprint."</strong><br>
-                    （これにより[B]を極小の面積に集積可能です。）<br><br>
-                    <strong>"A single failure means mission failure."</strong><br>
-                    （たった一つの故障がミッションの失敗を意味します。）
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="archive-section">
+    <section class="archive-section" id="archives">
         <div class="archive-title">TECHNICAL ARCHIVES</div>
-        <div class="archive-grid">
-            <div class="archive-card">
-                <div class="card-head blue-head">
-                    <small>CASE STUDY: ARCHIVE</small>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+            <div class="archive-card" onclick="openArchive('fpga')">
+                <div class="card-head blue-head" style="background:var(--main-navy); color:#fff; padding:20px;">
+                    <small>MAY 11 MORNING</small>
                     <h4>FPGA SiP & Evolvable Hardware</h4>
                 </div>
-                <div class="card-body">
-                    3D積層技術を用いたFPGA。深宇宙ミッションにおける遠隔ロジック再構成と放射線耐性の両立。
-                </div>
+                <div style="padding:20px; font-size:0.85rem;">深宇宙ミッションにおけるロジック再構成と放射線耐性。</div>
             </div>
-            <div class="archive-card">
-                <div class="card-head orange-head">
-                    <small>CASE STUDY: ARCHIVE</small>
+            <div class="archive-card" onclick="openArchive('dynamic')">
+                <div class="card-head orange-head" style="background:var(--accent-orange); color:#fff; padding:20px;">
+                    <small>MAY 11 MORNING</small>
                     <h4>2nm Dynamic Optical Systems</h4>
                 </div>
-                <div class="card-body">
-                    微振動による収差を物理層で能動制御し、歩留まり停滞を打破する動的光学ソリューション。
-                </div>
+                <div style="padding:20px; font-size:0.85rem;">微振動収差を物理層で制御する動的光学ソリューション。</div>
             </div>
         </div>
     </section>
 </div>
 
-<footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
-    <div class="footer-info">
-        <p class="company-name" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">クロニクス株式会社</p>
-        <address class="footer-address" style="font-style: normal; line-height: 1.8; color: #cbd5e1;">
-            <p>〒160-0023 東京都新宿区西新宿3-2-11 新宿三井ビルディング二号館 904室</p>
-            <div class="contact-grid" style="display: flex; justify-content: center; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
-                <p><strong>TEL</strong> 03-5322-7191</p>
-                <p><strong>FAX</strong> 03-5322-7790</p>
+<div id="archiveModal">
+    <div class="modal-body">
+        <span class="close-modal" onclick="closeArchive()">&times;</span>
+        <h2 id="modalTitle" style="color:var(--main-navy);"></h2>
+        <div id="modalAudioBtn" style="margin-bottom:20px;"></div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+            <div style="background:var(--bg-slate); padding:20px; border-radius:4px;">
+                <h5 style="margin-top:0;">English Script</h5>
+                <p id="modalEn" style="font-size:0.9rem;"></p>
             </div>
-        </address>
-        <a href="mailto:sales@chronix.co.jp" class="btn-contact" style="display: inline-block; background: #f97316; color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold;">
-            メールでお問い合わせ
-        </a>
-        <p style="margin-top: 50px; font-size: 0.8rem; color: #64748b; letter-spacing: 0.05em;">
-            © 2026 CHRONIX
-        </p>
+            <div style="background:#fff7ed; padding:20px; border-radius:4px;">
+                <h5 style="margin-top:0;">Japanese Translation</h5>
+                <p id="modalJp" style="font-size:0.9rem;"></p>
+            </div>
+        </div>
     </div>
-</footer>
+</div>
+
+<footer>© 2026 CHRONIX | 物理限界を突破する、次世代のエンジニアリング・リンク</footer>
 
 <script>
-    // Image Zoom Functionality
-    document.querySelectorAll('img').forEach(img => {
-        img.addEventListener('click', function() {
-            this.classList.toggle('zoomed');
-            if (this.classList.contains('zoomed')) {
-                this.style.cursor = 'zoom-out';
-            } else {
-                this.style.cursor = 'zoom-in';
-            }
-        });
-    });
-
-    // Translation Toggle
-    function toggleTranslation() {
-        const content = document.getElementById('transContent');
-        const btn = event.target;
-        if (content.style.display === 'block') {
-            content.style.display = 'none';
-            btn.innerHTML = '🔍 スクリプトの技術解説・和訳を表示';
-        } else {
-            content.style.display = 'block';
-            btn.innerHTML = '🔼 解説を閉じる';
+    const archiveData = {
+        'fpga': {
+            title: 'FPGA SiP and Evolvable Hardware',
+            audio: '3d.mp3',
+            en: 'A: For the Mars mission, we’re proposing the FPGA SiP integrated with 3D stacking technology. physical maintenance is impossible in deep space. With FPGA, we can remotely reconfigure the hardware logic.',
+            jp: '深宇宙ミッションに向け、3D積層技術を統合したFPGA SiPを提案しています。物理的なメンテナンスが不可能な環境でも、遠隔でハードウェア・ロジックを再構成し、予期せぬ故障に適応できます。'
+        },
+        'dynamic': {
+            title: '2nm Process and Dynamic Optics',
+            audio: 'yield.mp3',
+            en: 'A: Our latest yield report shows that at the 2nm node, traditional static lenses cannot maintain precision. By actively controlling aberrations at the physical layer, we stabilize the image before AI processing.',
+            jp: '2nmノードでは従来の固定レンズでは精度維持が困難です。AI処理の前に物理レイヤーで収差を能動的に制御することで、画像を安定させ、歩留まりの停滞を打破します。'
         }
+    };
+
+    function openArchive(id) {
+        const d = archiveData[id];
+        document.getElementById('modalTitle').innerText = d.title;
+        document.getElementById('modalEn').innerText = d.en;
+        document.getElementById('modalJp').innerText = d.jp;
+        document.getElementById('modalAudioBtn').innerHTML = `<div class="audio-btn" onclick="playAudio('${d.audio}')">🔊 LISTEN TO ARCHIVE</div>`;
+        document.getElementById('archiveModal').style.display = 'block';
     }
 
-    // Audio Mock (Placeholder)
-    function playAudio(file) {
-        console.log("Playing audio: " + file);
-        alert("Audio playback simulation for: " + file);
+    function closeArchive() { document.getElementById('archiveModal').style.display = 'none'; }
+    function toggleTranslation() {
+        const c = document.getElementById('transContent');
+        c.style.display = (c.style.display === 'block') ? 'none' : 'block';
     }
+    function playAudio(f) { alert("Playing: " + f); }
 </script>
-
 </body>
 </html>
