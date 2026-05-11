@@ -6,213 +6,335 @@
     <title>CHRONIX | GLOBAL TECH DAILY</title>
     <style>
         :root {
-            --primary-blue: #004a99;
-            --accent-orange: #d35400;
-            --dark-bg: #1a1a1a;
-            --light-gray: #f4f4f4;
-            --text-color: #333;
+            --vision-blue: #003366;
+            --space-orange: #8a4a1d;
+            --text-white: #ffffff;
+            --bg-light: #f8f9fa;
         }
 
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
             margin: 0;
             padding: 0;
+            background-color: #fff;
+            color: #333;
         }
 
+        /* Header */
         header {
-            background: #fff;
-            padding: 1rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid var(--primary-blue);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            padding: 10px 5%;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
         }
+        .logo { font-weight: bold; font-size: 1.4rem; letter-spacing: 1px; color: #000; text-decoration: none; }
+        .logo span { font-weight: normal; font-size: 0.9rem; margin-left: 10px; color: #666; }
+        nav a { margin-left: 15px; text-decoration: none; color: #333; font-size: 0.85rem; }
 
-        .logo { font-weight: bold; font-size: 1.5rem; }
-        .logo span { color: var(--primary-blue); }
-
-        nav a { margin-left: 20px; text-decoration: none; color: #666; font-size: 0.9rem; }
-
-        .container { display: flex; flex-wrap: wrap; width: 100%; }
-
-        /* セクション共通 */
-        .section {
-            flex: 1;
-            min-width: 500px;
-            padding: 40px 5%;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* マシンビジョン側 */
-        .vision-section { background: linear-gradient(rgba(0,30,60,0.8), rgba(0,30,60,0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000'); background-size: cover; border-right: 1px solid #444; }
-        
-        /* 宇宙・防衛側 */
-        .space-section { background: linear-gradient(rgba(40,20,0,0.8), rgba(40,20,0,0.8)), url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=1000'); background-size: cover; }
-
-        h2 { border-left: 5px solid; padding-left: 15px; margin-bottom: 20px; }
-        .vision-section h2 { border-color: #00aaff; }
-        .space-section h2 { border-color: var(--accent-orange); }
-
-        .audio-player {
-            background: rgba(255,255,255,0.1);
-            padding: 15px;
-            border-radius: 8px;
-            margin: 20px 0;
+        /* Hero Container */
+        .hero-container {
             display: flex;
-            align-items: center;
+            height: 500px;
+            width: 100%;
+            overflow: hidden;
+            color: var(--text-white);
         }
 
-        .script-box {
+        .hero-section {
+            flex: 1;
+            position: relative;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-size: cover;
+            background-position: center;
+            transition: flex 0.5s ease;
+        }
+
+        /* NOTE: 実際の運用時は background-image に生成した画像URLを指定してください。
+           現在はイメージに近いプレースホルダー色を背景に設定しています。
+        */
+        .vision-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000');
+        }
+        .space-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&q=80&w=1000');
+            border-left: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            opacity: 0.8;
             background: rgba(0,0,0,0.3);
-            padding: 20px;
-            border-radius: 5px;
-            font-size: 0.95rem;
-            height: 250px;
-            overflow-y: auto;
-            border: 1px solid rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 2px 8px;
         }
 
-        .script-line { margin-bottom: 10px; }
-        .speaker { font-weight: bold; color: #ffcc00; }
-
-        .phrase-card {
-            background: rgba(255,255,255,0.9);
-            color: #333;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 5px;
+        .hero-section h1 {
+            font-size: 1.8rem;
+            margin: 5px 0 20px 0;
+            line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-
-        /* トレンドレポート誘導 */
-        .report-cta {
-            background: var(--light-gray);
-            padding: 40px 5%;
-            text-align: center;
+        
+        .meta-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
             width: 100%;
         }
 
-        .report-grid {
+        .audio-btn {
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
+            align-items: center;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.85rem;
+            transition: background 0.3s;
         }
+        .audio-btn:hover { background: rgba(255,255,255,0.3); }
+        .audio-icon { margin-right: 10px; font-size: 1.1rem; }
 
-        .report-item {
-            background: white;
-            padding: 20px;
-            width: 300px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-top: 5px solid var(--primary-blue);
+        .key-phrases-box {
+            background: rgba(0,0,0,0.6);
+            padding: 12px 15px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            border-left: 3px solid #fff;
         }
+        .key-phrases-box strong { color: #aaa; display: block; margin-bottom: 5px; font-size: 0.7rem; }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background: var(--primary-blue);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
+        /* Trend Report Section */
+        .report-section {
+            padding: 50px 5%;
+            background-color: var(--bg-light);
+        }
+        .section-title {
+            font-size: 1.2rem;
             font-weight: bold;
-            margin-top: 15px;
-            transition: 0.3s;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #ddd;
+            margin-left: 20px;
+        }
+        
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
         }
 
-        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
-        .btn-orange { background: var(--accent-orange); }
+        .report-card {
+            display: flex;
+            background: #fff;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .report-card:hover { transform: translateY(-5px); }
 
-        footer { background: var(--dark-bg); color: #999; text-align: center; padding: 20px; font-size: 0.8rem; }
+        .report-img-placeholder {
+            width: 110px;
+            background: #2c3e50;
+            color: #fff;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.65rem;
+            text-align: center;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+        .report-content { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+        .report-content h4 { margin: 0 0 8px 0; font-size: 1.05rem; color: #222; }
+        .report-content p { font-size: 0.8rem; color: #666; margin: 0 0 15px 0; }
+        .download-btn {
+            font-size: 0.8rem;
+            color: var(--vision-blue);
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .download-btn::after { content: " →"; margin-left: 5px; }
 
-        @media (max-width: 1000px) {
-            .section { min-width: 100%; }
+        .view-all-row { text-align: center; }
+        .view-all-btn {
+            display: inline-block;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 15px 60px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        .view-all-btn:hover { background: #eee; }
+
+        /* Evening Preview Section */
+        .preview-section {
+            padding: 30px 5%;
+            background: #fff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .preview-card {
+            border: 1px solid #eee;
+            padding: 15px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            background: #fafafa;
+        }
+        .preview-thumb {
+            width: 70px;
+            height: 45px;
+            background: #ddd;
+            margin-right: 20px;
+            border-radius: 3px;
+        }
+        .preview-info .time-label { font-size: 0.65rem; color: #999; text-transform: uppercase; margin-bottom: 3px; }
+        .preview-info .topic-title { font-size: 0.95rem; font-weight: bold; color: #333; }
+
+        @media (max-width: 900px) {
+            .hero-container { flex-direction: column; height: auto; }
+            .hero-section { height: 400px; }
+            .preview-section { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo">CHRONIX <span>GLOBAL TECH DAILY</span></div>
+    <a href="#" class="logo">CHRONIX <span>GLOBAL TECH DAILY</span></a>
     <nav>
+        <a href="#">Top</a>
         <a href="#">Archives</a>
+        <a href="#">Skills Bank</a>
         <a href="#">Trend Reports</a>
         <a href="#">Contact</a>
+        <a href="#" style="background: #000; color: #fff; padding: 5px 10px; border-radius: 3px;">日本語 / EN</a>
     </nav>
 </header>
 
-<div class="container">
-    <div class="section vision-section">
-        <h2>Case 1: Multispectral Analysis</h2>
-        <p><strong>テーマ：Silios社のSnapshot技術</strong></p>
+<div class="hero-container">
+    <!-- Case 1: Machine Vision -->
+    <div class="hero-section vision-hero">
+        <div class="label">MORNING BROADCAST: May 11, 2026</div>
+        <p style="font-size: 0.9rem; margin-bottom: 5px; color: #00aaff; font-weight: bold;">THEME: Snapshot Non-destructive Testing</p>
+        <h1>Case 1: Multispectral Analysis on Conveyor</h1>
         
-        <div class="audio-player">
-            <span>▶ Morning Listen: Snapshot vs Traditional (01:45)</span>
-        </div>
-
-        <div class="script-box">
-            <div class="script-line"><span class="speaker">A:</span> We are integrating the Silios multispectral sensor into your production line.</div>
-            <div class="script-line"><span class="speaker">B:</span> How does it compare to traditional spectroscopy?</div>
-            <div class="script-line"><span class="speaker">A:</span> It eliminates errors caused by moving objects. Snapshot technology is the key.</div>
-            <div class="script-line"><span class="speaker">B:</span> So we can perform non-destructive testing in real-time?</div>
-            <div class="script-line"><span class="speaker">A:</span> Exactly.</div>
-        </div>
-
-        <div class="phrase-card">
-            <strong>💡 今日の重要単語</strong><br>
-            • Multispectral (マルチスペクトル)<br>
-            • Non-destructive testing (非破壊検査)
+        <div class="meta-info">
+            <div class="audio-btn">
+                <span class="audio-icon">🔊</span>
+                <span><strong>MORNING LISTEN:</strong><br>'Snapshot Spectroscopy vs Traditional'</span>
+            </div>
+            <div class="key-phrases-box">
+                <strong>KEY PHRASES</strong>
+                It eliminates errors caused by [A].<br>
+                Real-time chemical detection<br>
+                Spectral Signature
+            </div>
         </div>
     </div>
 
-    <div class="section space-section">
-        <h2>Case 2: Satellite Laser Terminal</h2>
-        <p><strong>テーマ：Cedrat社 圧電アクチュエータ</strong></p>
-
-        <div class="audio-player">
-            <span>▶ Morning Listen: Space-Grade Precision (02:10)</span>
-        </div>
-
-        <div class="script-box">
-            <div class="script-line"><span class="speaker">A:</span> We’ve selected piezoelectric actuators from Cedrat Technologies.</div>
-            <div class="script-line"><span class="speaker">B:</span> Our actuators provide nanometer-level precision even in vacuum.</div>
-            <div class="script-line"><span class="speaker">A:</span> How do they handle high-frequency vibrations during launch?</div>
-            <div class="script-line"><span class="speaker">B:</span> The mechanical amplification design ensures high stiffness.</div>
-        </div>
-
-        <div class="phrase-card">
-            <strong>💡 今日の重要単語</strong><br>
-            • Piezoelectric actuator (圧電アクチュエータ)<br>
-            • Mechanical amplification (機械的増幅)
+    <!-- Case 2: Space & Defense -->
+    <div class="hero-section space-hero">
+        <div class="label">SECTION 2: Aerospace & Defense</div>
+        <p style="font-size: 0.9rem; margin-bottom: 5px; color: #ff9933; font-weight: bold;">THEME: Nano-Positioning in Harsh Environments</p>
+        <h1>Case 2: Satellite Laser Terminal</h1>
+        
+        <div class="meta-info">
+            <div class="audio-btn">
+                <span class="audio-icon">🔊</span>
+                <span><strong>MORNING LISTEN:</strong><br>'Space-Grade Precision-to-Weight'</span>
+            </div>
+            <div class="key-phrases-box">
+                <strong>KEY PHRASES</strong>
+                It's built to withstand [B].<br>
+                Nanometer-level precision<br>
+                Mechanical Amplification
+            </div>
         </div>
     </div>
 </div>
 
-<div class="report-cta">
-    <h3>Related TREND REPORTS</h3>
-    <p>英会話で紹介した技術の、より詳細な市場動向・技術資料はこちらから</p>
+<div class="report-section">
+    <div class="section-title">TREND REPORT LATEST</div>
     <div class="report-grid">
-        <div class="report-item">
-            <h4>Machine Vision Trends 2026</h4>
-            <p>Snapshot分光が変えるインライン検査の未来</p>
-            <a href="#" class="btn">PDFダウンロード</a>
+        <!-- Report 1 -->
+        <div class="report-card">
+            <div class="report-img-placeholder">MACHINE<br>VISION<br>TRENDS<br>2026</div>
+            <div class="report-content">
+                <h4>Machine Vision Trends 2026</h4>
+                <p>Snapshot分光が変えるインライン検査の未来。最新のSilios社事例を収録。</p>
+                <a href="#" class="download-btn">Download PDF</a>
+            </div>
         </div>
-        <div class="report-item" style="border-color: var(--accent-orange);">
-            <h4>Aerospace & Defense Tech</h4>
-            <p>極限環境における精密駆動の最新要件</p>
-            <a href="#" class="btn btn-orange">PDFダウンロード</a>
+        <!-- Report 2 -->
+        <div class="report-card">
+            <div class="report-img-placeholder" style="background:var(--space-orange);">AEROSPACE<br>& DEFENSE<br>TECH 2026</div>
+            <div class="report-content">
+                <h4>Aerospace & Defense Tech</h4>
+                <p>極限環境（真空・高振動）における精密駆動とナノポジショニングの要件。</p>
+                <a href="#" class="download-btn">Download PDF</a>
+            </div>
+        </div>
+    </div>
+    <div class="view-all-row">
+        <a href="#" class="view-all-btn">View All Trend Reports</a>
+    </div>
+</div>
+
+<div class="preview-section">
+    <div class="preview-card">
+        <div class="preview-thumb"></div>
+        <div class="preview-info">
+            <div class="time-label">EVENING PREVIEW: 18:00 JST</div>
+            <div class="topic-title">Semiconductor Aberration Control</div>
+        </div>
+    </div>
+    <div class="preview-card">
+        <div class="preview-thumb"></div>
+        <div class="preview-info">
+            <div class="time-label">EVENING PREVIEW: 18:00 JST</div>
+            <div class="topic-title">Space-Edge FPGA & AI Integration</div>
         </div>
     </div>
 </div>
 
-<footer>
-    &copy; 2026 CHRONIX Co., Ltd. Morning Broadcast: May 11, 2026<br>
-    夕方18:00更新：半導体収差制御 / 宇宙エッジFPGA
+<footer style="background: #1a1a1a; color: #666; text-align: center; padding: 40px 5%; font-size: 0.75rem;">
+    &copy; 2026 CHRONIX Co., Ltd. All Rights Reserved.<br>
+    <div style="margin-top: 10px;">
+        <a href="#" style="color: #666; margin: 0 10px;">Privacy Policy</a> | 
+        <a href="#" style="color: #666; margin: 0 10px;">Terms of Service</a>
+    </div>
 </footer>
 
 </body>
