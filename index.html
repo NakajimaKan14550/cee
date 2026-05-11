@@ -96,45 +96,43 @@
 </header>
 
 <div class="intro-banner">
-    <strong>こんにちは！5月11日の定期配信です。</strong><br>
-    本日のテーマは、最新の「回折限界と補償光学」および「LEO衛星のSWaP要件」をピックアップしました。
+    <strong>こんにちは！本日の定期配信です。</strong><br>
+    データセンターの最新熱管理技術と、宇宙探査ミッションを支える「進化するハードウェア」をお届けします。
 </div>
 
 <div class="hero-container">
     <div class="hero-section vision-hero">
-        <div class="label">Machine Vision</div>
-        <p class="theme-sub" style="color: #4db8ff;">テーマ：2nmプロセスにおける「回折限界」と「補償光学」</p>
-        <h1>Breaking the Diffraction Limit</h1>
+        <div class="label">Thermal Intelligence</div>
+        <p class="theme-sub" style="color: #4db8ff;">テーマ：DC熱管理の転換（点から面へ）</p>
+        <h1>Thermal Intelligence in the AI Era</h1>
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. Addressing the diffraction limit is indispensable, as simply increasing sensor resolution is no longer sufficient.</div>
-            <div class="script-line"><span class="speaker">B:</span> I understand the physical constraints. But can't we compensate for blur using AI-based post-processing?</div>
-            <div class="script-line"><span class="speaker">A:</span> Unfortunately, AI cannot restore "information that was never captured" due to vibrations. Our AO system uses deformable mirrors to cancel these errors in real-time.</div>
-            <div class="script-line"><span class="speaker">B:</span> So for AI analysis to be truly reliable, we need "True Imaging" at the physical layer?</div>
-            <div class="script-line"><span class="speaker">A:</span> Exactly. By neutralizing the wavefront error before the light hits the sensor, we provide the high-fidelity data your AI needs to achieve target yields.</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> With the rise of high-density AI servers, traditional temperature sensors—which only measure a single point—are no longer enough. We are seeing 'micro-hotspots' that appear and disappear in seconds. Our clients need a way to monitor the thermal distribution across the entire rack in real-time, but they are also very concerned about privacy inside the server room.</div>
+            <div class="script-line"><span class="speaker">B (Calumino):</span> That is exactly why our privacy-protected thermal sensors are gaining traction. Unlike standard high-resolution thermography, our technology provides enough spatial resolution to detect a thermal anomaly without identifying individual faces. We use a bolometer-based array that captures the 'thermal footprint' of the airflow.</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> Integration is key. We want to use the thermal data to trigger an immediate increase in fan speed or to shift workloads before a component fails. How do your sensors handle Electromagnetic Interference (EMI)? We need to capture those transient heat spikes before they lead to a thermal shutdown.</div>
         </div>
         <div class="meta-footer">
-            <div id="btn-ao" class="audio-btn" onclick="toggleAudio('nano.mp3', 'btn-ao')">
+            <div id="btn-thermal" class="audio-btn" onclick="toggleAudio('calumino.mp3', 'btn-thermal')">
                 <span class="audio-icon">▶️</span>
-                <span><strong>LISTEN:</strong><br>'Breaking the Diffraction Limit'</span>
+                <span><strong>LISTEN:</strong><br>'Thermal Intelligence'</span>
             </div>
         </div>
     </div>
 
     <div class="hero-section space-hero">
         <div class="label">Space / Defense</div>
-        <p class="theme-sub" style="color: #ffaa00;">テーマ：衛星コンステレーションの「SWaP」と「信号整合性」</p>
-        <h1>SWaP and Signal Integrity</h1>
+        <p class="theme-sub" style="color: #ffaa00;">テーマ：極限環境での「進化する回路」</p>
+        <h1>FPGA SiP and Evolvable Hardware</h1>
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> We are integrating high-reliability interconnects for a new LEO satellite constellation. SWaP requirements—Size, Weight, and Power—are extremely stringent.</div>
-            <div class="script-line"><span class="speaker">B:</span> Our modular connectors can reduce total mass by 30% while maintaining the robustness required for launch.</div>
-            <div class="script-line"><span class="speaker">A:</span> I’m concerned about Signal Integrity (SI) under harsh thermal cycling in orbit. A single failure means mission failure.</div>
-            <div class="script-line"><span class="speaker">B:</span> Our connectors feature unique vibration-proof locking mechanisms. We provide data on EMI shielding to ensure stable transmission.</div>
-            <div class="script-line"><span class="speaker">A:</span> Let's proceed with benchmarking. Reliability is our non-negotiable priority.</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</div>
+            <div class="script-line"><span class="speaker">B:</span> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</div>
+            <div class="script-line"><span class="speaker">A:</span> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.</div>
+            <div class="script-line"><span class="speaker">B:</span> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?</div>
+            <div class="script-line"><span class="speaker">A:</span> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.</div>
         </div>
         <div class="meta-footer">
-            <div id="btn-si" class="audio-btn" onclick="toggleAudio('3d.mp3', 'btn-si')">
+            <div id="btn-fpga" class="audio-btn" onclick="toggleAudio('3d.mp3', 'btn-fpga')">
                 <span class="audio-icon">▶️</span>
-                <span><strong>LISTEN:</strong><br>'SWaP and Signal Integrity'</span>
+                <span><strong>LISTEN:</strong><br>'Evolvable Hardware'</span>
             </div>
         </div>
     </div>
@@ -144,47 +142,43 @@
     <button class="translation-btn" onclick="toggleTranslation()">🔍 スクリプトの和訳を見る</button>
     <div class="translation-content" id="transContent">
         <div class="trans-item">
-            <div class="trans-title">Case 1: [Vision] Breaking the Diffraction Limit</div>
-            <p>（2nmプロセスにおける「回折限界」と「補償光学」）</p>
-            <p>A: 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。単にセンサーの解像度を上げるだけではもはや不十分であり、回折限界への対処は不可欠です。</p>
-            <p>B: 物理的な制約は理解しています。しかし、AIベースの後処理でボケを補正することはできないのでしょうか？</p>
-            <p>A: 残念ながら、振動のせいで「そもそも取り込まれなかった情報」をAIで復元することは不可能です。我々のAOシステムは可変形状ミラーを使用し、これらのエラーをリアルタイムで打ち消します。</p>
-            <p>B: つまり、AI解析を真に信頼できるものにするためには、物理レイヤーでの「真の結像（True Imaging）」が必要だということですね？</p>
-            <p>A: その通りです。光がセンサーに届く前に波面収差を中和することで、歩留まり目標の達成に必要な高忠実度データをAIに提供できるのです。</p>
+            <div class="trans-title">Case 1: Thermal Intelligence in the AI Era</div>
+            <p>（AI時代の熱インテリジェンス）</p>
+            <p><b>A (クロニクス):</b> 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。クライアントはラック全体の温度分布を監視する方法を必要としていますが、プライバシーも非常に懸念しています。</p>
+            <p><b>B (Calumino):</b> だからこそ弊社のプライバシー保護型熱センサが注目されています。個人の顔を特定することなく熱異常を検知でき、気流の「熱フットプリント」を捉えるボロメータ配列を使用しています。</p>
+            <p><b>A:</b> 統合が鍵です。熱データを使用してファンの回転数を上げたり、故障前にワークロードを移動させたい。電磁妨害（EMI）対策はどうなっていますか？シャットダウン前に一時的な熱スパイクを捉える必要があります。</p>
         </div>
         <div class="trans-item">
-            <div class="trans-title">Case 2: [Space] SWaP and Signal Integrity</div>
-            <p>（宇宙防衛分野における「SWaP」と「信号整合性」）</p>
-            <p>A: 新しい低軌道（LEO）衛星コンステレーション用に高信頼性のインターコネクトを統合しています。サイズ、重量、電力の「SWaP」要件は極めて厳格です。</p>
-            <p>B: 弊社のモジュール式コネクタは、打ち上げに必要な堅牢性を維持しつつ、全体の質量を30%削減できます。</p>
-            <p>A: 軌道上の過酷な熱サイクル下での信号整合性（SI）を懸念しています。たった一つの故障がミッションの失敗を意味します。</p>
-            <p>B: 弊社のコネクタは独自の防振ロッキング機構を備えています。また、安定した伝送を保証するためにEMI（電磁妨害）シールドのデータも提供します。</p>
-            <p>A: ベンチマークを進めましょう。信頼性は我々にとって譲れない最優先事項です。</p>
+            <div class="trans-title">Case 2: FPGA SiP and Evolvable Hardware</div>
+            <p>（テーマ：メンテナンス不能な極限環境での「進化する回路」）</p>
+            <p><b>A（クロニクス・エンジニア）：</b>火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。</p>
+            <p><b>B（海外テックパートナー）：</b>標準的な放射線耐性ASICを使わないのはなぜですか？ 通常、そちらの方が電力効率が良いはずですが。</p>
+            <p><b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。</p>
+            <p><b>B：</b>なるほど。つまり3D統合（積層）技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？</p>
+            <p><b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。</p>
         </div>
     </div>
 </div>
 
 <div class="study-section">
     <div class="study-box" style="border-top: 5px solid var(--vision-blue);">
-        <h3 style="color: var(--vision-blue); border-color: var(--vision-blue);">【Machine Vision】 学習セクション</h3>
+        <h3 style="color: var(--vision-blue); border-color: var(--vision-blue);">【AI熱管理】 学習セクション</h3>
         <div class="study-grid-inner">
             <div class="vocab-list">
-                <h4>💡 重要単語 / Key Vocabulary</h4>
-                <div class="vocab-item"><span class="vocab-en">Indispensable:</span> 不可欠な</div>
-                <div class="vocab-item"><span class="vocab-en">Diffraction limit:</span> 回折限界</div>
-                <div class="vocab-item"><span class="vocab-en">Misconception:</span> 誤解、思い込み</div>
-                <div class="vocab-item"><span class="vocab-en">Deformable mirrors:</span> 可変形状ミラー</div>
-                <div class="vocab-item"><span class="vocab-en">Neutralize:</span> 中和する、打ち消す</div>
-                <div class="vocab-item"><span class="vocab-en">High-fidelity:</span> 高忠実度</div>
-                <div class="vocab-item"><span class="vocab-en">Non-negotiable:</span> 譲れない、交渉の余地のない</div>
+                <h4>🛠️ テクニカル単語帳</h4>
+                <div class="vocab-item"><span class="vocab-en">Thermal distribution:</span> 温度分布</div>
+                <div class="vocab-item"><span class="vocab-en">Micro-hotspots:</span> 微小な熱溜まり</div>
+                <div class="vocab-item"><span class="vocab-en">Bolometer:</span> ボロメーター（熱検知器）</div>
+                <div class="vocab-item"><span class="vocab-en">PUE:</span> 電力使用効率指標</div>
+                <div class="vocab-item"><span class="vocab-en">Transient heat spikes:</span> 一時的な急激な温度上昇</div>
             </div>
             <div class="phrase-list">
-                <h4>📝 実践フレーズ / Useful Phrases</h4>
+                <h4>📝 実践フレーズ</h4>
                 <div class="phrase-box">
-                    <strong>"Addressing [A] is no longer optional; it is indispensable."</strong><br>
-                    （[A]への対処はもはや任意ではなく、不可欠です。）<br><br>
-                    <strong>"AI cannot restore information that was never captured."</strong><br>
-                    （AIは、そもそも取り込まれなかった情報を復元することはできません。）
+                    <strong>"We need to identify 'micro-hotspots' before they escalate."</strong><br>
+                    （深刻化する前にマイクロ・ホットスポットを特定する必要があります。）<br><br>
+                    <strong>"Traditional point-sensors are leaving blind spots."</strong><br>
+                    （従来の点センサでは死角が生じています。）
                 </div>
             </div>
         </div>
@@ -195,17 +189,17 @@
         <div class="study-grid-inner">
             <div class="vocab-list">
                 <h4>💡 重要単語 / Key Vocabulary</h4>
-                <div class="vocab-item"><span class="vocab-en">SWaP:</span> Size, Weight, and Power</div>
-                <div class="vocab-item"><span class="vocab-en">Stringent:</span> 厳格な、厳しい</div>
-                <div class="vocab-item"><span class="vocab-en">Robustness:</span> 堅牢性、頑強性</div>
-                <div class="vocab-item"><span class="vocab-en">Signal Integrity (SI):</span> 信号整合性</div>
-                <div class="vocab-item"><span class="vocab-en">EMI shielding:</span> 電磁妨害シールド</div>
+                <div class="vocab-item"><span class="vocab-en">FPGA:</span> 製造後に構成書き換え可能な集積回路</div>
+                <div class="vocab-item"><span class="vocab-en">SiP (System-in-Package):</span> 複数チップを1つの封止にしたもの</div>
+                <div class="vocab-item"><span class="vocab-en">3D Stacking:</span> 3次元積層技術</div>
+                <div class="vocab-item"><span class="vocab-en">Reconfigure:</span> 再構成する（後から変更する）</div>
+                <div class="vocab-item"><span class="vocab-en">Evolvable Hardware:</span> 進化型ハードウェア</div>
             </div>
             <div class="phrase-list">
-                <h4>📝 実践フレーズ / Useful Phrases</h4>
+                <h4>📝 実践フレーズ</h4>
                 <div class="phrase-box" style="border-left-color: var(--space-orange); background: #fff5eb;">
-                    <strong>"A single failure means mission failure."</strong><br>
-                    （たった一つの失敗がミッションの失敗を意味します。）<br><br>
+                    <strong>"It allows you to pack high-density processing into a tiny footprint."</strong><br>
+                    （これにより高密度な処理機能を極小の設置面積に詰め込むことができます。）<br><br>
                     <strong>"Reliability starts at the physical contact point of [B]."</strong><br>
                     （信頼性は、[B]という物理的な接点から始まります。）
                 </div>
@@ -217,47 +211,35 @@
 <div class="archive-section">
     <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
     <div class="archive-grid">
-        <div class="archive-card" onclick="openArchiveModal('mv_archive')">
-            <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
-                <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
-                <h4 style="margin: 10px 0 0 0;">2nm Process and Dynamic Optics</h4>
-            </div>
-            <div style="padding: 20px; font-size: 0.85rem; color: #666;">
-                収差制御による歩留まり停滞の打破。<br>
-                <span style="color: var(--vision-blue); font-weight: bold; margin-top: 10px; display: block;">VIEW LESSON →</span>
-            </div>
-        </div>
-        <div class="archive-card" onclick="openArchiveModal('sp_archive')">
+        <div class="archive-card" onclick="openArchiveModal('swap_archive')">
             <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
                 <span style="font-size: 0.7rem; opacity: 0.8;">SPACE ARCHIVE</span>
-                <h4 style="margin: 10px 0 0 0;">FPGA SiP and Evolvable Hardware</h4>
+                <h4 style="margin: 10px 0 0 0;">SWaP and Signal Integrity</h4>
             </div>
-            <div style="padding: 20px; font-size: 0.85rem; color: #666;">
-                深宇宙での自己再構成型ハードウェア。<br>
-                <span style="color: var(--space-orange); font-weight: bold; margin-top: 10px; display: block;">VIEW LESSON →</span>
+            <div style="padding: 20px; font-size: 0.85rem; color: #666;">衛星の信号整合性とSWaP要件。</div>
+        </div>
+        <div class="archive-card" onclick="openArchiveModal('diff_archive')">
+            <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
+                <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
+                <h4 style="margin: 10px 0 0 0;">Breaking the Diffraction Limit</h4>
             </div>
+            <div style="padding: 20px; font-size: 0.85rem; color: #666;">2nm検査ラインと補償光学。</div>
         </div>
     </div>
 </div>
 
 <div id="archiveModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:3000; padding:20px; overflow-y:auto;">
     <div style="max-width:800px; margin:40px auto; background:#fff; border-radius:15px; padding:40px; position:relative;">
-        <span onclick="closeArchiveModal()" style="position:absolute; top:20px; right:25px; font-size:35px; cursor:pointer; color:#999;">&times;</span>
-        <h2 id="modalTitle" style="color:var(--vision-blue);"></h2>
-        <div id="modalAudioBtn" class="audio-btn" style="background:#f1f5f9; color:#333; margin: 20px 0;"></div>
-        <div style="background:#f8fafc; padding:20px; border-radius:10px; margin-bottom: 15px;">
-            <h4 style="margin:0 0 10px 0; color:#444;">English Script</h4>
-            <div id="modalEnScript" style="font-size:0.95rem; line-height:1.6;"></div>
-        </div>
-        <div style="background:#fff7ed; padding:20px; border-radius:10px;">
-            <h4 style="margin:0 0 10px 0; color:#c2410c;">Japanese Translation</h4>
-            <div id="modalJpScript" style="font-size:0.9rem; line-height:1.6;"></div>
-        </div>
+        <span onclick="closeArchiveModal()" style="position:absolute; top:20px; right:25px; font-size:35px; cursor:pointer;">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <div id="modalAudioBtn" class="audio-btn" style="margin: 20px 0;"></div>
+        <div id="modalEnScript" style="background:#f8fafc; padding:20px; border-radius:10px; margin-bottom: 15px;"></div>
+        <div id="modalJpScript" style="background:#fff7ed; padding:20px; border-radius:10px;"></div>
     </div>
 </div>
 
 <footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
-    <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">クロニクス株式会社</p>
+    <p style="font-size: 1.5rem; font-weight: bold;">クロニクス株式会社</p>
     <address style="font-style: normal; color: #cbd5e1; font-size: 0.9rem;">
         〒160-0023 東京都新宿区西新宿3-2-11 新宿三井ビルディング二号館 904室<br>
         TEL 03-5322-7191 / FAX 03-5322-7790
@@ -272,16 +254,11 @@
     function toggleAudio(fileName, btnId) {
         const btn = document.getElementById(btnId);
         const icon = btn.querySelector('.audio-icon');
-
         if (currentAudio && currentBtnId === btnId) {
-            if (!currentAudio.paused) {
-                currentAudio.pause(); icon.innerText = '▶️';
-            } else {
-                currentAudio.play(); icon.innerText = '⏸️';
-            }
+            if (!currentAudio.paused) { currentAudio.pause(); icon.innerText = '▶️'; }
+            else { currentAudio.play(); icon.innerText = '⏸️'; }
             return;
         }
-
         if (currentAudio) {
             currentAudio.pause();
             if (currentBtnId) {
@@ -289,44 +266,22 @@
                 if(prevBtn && prevBtn.querySelector('.audio-icon')) prevBtn.querySelector('.audio-icon').innerText = '▶️';
             }
         }
-
         currentAudio = new Audio(fileName);
         currentBtnId = btnId;
-        currentAudio.play().then(() => { icon.innerText = '⏸️'; })
-        .catch(() => { console.log("Audio not found"); });
-
+        currentAudio.play().then(() => { icon.innerText = '⏸️'; }).catch(() => { console.log("Audio not found"); });
         currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
     }
 
     function toggleTranslation() {
         const content = document.getElementById('transContent');
-        const btn = document.querySelector('.translation-btn');
         const isOpen = content.style.display === 'block';
         content.style.display = isOpen ? 'none' : 'block';
-        btn.innerHTML = isOpen ? '🔍 スクリプトの和訳を見る' : '🔼 和訳を閉じる';
+        document.querySelector('.translation-btn').innerHTML = isOpen ? '🔍 スクリプトの和訳を見る' : '🔼 和訳を閉じる';
     }
 
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
-    const archiveData = {
-        'mv_archive': {
-            title: '2nm Process and Dynamic Optics',
-            audio: 'yield.mp3',
-            en: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
-                 <b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. Addressing the diffraction limit is indispensable, as simply increasing sensor resolution is no longer sufficient.<br>
-                 <b>B:</b> I understand the physical constraints. But can't we compensate for blur using AI-based post-processing?<br>
-                 <b>A:</b> Unfortunately, AI cannot restore "information that was never captured" due to vibrations. Our AO system uses deformable mirrors to cancel these errors in real-time.<br>
-                 <b>B:</b> So for AI analysis to be truly reliable, we need "True Imaging" at the physical layer?<br>
-                 <b>A:</b> Exactly. By neutralizing the wavefront error before the light hits the sensor, we provide the high-fidelity data your AI needs to achieve target yields.`,
-            jp: `<b>Case 1: [Vision] Breaking the Diffraction Limit</b><br>
-                 （2nmプロセスにおける「回折限界」と「補償光学」）<br><br>
-                 <b>A:</b> 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。単にセンサーの解像度を上げるだけではもはや不十分であり、回折限界への対処は不可欠です。<br>
-                 <b>B:</b> 物理的な制約は理解しています。しかし、AIベースの後処理でボケを補正することはできないのでしょうか？<br>
-                 <b>A:</b> 残念ながら、振動のせいで「そもそも取り込まれなかった情報」をAIで復元することは不可能です。我々のAOシステムは可変形状ミラーを使用し、これらのエラーをリアルタイムで打ち消します。<br>
-                 <b>B:</b> つまり、AI解析を真に信頼できるものにするためには、物理レイヤーでの「真の結像（True Imaging）」が必要だということですね？<br>
-                 <b>A:</b> その通りです。光がセンサーに届く前に波面収差を中和することで、歩留まり目標の達成に必要な高忠実度データをAIに提供できるのです。`
-        },
-        const archiveData = {
+   const archiveData = {
         'swap_archive': {
             title: 'SWaP and Signal Integrity',
             audio: '3d.mp3',
