@@ -125,7 +125,83 @@
 <div class="hero-container">
     <div class="hero-section vision-hero">
         <div class="label">Semiconductor / Vision</div>
-        <p class="theme-sub" style="color: #4db8ff;">テーマ：動的光学系による収差制御（中島漢 講師）</p>
+        <p class="theme-sub" style="color: #4db8ff;">テーマ：2nmプロセスにおける「回折限界」と「補償光学（AO）」の導入</p>
+        <h1>Case 1: Breaking the Diffraction Limit</h1>
+        
+        <div class="script-window">
+            <div class="script-line"><span class="speaker">A:</span> For your next-generation 2nm inspection line, we need to address the diffraction limit. Simply increasing the resolution of the sensor isn't enough anymore.</div>
+            <div class="script-line"><span class="speaker">B:</span> I understand the physical constraint. But can't we compensate for the blur using AI-based post-processing? It would be more cost-effective.</div>
+            <div class="script-line"><span class="speaker">A:</span> Unfortunately, AI cannot restore information that was never captured due to atmospheric turbulence or vibration. Our Adaptive Optics (AO) system uses a deformable mirror to cancel these errors in the kHz-order.</div>
+            <div class="script-line"><span class="speaker">B:</span> So, you’re saying we need "True Imaging" at the physical layer to make the AI analysis actually reliable?</div>
+            <div class="script-line"><span class="speaker">A:</span> Exactly. By neutralizing the wavefront error before the light hits the sensor, we provide the high-fidelity data your AI needs to achieve target yields.</div>
+        </div>
+
+        <div class="meta-footer">
+            <div class="audio-btn" onclick="playAudio('ao.mp3')">
+                <span class="audio-icon">🔊</span>
+                <span><strong>EVENING LISTEN:</strong><br>'True Imaging Technology'</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-section space-hero">
+        <div class="label">Aerospace / Defense</div>
+        <p class="theme-sub" style="color: #ffaa00;">テーマ：宇宙防衛分野における「SWaP」と「信号整合性（SI）」</p>
+        <h1>Case 2: SWaP and Signal Integrity</h1>
+
+        <div class="script-window">
+            <div class="script-line"><span class="speaker">A:</span> We are reviewing the interconnects for our new LEO satellite constellation. We have very strict SWaP requirements—Size, Weight, and Power are critical.</div>
+            <div class="script-line"><span class="speaker">B:</span> Our modular connectors are designed for exactly that. We can reduce the overall mass by 30% while maintaining the robustness required for launch.</div>
+            <div class="script-line"><span class="speaker">A:</span> That sounds promising. However, we’re worried about signal integrity (SI) under extreme thermal cycling in orbit. A single connection failure means mission failure.</div>
+            <div class="script-line"><span class="speaker">B:</span> Understood. Our connectors feature a unique vibration-proof locking mechanism. We also provide full data on insertion loss and EMI shielding to ensure stable high-speed transmission.</div>
+            <div class="script-line"><span class="speaker">A:</span> Good. Let’s proceed with the benchmarking using your sample units. Reliability is our non-negotiable priority.</div>
+        </div>
+
+        <div class="meta-footer">
+            <div class="audio-btn" onclick="playAudio('nicomatic.mp3')">
+                <span class="audio-icon">🔊</span>
+                <span><strong>EVENING LISTEN:</strong><br>'High-Reliability Interconnects'</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="meta-footer">
+            <div class="audio-btn" onclick="playAudio('yield.mp3')">
+                <span class="audio-icon">🔊</span>
+                <span><strong>EVENING LISTEN:</strong><br>'Physical Layer Correction'</span>
+            </div>
+        </div>
+    </div>
+
+   <div class="hero-container">
+    <div class="hero-section space-hero">
+        <div class="label">Space / FPGA</div>
+        <p class="theme-sub" style="color: #ffaa00;">テーマ：メンテナンス不能な極限環境での「進化する回路」</p>
+        <h1>Case 1: FPGA SiP and Evolvable Hardware</h1>
+        
+        <div class="script-window">
+            <div class="script-line"><span class="speaker">A:</span> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</div>
+            <div class="script-line"><span class="speaker">B:</span> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</div>
+            <div class="script-line"><span class="speaker">A:</span> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.</div>
+            <div class="script-line"><span class="speaker">B:</span> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?</div>
+            <div class="script-line"><span class="speaker">A:</span> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.</div>
+        </div>
+
+        <div class="meta-footer">
+            <div class="audio-btn" onclick="playAudio('3d.mp3')">
+                <span class="audio-icon">🔊</span>
+                <span><strong>EVENING LISTEN:</strong><br>'Evolvable Systems'</span>
+            </div>
+        </div>
+    </div>
+
+
+       
+
+    <div class="hero-section vision-hero">
+        <div class="label">Semiconductor / Vision</div>
+        <p class="theme-sub" style="color: #4db8ff;">テーマ：中島漢 講師のウェビナーより「動的光学系による収差制御」</p>
         <h1>Case 2: 2nm Process and Dynamic Optics</h1>
         
         <div class="script-window">
@@ -143,25 +219,7 @@
             </div>
         </div>
     </div>
-
-    <div class="hero-section space-hero">
-        <div class="label">Space / FPGA</div>
-        <p class="theme-sub" style="color: #ffaa00;">テーマ：極限環境での「進化する回路」FPGA SiP</p>
-        <h1>Case 1: FPGA SiP and Evolvable Hardware</h1>
-
-        <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> For the Mars mission, we’re proposing the FPGA SiP integrated with 3D stacking technology.</div>
-            <div class="script-line"><span class="speaker">B:</span> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</div>
-            <div class="script-line"><span class="speaker">A:</span> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.</div>
-            <div class="script-line"><span class="speaker">B:</span> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?</div>
-            <div class="script-line"><span class="speaker">A:</span> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.</div>
-        </div>
-
-        <div class="meta-footer">
-            <div class="audio-btn" onclick="playAudio('3d.mp3')">
-                <span class="audio-icon">🔊</span>
-                <span><strong>EVENING LISTEN:</strong><br>'Evolvable Systems'</span>
-            </div>
+</div>
         </div>
     </div>
 </div>
