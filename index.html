@@ -42,6 +42,7 @@
             background-size: cover; background-position: center;
         }
 
+        /* 記憶した背景画像指定 */
         .vision-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee.png'); }
         .space-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee2.png'); border-left: 2px solid #000; }
 
@@ -118,49 +119,49 @@
 </header>
 
 <div class="intro-banner">
-    <strong>こんにちは！5月11日、夕方の定期配信です。</strong><br>
-    本日のテーマは、トレンドレポートから「FPGA SiPと3D積層技術」と「2nmプロセスの収差制御」をピックアップしました。
+    <strong>こんにちは！5月11日、本日の定期配信です。</strong><br>
+    本日のテーマは、トレンドレポートから「回折限界と補償光学」および「LEO衛星のSWaP要件」をピックアップしました。
 </div>
 
 <div class="hero-container">
     <div class="hero-section vision-hero">
-        <div class="label">Semiconductor / Vision</div>
-        <p class="theme-sub" style="color: #4db8ff;">テーマ：動的光学系による収差制御（中島漢 講師）</p>
-        <h1>Case 2: 2nm Process and Dynamic Optics</h1>
+        <div class="label">Machine Vision / Semiconductor</div>
+        <p class="theme-sub" style="color: #4db8ff;">テーマ：2nmプロセスにおける「回折限界」と「補償光学」</p>
+        <h1>Case 1: Breaking the Diffraction Limit</h1>
         
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> Our latest yield report shows that at the 2nm node, traditional static lenses cannot maintain the required precision due to micro-vibrations.</div>
-            <div class="script-line"><span class="speaker">B:</span> We’ve noticed the same. The aberrations are inconsistent, making it hard for our AI to differentiate between a defect and a blur.</div>
-            <div class="script-line"><span class="speaker">A:</span> This is why we’re moving to a Dynamic Optical System. By actively controlling aberrations at the physical layer, we can stabilize the image before the AI processing starts.</div>
-            <div class="script-line"><span class="speaker">B:</span> So, instead of trying to "fix" a bad photo with software, you’re ensuring the "perfect shot" from the beginning?</div>
-            <div class="script-line"><span class="speaker">A:</span> Precisely. It breaks the stagnation in yield rates and provides the foundation for the next generation of sub-nanoscale manufacturing.</div>
+            <div class="script-line"><span class="speaker">A:</span> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. Addressing the diffraction limit is indispensable, as simply increasing sensor resolution is no longer sufficient.</div>
+            <div class="script-line"><span class="speaker">B:</span> I understand the physical constraints. But can't we compensate for blur using AI-based post-processing?</div>
+            <div class="script-line"><span class="speaker">A:</span> Unfortunately, AI cannot restore "information that was never captured" due to vibrations. Our AO system uses deformable mirrors to cancel these errors in real-time.</div>
+            <div class="script-line"><span class="speaker">B:</span> So for AI analysis to be truly reliable, we need "True Imaging" at the physical layer?</div>
+            <div class="script-line"><span class="speaker">A:</span> Exactly. By neutralizing the wavefront error before the light hits the sensor, we provide the high-fidelity data your AI needs to achieve target yields.</div>
         </div>
 
         <div class="meta-footer">
-            <div class="audio-btn" onclick="playAudio('yield.mp3')">
+            <div class="audio-btn" onclick="playAudio('ao.mp3')">
                 <span class="audio-icon">🔊</span>
-                <span><strong>EVENING LISTEN:</strong><br>'Physical Layer Correction'</span>
+                <span><strong>EVENING LISTEN:</strong><br>'True Imaging at Physical Layer'</span>
             </div>
         </div>
     </div>
 
     <div class="hero-section space-hero">
-        <div class="label">Space / FPGA</div>
-        <p class="theme-sub" style="color: #ffaa00;">テーマ：極限環境での「進化する回路」FPGA SiP</p>
-        <h1>Case 1: FPGA SiP and Evolvable Hardware</h1>
+        <div class="label">Space / Defense</div>
+        <p class="theme-sub" style="color: #ffaa00;">テーマ：衛星コンステレーションの「SWaP」と「信号整合性」</p>
+        <h1>Case 2: SWaP and Signal Integrity</h1>
 
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> For the Mars mission, we’re proposing the FPGA SiP integrated with 3D stacking technology.</div>
-            <div class="script-line"><span class="speaker">B:</span> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</div>
-            <div class="script-line"><span class="speaker">A:</span> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.</div>
-            <div class="script-line"><span class="speaker">B:</span> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?</div>
-            <div class="script-line"><span class="speaker">A:</span> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.</div>
+            <div class="script-line"><span class="speaker">A:</span> We are integrating high-reliability interconnects for a new LEO satellite constellation. SWaP requirements—Size, Weight, and Power—are extremely stringent.</div>
+            <div class="script-line"><span class="speaker">B:</span> Our modular connectors can reduce total mass by 30% while maintaining the robustness required for launch.</div>
+            <div class="script-line"><span class="speaker">A:</span> I’m concerned about Signal Integrity (SI) under harsh thermal cycling in orbit. A single failure means mission failure.</div>
+            <div class="script-line"><span class="speaker">B:</span> Our connectors feature unique vibration-proof locking mechanisms. We provide data on EMI shielding to ensure stable transmission.</div>
+            <div class="script-line"><span class="speaker">A:</span> Let's proceed with benchmarking. Reliability is our non-negotiable priority.</div>
         </div>
 
         <div class="meta-footer">
-            <div class="audio-btn" onclick="playAudio('3d.mp3')">
+            <div class="audio-btn" onclick="playAudio('si.mp3')">
                 <span class="audio-icon">🔊</span>
-                <span><strong>EVENING LISTEN:</strong><br>'Evolvable Systems'</span>
+                <span><strong>EVENING LISTEN:</strong><br>'Mission-Critical Reliability'</span>
             </div>
         </div>
     </div>
@@ -172,20 +173,20 @@
     </button>
     <div class="translation-content" id="transContent">
         <div class="trans-item">
-            <div class="trans-title">Case 1: FPGA SiP and Evolvable Hardware</div>
-            <p><strong>A（エンジニア）：</strong> 火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。</p>
-            <p><strong>B（パートナー）：</strong> 標準的な放射線耐性ASICを使わないのはなぜですか？ 通常、そちらの方が電力効率が良いはずですが。</p>
-            <p><strong>A：</strong> その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAなら、ハードウェア・ロジックを遠隔で再構成し、予期せぬセンサーの故障や新しいミッション要件に適応させることができます。</p>
-            <p><strong>B：</strong> なるほど。つまり3D統合によって、放射線遮蔽された極小の設置面積に高密度な処理機能を詰め込めるということですね？</p>
-            <p><strong>A：</strong> まさに。最も過酷な環境下で生き残り、自ら最適化できる「進化するハードウェア」を構築することが狙いです。</p>
+            <div class="trans-title">Case 1: Breaking the Diffraction Limit</div>
+            <p><strong>A：</strong> 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。単にセンサーの解像度を上げるだけではもはや不十分であり、回折限界への対処は不可欠です。</p>
+            <p><strong>B：</strong> 物理的な制約は理解しています。しかし、AIベースの後処理でボケを補正することはできないのでしょうか？</p>
+            <p><strong>A：</strong> 残念ながら、振動のせいで「そもそも取り込まれなかった情報」をAIで復元することは不可能です。我々のAOシステムは可変形状ミラーを使用し、これらのエラーをリアルタイムで打ち消します。</p>
+            <p><strong>B：</strong> つまり、AI解析を真に信頼できるものにするためには、物理レイヤーでの「真の結像（True Imaging）」が必要だということですね？</p>
+            <p><strong>A：</strong> その通りです。光がセンサーに届く前に波面収差を中和することで、歩留まり目標の達成に必要な高忠実度データをAIに提供できるのです。</p>
         </div>
         <div class="trans-item">
-            <div class="trans-title">Case 2: 2nm Process and Dynamic Optics</div>
-            <p><strong>A（エンジニア）：</strong> 最新の歩留まりレポートによると、2nmノードでは従来の固定レンズでは微振動による必要な精度を維持できないことが示されています。</p>
-            <p><strong>B（顧客）：</strong> 我々も同じことに気づいていました。収差が一定ではなく、AIが「欠陥」と「ボケ」を判別するのが難しくなっています。</p>
-            <p><strong>A：</strong> だからこそ「動的光学系」への移行を進めているのです。物理層で収差を能動的に制御することで、AI処理が始まる前に画像を安定させることができます。</p>
-            <p><strong>B：</strong> つまり、ソフトウェアで「悪い写真」を直そうとするのではなく、最初から「完璧な一枚」を撮れるようにするということですね？</p>
-            <p><strong>A：</strong> その通りです。これにより歩留まりの停滞を打破し、次世代のサブナノスケール製造の基盤を提供します。</p>
+            <div class="trans-title">Case 2: SWaP and Signal Integrity</div>
+            <p><strong>A：</strong> 新しい低軌道（LEO）衛星コンステレーション用に高信頼性のインターコネクトを統合しています。サイズ、重量、電力の「SWaP」要件は極めて厳格です。</p>
+            <p><strong>B：</strong> 弊社のモジュール式コネクタは、打ち上げに必要な堅牢性を維持しつつ、全体の質量を30%削減できます。</p>
+            <p><strong>A：</strong> 軌道上の過酷な熱サイクル下での信号整合性（SI）を懸念しています。たった一つの故障がミッションの失敗を意味します。</p>
+            <p><strong>B：</strong> 弊社のコネクタは独自の防振ロッキング機構を備えています。また、安定した伝送を保証するためにEMI（電磁妨害）シールドのデータも提供します。</p>
+            <p><strong>A：</strong> ベンチマークを進めましょう。信頼性は我々にとって譲れない最優先事項です。</p>
         </div>
     </div>
 </div>
@@ -193,55 +194,56 @@
 <div class="study-section">
     <div class="study-grid">
         <div class="vocab-list">
-            <h3>💡 今日の重要単語（復習用）</h3>
-            <div class="vocab-item"><span class="vocab-en">Evolvable hardware:</span> 進化型ハードウェア</div>
-            <div class="vocab-item"><span class="vocab-en">Radiation-shielded:</span> 放射線遮蔽された</div>
-            <div class="vocab-item"><span class="vocab-en">Footprint:</span> 設置面積（サイズ）</div>
-            <div class="vocab-item"><span class="vocab-en">Stagnation:</span> 停滞</div>
-            <div class="vocab-item"><span class="vocab-en">Sub-nanoscale:</span> サブナノスケール</div>
-            <div class="vocab-item"><span class="vocab-en">Aberration:</span> 収差</div>
+            <h3>💡 今日の重要単語</h3>
+            <div class="vocab-item"><span class="vocab-en">Diffraction limit:</span> 回折限界</div>
+            <div class="vocab-item"><span class="vocab-en">High-fidelity:</span> 高忠実度</div>
+            <div class="vocab-item"><span class="vocab-en">Stringent:</span> 厳格な、厳しい</div>
+            <div class="vocab-item"><span class="vocab-en">Robustness:</span> 堅牢性、頑強性</div>
+            <div class="vocab-item"><span class="vocab-en">Non-negotiable:</span> 交渉の余地のない、譲れない</div>
         </div>
         <div class="phrase-list">
             <h3>📝 実践フレーズ</h3>
             <div class="phrase-box">
-                <strong>"It allows you to [A] into a tiny footprint."</strong><br>
-                （これにより[A]を極小の設置面積に詰め込むことができます。）<br><br>
-                <strong>"Instead of trying to fix [B], you're ensuring [C]."</strong><br>
-                （[B]を直そうとするのではなく、[C]を確実に実現しています。）
+                <strong>"Addressing [A] is indispensable."</strong><br>
+                （[A]への対処は不可欠です。）<br><br>
+                <strong>"It allows you to pack [B] into a tiny footprint."</strong><br>
+                （これにより[B]を極小の面積に詰め込むことができます。）<br><br>
+                <strong>"A single failure means mission failure."</strong><br>
+                （たった一つの失敗がミッションの失敗を意味します。）
             </div>
             <p style="margin-top:20px; font-size: 0.9rem; color: #666;">
-                夕方のレッスンは以上です。物理限界への挑戦こそが、新しい技術の扉を開きます！
+                本日のレッスンは以上です。物理限界への挑戦、そして絶対的な信頼性の確保こそが技術者の誇りです！
             </p>
         </div>
     </div>
 </div>
 
-    <div class="archive-section" style="padding: 60px 5%; background-color: #f8f9fa;">
+<div class="archive-section" style="padding: 60px 5%; background-color: #f8f9fa;">
     <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">
-        DAILY ARCHIVES <span style="font-size: 0.9rem; color: #999; font-weight: normal; margin-left: 10px;">過去の配信を振り返る</span>
+        DAILY ARCHIVES <span style="font-size: 0.9rem; color: #999; font-weight: normal; margin-left: 10px;">過去の重要テーマを振り返る</span>
     </h3>
     
     <div class="archive-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
         
-        <div class="archive-card" onclick="openArchiveModal('morning1')" style="border: 1px solid #eee; background: #fff; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
-            <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
-                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 11 MORNING</span>
-                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">Single-Shot Multispectral Analysis</h4>
+        <div class="archive-card" onclick="openArchiveModal('archive1')" style="border: 1px solid #eee; background: #fff; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
+            <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
+                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">SPACE ARCHIVE</span>
+                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">FPGA SiP and Evolvable Hardware</h4>
             </div>
             <div style="padding: 15px; font-size: 0.85rem; color: #666;">
-                Siliosの技術を用いた「見えない成分」の可視化。
-                <div style="margin-top: 10px; color: var(--vision-blue); font-weight: bold;">VIEW LESSON →</div>
+                深宇宙ミッションにおける自己最適化ハードウェアの提案。
+                <div style="margin-top: 10px; color: var(--space-orange); font-weight: bold;">VIEW LESSON →</div>
             </div>
         </div>
 
-        <div class="archive-card" onclick="openArchiveModal('morning2')" style="border: 1px solid #eee; background: #fff; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
-            <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
-                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">MAY 11 MORNING</span>
-                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">Nano-Positioning in Space</h4>
+        <div class="archive-card" onclick="openArchiveModal('archive2')" style="border: 1px solid #eee; background: #fff; border-radius: 8px; overflow: hidden; transition: 0.3s; cursor: pointer;">
+            <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
+                <span style="font-size: 0.7rem; background: rgba(0,0,0,0.3); padding: 2px 8px; border-radius: 10px;">VISION ARCHIVE</span>
+                <h4 style="margin: 10px 0 0 0; font-size: 1rem;">2nm Process and Dynamic Optics</h4>
             </div>
             <div style="padding: 15px; font-size: 0.85rem; color: #666;">
-                Cedrat社圧電アクチュエータによる精密制御。
-                <div style="margin-top: 10px; color: var(--space-orange); font-weight: bold;">VIEW LESSON →</div>
+                収差制御による歩留まり停滞の打破。
+                <div style="margin-top: 10px; color: var(--vision-blue); font-weight: bold;">VIEW LESSON →</div>
             </div>
         </div>
     </div>
@@ -250,12 +252,8 @@
 <div id="archiveModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:3000; padding:20px; overflow-y:auto;">
     <div style="max-width:800px; margin:40px auto; background:#fff; border-radius:12px; padding:30px; position:relative;">
         <span onclick="closeArchiveModal()" style="position:absolute; top:15px; right:20px; font-size:30px; cursor:pointer; color:#999;">&times;</span>
-        
         <h2 id="modalTitle" style="color:var(--vision-blue); margin-top:0;"></h2>
-        
-        <div id="modalAudioBtn" class="audio-btn" style="background:#f1f5f9; color:#333; margin-bottom:20px; display:inline-flex;">
-            </div>
-
+        <div id="modalAudioBtn" class="audio-btn" style="background:#f1f5f9; color:#333; margin-bottom:20px; display:inline-flex;"></div>
         <div style="display:grid; grid-template-columns:1fr; gap:20px;">
             <div style="background:#f8fafc; padding:20px; border-radius:8px;">
                 <h4 style="margin-top:0; color:#444; border-bottom:1px solid #ddd; padding-bottom:5px;">English Script</h4>
@@ -268,46 +266,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    // アーカイブデータ
-    const archiveData = {
-        'morning1': {
-            title: 'Single-Shot Multispectral Analysis',
-            audio: 'nano.mp3',
-            en: `<b>A:</b> We are integrating the Silios multispectral sensor into your production line. It captures both color and spectral data in a single shot.<br>
-                 <b>B:</b> That sounds efficient. But how does it compare to traditional spectroscopy in terms of accuracy?<br>
-                 <b>A:</b> The key is the Snapshot technology. Unlike scanning methods, it eliminates errors caused by moving objects.`,
-            jp: `<b>A（エンジニア）：</b> Silios社のマルチスペクトル・センサーを生産ラインに統合しています。一度の撮影でカラーと分光データの両方を捉えます。<br>
-                 <b>B（顧客）：</b> 効率的ですね。精度の面で従来の分光法と比べるとどうですか？<br>
-                 <b>A：</b> 鍵はスナップショット技術です。スキャン方式と異なり、移動物体によるエラーを排除できます。`
-        },
-        'morning2': {
-            title: 'Nano-Positioning in Harsh Environments',
-            audio: 'space.m4a',
-            en: `<b>A:</b> For the satellite's laser communication terminal, we’ve selected piezoelectric actuators from Cedrat Technologies.<br>
-                 <b>B:</b> Good choice. Our actuators provide nanometer-level precision even under extreme vacuum and thermal conditions.<br>
-                 <b>A:</b> How do they handle high-frequency vibrations during launch?`,
-            jp: `<b>A（エンジニア）：</b> 衛星のレーザー通信用にCedrat社の圧電アクチュエータを採用しました。<br>
-                 <b>B（サプライヤー）：</b> 良い選択です。真空や極端な熱条件下でもナノメートル単位の精度を発揮します。<br>
-                 <b>A：</b> 打ち上げ時の高周波振動にはどう対処していますか？`
-        }
-    };
-
-    function openArchiveModal(id) {
-        const data = archiveData[id];
-        document.getElementById('modalTitle').innerText = data.title;
-        document.getElementById('modalEnScript').innerHTML = data.en;
-        document.getElementById('modalJpScript').innerHTML = data.jp;
-        document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">🔊</span><span onclick="playAudio('${data.audio}')" style="cursor:pointer; margin-left:10px;"><strong>LISTEN TO AUDIO</strong></span>`;
-        document.getElementById('archiveModal').style.display = 'block';
-    }
-
-    function closeArchiveModal() {
-        document.getElementById('archiveModal').style.display = 'none';
-        if (currentAudio) currentAudio.pause();
-    }
-</script>
 
 <footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
     <div class="footer-info">
@@ -322,9 +280,7 @@
         <a href="mailto:sales@chronix.co.jp" class="btn-contact" style="display: inline-block; background: #f97316; color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; margin-top: 20px; font-weight: bold;">
             メールでお問い合わせ
         </a>
-        <p style="margin-top: 50px; font-size: 0.8rem; color: #64748b; letter-spacing: 0.05em;">
-            © 2026 CHRONIX
-        </p>
+        <p style="margin-top: 50px; font-size: 0.8rem; color: #64748b; letter-spacing: 0.05em;">© 2026 CHRONIX</p>
     </div>
 </footer>
 
@@ -332,20 +288,14 @@
     let currentAudio = null;
 
     function playAudio(fileName) {
-        if (currentAudio) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
-        }
+        if (currentAudio) { currentAudio.pause(); currentAudio.currentTime = 0; }
         currentAudio = new Audio(fileName);
-        currentAudio.play().catch(error => {
-            console.error("再生失敗:", error);
-            alert("音声ファイルが見つかりません: " + fileName);
-        });
+        currentAudio.play().catch(error => { alert("音声ファイルが見つかりません: " + fileName); });
     }
 
     function toggleTranslation() {
         const content = document.getElementById('transContent');
-        const btn = event.currentTarget;
+        const btn = document.querySelector('.translation-btn');
         if (content.style.display === 'block') {
             content.style.display = 'none';
             btn.innerHTML = '🔍 スクリプトの和訳を見る';
@@ -355,8 +305,35 @@
         }
     }
 
-    function toggleZoom(img) {
-        img.classList.toggle('zoomed');
+    function toggleZoom(img) { img.classList.toggle('zoomed'); }
+
+    const archiveData = {
+        'archive1': {
+            title: 'FPGA SiP and Evolvable Hardware',
+            audio: 'fpga.mp3',
+            en: `<b>A:</b> For the Mars mission, we’re proposing the FPGA SiP integrated with 3D stacking technology.<br><b>B:</b> Why not use a standard radiation-hardened ASIC?<br><b>A:</b> Maintenance is impossible in deep space. With FPGA, we can remotely reconfigure the hardware logic.`,
+            jp: `<b>A：</b> 火星ミッションに向けて、3D積層技術を統合したFPGA SiPを提案しています。<br><b>B：</b> 標準的な放射線耐性ASICを使わないのはなぜですか？<br><b>A：</b> 深宇宙では物理的なメンテナンスが不可能です。FPGAなら、遠隔でロジックを再構成できます。`
+        },
+        'archive2': {
+            title: '2nm Process and Dynamic Optics',
+            audio: 'yield.mp3',
+            en: `<b>A:</b> Our latest report shows traditional static lenses cannot maintain precision at the 2nm node due to micro-vibrations.<br><b>B:</b> Aberrations are inconsistent, making it hard for AI to differentiate defects.<br><b>A:</b> We are moving to a Dynamic Optical System to actively control aberrations.`,
+            jp: `<b>A：</b> 最新のレポートによると、2nmノードでは微振動により従来の固定レンズでは精度を維持できません。<br><b>B：</b> 収差が不安定で、AIが欠陥を判別するのが難しくなっています。<br><b>A：</b> だからこそ、収差を能動的に制御する「動的光学系」へ移行しています。`
+        }
+    };
+
+    function openArchiveModal(id) {
+        const data = archiveData[id];
+        document.getElementById('modalTitle').innerText = data.title;
+        document.getElementById('modalEnScript').innerHTML = data.en;
+        document.getElementById('modalJpScript').innerHTML = data.jp;
+        document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">🔊</span><span onclick="playAudio('${data.audio}')" style="cursor:pointer; margin-left:10px;"><strong>LISTEN TO ARCHIVE AUDIO</strong></span>`;
+        document.getElementById('archiveModal').style.display = 'block';
+    }
+
+    function closeArchiveModal() {
+        document.getElementById('archiveModal').style.display = 'none';
+        if (currentAudio) currentAudio.pause();
     }
 </script>
 
