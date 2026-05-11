@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHRONIX | GLOBAL TECH DAILY</title>
+    <title>技術で学ぶ英語：Chronix Global Link</title>
     <style>
         :root {
             --vision-blue: #003366;
@@ -14,49 +14,30 @@
 
         * { box-sizing: border-box; }
 
-        body { 
-            font-family: 'Helvetica Neue', Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #fff;
-        }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; background-color: #fff; }
 
         header {
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            padding: 10px 5%; 
-            background: #fff; 
-            border-bottom: 1px solid #ddd;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 5%; background: #fff; border-bottom: 1px solid #ddd;
             height: 70px;
         }
 
-        .logo-link { display: flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 45px; width: auto; }
+        /* ロゴとタイトルを横並びに */
+        .logo-link { display: flex; align-items: center; text-decoration: none; color: #333; }
+        .logo-img { height: 40px; width: auto; margin-right: 15px; }
+        .site-title { font-size: 1.1rem; font-weight: bold; border-left: 1px solid #ccc; padding-left: 15px; }
 
-        nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 0.9rem; font-weight: 500; }
+        nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 500; }
 
         /* Hero Container */
-        .hero-container { 
-            display: flex; 
-            height: 550px; 
-            width: 100%; 
-            overflow: hidden; 
-            color: var(--text-white);
-        }
+        .hero-container { display: flex; height: 550px; width: 100%; overflow: hidden; color: var(--text-white); }
 
         .hero-section {
-            flex: 1; 
-            position: relative; 
-            padding: 50px 40px;
-            display: flex; 
-            flex-direction: column; 
-            justify-content: flex-end;
-            background-size: cover; 
-            background-position: center;
+            flex: 1; position: relative; padding: 40px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            background-size: cover; background-position: center;
         }
 
-        /* 背景画像に cee.png と cee2.png を使用 */
         .vision-hero {
             background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee.png');
         }
@@ -67,55 +48,34 @@
         }
 
         .label {
-            font-size: 0.75rem; 
-            text-transform: uppercase; 
-            letter-spacing: 2px;
-            margin-bottom: 15px; 
-            background: rgba(0,0,0,0.5);
-            display: inline-block; 
-            padding: 4px 12px;
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 15px; background: rgba(0,0,0,0.5);
+            display: inline-block; padding: 4px 12px;
         }
 
         .hero-section h1 {
-            font-size: 2.2rem; 
-            margin: 0 0 25px 0; 
-            line-height: 1.1;
-            font-weight: 800; 
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            font-size: 2.2rem; margin: 0 0 25px 0; line-height: 1.1;
+            font-weight: 800; text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
         }
         
-        .meta-info { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            width: 100%; 
-        }
+        .meta-info { display: flex; justify-content: space-between; align-items: center; width: 100%; }
 
         .audio-btn {
-            display: flex; 
-            align-items: center; 
-            background: rgba(255,255,255,0.15);
-            padding: 15px 25px; 
-            border-radius: 50px; 
-            backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255,255,255,0.3);
-            font-size: 0.85rem;
+            display: flex; align-items: center; background: rgba(255,255,255,0.15);
+            padding: 15px 25px; border-radius: 50px; backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255,255,255,0.3); font-size: 0.85rem;
         }
         .audio-icon { margin-right: 12px; font-size: 1.2rem; }
 
         .key-phrases-box {
-            background: rgba(0,0,0,0.7); 
-            padding: 15px 20px; 
-            border-radius: 5px;
-            font-size: 0.8rem; 
-            line-height: 1.5; 
-            border-left: 4px solid #00aaff;
+            background: rgba(0,0,0,0.7); padding: 15px 20px; border-radius: 5px;
+            font-size: 0.8rem; line-height: 1.5; border-left: 4px solid #00aaff;
             max-width: 320px;
         }
 
         /* Trend Report */
         .report-section { padding: 60px 5%; background-color: var(--bg-light); text-align: center; }
-        .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 40px; }
+        .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-top: 40px; }
         .report-card { display: flex; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.08); text-align: left; }
         .report-img-side { width: 120px; background: #1a2a3a; color: #fff; padding: 20px; text-align: center; font-size: 0.75rem; font-weight: bold; display: flex; align-items: center; }
         .report-content { padding: 25px; flex: 1; }
@@ -124,6 +84,7 @@
         @media (max-width: 1000px) {
             .hero-container { flex-direction: column; height: auto; }
             .hero-section { height: 450px; }
+            .site-title { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -132,6 +93,7 @@
 <header>
     <a href="https://nakajimakan14550.github.io/home/" class="logo-link">
         <img src="logo.png" alt="Logo" class="logo-img">
+        <div class="site-title">技術で学ぶ英語：Chronix Global Link</div>
     </a>
     <nav>
         <a href="#">Top</a> <a href="#">Archives</a> <a href="#">Trend Reports</a> <a href="#">Contact</a>
