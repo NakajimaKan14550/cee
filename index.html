@@ -1,157 +1,160 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHRONIX | GLOBAL TECH DAILY</title>
-    <style>
-        :root {
-            --vision-blue: #003366;
-            --space-orange: #8a4a1d;
-            --text-white: #ffffff;
-            --bg-light: #f8f9fa;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHRONIX | GLOBAL TECH DAILY</title>
+    <style>
+        :root {
+            --vision-blue: #003366;
+            --space-orange: #8a4a1d;
+            --text-white: #ffffff;
+            --bg-light: #f8f9fa;
+        }
 
-        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; background-color: #fff; }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; background-color: #fff; }
 
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 5%; background: #fff; border-bottom: 1px solid #ddd;
-        }
-        .logo { font-weight: bold; font-size: 1.4rem; color: #000; text-decoration: none; }
-        .logo span { font-weight: normal; font-size: 0.9rem; margin-left: 10px; color: #666; }
-        nav a { margin-left: 15px; text-decoration: none; color: #333; font-size: 0.85rem; }
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 5%; background: #fff; border-bottom: 1px solid #ddd;
+        }
 
-        /* Hero Container */
-        .hero-container { display: flex; height: 500px; width: 100%; overflow: hidden; color: var(--text-white); }
+        /* ロゴ画像の設定 */
+        .logo-link { display: flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 40px; width: auto; } /* ロゴのサイズ調整 */
 
-        .hero-section {
-            flex: 1; position: relative; padding: 40px;
-            display: flex; flex-direction: column; justify-content: flex-end;
-            background-size: cover; background-position: center;
-        }
+        nav a { margin-left: 15px; text-decoration: none; color: #333; font-size: 0.85rem; }
 
-        /* 背景画像の指定箇所 */
-        .vision-hero {
-            /* 工場内イメージの背景 */
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('http://googleusercontent.com/image_generation_content/7');
-        }
-        .space-hero {
-            /* 宇宙イメージの背景 */
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('http://googleusercontent.com/image_generation_content/6');
-            border-left: 1px solid rgba(255,255,255,0.2);
-        }
+        /* Hero Container */
+        .hero-container { display: flex; height: 500px; width: 100%; overflow: hidden; color: var(--text-white); }
 
-        .label {
-            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
-            margin-bottom: 10px; opacity: 0.8; background: rgba(0,0,0,0.4);
-            display: inline-block; padding: 2px 8px;
-        }
+        .hero-section {
+            flex: 1; position: relative; padding: 40px;
+            display: flex; flex-direction: column; justify-content: flex-end;
+            background-size: cover; background-position: center;
+        }
 
-        .hero-section h1 {
-            font-size: 1.8rem; margin: 5px 0 20px 0; line-height: 1.2;
-            font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-        }
-        
-        .meta-info { display: flex; justify-content: space-between; align-items: flex-end; width: 100%; }
+        /* 背景画像の指定箇所 */
+        .vision-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('http://googleusercontent.com/image_generation_content/8');
+        }
+        .space-hero {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('http://googleusercontent.com/image_generation_content/10');
+            border-left: 1px solid rgba(255,255,255,0.2);
+        }
 
-        .audio-btn {
-            display: flex; align-items: center; background: rgba(255,255,255,0.2);
-            padding: 12px 20px; border-radius: 50px; cursor: pointer;
-            backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.3);
-            font-size: 0.85rem;
-        }
-        .audio-icon { margin-right: 10px; font-size: 1.1rem; }
+        .label {
+            font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 10px; opacity: 0.8; background: rgba(0,0,0,0.4);
+            display: inline-block; padding: 2px 8px;
+        }
 
-        .key-phrases-box {
-            background: rgba(0,0,0,0.7); padding: 12px 15px; border-radius: 4px;
-            font-size: 0.75rem; line-height: 1.4; border-left: 3px solid #00aaff;
-        }
+        .hero-section h1 {
+            font-size: 1.8rem; margin: 5px 0 20px 0; line-height: 1.2;
+            font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+        
+        .meta-info { display: flex; justify-content: space-between; align-items: flex-end; width: 100%; }
 
-        /* Trend Report */
-        .report-section { padding: 50px 5%; background-color: var(--bg-light); text-align: center; }
-        .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 30px; }
-        .report-card { display: flex; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left; }
-        .report-img-placeholder { width: 110px; background: #2c3e50; color: #fff; padding: 15px; text-align: center; font-size: 0.7rem; font-weight: bold; }
-        .report-content { padding: 20px; flex: 1; }
-        .download-btn { color: var(--vision-blue); font-weight: bold; text-decoration: none; font-size: 0.8rem; }
+        .audio-btn {
+            display: flex; align-items: center; background: rgba(255,255,255,0.2);
+            padding: 12px 20px; border-radius: 50px; cursor: pointer;
+            backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.85rem;
+        }
+        .audio-icon { margin-right: 10px; font-size: 1.1rem; }
 
-        @media (max-width: 900px) {
-            .hero-container { flex-direction: column; height: auto; }
-            .hero-section { height: 400px; }
-        }
-    </style>
+        .key-phrases-box {
+            background: rgba(0,0,0,0.7); padding: 12px 15px; border-radius: 4px;
+            font-size: 0.75rem; line-height: 1.4; border-left: 3px solid #00aaff;
+        }
+
+        /* Trend Report */
+        .report-section { padding: 50px 5%; background-color: var(--bg-light); text-align: center; }
+        .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 30px; }
+        .report-card { display: flex; background: #fff; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left; }
+        .report-img-placeholder { width: 110px; background: #2c3e50; color: #fff; padding: 15px; text-align: center; font-size: 0.7rem; font-weight: bold; }
+        .report-content { padding: 20px; flex: 1; }
+        .download-btn { color: var(--vision-blue); font-weight: bold; text-decoration: none; font-size: 0.8rem; }
+
+        @media (max-width: 900px) {
+            .hero-container { flex-direction: column; height: auto; }
+            .hero-section { height: 400px; }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-    <a href="#" class="logo">CHRONIX <span>GLOBAL TECH DAILY</span></a>
-    <nav>
-        <a href="#">Top</a> <a href="#">Archives</a> <a href="#">Trend Reports</a> <a href="#">Contact</a>
-    </nav>
+    <a href="https://nakajimakan14550.github.io/home/" class="logo-link">
+        <img src="logo.png" alt="CHRONIX Logo" class="logo-img">
+    </a>
+    <nav>
+        <a href="#">Top</a> <a href="#">Archives</a> <a href="#">Trend Reports</a> <a href="#">Contact</a>
+    </nav>
 </header>
 
 <div class="hero-container">
-    <div class="hero-section vision-hero">
-        <div class="label">Factory Automation: May 11</div>
-        <p style="color: #00aaff; font-weight: bold; margin-bottom: 5px;">THEME: In-line Multispectral Inspection</p>
-        <h1>Case 1: Snapshot Analysis in Factory Line</h1>
-        <div class="meta-info">
-            <div class="audio-btn">
-                <span class="audio-icon">🔊</span>
-                <span><strong>MORNING LISTEN:</strong><br>'Real-time Quality Control'</span>
-            </div>
-            <div class="key-phrases-box">
-                <strong>KEY PHRASES</strong>
-                Eliminates errors caused by moving objects.<br>
-                Non-destructive chemical detection.
-            </div>
-        </div>
-    </div>
+    <div class="hero-section vision-hero">
+        <div class="label">Factory Automation: May 11</div>
+        <p style="color: #00aaff; font-weight: bold; margin-bottom: 5px;">THEME: In-line Multispectral Inspection</p>
+        <h1>Case 1: Snapshot Analysis in Factory Line</h1>
+        <div class="meta-info">
+            <div class="audio-btn">
+                <span class="audio-icon">🔊</span>
+                <span><strong>MORNING LISTEN:</strong><br>'Real-time Quality Control'</span>
+            </div>
+            <div class="key-phrases-box">
+                <strong>KEY PHRASES</strong>
+                Eliminates errors caused by moving objects.<br>
+                Non-destructive chemical detection.
+            </div>
+        </div>
+    </div>
 
-    <div class="hero-section space-hero">
-        <div class="label">Space & Defense: May 11</div>
-        <p style="color: #ff9933; font-weight: bold; margin-bottom: 5px;">THEME: Extreme Environment Positioning</p>
-        <h1>Case 2: Satellite Laser Terminal</h1>
-        <div class="meta-info">
-            <div class="audio-btn">
-                <span class="audio-icon">🔊</span>
-                <span><strong>MORNING LISTEN:</strong><br>'Space-Grade Precision'</span>
-            </div>
-            <div class="key-phrases-box" style="border-left-color: #ff9933;">
-                <strong>KEY PHRASES</strong>
-                Built to withstand high G-loads.<br>
-                Nanometer-level precision.
-            </div>
-        </div>
-    </div>
+    <div class="hero-section space-hero">
+        <div class="label">Space & Defense: May 11</div>
+        <p style="color: #ff9933; font-weight: bold; margin-bottom: 5px;">THEME: Extreme Environment Positioning</p>
+        <h1>Case 2: Satellite Laser Terminal</h1>
+        <div class="meta-info">
+            <div class="audio-btn">
+                <span class="audio-icon">🔊</span>
+                <span><strong>MORNING LISTEN:</strong><br>'Space-Grade Precision'</span>
+            </div>
+            <div class="key-phrases-box" style="border-left-color: #ff9933;">
+                <strong>KEY PHRASES</strong>
+                Built to withstand high G-loads.<br>
+                Nanometer-level precision.
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="report-section">
-    <h3>LATEST TREND REPORTS</h3>
-    <div class="report-grid">
-        <div class="report-card">
-            <div class="report-img-placeholder">MACHINE<br>VISION<br>2026</div>
-            <div class="report-content">
-                <h4>Machine Vision Trends 2026</h4>
-                <p>工場内インライン検査の自動化と分光技術。</p>
-                <a href="#" class="download-btn">Download PDF →</a>
-            </div>
-        </div>
-        <div class="report-card">
-            <div class="report-img-placeholder" style="background:var(--space-orange);">SPACE<br>& DEFENSE<br>2026</div>
-            <div class="report-content">
-                <h4>Aerospace & Defense Tech</h4>
-                <p>極限環境における精密駆動の最新動向。</p>
-                <a href="#" class="download-btn">Download PDF →</a>
-          </div>
-        </div>
-    </div>
+    <h3>LATEST TREND REPORTS</h3>
+    <div class="report-grid">
+        <div class="report-card">
+            <div class="report-img-placeholder">MACHINE<br>VISION<br>2026</div>
+            <div class="report-content">
+                <h4>Machine Vision Trends 2026</h4>
+                <p>工場内インライン検査の自動化と分光技術。</p>
+                <a href="#" class="download-btn">Download PDF →</a>
+            </div>
+        </div>
+        <div class="report-card">
+            <div class="report-img-placeholder" style="background:var(--space-orange);">SPACE<br>& DEFENSE<br>2026</div>
+            <div class="report-content">
+                <h4>Aerospace & Defense Tech</h4>
+                <p>極限環境における精密駆動の最新動向。</p>
+                <a href="#" class="download-btn">Download PDF →</a>
+            </div>
+        </div>
+    </div>
 </div>
 
 <footer style="background: #1a1a1a; color: #666; text-align: center; padding: 30px; font-size: 0.75rem;">
-    &copy; 2026 CHRONIX Co., Ltd. <br>
-    夕方18:00更新：半導体収差制御 / 宇宙エッジFPGA
+    &copy; 2026 CHRONIX Co., Ltd. <br>
+    夕方18:00更新：半導体収差制御 / 宇宙エッジFPGA
 </footer>
 
 </body>
