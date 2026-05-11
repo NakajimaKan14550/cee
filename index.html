@@ -3,204 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>技術で学ぶ英語：Chronix Global Link</title>
+    <title>Chronix Machine Vision Learning</title>
     <style>
         :root {
-            --vision-blue: #003366;
-            --space-orange: #8a4a1d;
-            --text-white: #ffffff;
-            --accent-gold: #ffcc00;
+            --bg-dark: #121417;
+            --card-bg: #1e2227;
+            --accent-blue: #4db8ff;
+            --accent-orange: #ffa500;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0a0;
+            --translation-color: #8db596; /* 読みやすい緑がかったグレー */
         }
 
-        body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; margin: 0; line-height: 1.6; }
-
-        header {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 5%; border-bottom: 1px solid #ddd; height: 70px;
+        body { 
+            font-family: 'Inter', 'Segoe UI', 'Hiragino Kaku Gothic ProN', sans-serif; 
+            background-color: var(--bg-dark); 
+            color: var(--text-main); 
+            margin: 0; 
+            padding: 20px;
         }
 
-        .logo-link { display: flex; align-items: center; text-decoration: none; color: #333; }
-        .site-title { font-size: 1.1rem; font-weight: bold; border-left: 1px solid #ccc; padding-left: 15px; margin-left: 15px; }
+        .container { max-width: 1200px; margin: 0 auto; }
 
-        .intro-banner { background: #f0f4f8; padding: 20px 5%; border-bottom: 1px solid #e1e8ed; font-size: 0.95rem; }
+        header { border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px; }
+        .site-title { font-size: 1.2rem; font-weight: bold; letter-spacing: 1px; }
 
-        /* Hero Layout */
-        .hero-container { display: flex; height: 750px; width: 100%; color: var(--text-white); }
-        .hero-section {
-            flex: 1; position: relative; padding: 40px;
-            display: flex; flex-direction: column; justify-content: flex-end;
-            background-size: cover; background-position: center;
-            transition: 0.5s;
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+        /* Case Card */
+        .case-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #333;
         }
 
-        .vision-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee.png'); }
-        .space-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee2.png'); border-left: 2px solid #000; }
+        .case-header { margin-bottom: 20px; }
+        .case-label { font-size: 0.7rem; color: var(--text-sub); text-transform: uppercase; margin-bottom: 5px; }
+        .case-title { font-size: 1.4rem; margin: 0; color: #fff; }
+        .case-subtitle { font-size: 0.9rem; color: var(--accent-blue); margin-top: 5px; }
 
-        .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; background: rgba(0,0,0,0.5); display: inline-block; padding: 4px 12px; }
-        h1 { font-size: 1.8rem; margin: 10px 0; font-weight: 800; }
-
-        /* Script & Translation Box */
-        .script-window {
-            background: rgba(0,0,0,0.7); border-radius: 8px; padding: 15px; margin-bottom: 15px;
-            font-size: 0.85rem; height: 300px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.2);
+        /* Script Box - 英文と和訳を統合 */
+        .script-scroll-box {
+            background: #16191d;
+            border-radius: 8px;
+            padding: 20px;
+            height: 450px;
+            overflow-y: auto;
+            border: 1px solid #2a2d32;
+            margin-bottom: 20px;
         }
-        .speaker { font-weight: bold; color: var(--accent-gold); margin-right: 5px; }
-        .translation { display: none; color: #ccc; font-style: italic; margin-top: 4px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4px; }
+
+        .line-group { margin-bottom: 20px; border-bottom: 1px solid #2a2d32; padding-bottom: 15px; }
+        .line-group:last-child { border-bottom: none; }
+
+        .en-line { font-size: 1rem; line-height: 1.5; color: #fff; font-weight: 500; }
+        .jp-line { font-size: 0.85rem; line-height: 1.5; color: var(--translation-color); margin-top: 8px; }
         
-        /* Toggle Button */
-        .toggle-tr {
-            background: none; border: 1px solid var(--accent-gold); color: var(--accent-gold);
-            padding: 2px 8px; border-radius: 4px; cursor: pointer; font-size: 0.7rem; margin-bottom: 10px;
-        }
+        .speaker-tag { font-weight: bold; color: var(--accent-orange); margin-right: 8px; }
 
-        /* Audio Button */
-        .audio-btn {
-            display: flex; align-items: center; background: rgba(255,255,255,0.2);
-            padding: 12px 25px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.3); 
-            font-size: 0.8rem; cursor: pointer; transition: 0.3s; width: fit-content;
+        /* Audio Controls */
+        .audio-bar {
+            display: flex;
+            align-items: center;
+            background: #2a2d32;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
         }
-        .audio-btn.playing { background: var(--accent-gold); color: #000; }
-        .audio-icon { margin-right: 12px; font-size: 1.2rem; }
+        .audio-bar:hover { background: #353940; }
+        .play-icon { font-size: 1.5rem; margin-right: 15px; }
+        .audio-info { font-size: 0.8rem; }
+        .audio-info b { display: block; font-size: 0.9rem; }
 
-        @media (max-width: 900px) { .hero-container { flex-direction: column; height: auto; } .hero-section { height: 600px; } }
+        /* Scrollbar styling */
+        .script-scroll-box::-webkit-scrollbar { width: 6px; }
+        .script-scroll-box::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
+
+        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="#" class="logo-link">
-        <div class="site-title">技術で学ぶ英語：Chronix Global Link</div>
-    </a>
-    <nav style="font-size: 0.8rem;">MAY 11, 2026</nav>
-</header>
+<div class="container">
+    <header>
+        <div class="site-title">CHRONIX GLOBAL LINK | <span style="font-weight: normal; font-size: 0.9rem;">Machine Vision Series</span></div>
+    </header>
 
-<div class="intro-banner">
-    <strong>おはようございます！5月11日の朝会です。</strong><br>
-    本日は「分光分析」と「宇宙用アクチュエータ」をテーマに、実務で使える表現を学びます。
-</div>
+    <div class="grid">
+        <div class="case-card">
+            <div class="case-header">
+                <div class="case-label">Case 01: Industrial Inspection</div>
+                <h2 class="case-title">Single-Shot Multispectral</h2>
+                <div class="case-subtitle">生産ラインにおける「成分」の可視化</div>
+            </div>
 
-<div class="hero-container">
-    <div class="hero-section vision-hero">
-        <div class="label">Morning Broadcast</div>
-        <p style="color: #4db8ff; font-weight: bold; margin: 0;">Case 1: Single-Shot Multispectral Analysis</p>
-        <h1>「見えない成分」の可視化</h1>
+            <div class="script-scroll-box">
+                <div class="line-group">
+                    <div class="en-line"><span class="speaker-tag">A:</span> We are integrating the Silios multispectral sensor into your production line. It captures both color and spectral data in a single shot.</div>
+                    <div class="jp-line">お客様の生産ラインに、Silios社のマルチスペクトル・センサーを統合しようとしています。これはカラーデータと分光データの両方を一度の撮影（ワンショット）で捉えることができます。</div>
+                </div>
+                <div class="line-group">
+                    <div class="en-line"><span class="speaker-tag">B:</span> That sounds efficient. But how does it compare to traditional spectroscopy in terms of accuracy?</div>
+                    <div class="jp-line">それは効率的ですね。しかし、精度の面では従来の分光法と比べてどうなのでしょうか？</div>
+                </div>
+                <div class="line-group">
+                    <div class="en-line"><span class="speaker-tag">A:</span> The key is the Snapshot technology. Unlike scanning methods, it eliminates errors caused by moving objects. We can detect subtle chemical changes in real-time.</div>
+                    <div class="jp-line">鍵となるのはスナップショット技術です。スキャン方式とは異なり、移動体によるエラーを排除できるため、リアルタイムで微細な化学変化を検知できます。</div>
+                </div>
+                <div class="line-group">
+                    <div class="en-line"><span class="speaker-tag">B:</span> I see. So we can perform non-destructive testing for quality control without slowing down the conveyor belt?</div>
+                    <div class="jp-line">なるほど。つまり、コンベアを止めずに品質管理のための非破壊検査ができるということですね。</div>
+                </div>
+                <div class="line-group">
+                    <div class="en-line"><span class="speaker-tag">A:</span> Exactly. It visualizes "invisible changes" by analyzing the unique spectral signature of each material.</div>
+                    <div class="jp-line">その通りです。各材料が持つ固有の「分光シグネチャー」を分析することで、目に見えない変化を可視化します。</div>
+                </div>
+            </div>
 
-        <button class="toggle-tr" onclick="toggleTranslation('tr1')">Show Translation / 和訳を表示</button>
-        
-        <div class="script-window">
-            <div class="script-line">
-                <span class="speaker">A:</span> We are integrating the Silios multispectral sensor into your production line. It captures both color and spectral data in a single shot.
-                <div id="tr1_1" class="translation tr1">お客様の生産ラインに、Silios社のマルチスペクトル・センサーを統合しようとしています。これはカラーデータと分光データの両方を一度の撮影で捉えることができます。</div>
-            </div>
-            <div class="script-line">
-                <span class="speaker">B:</span> That sounds efficient. But how does it compare to traditional spectroscopy in terms of accuracy?
-                <div id="tr1_2" class="translation tr1">それは効率的ですね。しかし、精度の面では従来の分光法と比べてどうなのでしょうか？</div>
-            </div>
-            <div class="script-line">
-                <span class="speaker">A:</span> The key is the Snapshot technology. Unlike scanning methods, it eliminates errors caused by moving objects. We can detect subtle chemical changes in real-time.
-                <div id="tr1_3" class="translation tr1">鍵はスナップショット技術です。スキャン方式と異なり、移動体によるエラーを排除し、リアルタイムで微細な化学変化を検知できます。</div>
-            </div>
-            <div class="script-line">
-                <span class="speaker">B:</span> I see. So we can perform non-destructive testing for quality control without slowing down the conveyor belt?
-                <div id="tr1_4" class="translation tr1">なるほど。つまりコンベアを止めずに品質管理のための非破壊検査ができるということですね。</div>
-            </div>
-        </div>
-
-        <div class="audio-btn" id="btn-nano" onclick="handleAudio('nano.mp3', 'btn-nano')">
-            <span class="audio-icon">▶️</span>
-            <span><strong>MORNING LISTEN</strong><br>Real-time Quality Control</span>
-        </div>
-    </div>
-
-    <div class="hero-section space-hero">
-        <div class="label">Section 2: Aerospace</div>
-        <p style="color: #ffaa00; font-weight: bold; margin: 0;">Case 2: Nano-Positioning in Harsh Environments</p>
-        <h1>極限環境下でのナノ制御</h1>
-
-        <button class="toggle-tr" onclick="toggleTranslation('tr2')">Show Translation / 和訳を表示</button>
-
-        <div class="script-window">
-            <div class="script-line">
-                <span class="speaker">A:</span> For the satellite's laser communication terminal, we’ve selected piezoelectric actuators from Cedrat Technologies.
-                <div id="tr2_1" class="translation tr2">衛星のレーザー通信ターミナル用に、Cedrat社の圧電アクチュエータを選定しました。</div>
-            </div>
-            <div class="script-line">
-                <span class="speaker">B:</span> Good choice. Our actuators provide nanometer-level precision even under extreme vacuum and thermal conditions.
-                <div id="tr2_2" class="translation tr2">良い選択です。弊社の補償アクチュエータは、極限の真空や熱環境下でもナノメートル単位の精度を提供します。</div>
-            </div>
-            <div class="script-line">
-                <span class="speaker">A:</span> We’re particularly interested in the smart mechatronics integration. How do they handle high-frequency vibrations during launch?
-                <div id="tr2_3" class="translation tr2">スマート・メカトロニクスの統合に注目しています。打ち上げ時の高周波振動にはどう対処していますか？</div>
-            </div>
-            <div class="script-line">
-                <span class="speaker">B:</span> The mechanical amplification design ensures high stiffness. It’s built to withstand heavy G-loads while maintaining sub-micro-radian pointing accuracy.
-                <div id="tr2_4" class="translation tr2">機械的増幅設計により高い剛性を確保しています。重いG荷重に耐えつつ、サブマイクロラジアン単位の指向精度を維持します。</div>
+            <div class="audio-bar" onclick="toggleAudio('nano.mp3', this)">
+                <span class="play-icon">▶</span>
+                <div class="audio-info">
+                    <b>LISTEN: Real-time QC</b>
+                    5/11 Morning Lesson
+                </div>
             </div>
         </div>
 
-        <div class="audio-btn" id="btn-space" onclick="handleAudio('space.m4a', 'btn-space')">
-            <span class="audio-icon">▶️</span>
-            <span><strong>MORNING LISTEN</strong><br>Space-Grade Precision</span>
+        <div class="case-card">
+            <div class="case-header">
+                <div class="case-label" style="color: var(--accent-orange);">Case 02: Space Exploration</div>
+                <h2 class="case-title">Nano-Positioning in Space</h2>
+                <div class="case-subtitle">極限環境下での光学系ナノ制御</div>
+            </div>
+
+            <div class="script-scroll-box">
+                <div class="line-group">
+                    <div class="en-line"><span class="speaker-tag">A:</span> For the satellite's laser communication terminal, we’ve selected piezoelectric actuators from Cedrat Technologies.</div>
+                    <div class="jp-line">人工衛星のレーザー通信ターミナル用に、Cedrat社の圧電アクチュエータを選定しました。</div>
+                </div>
+                <div class="line-group">
+                    <div class="en-line"><span class="speaker-tag">B:</span> Good choice. Our actuators provide nanometer-level precision even under extreme vacuum and thermal conditions.</div>
+                    <div class="jp-line">良い選択ですね。弊社の補償アクチュエータは、極限の真空や熱環境下であっても、ナノメートル単位の精度を提供します。</div>
+                </div>
+                <div class="line-group">
+                    <div class="en-line"><span class="speaker-tag">A:</span> We’re particularly interested in the smart mechatronics integration. How do they handle high-frequency vibrations during launch?</div>
+                    <div class="jp-line">特にスマート・メカトロニクスの統合に注目しています。打ち上げ時の高周波振動にはどのように対処していますか？</div>
+                </div>
+                <div class="line-group">
+                    <div class="en-line"><span class="speaker-tag">B:</span> The mechanical amplification design ensures high stiffness. It’s built to withstand heavy G-loads while maintaining sub-micro-radian pointing accuracy.</div>
+                    <div class="jp-line">機械的増幅設計により、高い剛性を確保しています。重いG荷重に耐えつつ、サブマイクロラジアン単位の指向精度を維持するように設計されています。</div>
+                </div>
+                <div class="line-group">
+                    <div class="en-line"><span class="speaker-tag">A:</span> Perfect. That precision-to-weight ratio is exactly what our SWaP strategy requires.</div>
+                    <div class="jp-line">完璧です。その精度対重量比こそ、我々のSWaP戦略（小型・軽量・低電力）が求めているものです。</div>
+                </div>
+            </div>
+
+            <div class="audio-bar" onclick="toggleAudio('space.m4a', this)">
+                <span class="play-icon">▶</span>
+                <div class="audio-info">
+                    <b>LISTEN: Space-Grade Precision</b>
+                    5/11 Morning Lesson
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <script>
-    let currentAudio = null;
-    let currentBtnId = null;
+    let activeAudio = null;
+    let activeBar = null;
 
-    function handleAudio(fileName, btnId) {
-        const btn = document.getElementById(btnId);
-        const icon = btn.querySelector('.audio-icon');
-
-        // 同じボタンが押された場合（停止処理）
-        if (currentAudio && currentBtnId === btnId) {
-            if (!currentAudio.paused) {
-                currentAudio.pause();
-                btn.classList.remove('playing');
-                icon.innerText = '▶️';
-                return;
-            }
-        }
-
-        // 他の音声が再生中なら停止
-        if (currentAudio) {
-            currentAudio.pause();
-            document.getElementById(currentBtnId).classList.remove('playing');
-            document.getElementById(currentBtnId).querySelector('.audio-icon').innerText = '▶️';
-        }
-
-        // 新規再生
-        currentAudio = new Audio(fileName);
-        currentBtnId = btnId;
+    function toggleAudio(src, element) {
+        const icon = element.querySelector('.play-icon');
         
-        currentAudio.play().then(() => {
-            btn.classList.add('playing');
-            icon.innerText = '⏸';
-        }).catch(err => {
-            console.error("Audio error:", err);
-            alert("音声ファイルが見つかりません: " + fileName);
-        });
-
-        // 終了時の処理
-        currentAudio.onended = () => {
-            btn.classList.remove('playing');
-            icon.innerText = '▶️';
-        };
-    }
-
-    function toggleTranslation(className) {
-        const translations = document.querySelectorAll('.' + className);
-        const btn = event.target;
-        translations.forEach(tr => {
-            if (tr.style.display === 'block') {
-                tr.style.display = 'none';
-                btn.innerText = 'Show Translation / 和訳を表示';
+        if (activeAudio && activeBar === element) {
+            if (activeAudio.paused) {
+                activeAudio.play();
+                icon.innerText = '⏸';
             } else {
-                tr.style.display = 'block';
-                btn.innerText = 'Hide Translation / 和訳を隠す';
+                activeAudio.pause();
+                icon.innerText = '▶';
             }
-        });
+            return;
+        }
+
+        if (activeAudio) {
+            activeAudio.pause();
+            activeBar.querySelector('.play-icon').innerText = '▶';
+        }
+
+        activeAudio = new Audio(src);
+        activeBar = element;
+        activeAudio.play();
+        icon.innerText = '⏸';
+
+        activeAudio.onended = () => {
+            icon.innerText = '▶';
+        };
     }
 </script>
 
