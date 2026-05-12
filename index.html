@@ -87,7 +87,7 @@
 
 <div class="intro-banner">
     <strong>こんにちは！本日の定期配信です。</strong><br>
-    DCの熱管理技術と、宇宙環境での民生品（COTS）活用を支えるラッチアップ保護技術をお届けします。
+    DCの熱管理技術と、宇宙探査ミッションを支える「進化するハードウェア」をお届けします。
 </div>
 
 <div class="hero-container">
@@ -109,18 +109,19 @@
 
     <div class="hero-section space-hero">
         <div class="label">Space / Defense</div>
-        <p class="theme-sub" style="color: #ffaa00;">テーマ：民生品（COTS）を宇宙で使うための保護技術</p>
-        <h1>ZES: Survival of COTS in Space</h1>
+        <p class="theme-sub" style="color: #ffaa00;">テーマ：極限環境での「進化する回路」</p>
+        <h1>FPGA SiP and Evolvable Hardware</h1>
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A (Chronix):</span> Our clients in the 'New Space' sector are struggling with a dilemma. They want the high performance and low cost of COTS components, but they can't afford a system crash due to SEE (Single Event Effects) in high-radiation orbits. How exactly does your technology allow standard chips to survive in such a harsh environment?</div>
-            <div class="script-line"><span class="speaker">B (ZES):</span> It’s about a hybrid approach. We don't just rely on shielding. Our ZES technology integrates physical-layer protection with intelligent latch-up detection and recovery. We monitor the current in real-time. If we detect a radiation-induced surge, our system reacts in nanoseconds to prevent permanent damage, while maintaining data integrity through TMR (Triple Modular Redundancy).</div>
-            <div class="script-line"><span class="speaker">A (Chronix):</span> But in a high-speed processing mission, even a few milliseconds of downtime can be critical. If a radiation event triggers your latch-up protection, how fast is the recovery time? And how do you ensure that the system state is restored to exactly where it was before the surge?</div>
-            <div class="script-line"><span class="speaker">B (ZES):</span> Our detection and isolation happen in less than 100 nanoseconds. The power-cycling and recovery process typically take a few milliseconds. To ensure no data is lost, we use a non-volatile memory bridge that periodically checkpoints the system state. This means we can perform a warm boot almost instantly after the event is cleared.</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</div>
+            <div class="script-line"><span class="speaker">B:</span> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</div>
+            <div class="script-line"><span class="speaker">A:</span> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.</div>
+            <div class="script-line"><span class="speaker">B:</span> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?</div>
+            <div class="script-line"><span class="speaker">A:</span> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.</div>
         </div>
         <div class="meta-footer">
-            <div id="btn-zes" class="audio-btn" onclick="toggleAudio('zes.mp3', 'btn-zes')">
+            <div id="btn-fpga" class="audio-btn" onclick="toggleAudio('3d.mp3', 'btn-fpga')">
                 <span class="audio-icon">▶️</span>
-                <span><strong>LISTEN:</strong><br>'ZES Technology'</span>
+                <span><strong>LISTEN:</strong><br>'Evolvable Hardware'</span>
             </div>
         </div>
     </div>
@@ -175,47 +176,37 @@
 
         <div class="trans-item">
             <div class="trans-title" style="background: var(--space-orange); color: white; padding: 10px 20px; border-radius: 5px;">
-                Case 2: ZES Technical Discussion (民生品のジレンマ)
+                Case 2: FPGA SiP and Evolvable Hardware
             </div>
-            <p style="font-weight: bold; margin-top: 15px;">（テーマ：宇宙環境でのCOTS活用とラッチアップ保護）</p>
-            <p><b>A（クロニクス社員）：</b>「New Space（民間宇宙開発）」分野の顧客は、あるジレンマに直面しています。彼らは COTS（民生品） コンポーネントの高いパフォーマンスと低コストを求めていますが、放射線量の多い軌道上での SEE（シングルイベント効果） によるシステムクラッシュを許容することができません。御社の技術は、具体的にどのようにして標準的なチップをこのような過酷な環境で生き残らせるのでしょうか？</p>
-            <p><b>B（ZES担当者）：</b>それはハイブリッドなアプローチによるものです。我々は単に（物理的な）遮蔽だけに頼りません。ZESのテクノロジーは、物理レイヤーの保護と、インテリジェントな ラッチアップ 検知・復旧機能を統合しています。電流をリアルタイムで監視しており、放射線誘発によるサージ（急激な電流変化）を検知すると、システムは ナノ秒 単位で反応して永久的な損傷を防ぎます。同時に、TMR（3重系冗長構成） を通じて データの整合性 を維持するのです。</p>
-            <p><b>A（クロニクス社員）：</b>なるほど、期待できそうですね。しかし、高速処理を要するミッションでは、たとえ数ミリ秒の ダウンタイム であっても致命的になりかねません。もし放射線イベントがラッチアップ保護を起動させた場合、復旧時間はどのくらいでしょうか？ また、システムの状態をサージ発生直前の状態に確実に復元するにはどうすればよいのですか？</p>
-            <p><b>B（ZES担当者）：</b>検知と隔離は 100ナノ秒未満 で行われます。電源の再投入（パワーサイクリング） と復旧プロセスは、電源レールの容量にもよりますが、通常は数ミリ秒です。データ損失を確実に防ぐため、我々はシステムのステート（状態）を定期的に保存する 非揮発性メモリ・ブリッジ（チェックポイント設定） を採用しています。これにより、イベントが解消された後、ほぼ瞬時に ウォームブート（高速再起動） を実行することが可能です。</p>
+            <p style="font-weight: bold; margin-top: 15px;">（テーマ：メンテナンス不能な極限環境での「進化する回路」）</p>
+            <p><b>A（クロニクス・エンジニア）：</b>火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。</p>
+            <p><b>B（海外テックパートナー）：</b>標準的な放射線耐性ASICを使わないのはなぜですか？ 通常、そちらの方が電力効率が良いはずですが。</p>
+            <p><b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。</p>
+            <p><b>B：</b>なるほど。つまり3D統合（積層）技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？</p>
+            <p><b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。</p>
 
             <div style="background: #fff5eb; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px;">💡 実践フレーズ / Useful Phrases</h4>
+                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px;">💡 今日の重要単語 / Key Vocabulary</h4>
+                <ul style="font-size: 0.9rem; line-height: 1.6;">
+                    <li><b>Diffraction limit:</b> 回折限界（光の物理的な解像度限界）</li>
+                    <li><b>High-fidelity:</b> 高忠実度（元の情報を正確に再現していること）</li>
+                    <li><b>Stringent:</b> 厳格な、厳しい（要件など）</li>
+                    <li><b>Robustness:</b> 堅牢性、頑強性</li>
+                    <li><b>Non-negotiable:</b> 交渉の余地のない、譲れない</li>
+                </ul>
+                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px; margin-top: 20px;">📝 実践フレーズ / Useful Phrases</h4>
                 <p style="font-size: 0.9rem;">
-                    <b>1. 放射線耐性と信頼性の確認</b><br>
-                    "How does this chip handle Single Event Upsets (SEU)?" <small>（このチップはSEUに対処しますか？）</small><br>
-                    "Is it latch-up immune?" <small>（ラッチアップ耐性はありますか？）</small><br><br>
-                    <b>2. 復旧性能とデータ保護</b><br>
-                    "How much downtime should we expect during a radiation event?" <small>（どのくらいのダウンタイムを想定すべきですか？）</small><br>
-                    "We need to ensure zero data loss during the power cycle." <small>（電源再投入時にデータ損失ゼロを保証する必要があります。）</small>
+                    "Addressing [A] is indispensable." <small>（[A]への対処は不可欠です。）</small><br><br>
+                    "It allows you to pack [B] into a tiny footprint." <small>（これにより[B]を極小の面積に詰め込むことができます。）</small><br><br>
+                    "A single failure means mission failure." <small>（たった一つの失敗がミッションの失敗を意味します。）</small>
                 </p>
-                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px; margin-top: 20px;">🛠️ 単語帳 / Technical Vocabulary</h4>
-                <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
-                    <tr style="border-bottom: 1px solid #ccc; text-align: left;">
-                        <th style="padding: 8px;">英語</th><th style="padding: 8px;">日本語</th><th style="padding: 8px;">解説</th>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>COTS</b></td><td style="padding: 8px;">民生品</td><td style="padding: 8px;">一般産業向けに出回っている安価な部品。</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>Latch-up</b></td><td style="padding: 8px;">ラッチアップ</td><td style="padding: 8px;">放射線等により回路に過電流が流れ続け破壊される現象。</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>TMR</b></td><td style="padding: 8px;">3重系冗長構成</td><td style="padding: 8px;">3つの回路で多数決を行い正解を決める構成。</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 8px;"><b>Warm boot</b></td><td style="padding: 8px;">ウォームブート</td><td style="padding: 8px;">最小限の手順で高速に再起動すること。</td>
-                    </tr>
-                </table>
             </div>
         </div>
+
     </div>
 </div>
 
+    
 <div class="archive-section">
     <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
     <div class="archive-grid">
@@ -290,6 +281,7 @@
 
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
+    // アーカイブデータ：単語・フレーズ・行間調整済み
     const archiveData = {
         'sp_archive': {
             title: 'FPGA SiP and Evolvable Hardware',
@@ -310,14 +302,20 @@
             `,
             study: `
                 <div style="margin-top:20px; padding:20px; background:#fff5eb; border-radius:10px; border-top:5px solid var(--space-orange);">
-                    <h4 style="color:var(--space-orange); margin-top:0;">💡 重要単語・フレーズ</h4>
-                    <ul style="font-size:0.9rem; line-height:1.8;">
+                    <h4 style="color:var(--space-orange); margin-top:0;">💡 今日の重要単語 / Key Vocabulary</h4>
+                    <ul style="font-size:0.9rem; line-height:1.8; padding-left:20px;">
                         <li><b>Diffraction limit:</b> 回折限界（光の物理的な解像度限界）</li>
                         <li><b>High-fidelity:</b> 高忠実度（元の情報を正確に再現していること）</li>
                         <li><b>Stringent:</b> 厳格な、厳しい（要件など）</li>
                         <li><b>Robustness:</b> 堅牢性、頑強性</li>
                         <li><b>Non-negotiable:</b> 交渉の余地のない、譲れない</li>
                     </ul>
+                    <h4 style="color:var(--space-orange); margin-top:20px;">📝 実践フレーズ / Useful Phrases</h4>
+                    <div style="font-size:0.9rem; line-height:1.6; border-left:3px solid var(--space-orange); padding-left:15px;">
+                        <p><b>"Addressing [A] is indispensable."</b><br>（[A]への対処は不可欠です。）</p>
+                        <p><b>"It allows you to pack [B] into a tiny footprint."</b><br>（これにより[B]を極小の面積に詰め込むことができます。）</p>
+                        <p><b>"A single failure means mission failure."</b><br>（たった一つの失敗がミッションの失敗を意味します。）</p>
+                    </div>
                 </div>`
         },
         'mv_archive': {
@@ -327,27 +325,41 @@
                 <p style="font-weight:bold; color:var(--vision-blue); margin-bottom:15px;">Main Theme: Beyond the Physical Limits — Deformable Mirrors and Wavefront Control</p>
                 <p style="margin-bottom: 15px;"><b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable. Simply increasing sensor resolution is no longer sufficient.</p>
                 <p style="margin-bottom: 15px;"><b>B:</b> I understand the physical constraints of the 2nm node. But from a cost perspective, can't we compensate for that blur using AI-based post-processing? AI sharpening has come a long way recently.</p>
-                <p style="margin-bottom: 15px;"><b>A:</b> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence.</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence. If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.</p>
                 <p style="margin-bottom: 15px;"><b>B:</b> So, you’re saying software has its limits because the input data itself is "empty" or corrupted?</p>
-                <p style="margin-bottom: 15px;"><b>A:</b> Exactly. Our AO system uses deformable mirrors that change shape in the kHz-order to provide high-fidelity data.</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> Exactly. To bridge this gap, our AO system uses deformable mirrors that change shape in the kHz-order. By neutralizing these aberrations in real-time at the speed of light, we provide the high-fidelity data that your AI needs to actually be reliable.</p>
+                <p style="margin-bottom: 15px;"><b>B:</b> I see. So you are ensuring a "perfect shot" at the physical layer so that our analysis AI can achieve the target yield without having to guess or hallucinate details.</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> Precisely. This technology isn't just for semiconductors; we are applying the same principle to deep-space laser communication. Whether it's a wafer or a satellite, our priority remains the same: Reliability is a non-negotiable priority, and it starts at the physical contact point of light.</p>
             `,
             jp: `
                 <p style="font-weight:bold; color:var(--vision-blue); margin-bottom:15px;">メインテーマ：物理的限界を超えて — 可変形状ミラーと波面制御</p>
-                <p style="margin-bottom: 15px;"><b>A：</b> 当社は、次世代の2nm検査ラインに補償光学（AO）システムを統合しています。この領域において、回折限界への対処はもはや選択肢ではなく、必須事項です。</p>
-                <p style="margin-bottom: 15px;"><b>B：</b> 2nmノードにおける物理的な制約については理解しています。しかしコストの観点から、AIベースの後処理で補正することはできないのでしょうか？</p>
-                <p style="margin-bottom: 15px;"><b>A：</b> それはよくある誤解です。AIは「そこにあるべき姿」を予測することには長けていますが、最初からキャプチャされなかった情報を復元することはできません。</p>
-                <p style="margin-bottom: 15px;"><b>B：</b> つまり、入力データそのものが破損しているため、ソフトウェアには限界があるということですね。</p>
-                <p style="margin-bottom: 15px;"><b>A：</b> その通りです。kHzオーダーで形状を変化させる可変形状ミラーを採用し、収差をリアルタイムで打ち消すことで高忠実度なデータを提供します。</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> 当社は、次世代の2nm検査ラインに補償光学（AO：Adaptive Optics）システムを統合しています。このサブナノスケールの領域において、回折限界への対処はもはや選択肢ではなく、必須事項です。単にセンサーの解像度を上げるだけでは、もう十分ではありません。</p>
+                <p style="margin-bottom: 15px;"><b>B：</b> 2nmノードにおける物理的な制約については理解しています。しかしコストの観点から、その「ボケ」をAIベースの後処理で補正することはできないのでしょうか？ 最近のAIシャープニング技術の進歩は目覚ましいものがありますが。</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> それはよくある誤解です。AIは「そこにあるべき姿」を予測することには長けていますが、高周波振動や大気のゆらぎによって「最初からキャプチャされなかった情報」を復元することはできません。センサーに届く前に波面が歪んでしまえば、そのデータはソースの段階で根本的に欠陥を抱えていることになります。</p>
+                <p style="margin-bottom: 15px;"><b>B：</b> つまり、入力データそのものが「空っぽ」だったり破損していたりするため、ソフトウェアには限界があるということですね。</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> その通りです。このギャップを埋めるために、当社のAOシステムはkHz（キロヘルツ）オーダーで形状を変化させる可変形状ミラーを採用しています。これらの収差を光速に近いリアルタイムで打ち消すことで、貴社の解析AIが真に信頼性を発揮するために必要な、高忠実度なデータを提供します。</p>
+                <p style="margin-bottom: 15px;"><b>B：</b> なるほど。物理レイヤーで「完璧な一枚」を担保することで、解析AIが推測や「ハルシネーション（幻覚）」に頼ることなく、目標歩留まりを達成できるようにするわけですね。</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> まさに。この技術は半導体だけではありません。私たちは同じ原理を深宇宙レーザー通信にも応用しています。ウェハーであれ人工衛星であれ、私たちの優先事項は変わりません。「信頼性」は譲れない条件であり、それは光が物理的に接触するその起点から始まるのです。</p>
             `,
             study: `
                 <div style="margin-top:20px; padding:20px; background:#f0f7ff; border-radius:10px; border-top:5px solid var(--vision-blue);">
-                    <h4 style="color:var(--vision-blue); margin-top:0;">💡 重要単語・フレーズ</h4>
-                    <ul style="font-size:0.9rem; line-height:1.8;">
-                        <li><b>Indispensable:</b> 不不可欠な、絶対に外せない</li>
-                        <li><b>Misconception:</b> 誤解、思い込み</li>
-                        <li><b>Neutralize:</b> 中和する、打ち消す</li>
-                        <li><b>Reliability is a non-negotiable priority.</b>（信頼性は譲れない条件です）</li>
-                    </ul>
+                    <h4 style="color:var(--vision-blue); margin-top:0;">💡 重要単語 / Key Vocabulary</h4>
+                    <div style="font-size:0.85rem; line-height:1.6;">
+                        <p><b>Indispensable:</b> 不可欠な、絶対に外せない（"Necessary" より強い表現）</p>
+                        <p><b>Diffraction limit:</b> 回折限界（光の性質からくる物理的な解像度の限界）</p>
+                        <p><b>Misconception:</b> 誤解、思い込み（論理的に訂正する際に便利）</p>
+                        <p><b>Deformable mirrors:</b> 可変形状ミラー（AOの核。kHz単位で鏡面を変形）</p>
+                        <p><b>Neutralize:</b> 中和する、打ち消す（ノイズや誤差をゼロにする）</p>
+                        <p><b>High-fidelity:</b> 高忠実度、再現性の高い（情報の劣化がない状態）</p>
+                        <p><b>Non-negotiable:</b> 交渉の余地がない、譲れない（最優先事項を強調）</p>
+                    </div>
+                    <h4 style="color:var(--vision-blue); margin-top:20px;">📝 実践フレーズ / Useful Phrases</h4>
+                    <div style="font-size:0.9rem; line-height:1.6; border-left:3px solid var(--vision-blue); padding-left:15px;">
+                        <p><b>"Addressing [A] is no longer optional; it is indispensable."</b><br>（[A]への対処はもはや任意ではなく、不可欠です。）</p>
+                        <p><b>"AI cannot restore information that was never captured."</b><br>（AIは取り込まれなかった情報を復元することはできません。）</p>
+                        <p><b>"Reliability starts at the physical contact point of [B]."</b><br>（それは[B]の物理的な接点から始まります。）</p>
+                        <p><b>"We are ensuring a 'perfect shot' at the physical layer."</b><br>（〜を物理レイヤーで確保する／確実にする）</p>
+                    </div>
                 </div>`
         }
     };
@@ -357,9 +369,11 @@
         if (!data) return;
         document.getElementById('modalTitle').innerText = data.title;
         document.getElementById('modalEnScript').innerHTML = data.en;
+        
         let jpContent = data.jp;
         if (data.study) { jpContent += data.study; }
         document.getElementById('modalJpScript').innerHTML = jpContent;
+        
         document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">▶️</span><span onclick="toggleAudio('${data.audio}', 'modalAudioBtn')" style="cursor:pointer; font-weight:bold; margin-left:10px;">LISTEN TO AUDIO</span>`;
         document.getElementById('archiveModal').style.display = 'block';
     }
