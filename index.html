@@ -317,18 +317,7 @@
                 <p style="margin-bottom: 15px;"><b>A：</b> その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。</p>
                 <p style="margin-bottom: 15px;"><b>B：</b> なるほど。つまり3D統合技術によって、放射線遮蔽された極小の設置面積の中に、高密度な処理機能を詰め込めるということですね？</p>
                 <p style="margin-bottom: 15px;"><b>A：</b> まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。</p>
-            `,
-            study: `
-                <div style="margin-top:20px; padding:20px; background:#fff5eb; border-radius:10px; border-top:5px solid var(--space-orange);">
-                    <h4 style="color:var(--space-orange); margin-top:0;">💡 今日の重要単語 / Key Vocabulary</h4>
-                    <ul style="font-size:0.9rem; line-height:1.8; padding-left:20px;">
-                        <li><b>Diffraction limit:</b> 回折限界</li>
-                        <li><b>High-fidelity:</b> 高忠実度</li>
-                        <li><b>Stringent:</b> 厳格な、厳しい</li>
-                        <li><b>Robustness:</b> 堅牢性</li>
-                        <li><b>Non-negotiable:</b> 交渉の余地のない</li>
-                    </ul>
-                </div>`
+            `
         },
         'mv_archive': {
             title: 'Beyond the Physical Limits',
@@ -365,6 +354,13 @@
         if (data.study) { jpContent += data.study; }
         document.getElementById('modalJpScript').innerHTML = jpContent;
         document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">▶️</span><span onclick="toggleAudio('${data.audio}', 'modalAudioBtn')" style="cursor:pointer; font-weight:bold; margin-left:10px;">LISTEN TO AUDIO</span>`;
+        
+        // 資料ダウンロードボタンの挙動（ファイル名はidに基づいて設定可能）
+        document.getElementById('modalDownloadBtn').onclick = function() {
+            alert(data.title + ' の技術資料（PDF）を準備しています。');
+            // window.location.href = id + '.pdf'; // 実運用時はこちら
+        };
+
         document.getElementById('archiveModal').style.display = 'block';
     }
 
