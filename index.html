@@ -128,26 +128,85 @@
 </div>
 
 <div class="translation-container">
-    <button class="translation-btn" onclick="toggleTranslation()">🔍 スクリプトの和訳を見る</button>
+    <button class="translation-btn" id="transBtn" onclick="toggleTranslation()">🔍 スクリプトの和訳と学習ポイントを見る</button>
     <div class="translation-content" id="transContent">
+        
         <div class="trans-item">
-            <div class="trans-title">Case 1: Thermal Intelligence in the AI Era</div>
-            <p>（AI時代の熱インテリジェンス）</p>
+            <div class="trans-title" style="background: var(--vision-blue); color: white; padding: 10px 20px; border-radius: 5px;">
+                Case 1: Thermal Intelligence in the AI Era
+            </div>
+            <p style="font-weight: bold; margin-top: 15px;">（AI時代の熱インテリジェンス）</p>
             <p><b>A (クロニクス):</b> 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。クライアントはラック全体の温度分布を監視する方法を必要としていますが、プライバシーも非常に懸念しています。</p>
             <p><b>B (Calumino):</b> だからこそ弊社のプライバシー保護型熱センサが注目されています。個人の顔を特定することなく熱異常を検知でき、気流の「熱フットプリント」を捉えるボロメータ配列を使用しています。</p>
             <p><b>A:</b> 統合が鍵です。熱データを使用してファンの回転数を上げたり、故障前にワークロードを移動させたい。電磁妨害（EMI）対策はどうなっていますか？シャットダウン前に一時的な熱スパイクを捉える必要があります。</p>
+
+            <div style="background: #f0f7ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px;">💡 実践フレーズ / Useful Phrases</h4>
+                <p><b>1. 課題（ホットスポットや異常）を伝える</b><br>
+                "We need to detect thermal anomalies before they lead to hardware failure."<br>
+                <small>（ハードウェアの故障につながる前に、熱の異常を検知する必要があります。）</small><br>
+                "Traditional sensors have too many blind spots."<br>
+                <small>（従来のセンサーには死角が多すぎます。）</small></p>
+                
+                <p><b>2. プライバシーやセキュリティについて</b><br>
+                "Does it comply with privacy regulations?"<br>
+                <small>（プライバシー規制に準拠していますか？）</small><br>
+                "It captures thermal signatures without compromising privacy."<br>
+                <small>（プライバシーを侵害せずに、熱の兆候を捉えます。）</small></p>
+
+                <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px; margin-top: 20px;">🛠️ 単語帳 / Technical Vocabulary</h4>
+                <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid #ccc; text-align: left;">
+                        <th style="padding: 8px;">英語</th><th style="padding: 8px;">日本語</th><th style="padding: 8px;">解説</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;"><b>Hot spot</b></td><td style="padding: 8px;">ホットスポット</td><td style="padding: 8px;">局所的に温度が高い危険な場所</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;"><b>Thermal anomaly</b></td><td style="padding: 8px;">熱の異常</td><td style="padding: 8px;">通常とは異なる温度上昇</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;"><b>Scalability</b></td><td style="padding: 8px;">拡張性</td><td style="padding: 8px;">規模を拡大しやすいかどうか</td>
+                    </tr>
+                </table>
+            </div>
         </div>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
+
         <div class="trans-item">
-            <div class="trans-title">Case 2: FPGA SiP and Evolvable Hardware</div>
-            <p>（テーマ：メンテナンス不能な極限環境での「進化する回路」）</p>
+            <div class="trans-title" style="background: var(--space-orange); color: white; padding: 10px 20px; border-radius: 5px;">
+                Case 2: FPGA SiP and Evolvable Hardware
+            </div>
+            <p style="font-weight: bold; margin-top: 15px;">（テーマ：メンテナンス不能な極限環境での「進化する回路」）</p>
             <p><b>A（クロニクス・エンジニア）：</b>火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。</p>
             <p><b>B（海外テックパートナー）：</b>標準的な放射線耐性ASICを使わないのはなぜですか？ 通常、そちらの方が電力効率が良いはずですが。</p>
             <p><b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。</p>
             <p><b>B：</b>なるほど。つまり3D統合（積層）技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？</p>
             <p><b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。</p>
+
+            <div style="background: #fff5eb; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px;">💡 今日の重要単語 / Key Vocabulary</h4>
+                <ul style="font-size: 0.9rem; line-height: 1.6;">
+                    <li><b>Diffraction limit:</b> 回折限界（光の物理的な解像度限界）</li>
+                    <li><b>High-fidelity:</b> 高忠実度（元の情報を正確に再現していること）</li>
+                    <li><b>Stringent:</b> 厳格な、厳しい（要件など）</li>
+                    <li><b>Robustness:</b> 堅牢性、頑強性</li>
+                    <li><b>Non-negotiable:</b> 交渉の余地のない、譲れない</li>
+                </ul>
+                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px; margin-top: 20px;">📝 実践フレーズ / Useful Phrases</h4>
+                <p style="font-size: 0.9rem;">
+                    "Addressing [A] is indispensable." <small>（[A]への対処は不可欠です。）</small><br><br>
+                    "It allows you to pack [B] into a tiny footprint." <small>（これにより[B]を極小の面積に詰め込むことができます。）</small><br><br>
+                    "A single failure means mission failure." <small>（たった一つの失敗がミッションの失敗を意味します。）</small>
+                </p>
+            </div>
         </div>
+
     </div>
 </div>
+
+    
 <div class="archive-section">
     <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
     <div class="archive-grid">
