@@ -87,7 +87,7 @@
 
 <div class="intro-banner">
     <strong>こんにちは！本日の定期配信です。</strong><br>
-    DCの熱管理技術と、宇宙探査での民生品（COTS）活用を支えるラッチアップ保護技術をお届けします。
+    DCの熱管理技術と、宇宙環境での民生品（COTS）活用を支えるラッチアップ保護技術をお届けします。
 </div>
 
 <div class="hero-container">
@@ -112,10 +112,10 @@
         <p class="theme-sub" style="color: #ffaa00;">テーマ：民生品（COTS）を宇宙で使うための保護技術</p>
         <h1>ZES: Survival of COTS in Space</h1>
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A (Chronix):</span> Our clients in the 'New Space' sector are struggling with a dilemma. They want the high performance and low cost of COTS components, but they can't afford a system crash due to SEE in high-radiation orbits. How exactly does your technology allow standard chips to survive?</div>
-            <div class="script-line"><span class="speaker">B (ZES):</span> It’s about a hybrid approach. We don't just rely on shielding. Our ZES technology integrates physical-layer protection with intelligent latch-up detection and recovery. We monitor the current in real-time. If we detect a radiation-induced surge, our system reacts in nanoseconds to prevent permanent damage.</div>
-            <div class="script-line"><span class="speaker">A (Chronix):</span> But in high-speed missions, even a few milliseconds of downtime is critical. How fast is the recovery time?</div>
-            <div class="script-line"><span class="speaker">B (ZES):</span> Detection happens in less than 100ns. The power-cycling and recovery typically take a few milliseconds. To ensure no data is lost, we use a non-volatile memory bridge that periodically checkpoints the system state for a warm boot.</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> Our clients in the 'New Space' sector are struggling with a dilemma. They want the high performance and low cost of COTS components, but they can't afford a system crash due to SEE (Single Event Effects) in high-radiation orbits. How exactly does your technology allow standard chips to survive in such a harsh environment?</div>
+            <div class="script-line"><span class="speaker">B (ZES):</span> It’s about a hybrid approach. We don't just rely on shielding. Our ZES technology integrates physical-layer protection with intelligent latch-up detection and recovery. We monitor the current in real-time. If we detect a radiation-induced surge, our system reacts in nanoseconds to prevent permanent damage, while maintaining data integrity through TMR (Triple Modular Redundancy).</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> But in a high-speed processing mission, even a few milliseconds of downtime can be critical. If a radiation event triggers your latch-up protection, how fast is the recovery time? And how do you ensure that the system state is restored to exactly where it was before the surge?</div>
+            <div class="script-line"><span class="speaker">B (ZES):</span> Our detection and isolation happen in less than 100 nanoseconds. The power-cycling and recovery process typically take a few milliseconds. To ensure no data is lost, we use a non-volatile memory bridge that periodically checkpoints the system state. This means we can perform a warm boot almost instantly after the event is cleared.</div>
         </div>
         <div class="meta-footer">
             <div id="btn-zes" class="audio-btn" onclick="toggleAudio('zes.mp3', 'btn-zes')">
@@ -137,22 +137,35 @@
             <p style="font-weight: bold; margin-top: 15px;">（AI時代の熱インテリジェンス）</p>
             <p><b>A (クロニクス):</b> 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。クライアントはラック全体の温度分布を監視する方法を必要としていますが、プライバシーも非常に懸念しています。</p>
             <p><b>B (Calumino):</b> だからこそ弊社のプライバシー保護型熱センサが注目されています。個人の顔を特定することなく熱異常を検知でき、気流の「熱フットプリント」を捉えるボロメータ配列を使用しています。</p>
+            <p><b>A:</b> 統合が鍵です。熱データを使用してファンの回転数を上げたり、故障前にワークロードを移動させたい。電磁妨害（EMI）対策はどうなっていますか？シャットダウン前に一時的な熱スパイクを捉える必要があります。</p>
 
             <div style="background: #f0f7ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
                 <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px;">💡 実践フレーズ / Useful Phrases</h4>
                 <p><b>1. 課題（ホットスポットや異常）を伝える</b><br>
                 "We need to detect thermal anomalies before they lead to hardware failure."<br>
-                <small>（ハードウェアの故障につながる前に、熱の異常を検知する必要があります。）</small></p>
+                <small>（ハードウェアの故障につながる前に、熱の異常を検知する必要があります。）</small><br>
+                "Traditional sensors have too many blind spots."<br>
+                <small>（従来のセンサーには死角が多すぎます。）</small></p>
+                
+                <p><b>2. プライバシーやセキュリティについて</b><br>
+                "Does it comply with privacy regulations?"<br>
+                <small>（プライバシー規制に準拠していますか？）</small><br>
+                "It captures thermal signatures without compromising privacy."<br>
+                <small>（プライバシーを侵害せずに、熱の兆候を捉えます。）</small></p>
+
                 <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px; margin-top: 20px;">🛠️ 単語帳 / Technical Vocabulary</h4>
                 <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
                     <tr style="border-bottom: 1px solid #ccc; text-align: left;">
                         <th style="padding: 8px;">英語</th><th style="padding: 8px;">日本語</th><th style="padding: 8px;">解説</th>
                     </tr>
                     <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>Hot spot</b></td><td style="padding: 8px;">ホットスポット</td><td style="padding: 8px;">局所的に温度が高い場所</td>
+                        <td style="padding: 8px;"><b>Hot spot</b></td><td style="padding: 8px;">ホットスポット</td><td style="padding: 8px;">局所的に温度が高い危険な場所</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;"><b>Thermal anomaly</b></td><td style="padding: 8px;">熱の異常</td><td style="padding: 8px;">通常とは異なる温度上昇</td>
                     </tr>
                     <tr>
-                        <td style="padding: 8px;"><b>Thermal anomaly</b></td><td style="padding: 8px;">熱の異常</td><td style="padding: 8px;">通常とは異なる温度上昇</td>
+                        <td style="padding: 8px;"><b>Scalability</b></td><td style="padding: 8px;">拡張性</td><td style="padding: 8px;">規模を拡大しやすいかどうか</td>
                     </tr>
                 </table>
             </div>
@@ -165,34 +178,37 @@
                 Case 2: ZES Technical Discussion (民生品のジレンマ)
             </div>
             <p style="font-weight: bold; margin-top: 15px;">（テーマ：宇宙環境でのCOTS活用とラッチアップ保護）</p>
-            <p><b>A（クロニクス社員）：</b>「New Space（民間宇宙開発）」分野の顧客は、ジレンマに直面しています。彼らは COTS（民生品）の高いパフォーマンスと低コストを求めていますが、放射線量の多い軌道上での SEE によるシステムクラッシュを許容できません。御社の技術は、具体的にどのようにして標準チップを生き残らせるのでしょうか？</p>
-            <p><b>B（ZES担当者）：</b>ハイブリッドなアプローチです。我々は遮蔽だけに頼りません。ZES技術は、物理レイヤーの保護と、ラッチアップ検知・復旧機能を統合しています。電流をリアルタイムで監視し、放射線誘発によるサージを検知すると、ナノ秒単位で反応して永久的損傷を防ぎ、TMRを通じてデータの整合性を維持します。</p>
-            <p><b>A：</b>高速ミッションでは数ミリ秒のダウンタイムも致命的です。復旧時間は？</p>
-            <p><b>B：</b>検知は100ns未満。電源再投入（パワーサイクリング）と復旧は通常数ミリ秒です。データ損失を防ぐため、システムのステートを定期的に保存する非揮発性メモリ・ブリッジ（チェックポイント設定）を採用しており、瞬時にウォームブートが可能です。</p>
+            <p><b>A（クロニクス社員）：</b>「New Space（民間宇宙開発）」分野の顧客は、あるジレンマに直面しています。彼らは COTS（民生品） コンポーネントの高いパフォーマンスと低コストを求めていますが、放射線量の多い軌道上での SEE（シングルイベント効果） によるシステムクラッシュを許容することができません。御社の技術は、具体的にどのようにして標準的なチップをこのような過酷な環境で生き残らせるのでしょうか？</p>
+            <p><b>B（ZES担当者）：</b>それはハイブリッドなアプローチによるものです。我々は単に（物理的な）遮蔽だけに頼りません。ZESのテクノロジーは、物理レイヤーの保護と、インテリジェントな ラッチアップ 検知・復旧機能を統合しています。電流をリアルタイムで監視しており、放射線誘発によるサージ（急激な電流変化）を検知すると、システムは ナノ秒 単位で反応して永久的な損傷を防ぎます。同時に、TMR（3重系冗長構成） を通じて データの整合性 を維持するのです。</p>
+            <p><b>A（クロニクス社員）：</b>なるほど、期待できそうですね。しかし、高速処理を要するミッションでは、たとえ数ミリ秒の ダウンタイム であっても致命的になりかねません。もし放射線イベントがラッチアップ保護を起動させた場合、復旧時間はどのくらいでしょうか？ また、システムの状態をサージ発生直前の状態に確実に復元するにはどうすればよいのですか？</p>
+            <p><b>B（ZES担当者）：</b>検知と隔離は 100ナノ秒未満 で行われます。電源の再投入（パワーサイクリング） と復旧プロセスは、電源レールの容量にもよりますが、通常は数ミリ秒です。データ損失を確実に防ぐため、我々はシステムのステート（状態）を定期的に保存する 非揮発性メモリ・ブリッジ（チェックポイント設定） を採用しています。これにより、イベントが解消された後、ほぼ瞬時に ウォームブート（高速再起動） を実行することが可能です。</p>
 
             <div style="background: #fff5eb; padding: 20px; border-radius: 10px; margin-top: 20px;">
                 <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px;">💡 実践フレーズ / Useful Phrases</h4>
-                <ul style="font-size: 0.9rem; line-height: 1.6;">
-                    <li>"How does this chip handle Single Event Upsets (SEU)?" <small>（SEUにどう対処しますか？）</small></li>
-                    <li>"Is it latch-up immune?" <small>（ラッチアップ耐性はありますか？）</small></li>
-                    <li>"We need to ensure zero data loss during the power cycle." <small>（電源再投入時にデータ損失ゼロを保証する必要があります。）</small></li>
-                </ul>
+                <p style="font-size: 0.9rem;">
+                    <b>1. 放射線耐性と信頼性の確認</b><br>
+                    "How does this chip handle Single Event Upsets (SEU)?" <small>（このチップはSEUに対処しますか？）</small><br>
+                    "Is it latch-up immune?" <small>（ラッチアップ耐性はありますか？）</small><br><br>
+                    <b>2. 復旧性能とデータ保護</b><br>
+                    "How much downtime should we expect during a radiation event?" <small>（どのくらいのダウンタイムを想定すべきですか？）</small><br>
+                    "We need to ensure zero data loss during the power cycle." <small>（電源再投入時にデータ損失ゼロを保証する必要があります。）</small>
+                </p>
                 <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px; margin-top: 20px;">🛠️ 単語帳 / Technical Vocabulary</h4>
                 <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
                     <tr style="border-bottom: 1px solid #ccc; text-align: left;">
                         <th style="padding: 8px;">英語</th><th style="padding: 8px;">日本語</th><th style="padding: 8px;">解説</th>
                     </tr>
                     <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>COTS</b></td><td style="padding: 8px;">民生品</td><td style="padding: 8px;">一般産業向けの安価な部品</td>
+                        <td style="padding: 8px;"><b>COTS</b></td><td style="padding: 8px;">民生品</td><td style="padding: 8px;">一般産業向けに出回っている安価な部品。</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>Latch-up</b></td><td style="padding: 8px;">ラッチアップ</td><td style="padding: 8px;">過電流が流れ続け、回路が破壊される現象</td>
+                        <td style="padding: 8px;"><b>Latch-up</b></td><td style="padding: 8px;">ラッチアップ</td><td style="padding: 8px;">放射線等により回路に過電流が流れ続け破壊される現象。</td>
                     </tr>
                     <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>TMR</b></td><td style="padding: 8px;">3重系冗長構成</td><td style="padding: 8px;">3つの回路で多数決を行い正解を決める構成</td>
+                        <td style="padding: 8px;"><b>TMR</b></td><td style="padding: 8px;">3重系冗長構成</td><td style="padding: 8px;">3つの回路で多数決を行い正解を決める構成。</td>
                     </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>Checkpointing</b></td><td style="padding: 8px;">チェックポイント設定</td><td style="padding: 8px;">データを定期保存し異常直前から再開すること</td>
+                    <tr>
+                        <td style="padding: 8px;"><b>Warm boot</b></td><td style="padding: 8px;">ウォームブート</td><td style="padding: 8px;">最小限の手順で高速に再起動すること。</td>
                     </tr>
                 </table>
             </div>
@@ -203,13 +219,6 @@
 <div class="archive-section">
     <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
     <div class="archive-grid">
-        <div class="archive-card" onclick="openArchiveModal('zes_archive')">
-            <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #f97316); color: white; padding: 20px;">
-                <span style="font-size: 0.7rem; opacity: 0.8;">NEW SPACE ARCHIVE</span>
-                <h4 style="margin: 10px 0 0 0;">ZES: COTS Survival in Space</h4>
-            </div>
-            <div style="padding: 20px; font-size: 0.85rem; color: #666;">民生品（COTS）を宇宙放射線から守るラッチアップ保護。</div>
-        </div>
         <div class="archive-card" onclick="openArchiveModal('sp_archive')">
             <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
                 <span style="font-size: 0.7rem; opacity: 0.8;">SPACE ARCHIVE</span>
@@ -282,22 +291,6 @@
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
     const archiveData = {
-        'zes_archive': {
-            title: 'ZES: COTS Survival in Space',
-            audio: 'zes.mp3',
-            en: `
-                <p style="margin-bottom: 15px;"><b>A (Chronix):</b> Our clients in the 'New Space' sector are struggling with a dilemma. They want the high performance and low cost of COTS components, but they can't afford a system crash due to SEE in high-radiation orbits.</p>
-                <p style="margin-bottom: 15px;"><b>B (ZES):</b> It’s about a hybrid approach. We don't just rely on shielding. Our ZES technology integrates physical-layer protection with intelligent latch-up detection and recovery. We monitor the current in real-time to prevent permanent damage while maintaining data integrity through TMR.</p>
-                <p style="margin-bottom: 15px;"><b>A:</b> How fast is the recovery time? And how do you ensure the system state is restored?</p>
-                <p style="margin-bottom: 15px;"><b>B:</b> Detection happens in less than 100ns. Recovery takes a few milliseconds. We use a non-volatile memory bridge that periodically checkpoints the system state for an instant warm boot after the event.</p>
-            `,
-            jp: `
-                <p style="margin-bottom: 15px;"><b>A（クロニクス）：</b> 民間宇宙開発の顧客はジレンマに直面しています。COTS（民生品）の高性能と低コストを求めていますが、放射線によるSEEでのシステム停止は許容できません。</p>
-                <p style="margin-bottom: 15px;"><b>B（ZES）：</b> 単なる遮蔽ではないハイブリッド方式です。物理層の保護と検知・復旧を統合し、リアルタイム監視で損傷を防ぎつつ、TMRで整合性を維持します。</p>
-                <p style="margin-bottom: 15px;"><b>A：</b> 復旧時間と状態の復元については？</p>
-                <p style="margin-bottom: 15px;"><b>B：</b> 検知は100ns未満、復旧は数msです。チェックポイント設定により、イベント後に瞬時にウォームブートが可能です。</p>
-            `
-        },
         'sp_archive': {
             title: 'FPGA SiP and Evolvable Hardware',
             audio: '3d.mp3',
@@ -319,18 +312,43 @@
                 <div style="margin-top:20px; padding:20px; background:#fff5eb; border-radius:10px; border-top:5px solid var(--space-orange);">
                     <h4 style="color:var(--space-orange); margin-top:0;">💡 重要単語・フレーズ</h4>
                     <ul style="font-size:0.9rem; line-height:1.8;">
-                        <li><b>Diffraction limit:</b> 回折限界</li>
-                        <li><b>High-fidelity:</b> 高忠実度</li>
-                        <li><b>Stringent:</b> 厳格な</li>
-                        <li><b>Addressing [A] is indispensable.</b> （[A]への対処は不可欠です）</li>
+                        <li><b>Diffraction limit:</b> 回折限界（光の物理的な解像度限界）</li>
+                        <li><b>High-fidelity:</b> 高忠実度（元の情報を正確に再現していること）</li>
+                        <li><b>Stringent:</b> 厳格な、厳しい（要件など）</li>
+                        <li><b>Robustness:</b> 堅牢性、頑強性</li>
+                        <li><b>Non-negotiable:</b> 交渉の余地のない、譲れない</li>
                     </ul>
                 </div>`
         },
         'mv_archive': {
             title: 'Beyond the Physical Limits',
             audio: 'nano.mp3',
-            en: `<p><b>A:</b> We are integrating Adaptive Optics (AO) into your 2nm inspection lines. Simply increasing sensor resolution is no longer sufficient.</p>`,
-            jp: `<p><b>A：</b> 2nm検査ラインに補償光学を統合しています。単に解像度を上げるだけでは不十分です。</p>`
+            en: `
+                <p style="font-weight:bold; color:var(--vision-blue); margin-bottom:15px;">Main Theme: Beyond the Physical Limits — Deformable Mirrors and Wavefront Control</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable. Simply increasing sensor resolution is no longer sufficient.</p>
+                <p style="margin-bottom: 15px;"><b>B:</b> I understand the physical constraints of the 2nm node. But from a cost perspective, can't we compensate for that blur using AI-based post-processing? AI sharpening has come a long way recently.</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence.</p>
+                <p style="margin-bottom: 15px;"><b>B:</b> So, you’re saying software has its limits because the input data itself is "empty" or corrupted?</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> Exactly. Our AO system uses deformable mirrors that change shape in the kHz-order to provide high-fidelity data.</p>
+            `,
+            jp: `
+                <p style="font-weight:bold; color:var(--vision-blue); margin-bottom:15px;">メインテーマ：物理的限界を超えて — 可変形状ミラーと波面制御</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> 当社は、次世代の2nm検査ラインに補償光学（AO）システムを統合しています。この領域において、回折限界への対処はもはや選択肢ではなく、必須事項です。</p>
+                <p style="margin-bottom: 15px;"><b>B：</b> 2nmノードにおける物理的な制約については理解しています。しかしコストの観点から、AIベースの後処理で補正することはできないのでしょうか？</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> それはよくある誤解です。AIは「そこにあるべき姿」を予測することには長けていますが、最初からキャプチャされなかった情報を復元することはできません。</p>
+                <p style="margin-bottom: 15px;"><b>B：</b> つまり、入力データそのものが破損しているため、ソフトウェアには限界があるということですね。</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> その通りです。kHzオーダーで形状を変化させる可変形状ミラーを採用し、収差をリアルタイムで打ち消すことで高忠実度なデータを提供します。</p>
+            `,
+            study: `
+                <div style="margin-top:20px; padding:20px; background:#f0f7ff; border-radius:10px; border-top:5px solid var(--vision-blue);">
+                    <h4 style="color:var(--vision-blue); margin-top:0;">💡 重要単語・フレーズ</h4>
+                    <ul style="font-size:0.9rem; line-height:1.8;">
+                        <li><b>Indispensable:</b> 不不可欠な、絶対に外せない</li>
+                        <li><b>Misconception:</b> 誤解、思い込み</li>
+                        <li><b>Neutralize:</b> 中和する、打ち消す</li>
+                        <li><b>Reliability is a non-negotiable priority.</b>（信頼性は譲れない条件です）</li>
+                    </ul>
+                </div>`
         }
     };
 
