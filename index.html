@@ -281,37 +281,86 @@
 
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
+    // アーカイブデータ：単語・フレーズ・行間調整済み
     const archiveData = {
         'sp_archive': {
             title: 'FPGA SiP and Evolvable Hardware',
             audio: '3d.mp3',
-            en: `<b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.<br>
-                 <b>B:</b> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.<br>
-                 <b>A:</b> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.<br>
-                 <b>B:</b> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?<br>
-                 <b>A:</b> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.`,
-            jp: `<b>テーマ：メンテナンス不能な極限環境での「進化する回路」</b><br><br>
-                 <b>A（クロニクス・エンジニア）：</b>火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。<br>
-                 <b>B：</b>標準的な放射線耐性ASICを使わないのはなぜですか？ 通常そちらの方が電力効率が良いはずですが。<br>
-                 <b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。<br>
-                 <b>B：</b>なるほど。つまり3D統合技術によって、放射線遮蔽された極小の設置面積の中に、高密度な処理機能を詰め込めるということですね？<br>
-                 <b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。`
+            en: `
+                <p style="margin-bottom: 15px;"><b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</p>
+                <p style="margin-bottom: 15px;"><b>B:</b> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.</p>
+                <p style="margin-bottom: 15px;"><b>B:</b> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.</p>
+            `,
+            jp: `
+                <p style="margin-bottom: 15px;"><b>A（クロニクス・エンジニア）：</b> 火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。</p>
+                <p style="margin-bottom: 15px;"><b>B：</b> 標準的な放射線耐性ASICを使わないのはなぜですか？ 通常そちらの方が電力効率が良いはずですが。</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。</p>
+                <p style="margin-bottom: 15px;"><b>B：</b> なるほど。つまり3D統合技術によって、放射線遮蔽された極小の設置面積の中に、高密度な処理機能を詰め込めるということですね？</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。</p>
+            `,
+            study: `
+                <div style="margin-top:20px; padding:20px; background:#fff5eb; border-radius:10px; border-top:5px solid var(--space-orange);">
+                    <h4 style="color:var(--space-orange); margin-top:0;">💡 今日の重要単語 / Key Vocabulary</h4>
+                    <ul style="font-size:0.9rem; line-height:1.8; padding-left:20px;">
+                        <li><b>Diffraction limit:</b> 回折限界（光の物理的な解像度限界）</li>
+                        <li><b>High-fidelity:</b> 高忠実度（元の情報を正確に再現していること）</li>
+                        <li><b>Stringent:</b> 厳格な、厳しい（要件など）</li>
+                        <li><b>Robustness:</b> 堅牢性、頑強性</li>
+                        <li><b>Non-negotiable:</b> 交渉の余地のない、譲れない</li>
+                    </ul>
+                    <h4 style="color:var(--space-orange); margin-top:20px;">📝 実践フレーズ / Useful Phrases</h4>
+                    <div style="font-size:0.9rem; line-height:1.6; border-left:3px solid var(--space-orange); padding-left:15px;">
+                        <p><b>"Addressing [A] is indispensable."</b><br>（[A]への対処は不可欠です。）</p>
+                        <p><b>"It allows you to pack [B] into a tiny footprint."</b><br>（これにより[B]を極小の面積に詰め込むことができます。）</p>
+                        <p><b>"A single failure means mission failure."</b><br>（たった一つの失敗がミッションの失敗を意味します。）</p>
+                    </div>
+                </div>`
         },
         'mv_archive': {
             title: 'Beyond the Physical Limits',
             audio: 'nano.mp3',
-            en: `<b>Main Theme: Beyond the Physical Limits — Deformable Mirrors and Wavefront Control</b><br><br>
-                 <b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable. Simply increasing sensor resolution is no longer sufficient.<br>
-                 <b>B:</b> I understand the physical constraints of the 2nm node. But from a cost perspective, can't we compensate for that blur using AI-based post-processing?<br>
-                 <b>A:</b> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence. If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.<br>
-                 <b>B:</b> So, you’re saying software has its limits because the input data itself is "empty" or corrupted?<br>
-                 <b>A:</b> Exactly. To bridge this gap, our AO system uses deformable mirrors that change shape in the kHz-order. By neutralizing these aberrations in real-time at the speed of light, we provide the high-fidelity data that your AI needs to actually be reliable.`,
-            jp: `<b>メインテーマ：物理的限界を超えて — 可変形状ミラーと波面制御</b><br><br>
-                 <b>A：</b>次世代の2nm検査ラインに補償光学（AO）システムを統合しています。サブナノスケールの領域では、回折限界への対処は必須事項です。<br>
-                 <b>B：</b>AIベースの後処理で補正はできませんか？<br>
-                 <b>A：</b>それは誤解です。AIは予測は得意ですが、「キャプチャされなかった情報」を復元することはできません。波面が歪めばデータは根本的に欠陥を抱えます。<br>
-                 <b>B：</b>つまり入力データ自体が破損しているため、ソフトウェアに限界があると。<br>
-                 <b>A：</b>その通りです。当社のAOシステムは可変形状ミラーを用い、これらを光速に近いリアルタイムで打ち消すことで、真に信頼できる高忠実度データを提供します。`
+            en: `
+                <p style="font-weight:bold; color:var(--vision-blue); margin-bottom:15px;">Main Theme: Beyond the Physical Limits — Deformable Mirrors and Wavefront Control</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable. Simply increasing sensor resolution is no longer sufficient.</p>
+                <p style="margin-bottom: 15px;"><b>B:</b> I understand the physical constraints of the 2nm node. But from a cost perspective, can't we compensate for that blur using AI-based post-processing? AI sharpening has come a long way recently.</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence. If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.</p>
+                <p style="margin-bottom: 15px;"><b>B:</b> So, you’re saying software has its limits because the input data itself is "empty" or corrupted?</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> Exactly. To bridge this gap, our AO system uses deformable mirrors that change shape in the kHz-order. By neutralizing these aberrations in real-time at the speed of light, we provide the high-fidelity data that your AI needs to actually be reliable.</p>
+                <p style="margin-bottom: 15px;"><b>B:</b> I see. So you are ensuring a "perfect shot" at the physical layer so that our analysis AI can achieve the target yield without having to guess or hallucinate details.</p>
+                <p style="margin-bottom: 15px;"><b>A:</b> Precisely. This technology isn't just for semiconductors; we are applying the same principle to deep-space laser communication. Whether it's a wafer or a satellite, our priority remains the same: Reliability is a non-negotiable priority, and it starts at the physical contact point of light.</p>
+            `,
+            jp: `
+                <p style="font-weight:bold; color:var(--vision-blue); margin-bottom:15px;">メインテーマ：物理的限界を超えて — 可変形状ミラーと波面制御</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> 当社は、次世代の2nm検査ラインに補償光学（AO：Adaptive Optics）システムを統合しています。このサブナノスケールの領域において、回折限界への対処はもはや選択肢ではなく、必須事項です。単にセンサーの解像度を上げるだけでは、もう十分ではありません。</p>
+                <p style="margin-bottom: 15px;"><b>B：</b> 2nmノードにおける物理的な制約については理解しています。しかしコストの観点から、その「ボケ」をAIベースの後処理で補正することはできないのでしょうか？ 最近のAIシャープニング技術の進歩は目覚ましいものがありますが。</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> それはよくある誤解です。AIは「そこにあるべき姿」を予測することには長けていますが、高周波振動や大気のゆらぎによって「最初からキャプチャされなかった情報」を復元することはできません。センサーに届く前に波面が歪んでしまえば、そのデータはソースの段階で根本的に欠陥を抱えていることになります。</p>
+                <p style="margin-bottom: 15px;"><b>B：</b> つまり、入力データそのものが「空っぽ」だったり破損していたりするため、ソフトウェアには限界があるということですね。</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> その通りです。このギャップを埋めるために、当社のAOシステムはkHz（キロヘルツ）オーダーで形状を変化させる可変形状ミラーを採用しています。これらの収差を光速に近いリアルタイムで打ち消すことで、貴社の解析AIが真に信頼性を発揮するために必要な、高忠実度なデータを提供します。</p>
+                <p style="margin-bottom: 15px;"><b>B：</b> なるほど。物理レイヤーで「完璧な一枚」を担保することで、解析AIが推測や「ハルシネーション（幻覚）」に頼ることなく、目標歩留まりを達成できるようにするわけですね。</p>
+                <p style="margin-bottom: 15px;"><b>A：</b> まさに。この技術は半導体だけではありません。私たちは同じ原理を深宇宙レーザー通信にも応用しています。ウェハーであれ人工衛星であれ、私たちの優先事項は変わりません。「信頼性」は譲れない条件であり、それは光が物理的に接触するその起点から始まるのです。</p>
+            `,
+            study: `
+                <div style="margin-top:20px; padding:20px; background:#f0f7ff; border-radius:10px; border-top:5px solid var(--vision-blue);">
+                    <h4 style="color:var(--vision-blue); margin-top:0;">💡 重要単語 / Key Vocabulary</h4>
+                    <div style="font-size:0.85rem; line-height:1.6;">
+                        <p><b>Indispensable:</b> 不可欠な、絶対に外せない（"Necessary" より強い表現）</p>
+                        <p><b>Diffraction limit:</b> 回折限界（光の性質からくる物理的な解像度の限界）</p>
+                        <p><b>Misconception:</b> 誤解、思い込み（論理的に訂正する際に便利）</p>
+                        <p><b>Deformable mirrors:</b> 可変形状ミラー（AOの核。kHz単位で鏡面を変形）</p>
+                        <p><b>Neutralize:</b> 中和する、打ち消す（ノイズや誤差をゼロにする）</p>
+                        <p><b>High-fidelity:</b> 高忠実度、再現性の高い（情報の劣化がない状態）</p>
+                        <p><b>Non-negotiable:</b> 交渉の余地がない、譲れない（最優先事項を強調）</p>
+                    </div>
+                    <h4 style="color:var(--vision-blue); margin-top:20px;">📝 実践フレーズ / Useful Phrases</h4>
+                    <div style="font-size:0.9rem; line-height:1.6; border-left:3px solid var(--vision-blue); padding-left:15px;">
+                        <p><b>"Addressing [A] is no longer optional; it is indispensable."</b><br>（[A]への対処はもはや任意ではなく、不可欠です。）</p>
+                        <p><b>"AI cannot restore information that was never captured."</b><br>（AIは取り込まれなかった情報を復元することはできません。）</p>
+                        <p><b>"Reliability starts at the physical contact point of [B]."</b><br>（それは[B]の物理的な接点から始まります。）</p>
+                        <p><b>"We are ensuring a 'perfect shot' at the physical layer."</b><br>（〜を物理レイヤーで確保する／確実にする）</p>
+                    </div>
+                </div>`
         }
     };
 
@@ -320,7 +369,11 @@
         if (!data) return;
         document.getElementById('modalTitle').innerText = data.title;
         document.getElementById('modalEnScript').innerHTML = data.en;
-        document.getElementById('modalJpScript').innerHTML = data.jp;
+        
+        let jpContent = data.jp;
+        if (data.study) { jpContent += data.study; }
+        document.getElementById('modalJpScript').innerHTML = jpContent;
+        
         document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">▶️</span><span onclick="toggleAudio('${data.audio}', 'modalAudioBtn')" style="cursor:pointer; font-weight:bold; margin-left:10px;">LISTEN TO AUDIO</span>`;
         document.getElementById('archiveModal').style.display = 'block';
     }
