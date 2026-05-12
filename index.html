@@ -301,6 +301,43 @@
 
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
+    // --- アーカイブモーダル制御（ダウンロードボタン統合版） ---
+    function openArchiveModal(id) {
+        const data = archiveData[id];
+        if (!data) return;
+
+        document.getElementById('modalTitle').innerText = data.title;
+        document.getElementById('modalEnScript').innerHTML = data.en;
+        
+        let jpContent = data.jp;
+        if (data.study) { jpContent += data.study; }
+        document.getElementById('modalJpScript').innerHTML = jpContent;
+        
+        // 音声再生と資料ダウンロードのボタンを横並びで生成
+        document.getElementById('modalAudioBtn').innerHTML = `
+            <div class="modal-btn-group">
+                <div class="audio-btn" onclick="toggleAudio('${data.audio}', 'modalAudioBtn')">
+                    <span class="audio-icon">▶️</span>
+                    <span style="font-weight:bold; margin-left:10px;">LISTEN TO AUDIO</span>
+                </div>
+                <a href="${data.pdf || '#'}" class="download-btn" target="_blank">
+                    <span style="margin-right:8px;">📥</span>製品資料ダウンロード
+                </a>
+            </div>
+        `;
+        document.getElementById('archiveModal').style.display = 'block';
+    }
+
+    function closeArchiveModal() {
+        document.getElementById('archiveModal').style.display = 'none';
+        if (currentAudio) { 
+            currentAudio.pause(); 
+            currentAudio = null; 
+            currentBtnId = null; 
+        }
+    }
+</script>
+
     const archiveData = {
         'sp_archive': {
             title: 'FPGA SiP and Evolvable Hardware',
