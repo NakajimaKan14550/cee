@@ -51,25 +51,28 @@
         .audio-btn:hover { background: rgba(255,255,255,0.3); transform: translateY(-2px); }
         .audio-icon { margin-right: 12px; font-size: 1.2rem; }
 
+        /* 和訳セクションのスタイル */
         .translation-container { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
         .translation-btn {
             width: 100%; background: #fff; border: 2px solid var(--vision-blue); padding: 15px;
             font-weight: bold; cursor: pointer; border-radius: 8px; color: var(--vision-blue);
-            transition: all 0.3s; font-size: 1rem; text-align: center;
+            transition: all 0.3s; font-size: 1rem; text-align: center; display: block;
         }
         .translation-btn:hover { background: var(--vision-blue); color: #fff; }
         .translation-content { display: none; background: #fcfcfc; border: 1px solid #eee; padding: 30px; margin-top: 15px; border-radius: 12px; }
+        .trans-item { margin-bottom: 40px; color: #333; }
+        .trans-title { font-weight: bold; color: var(--vision-blue); border-bottom: 3px solid #f0f0f0; margin-bottom: 15px; font-size: 1.2rem; }
 
         .archive-section { padding: 60px 5%; background-color: #f8f9fa; }
         .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .archive-card { border: none; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; overflow: hidden;}
-        .archive-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .archive-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); cursor: pointer; overflow: hidden; transition: 0.3s; }
+        .archive-card:hover { transform: translateY(-10px); }
 
         .zoomed { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(2); z-index: 2000; cursor: zoom-out; }
 
         @media (max-width: 900px) {
             .hero-container { flex-direction: column; height: auto; }
-            .hero-section { height: 500px; }
+            .hero-section { height: 500px; border-left: none; }
         }
     </style>
 </head>
@@ -128,7 +131,7 @@
 </div>
 
 <div class="translation-container">
-    <button class="translation-btn" onclick="toggleTranslation()">🔍 スクリプトの和訳を見る</button>
+    <button class="translation-btn" id="transBtn" onclick="toggleTranslation()">🔍 スクリプトの和訳を見る</button>
     <div class="translation-content" id="transContent">
         <div class="trans-item">
             <div class="trans-title">Case 1: Thermal Intelligence in the AI Era</div>
@@ -148,22 +151,21 @@
         </div>
     </div>
 </div>
+
 <div class="archive-section">
-    <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
+    <h3 style="border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
     <div class="archive-grid">
         <div class="archive-card" onclick="openArchiveModal('sp_archive')">
             <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
-                <span style="font-size: 0.7rem; opacity: 0.8;">SPACE ARCHIVE</span>
-                <h4 style="margin: 10px 0 0 0;">FPGA SiP and Evolvable Hardware</h4>
+                <h4 style="margin: 0;">FPGA SiP & Evolvable Hardware</h4>
             </div>
-            <div style="padding: 20px; font-size: 0.85rem; color: #666;">メンテナンス不能な環境での「進化する回路」。</div>
+            <div style="padding: 15px; font-size: 0.85rem; color: #666;">極限環境での「進化する回路」。</div>
         </div>
         <div class="archive-card" onclick="openArchiveModal('mv_archive')">
             <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
-                <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
-                <h4 style="margin: 10px 0 0 0;">Beyond the Physical Limits</h4>
+                <h4 style="margin: 0;">Beyond the Physical Limits</h4>
             </div>
-            <div style="padding: 20px; font-size: 0.85rem; color: #666;">可変形状ミラーと波面制御の最前線。</div>
+            <div style="padding: 15px; font-size: 0.85rem; color: #666;">可変形状ミラーと波面制御。</div>
         </div>
     </div>
 </div>
@@ -184,9 +186,8 @@
     </div>
 </div>
 
-<footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
-    <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">クロニクス株式会社</p>
-    <address style="font-style: normal; color: #cbd5e1; font-size: 0.9rem;">〒160-0023 東京都新宿区西新宿3-2-11</address>
+<footer style="background: #091a2d; color: #fff; padding: 40px 20px; text-align: center;">
+    <p>クロニクス株式会社</p>
 </footer>
 
 <script>
@@ -215,9 +216,17 @@
         currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
     }
 
+    // 【修正】和訳の切り替え
     function toggleTranslation() {
         const content = document.getElementById('transContent');
-        content.style.display = (content.style.display === 'block') ? 'none' : 'block';
+        const btn = document.getElementById('transBtn');
+        if (content.style.display === 'block') {
+            content.style.display = 'none';
+            btn.innerHTML = '🔍 スクリプトの和訳を見る';
+        } else {
+            content.style.display = 'block';
+            btn.innerHTML = '🔼 和訳を閉じる';
+        }
     }
 
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
@@ -226,33 +235,14 @@
         'sp_archive': {
             title: 'FPGA SiP and Evolvable Hardware',
             audio: '3d.mp3',
-            en: `<b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.<br>
-                 <b>B:</b> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.<br>
-                 <b>A:</b> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.<br>
-                 <b>B:</b> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?<br>
-                 <b>A:</b> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.`,
-            jp: `<b>テーマ：メンテナンス不能な極限環境での「進化する回路」</b><br><br>
-                 <b>A（クロニクス・エンジニア）：</b>火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。<br>
-                 <b>B：</b>標準的な放射線耐性ASICを使わないのはなぜですか？ 通常そちらの方が電力効率が良いはずですが。<br>
-                 <b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。<br>
-                 <b>B：</b>なるほど。つまり3D統合技術によって、放射線遮蔽された極小の設置面積の中に、高密度な処理機能を詰め込めるということですね？<br>
-                 <b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。`
+            en: `<b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP integrated with 3D stacking technology...`,
+            jp: `A: 火星探査に向けて3D積層FPGA SiPを提案中。遠隔で回路を再構成可能です。`
         },
         'mv_archive': {
             title: 'Beyond the Physical Limits',
             audio: 'nano.mp3',
-            en: `<b>Main Theme: Beyond the Physical Limits — Deformable Mirrors and Wavefront Control</b><br><br>
-                 <b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable. Simply increasing sensor resolution is no longer sufficient.<br>
-                 <b>B:</b> I understand the physical constraints of the 2nm node. But from a cost perspective, can't we compensate for that blur using AI-based post-processing?<br>
-                 <b>A:</b> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence. If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.<br>
-                 <b>B:</b> So, you’re saying software has its limits because the input data itself is "empty" or corrupted?<br>
-                 <b>A:</b> Exactly. To bridge this gap, our AO system uses deformable mirrors that change shape in the kHz-order. By neutralizing these aberrations in real-time at the speed of light, we provide the high-fidelity data that your AI needs to actually be reliable.`,
-            jp: `<b>メインテーマ：物理的限界を超えて — 可変形状ミラーと波面制御</b><br><br>
-                 <b>A：</b>次世代の2nm検査ラインに補償光学（AO）システムを統合しています。サブナノスケールの領域では、回折限界への対処は必須事項です。<br>
-                 <b>B：</b>AIベースの後処理で補正はできませんか？<br>
-                 <b>A：</b>それは誤解です。AIは予測は得意ですが、「キャプチャされなかった情報」を復元することはできません。波面が歪めばデータは根本的に欠陥を抱えます。<br>
-                 <b>B：</b>つまり入力データ自体が破損しているため、ソフトウェアに限界があると。<br>
-                 <b>A：</b>その通りです。当社のAOシステムは可変形状ミラーを用い、これらを光速に近いリアルタイムで打ち消すことで、真に信頼できる高忠実度データを提供します。`
+            en: `<b>A:</b> We are integrating Adaptive Optics (AO) into 2nm inspection lines...`,
+            jp: `A: 2nm検査に補償光学を導入。物理層での波面補正が不可欠です。`
         }
     };
 
