@@ -27,7 +27,6 @@
 
         .intro-banner { background: #f0f4f8; padding: 25px 5%; border-bottom: 1px solid #e1e8ed; font-size: 0.95rem; color: #444; }
 
-        /* Hero Section */
         .hero-container { display: flex; height: 650px; width: 100%; overflow: hidden; color: var(--text-white); }
         .hero-section { flex: 1; position: relative; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; background-size: cover; background-position: center; }
         .vision-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee.png'); }
@@ -52,37 +51,35 @@
         .audio-btn:hover { background: rgba(255,255,255,0.3); transform: translateY(-2px); }
         .audio-icon { margin-right: 12px; font-size: 1.2rem; }
 
-        /* Translation Toggle Section */
         .translation-container { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
         .translation-btn {
             width: 100%; background: #fff; border: 2px solid var(--vision-blue); padding: 15px;
             font-weight: bold; cursor: pointer; border-radius: 8px; color: var(--vision-blue);
-            transition: all 0.3s; font-size: 1rem; text-align: center; display: block;
+            transition: all 0.3s; font-size: 1rem;
         }
         .translation-btn:hover { background: var(--vision-blue); color: #fff; }
         .translation-content { display: none; background: #fcfcfc; border: 1px solid #eee; padding: 30px; margin-top: 15px; border-radius: 12px; }
         .trans-item { margin-bottom: 40px; }
         .trans-title { font-weight: bold; color: var(--vision-blue); border-bottom: 3px solid #f0f0f0; margin-bottom: 15px; font-size: 1.2rem; }
 
-        /* Study & Archive Sections */
-        .study-section { padding: 40px 5%; background: #fff; }
-        .study-box { margin-bottom: 40px; padding: 30px; border-radius: 15px; border: 1px solid #eee; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
+        .study-section { padding: 60px 5%; background: #fff; }
+        .study-box { margin-bottom: 60px; padding: 30px; border-radius: 15px; border: 1px solid #eee; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
+        .study-grid-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; margin-top: 25px; }
         .vocab-item { margin-bottom: 12px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; font-size: 0.95rem; }
-        
+        .vocab-en { font-weight: bold; color: var(--vision-blue); }
+        .phrase-box { background: #fdf6e3; padding: 25px; border-radius: 10px; border-left: 6px solid #b58900; }
+
         .archive-section { padding: 60px 5%; background-color: #f8f9fa; }
         .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .archive-card { background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); cursor: pointer; overflow: hidden; transition: 0.3s; }
-        .archive-card:hover { transform: translateY(-10px); }
-
-        /* Modal */
-        #archiveModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:3000; padding:20px; overflow-y:auto; }
-        .modal-content { max-width:800px; margin:40px auto; background:#fff; border-radius:15px; padding:40px; position:relative; }
+        .archive-card { border: none; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; overflow: hidden;}
+        .archive-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
         .zoomed { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(2); z-index: 2000; cursor: zoom-out; }
 
         @media (max-width: 900px) {
             .hero-container { flex-direction: column; height: auto; }
-            .hero-section { height: 500px; border-left: none; }
+            .hero-section { height: 500px; }
+            .study-grid-inner { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -100,7 +97,7 @@
 
 <div class="intro-banner">
     <strong>こんにちは！本日の定期配信です。</strong><br>
-    DCの熱管理を激変させるCalumino社の技術と、宇宙ミッションの「進化するハードウェア」をお届けします。
+    データセンターの最新熱管理技術と、宇宙探査ミッションを支える「進化するハードウェア」をお届けします。
 </div>
 
 <div class="hero-container">
@@ -109,8 +106,8 @@
         <p class="theme-sub" style="color: #4db8ff;">テーマ：DC熱管理の転換（点から面へ）</p>
         <h1>Thermal Intelligence in the AI Era</h1>
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> With the rise of high-density AI servers, traditional temperature sensors—which only measure a single point—are no longer enough. We are seeing 'micro-hotspots' that appear and disappear in seconds. Our clients need a way to monitor the thermal distribution across the entire rack in real-time.</div>
-            <div class="script-line"><span class="speaker">B:</span> That is exactly why our privacy-protected thermal sensors are gaining traction. Unlike standard thermography, our technology provides spatial resolution without identifying faces.</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> With the rise of high-density AI servers, traditional temperature sensors—which only measure a single point—are no longer enough. We are seeing 'micro-hotspots' that appear and disappear in seconds. Our clients need a way to monitor the thermal distribution across the entire rack in real-time.</div>
+            <div class="script-line"><span class="speaker">B (Calumino):</span> That is exactly why our privacy-protected thermal sensors are gaining traction. Unlike standard high-resolution thermography, our technology detects anomalies without identifying individual faces. We use a bolometer-based array that captures the 'thermal footprint' of the airflow.</div>
         </div>
         <div class="meta-footer">
             <div id="btn-thermal" class="audio-btn" onclick="toggleAudio('thermal.mp3', 'btn-thermal')">
@@ -125,9 +122,9 @@
         <p class="theme-sub" style="color: #ffaa00;">テーマ：極限環境での「進化する回路」</p>
         <h1>FPGA SiP and Evolvable Hardware</h1>
         <div class="script-window">
-            <div class="script-line"><span class="speaker">A:</span> For the Mars mission, we’re proposing the FPGA SiP integrated with 3D stacking technology.</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</div>
             <div class="script-line"><span class="speaker">B:</span> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</div>
-            <div class="script-line"><span class="speaker">A:</span> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic.</div>
+            <div class="script-line"><span class="speaker">A:</span> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected failures.</div>
         </div>
         <div class="meta-footer">
             <div id="btn-fpga" class="audio-btn" onclick="toggleAudio('3d.mp3', 'btn-fpga')">
@@ -138,52 +135,28 @@
     </div>
 </div>
 
-<div class="translation-container">
-    <button class="translation-btn" id="transBtn" onclick="toggleTranslation()">🔍 スクリプトの和訳を見る</button>
-    <div class="translation-content" id="transContent">
-        <div class="trans-item">
-            <div class="trans-title">Case 1: Thermal Intelligence in the AI Era</div>
-            <p>A: 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。クライアントはラック全体の温度分布をリアルタイムで監視する方法を必要としています。</p>
-            <p>B: まさにそれが、弊社のプライバシー保護型熱センサが注目されている理由です。個人の顔を特定することなく、異常を検知するのに十分な空間解像度を提供します。</p>
-        </div>
-        <div class="trans-item">
-            <div class="trans-title">Case 2: FPGA SiP and Evolvable Hardware</div>
-            <p>A: 火星探査ミッションに向けて、3D積層技術を統合したFPGA SiPを提案しています。</p>
-            <p>B: 標準的な放射線耐性ASICを使わないのはなぜですか？ 通常そちらの方が電力効率が良いはずですが。</p>
-            <p>A: その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できます。</p>
-        </div>
-    </div>
-</div>
-
-<div class="study-section">
-    <div class="study-box" style="border-top: 5px solid var(--vision-blue);">
-        <h3 style="color: var(--vision-blue);">【AI熱管理】学習単語</h3>
-        <div class="vocab-item"><span style="font-weight:bold; color:var(--vision-blue);">Thermal distribution:</span> 温度分布</div>
-        <div class="vocab-item"><span style="font-weight:bold; color:var(--vision-blue);">Micro-hotspots:</span> 微小な熱溜まり</div>
-        <div class="vocab-item"><span style="font-weight:bold; color:var(--vision-blue);">Bolometer:</span> ボロメーター（熱検知器）</div>
-    </div>
-</div>
-
 <div class="archive-section">
-    <h3 style="border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
+    <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
     <div class="archive-grid">
         <div class="archive-card" onclick="openArchiveModal('sp_archive')">
             <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
-                <h4 style="margin: 0;">FPGA SiP & Evolvable Hardware</h4>
+                <span style="font-size: 0.7rem; opacity: 0.8;">SPACE ARCHIVE</span>
+                <h4 style="margin: 10px 0 0 0;">FPGA SiP and Evolvable Hardware</h4>
             </div>
-            <div style="padding: 15px; font-size: 0.85rem; color: #666;">極限環境での「進化する回路」。</div>
+            <div style="padding: 20px; font-size: 0.85rem; color: #666;">メンテナンス不能な環境での「進化する回路」。</div>
         </div>
         <div class="archive-card" onclick="openArchiveModal('mv_archive')">
             <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
-                <h4 style="margin: 0;">Beyond the Physical Limits</h4>
+                <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
+                <h4 style="margin: 10px 0 0 0;">Beyond the Physical Limits</h4>
             </div>
-            <div style="padding: 15px; font-size: 0.85rem; color: #666;">可変形状ミラーと波面制御。</div>
+            <div style="padding: 20px; font-size: 0.85rem; color: #666;">可変形状ミラーと波面制御の最前線。</div>
         </div>
     </div>
 </div>
 
-<div id="archiveModal">
-    <div class="modal-content">
+<div id="archiveModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:3000; padding:20px; overflow-y:auto;">
+    <div style="max-width:800px; margin:40px auto; background:#fff; border-radius:15px; padding:40px; position:relative;">
         <span onclick="closeArchiveModal()" style="position:absolute; top:20px; right:25px; font-size:35px; cursor:pointer; color:#999;">&times;</span>
         <h2 id="modalTitle" style="color:var(--vision-blue); margin-top:0;"></h2>
         <div id="modalAudioBtn" class="audio-btn" style="background:#f1f5f9; color:#333; margin: 20px 0;"></div>
@@ -192,14 +165,18 @@
             <div id="modalEnScript" style="font-size:0.95rem; line-height:1.6;"></div>
         </div>
         <div style="background:#fff7ed; padding:20px; border-radius:10px;">
-            <h4 style="margin:0 0 10px 0; color:#c2410c;">Japanese Translation</h4>
+            <h4 style="margin:0 0 10px 0; color:#c2410c;">Japanese Translation & Study</h4>
             <div id="modalJpScript" style="font-size:0.9rem; line-height:1.6;"></div>
         </div>
     </div>
 </div>
 
-<footer style="background: #091a2d; color: #fff; padding: 40px 20px; text-align: center;">
-    <p style="font-weight: bold;">クロニクス株式会社</p>
+<footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
+    <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">クロニクス株式会社</p>
+    <address style="font-style: normal; color: #cbd5e1; font-size: 0.9rem;">
+        〒160-0023 東京都新宿区西新宿3-2-11 新宿三井ビルディング二号館 904室
+    </address>
+    <a href="mailto:sales@chronix.co.jp" style="display: inline-block; background: var(--accent-orange); color: white; padding: 15px 40px; border-radius: 5px; text-decoration: none; margin-top: 25px; font-weight: bold;">メールでお問い合わせ</a>
 </footer>
 
 <script>
@@ -228,17 +205,10 @@
         currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
     }
 
-    // 和訳の表示・非表示切り替え
     function toggleTranslation() {
         const content = document.getElementById('transContent');
-        const btn = document.getElementById('transBtn');
-        if (content.style.display === 'block') {
-            content.style.display = 'none';
-            btn.innerHTML = '🔍 スクリプトの和訳を見る';
-        } else {
-            content.style.display = 'block';
-            btn.innerHTML = '🔼 和訳を閉じる';
-        }
+        const isOpen = content.style.display === 'block';
+        content.style.display = isOpen ? 'none' : 'block';
     }
 
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
@@ -247,14 +217,58 @@
         'sp_archive': {
             title: 'FPGA SiP and Evolvable Hardware',
             audio: '3d.mp3',
-            en: `<b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP integrated with 3D stacking technology...`,
-            jp: `A: 火星探査に向けて3D積層FPGA SiPを提案中。遠隔で回路を再構成可能です。`
+            en: `<b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.<br>
+                 <b>B:</b> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.<br>
+                 <b>A:</b> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.<br>
+                 <b>B:</b> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?<br>
+                 <b>A:</b> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.`,
+            jp: `<b>Case 2: FPGA SiP and Evolvable Hardware</b><br>
+                 （テーマ：メンテナンス不能な極限環境での「進化する回路」）<br><br>
+                 <b>A（クロニクス・エンジニア）：</b>火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。<br>
+                 <b>B（海外テックパートナー）：</b>標準的な放射線耐性ASICを使わないのはなぜですか？ 通常、そちらの方が電力効率が良いはずですが。<br>
+                 <b>A：</b>その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。<br>
+                 <b>B：</b>なるほど。つまり3D統合（積層）技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？<br>
+                 <b>A：</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。`,
+            study: `
+                <div style="margin-top:20px; padding-top:20px; border-top:2px solid var(--space-orange);">
+                    <h4 style="color:var(--space-orange);">💡 重要単語</h4>
+                    <div style="font-size:0.9rem;">
+                        <b>FPGA:</b> 製造後に構成書き換え可能な集積回路<br>
+                        <b>SiP (System-in-Package):</b> 複数チップを1つのパッケージに封入<br>
+                        <b>3D Stacking:</b> 3次元積層技術<br>
+                        <b>Reconfigure:</b> 再構成する
+                    </div>
+                </div>`
         },
         'mv_archive': {
-            title: 'Beyond the Physical Limits',
+            title: 'Beyond the Physical Limits — Deformable Mirrors',
             audio: 'nano.mp3',
-            en: `<b>A:</b> We are integrating Adaptive Optics (AO) into 2nm inspection lines...`,
-            jp: `A: 2nm検査に補償光学を導入。物理層での波面補正が不可欠です。`
+            en: `<b>Main Theme: Beyond the Physical Limits — Deformable Mirrors and Wavefront Control</b><br><br>
+                 <b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable. Simply increasing sensor resolution is no longer sufficient.<br>
+                 <b>B:</b> I understand the physical constraints of the 2nm node. But from a cost perspective, can't we compensate for that blur using AI-based post-processing? AI sharpening has come a long way recently.<br>
+                 <b>A:</b> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence. If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.<br>
+                 <b>B:</b> So, you’re saying software has its limits because the input data itself is "empty" or corrupted?<br>
+                 <b>A:</b> Exactly. To bridge this gap, our AO system uses deformable mirrors that change shape in the kHz-order. By neutralizing these aberrations in real-time at the speed of light, we provide the high-fidelity data that your AI needs to actually be reliable.<br>
+                 <b>B:</b> I see. So you are ensuring a "perfect shot" at the physical layer so that our analysis AI can achieve the target yield without having to guess or hallucinate details.<br>
+                 <b>A:</b> Precisely. This technology isn't just for semiconductors; we are applying the same principle to deep-space laser communication. Whether it's a wafer or a satellite, our priority remains the same: Reliability is a non-negotiable priority, and it starts at the physical contact point of light.`,
+            jp: `<b>メインテーマ：物理的限界を超えて — 可変形状ミラーと波面制御</b><br><br>
+                 <b>A：</b> 当社は、次世代の2nm検査ラインに補償光学（AO：Adaptive Optics）システムを統合しています。このサブナノスケールの領域において、回折限界への対処はもはや選択肢ではなく、必須事項です。単にセンサーの解像度を上げるだけでは、もう十分ではありません。<br>
+                 <b>B：</b> 2nmノードにおける物理的な制約については理解しています。しかしコストの観点から、その「ボケ」をAIベースの後処理で補正することはできないのでしょうか？ 最近のAIシャープニング技術の進歩は目覚ましいものがありますが。<br>
+                 <b>A：</b> それはよくある誤解です。AIは「そこにあるべき姿」を予測することには長けていますが、高周波振動や大気のゆらぎによって「最初からキャプチャされなかった情報」を復元することはできません。センサーに届く前に波面が歪んでしまえば、そのデータはソースの段階で根本的に欠陥を抱えていることになります。<br>
+                 <b>B：</b> つまり、入力データそのものが「空っぽ」だったり破損していたりするため、ソフトウェアには限界があるということですね。<br>
+                 <b>A：</b> その通りです。このギャップを埋めるために、当社のAOシステムはkHz（キロヘルツ）オーダーで形状を変化させる可変形状ミラーを採用しています。これらの収差を光速に近いリアルタイムで打ち消することで、貴社の解析AIが真に信頼性を発揮するために必要な、高忠実度なデータを提供します。<br>
+                 <b>B：</b> なるほど。物理レイヤーで「完璧な一枚」を担保することで、解析AIが推測や「ハルシネーション（幻覚）」に頼ることなく、目標歩留まりを達成できるようにするわけですね。<br>
+                 <b>A：</b> まさに。この技術は半導体だけではありません。私たちは同じ原理を深宇宙レーザー通信にも応用しています。ウェハーであれ人工衛星であれ、私たちの優先事項は変わりません。「信頼性」は譲れない条件であり、それは光が物理的に接触するその起点から始まるのです。`,
+            study: `
+                <div style="margin-top:20px; padding-top:20px; border-top:2px solid var(--vision-blue);">
+                    <h4 style="color:var(--vision-blue);">💡 重要単語</h4>
+                    <div style="font-size:0.9rem;">
+                        <b>Indispensable:</b> 不可欠な<br>
+                        <b>Diffraction limit:</b> 回折限界<br>
+                        <b>Deformable mirrors:</b> 可変形状ミラー<br>
+                        <b>High-fidelity:</b> 高忠実度
+                    </div>
+                </div>`
         }
     };
 
@@ -263,7 +277,9 @@
         if (!data) return;
         document.getElementById('modalTitle').innerText = data.title;
         document.getElementById('modalEnScript').innerHTML = data.en;
-        document.getElementById('modalJpScript').innerHTML = data.jp;
+        let jpContent = data.jp;
+        if (data.study) { jpContent += data.study; }
+        document.getElementById('modalJpScript').innerHTML = jpContent;
         document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">▶️</span><span onclick="toggleAudio('${data.audio}', 'modalAudioBtn')" style="cursor:pointer; font-weight:bold; margin-left:10px;">LISTEN TO ARCHIVE AUDIO</span>`;
         document.getElementById('archiveModal').style.display = 'block';
     }
