@@ -301,15 +301,10 @@
 
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
-   const archiveData = {
+    const archiveData = {
         'sp_archive': {
             title: 'FPGA SiP and Evolvable Hardware',
             audio: '3d.mp3',
-            pdf: 'fpga-sip-guide.pdf', // 実際のファイルパス
-            pdfName: 'FPGA SiP導入ガイド.pdf',
-            pdfDesc: '宇宙探査や極限環境での利用を想定した、3D積層FPGA SiPの技術仕様と導入メリットを網羅しています。',
-            en: `...（省略）...`,
-            jp: `...（省略）...`,
             en: `
                 <p style="margin-bottom: 15px;"><b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</p>
                 <p style="margin-bottom: 15px;"><b>B:</b> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</p>
@@ -362,17 +357,47 @@
         }
     };
 
-    function openArchiveModal(id) {
-        const data = archiveData[id];
-        if (!data) return;
-        document.getElementById('modalTitle').innerText = data.title;
-        document.getElementById('modalEnScript').innerHTML = data.en;
-        let jpContent = data.jp;
-        if (data.study) { jpContent += data.study; }
-        document.getElementById('modalJpScript').innerHTML = jpContent;
-        document.getElementById('modalAudioBtn').innerHTML = `<span class="audio-icon">▶️</span><span onclick="toggleAudio('${data.audio}', 'modalAudioBtn')" style="cursor:pointer; font-weight:bold; margin-left:10px;">LISTEN TO AUDIO</span>`;
-        document.getElementById('archiveModal').style.display = 'block';
+   function openArchiveModal(id) {
+    const data = archiveData[id];
+    if (!data) return;
+
+    // タイトルと各スクリプトの代入
+    document.getElementById('modalTitle').innerText = data.title;
+    document.getElementById('modalEnScript').innerHTML = data.en;
+    
+    let jpContent = data.jp;
+    if (data.study) { jpContent += data.study; }
+    document.getElementById('modalJpScript').innerHTML = jpContent;
+
+    // --- ここで音声ボタンとダウンロードエリアを生成 ---
+    let btnGroupHtml = `
+        <div class="modal-btn-group" style="margin-bottom: 25px;">
+            <div class="audio-btn" onclick="toggleAudio('${data.audio}', 'modalAudioBtn')">
+                <span class="audio-icon">▶️</span>
+                <span style="font-weight:bold; margin-left:10px;">LISTEN TO AUDIO</span>
+            </div>
+        </div>
+    `;
+
+    // dataの中にpdfの設定がある場合のみ、ダウンロード用パネルを追加
+    if (data.pdf) {
+        btnGroupHtml += `
+            <div class="download-section" style="background: #f1f5f9; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #64748b; text-align: left;">
+                <h3 style="margin: 0 0 10px 0; font-size: 1.1rem; color: #1e293b;">${data.pdfName ? data.pdfName.split('.')[0] : '製品資料'}</h3>
+                <p style="font-size: 0.85rem; color: #475569; margin-bottom: 15px; line-height: 1.5;">${data.pdfDesc || ''}</p>
+                <a href="${data.pdf}" download style="display: inline-flex; align-items: center; color: #2563eb; font-weight: bold; text-decoration: none; font-size: 0.9rem;">
+                    <span style="margin-right: 8px;">📄</span> ${data.pdf} (Download)
+                </a>
+            </div>
+        `;
     }
+
+    // 画面上のボタンエリアに反映
+    document.getElementById('modalAudioBtn').innerHTML = btnGroupHtml;
+    
+    // モーダルを表示
+    document.getElementById('archiveModal').style.display = 'block';
+}
 
     function closeArchiveModal() {
         document.getElementById('archiveModal').style.display = 'none';
