@@ -301,10 +301,15 @@
 
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
-    const archiveData = {
+   const archiveData = {
         'sp_archive': {
             title: 'FPGA SiP and Evolvable Hardware',
             audio: '3d.mp3',
+            pdf: 'fpga-sip-guide.pdf', // 実際のファイルパス
+            pdfName: 'FPGA SiP導入ガイド.pdf',
+            pdfDesc: '宇宙探査や極限環境での利用を想定した、3D積層FPGA SiPの技術仕様と導入メリットを網羅しています。',
+            en: `...（省略）...`,
+            jp: `...（省略）...`,
             en: `
                 <p style="margin-bottom: 15px;"><b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</p>
                 <p style="margin-bottom: 15px;"><b>B:</b> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</p>
