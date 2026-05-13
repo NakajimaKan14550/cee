@@ -357,51 +357,54 @@
         }
     };
 
-   function openArchiveModal(id) {
-    const data = archiveData[id];
-    if (!data) return;
+  function openArchiveModal(id) {
+        const data = archiveData[id];
+        if (!data) return;
 
-    // タイトルと各スクリプトの代入
-    document.getElementById('modalTitle').innerText = data.title;
-    document.getElementById('modalEnScript').innerHTML = data.en;
-    
-    let jpContent = data.jp;
-    if (data.study) { jpContent += data.study; }
-    document.getElementById('modalJpScript').innerHTML = jpContent;
+        // タイトルと各スクリプトを代入
+        document.getElementById('modalTitle').innerText = data.title;
+        document.getElementById('modalEnScript').innerHTML = data.en;
+        
+        let jpContent = data.jp;
+        if (data.study) { jpContent += data.study; }
+        document.getElementById('modalJpScript').innerHTML = jpContent;
 
-    // --- ここで音声ボタンとダウンロードエリアを生成 ---
-    let btnGroupHtml = `
-        <div class="modal-btn-group" style="margin-bottom: 25px;">
-            <div class="audio-btn" onclick="toggleAudio('${data.audio}', 'modalAudioBtn')">
-                <span class="audio-icon">▶️</span>
-                <span style="font-weight:bold; margin-left:10px;">LISTEN TO AUDIO</span>
-            </div>
-        </div>
-    `;
-
-    // dataの中にpdfの設定がある場合のみ、ダウンロード用パネルを追加
-    if (data.pdf) {
-        btnGroupHtml += `
-            <div class="download-section" style="background: #f1f5f9; padding: 20px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #64748b; text-align: left;">
-                <h3 style="margin: 0 0 10px 0; font-size: 1.1rem; color: #1e293b;">${data.pdfName ? data.pdfName.split('.')[0] : '製品資料'}</h3>
-                <p style="font-size: 0.85rem; color: #475569; margin-bottom: 15px; line-height: 1.5;">${data.pdfDesc || ''}</p>
-                <a href="${data.pdf}" download style="display: inline-flex; align-items: center; color: #2563eb; font-weight: bold; text-decoration: none; font-size: 0.9rem;">
-                    <span style="margin-right: 8px;">📄</span> ${data.pdf} (Download)
-                </a>
+        // 音声ボタンとダウンロード用ボックスを組み立て
+        let modalControls = `
+            <div style="margin-bottom: 20px;">
+                <div class="audio-btn" style="background:#003366; color:white;" onclick="toggleAudio('${data.audio}', 'modalAudioBtn')">
+                    <span class="audio-icon">▶️</span> <span style="margin-left:10px;">LISTEN TO AUDIO</span>
+                </div>
             </div>
         `;
-    }
 
-    // 画面上のボタンエリアに反映
-    document.getElementById('modalAudioBtn').innerHTML = btnGroupHtml;
-    
-    // モーダルを表示
-    document.getElementById('archiveModal').style.display = 'block';
-}
+        // archiveDataにpdfの設定がある場合のみ表示
+        if (data.pdf) {
+            modalControls += `
+                <div class="download-box" style="background:#f1f5f9; padding:20px; border-radius:10px; margin:20px 0; border-left:5px solid #64748b; text-align:left; color:#333;">
+                    <h3 style="margin:0 0 5px 0; font-size:1.1rem; color:#1e293b;">${data.pdfName}</h3>
+                    <p style="font-size:0.85rem; color:#475569; margin-bottom:10px;">${data.pdfDesc}</p>
+                    <a href="${data.pdf}" download style="display:inline-flex; align-items:center; color:#2563eb; font-weight:bold; text-decoration:none; font-size:0.9rem;">
+                        📄 ${data.pdf} (Download)
+                    </a>
+                </div>
+            `;
+        }
+
+        // 画面のボタンエリアを書き換え
+        document.getElementById('modalAudioBtn').innerHTML = modalControls;
+        
+        // モーダルを表示
+        document.getElementById('archiveModal').style.display = 'block';
+    }
 
     function closeArchiveModal() {
         document.getElementById('archiveModal').style.display = 'none';
-        if (currentAudio) { currentAudio.pause(); currentAudio = null; currentBtnId = null; }
+        if (currentAudio) { 
+            currentAudio.pause(); 
+            currentAudio = null; 
+            currentBtnId = null; 
+        }
     }
 </script>
 
