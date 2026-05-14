@@ -389,25 +389,40 @@
             </div>
         `;
 
+       // --- ここから差し替え ---
         // archiveDataにpdfの設定がある場合のみ表示
         if (data.pdf) {
             modalControls += `
-                <div class="download-box" style="background:#f1f5f9; padding:20px; border-radius:10px; margin:20px 0; border-left:5px solid #64748b; text-align:left; color:#333;">
-                    <h3 style="margin:0 0 5px 0; font-size:1.1rem; color:#1e293b;">${data.pdfName}</h3>
-                    <p style="font-size:0.85rem; color:#475569; margin-bottom:10px;">${data.pdfDesc}</p>
-                    <a href="${data.pdf}" download style="display:inline-flex; align-items:center; color:#2563eb; font-weight:bold; text-decoration:none; font-size:0.9rem;">
-                        📄 ${data.pdf} (Download)
+                <div class="download-box" style="background:#f1f5f9; padding:20px; border-radius:10px; margin:20px 0; border-left:5px solid #64748b; text-align:left; color:#333; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                    <h3 style="margin:0 0 8px 0; font-size:1.1rem; color:#1e293b; font-weight:bold;">${data.pdfName || '関連資料'}</h3>
+                    <p style="font-size:0.85rem; color:#475569; margin:0 0 15px 0; line-height:1.5;">${data.pdfDesc || ''}</p>
+                    <a href="${data.pdf}" 
+                       download="${data.pdfName || 'document'}.pdf" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       style="display:inline-flex; align-items:center; background:#fff; border:1px solid #cbd5e1; padding:8px 16px; border-radius:6px; color:#2563eb; font-weight:bold; text-decoration:none; font-size:0.9rem; transition: background 0.2s;">
+                        <span style="margin-right:8px;">📄</span> PDFをダウンロード
                     </a>
                 </div>
             `;
         }
 
         // 画面のボタンエリアを書き換え
-        document.getElementById('modalAudioBtn').innerHTML = modalControls;
-        
+        const modalBtnArea = document.getElementById('modalAudioBtn');
+        if (modalBtnArea) {
+            modalBtnArea.innerHTML = modalControls;
+        }
+
         // モーダルを表示
-        document.getElementById('archiveModal').style.display = 'block';
-    }
+        const modal = document.getElementById('archiveModal');
+        if (modal) {
+            modal.style.display = 'block';
+        }
+        // --- ここまで差し替え ---
+    } // 元々の関数の閉じカッコ
+
+    function closeArchiveModal() {
+        // ...以下、クローズ処理（変更なしでOK）
 
     function closeArchiveModal() {
         document.getElementById('archiveModal').style.display = 'none';
