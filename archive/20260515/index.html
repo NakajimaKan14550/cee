@@ -48,23 +48,108 @@
         <p><b>A:</b> 火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。</p>
         <p><b>B:</b> 標準的な放射線耐性ASICを使わないのはなぜですか？</p>
         <p><b>A:</b> 深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ロジックを遠隔で再構成でき、予期せぬ故障にも対応できます。</p>
-        
+
+<p><b>B:</b> なるほど。つまり3D統合技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？　</p>
+        <p><b>A:</b>まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。 　</p>
         <div class="study-grid">
-            <div>
-                <h4 style="color: var(--space-orange); margin-bottom: 5px;">💡 重要単語</h4>
-                <p style="font-size: 0.85rem; margin: 0;"><b>Reconfigure:</b> 再構成する<br><b>Footprint:</b> 設置面積<br><b>Evolvable:</b> 進化可能な</p>
+          <div style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #333; line-height: 1.6;">
+    <div style="margin-bottom: 25px;">
+        <h4 style="color: var(--space-orange, #ff8c00); border-bottom: 2px solid var(--space-orange, #ff8c00); padding-bottom: 5px; margin-bottom: 15px;">
+            3. Technical Vocabulary（重要単語）
+        </h4>
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+            <thead>
+                <tr style="background-color: #f8f9fa; border-bottom: 1px solid #ddd;">
+                    <th style="text-align: left; padding: 8px;">単語</th>
+                    <th style="text-align: left; padding: 8px;">読み・意味</th>
+                    <th style="text-align: left; padding: 8px;">解説</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;"><b>FPGA</b></td>
+                    <td style="padding: 8px;">エフピージーエー</td>
+                    <td style="padding: 8px;">製造後にユーザーが内部回路を書き換えられる集積回路。</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;"><b>SiP</b></td>
+                    <td style="padding: 8px;">シップ (System-in-Package)</td>
+                    <td style="padding: 8px;">複数のチップを一つのパッケージ内に封入し、一つの部品として機能させる技術。</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;"><b>3D Stacking</b></td>
+                    <td style="padding: 8px;">3Dスタッキング</td>
+                    <td style="padding: 8px;">チップを垂直に積み重ねる技術。省スペース化と高速化に寄与。</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;"><b>Radiation-hardened</b></td>
+                    <td style="padding: 8px;">レイディエイション・ハードンド</td>
+                    <td style="padding: 8px;">放射線耐性を高めた。宇宙空間の強い放射線による誤作動を防ぐ仕様。</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;"><b>Reconfigure</b></td>
+                    <td style="padding: 8px;">リコンフィギュアー（再構成）</td>
+                    <td style="padding: 8px;">回路構成を後から書き換えること。</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;"><b>Footprint</b></td>
+                    <td style="padding: 8px;">フットプリント</td>
+                    <td style="padding: 8px;">機器の設置面積。基板上での占有サイズのこと。</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;"><b>Evolvable Hardware</b></td>
+                    <td style="padding: 8px;">進化するハードウェア</td>
+                    <td style="padding: 8px;">環境の変化に合わせて、自ら回路構成を最適化できるハードウェア。</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <h4 style="color: var(--space-orange, #ff8c00); border-bottom: 2px solid var(--space-orange, #ff8c00); padding-bottom: 5px; margin-bottom: 15px;">
+            4. Useful Phrases（実践フレーズ）
+        </h4>
+        
+        <div style="margin-bottom: 15px;">
+            <p style="font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">💡 提案・技術説明で使える表現</p>
+            <div style="background-color: #fdf6f0; border-left: 4px solid #ff8c00; padding: 10px; font-size: 0.85rem; margin-bottom: 10px;">
+                <p style="margin: 0 0 5px 0;"><b>"We’re proposing [A] integrated with [B]."</b></p>
+                <p style="margin: 0; color: #666;">「[B]を統合した[A]を提案しています。」<br>
+                <small>応用：We're proposing a sensor integrated with AI.（AIを統合したセンサを提案しています。）</small></p>
             </div>
-            <div>
-                <h4 style="color: var(--space-orange); margin-bottom: 5px;">📝 実践フレーズ</h4>
-                <p style="font-size: 0.85rem; margin: 0;">"A single failure means mission failure."<br>（たった一つの失敗がミッションの失敗を意味します。）</p>
+            <div style="background-color: #fdf6f0; border-left: 4px solid #ff8c00; padding: 10px; font-size: 0.85rem; margin-bottom: 10px;">
+                <p style="margin: 0 0 5px 0;"><b>"Physical maintenance is impossible."</b></p>
+                <p style="margin: 0; color: #666;">「物理的なメンテナンスは不可能です。」<br>
+                <small>現場に行けない、あるいは分解できない製品の重要性を説くときに。</small></p>
             </div>
+            <div style="background-color: #fdf6f0; border-left: 4px solid #ff8c00; padding: 10px; font-size: 0.85rem;">
+                <p style="margin: 0 0 5px 0;"><b>"It allows you to pack high-density processing into a tiny footprint."</b></p>
+                <p style="margin: 0; color: #666;">「これにより、高密度な処理機能を極小の面積に詰め込むことができます。」</p>
+            </div>
+        </div>
+
+        <div>
+            <p style="font-weight: bold; font-size: 0.9rem; margin-bottom: 8px;">💡 理由や結論を述べる表現</p>
+            <div style="background-color: #f0f7fd; border-left: 4px solid #2196f3; padding: 10px; font-size: 0.85rem; margin-bottom: 10px;">
+                <p style="margin: 0 0 5px 0;"><b>"To adapt to unexpected [failures/requirements]."</b></p>
+                <p style="margin: 0; color: #666;">「予期せぬ[故障/要件]に適応するために。」<br>
+                <small>柔軟性（Flexibility）のメリットを伝える際に必須のフレーズ。</small></p>
+            </div>
+            <div style="background-color: #f0f7fd; border-left: 4px solid #2196f3; padding: 10px; font-size: 0.85rem;">
+                <p style="margin: 0 0 5px 0;"><b>"Reliability is a non-negotiable priority."</b></p>
+                <p style="margin: 0; color: #666;">「信頼性は譲れない優先事項です。」<br>
+                <small>Non-negotiable（交渉の余地がない）という強い言葉でプロ意識を伝えます。</small></p>
+            </div>
+        </div>
+    </div>
+</div>
         </div>
     </div>
 
     <div class="download-box">
         <h3 style="margin: 0 0 5px 0;">FPGA SiP 導入ガイド</h3>
         <p style="font-size: 0.85rem; margin-bottom: 15px;">宇宙探査や極限環境での利用を想定した技術仕様書です。</p>
-        <a href="../../fpga-sip-guide.pdf" download style="color: #2563eb; font-weight: bold; text-decoration: none;">📄 fpga-sip-guide.pdf (Download)</a>
+        <a href="3dplus.pdf"color: #2563eb; font-weight: bold; text-decoration: none;">📄 3dplus.pdf (Download)</a>
     </div>
 </div>
 
