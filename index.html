@@ -1,312 +1,347 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Analysis: Thermal Management & Radiation Protection | CHRONIX</title>
+    <title>技術で学ぶ英語：Chronix Global Link</title>
     <style>
         :root {
-            --main-navy: #091a2d;
+            --vision-blue: #003366;
+            --space-orange: #8a4a1d;
             --accent-orange: #f97316;
-            --bg-slate: #f8fafc;
-            --text-dark: #1e293b;
-            --text-light: #64748b;
-            --white: #ffffff;
+            --text-white: #ffffff;
+            --bg-light: #f8f9fa;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; margin: 0; padding: 0; background-color: #fff; line-height: 1.6; color: #333; }
 
-        body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-            background-color: var(--bg-slate);
-            color: var(--text-dark);
-            line-height: 1.7;
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 10px 5%; background: #fff; border-bottom: 1px solid #ddd; min-height: 70px;
         }
+        .logo-link { display: flex; align-items: center; text-decoration: none; color: #333; }
+        .logo-img { height: 40px; width: auto; margin-right: 15px; cursor: zoom-in; transition: transform 0.3s ease; }
+        .site-title { font-size: 1.1rem; font-weight: bold; border-left: 1px solid #ccc; padding-left: 15px; }
+        nav a { margin-left: 20px; text-decoration: none; color: #333; font-size: 0.85rem; font-weight: 500; }
 
-        /* Navigation */
-        nav {
-            background: var(--white);
-            padding: 15px 5%;
-            display: flex;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        .intro-banner { background: #f0f4f8; padding: 25px 5%; border-bottom: 1px solid #e1e8ed; font-size: 0.95rem; color: #444; }
+
+        .hero-container { display: flex; height: 650px; width: 100%; overflow: hidden; color: var(--text-white); }
+        .hero-section { flex: 1; position: relative; padding: 40px; display: flex; flex-direction: column; justify-content: flex-end; background-size: cover; background-position: center; }
+        .vision-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee.png'); }
+        .space-hero { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('cee2.png'); border-left: 2px solid #000; }
+
+        .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; background: rgba(0,0,0,0.6); display: inline-block; padding: 4px 12px; border-radius: 2px; }
+        .theme-sub { font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
+        .hero-section h1 { font-size: 2.2rem; margin: 0 0 15px 0; line-height: 1.1; font-weight: 800; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+        
+        .script-window {
+            background: rgba(0,0,0,0.7); border-radius: 12px; padding: 20px; margin-bottom: 20px;
+            font-size: 0.9rem; height: 220px; overflow-y: auto; border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(8px);
         }
+        .speaker { font-weight: bold; color: #ffcc00; margin-right: 8px; }
+        .script-line { margin-bottom: 12px; }
 
-        .logo-box img {
-            height: 40px;
-            cursor: zoom-in;
-            transition: all 0.3s ease;
+        .audio-btn {
+            display: inline-flex; align-items: center; background: rgba(255,255,255,0.15);
+            padding: 12px 25px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.4); 
+            font-size: 0.85rem; cursor: pointer; transition: all 0.3s; backdrop-filter: blur(5px);
         }
+        .audio-btn:hover { background: rgba(255,255,255,0.3); transform: translateY(-2px); }
+        .audio-icon { margin-right: 12px; font-size: 1.2rem; }
 
-        .logo-link {
-            text-decoration: none;
-            display: flex;
-            align-items: center;
+        .translation-container { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
+        .translation-btn {
+            width: 100%; background: #fff; border: 2px solid var(--vision-blue); padding: 15px;
+            font-weight: bold; cursor: pointer; border-radius: 8px; color: var(--vision-blue);
+            transition: all 0.3s; font-size: 1rem; text-align: center;
         }
+        .translation-btn:hover { background: var(--vision-blue); color: #fff; }
+        .translation-content { display: none; background: #fcfcfc; border: 1px solid #eee; padding: 30px; margin-top: 15px; border-radius: 12px; }
 
-        /* Hero Section */
-        .hero {
-            background: var(--main-navy);
-            color: var(--white);
-            padding: 100px 5%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
+        .archive-section { padding: 60px 5%; background-color: #f8f9fa; }
+        .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .archive-card { border: none; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; overflow: hidden;}
+        .archive-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 
-        .hero-text h1 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
+        .zoomed { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(2); z-index: 2000; cursor: zoom-out; }
 
-        .hero-logo {
-            width: 120px;
-            margin-bottom: 20px;
-            cursor: zoom-in;
-            transition: all 0.3s ease;
-        }
-
-        /* Layout Sections */
-        section {
-            padding: 80px 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .grid-layout {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: var(--main-navy);
-            border-left: 4px solid var(--accent-orange);
-            padding-left: 15px;
-            margin-bottom: 30px;
-        }
-
-        h3 {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: var(--main-navy);
-        }
-
-        p {
-            margin-bottom: 20px;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
-
-        .label {
-            display: inline-block;
-            background: var(--accent-orange);
-            color: var(--white);
-            padding: 4px 12px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            border-radius: 4px;
-            margin-bottom: 10px;
-        }
-
-        /* Image Zoom Styles */
-        img {
-            max-width: 100%;
-            cursor: zoom-in;
-            transition: all 0.3s ease;
-        }
-
-        .img-container {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        /* Zoomed State (via JS) */
-        .zoomed {
-            position: fixed !important;
-            top: 50% !important;
-            left: 50% !important;
-            transform: translate(-50%, -50%) scale(1.5) !important;
-            z-index: 9999;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            cursor: zoom-out !important;
-        }
-
-        .zoom-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(9, 26, 45, 0.9);
-            z-index: 9998;
-        }
-
-        /* Footer from Prompt */
-        footer {
-            background: #091a2d;
-            color: #fff;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; padding: 60px 5%; }
-            .hero-text h1 { font-size: 1.8rem; }
+        @media (max-width: 900px) {
+            .hero-container { flex-direction: column; height: auto; }
+            .hero-section { height: 500px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="zoom-overlay" id="overlay"></div>
-
+<header>
+    <a href="https://nakajimakan14550.github.io/home/" class="logo-link">
+        <img src="logo.png" alt="Logo" class="logo-img" onclick="toggleZoom(this)">
+        <div class="site-title">技術で学ぶ英語：Chronix Global Link</div>
+    </a>
     <nav>
-        <a href="https://nakajimakan14550.github.io/home/" class="logo-link">
-            <div class="logo-box">
-                <img src="logo.png" alt="Chronix Logo">
+        <a href="#">Archives</a> <a href="#">Trend Reports</a> <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="intro-banner">
+    <strong>こんにちは！本日の定期配信です。</strong><br>
+    DCの熱管理技術と、宇宙環境での民生品（COTS）活用を支えるラッチアップ保護技術をお届けします。
+</div>
+
+<div class="hero-container">
+    <div class="hero-section vision-hero">
+        <div class="label">Thermal Intelligence</div>
+        <p class="theme-sub" style="color: #4db8ff;">テーマ：DC熱管理の転換（点から面へ）</p>
+        <h1>Thermal Intelligence in the AI Era</h1>
+        <div class="script-window">
+            <div class="script-line"><span class="speaker">A (Chronix):</span> With the rise of high-density AI servers, traditional temperature sensors—which only measure a single point—are no longer enough. We are seeing 'micro-hotspots' that appear and disappear in seconds. Our clients need a way to monitor the thermal distribution across the entire rack in real-time.</div>
+            <div class="script-line"><span class="speaker">B (Calumino):</span> That is exactly why our privacy-protected thermal sensors are gaining traction. Unlike standard high-resolution thermography, our technology detects anomalies without identifying individual faces. We use a bolometer-based array that captures the 'thermal footprint' of the airflow.</div>
+            <div class="script-line"><span class="speaker">A (Chronix Employee):</span> 
+
+"Integration is key. We want to use the thermal data to trigger an immediate increase in fan speed or to shift workloads before a component fails. However, the environment is electrically noisy. How do your sensors handle Electromagnetic Interference (EMI), and what is the refresh rate? We need to capture those transient heat spikes before they lead to a thermal shutdown." </div>
+        </div>
+        <div class="meta-footer">
+            <div id="btn-thermal" class="audio-btn" onclick="toggleAudio('thermal.mp3', 'btn-thermal')">
+                <span class="audio-icon">▶️</span>
+                <span><strong>LISTEN:</strong><br>'Thermal Intelligence'</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-section space-hero">
+        <div class="label">Space / Defense</div>
+        <p class="theme-sub" style="color: #ffaa00;">テーマ：民生品（COTS）のジレンマ</p>
+        <h1>ZES: Radiation Protection for COTS</h1>
+        <div class="script-window">
+            <div class="script-line"><span class="speaker">A (Chronix):</span> Our clients in the 'New Space' sector are struggling with a dilemma. They want the high performance and low cost of COTS components, but they can't afford a system crash due to SEE (Single Event Effects) in high-radiation orbits. How exactly does your technology allow standard chips to survive in such a harsh environment?</div>
+            <div class="script-line"><span class="speaker">B (ZES):</span> It’s about a hybrid approach. We don't just rely on shielding. Our ZES technology integrates physical-layer protection with intelligent latch-up detection and recovery. We monitor the current in real-time. If we detect a radiation-induced surge, our system reacts in nanoseconds to prevent permanent damage, while maintaining data integrity through TMR (Triple Modular Redundancy).</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> That sounds promising. But in a high-speed processing mission, even a few milliseconds of downtime can be critical. If a radiation event triggers your latch-up protection, how fast is the recovery time? And how do you ensure that the system state is restored to exactly where it was before the surge?</div>
+            <div class="script-line"><span class="speaker">B (ZES):</span> Our detection and isolation happen in less than 100 nanoseconds. The power-cycling and recovery process typically take a few milliseconds. To ensure no data is lost, we use a non-volatile memory bridge that periodically checkpoints the system state. This means we can perform a warm boot almost instantly after the event is cleared.</div>
+        </div>
+        <div class="meta-footer">
+            <div id="btn-zes" class="audio-btn" onclick="toggleAudio('zes.mp3', 'btn-zes')">
+                <span class="audio-icon">▶️</span>
+                <span><strong>LISTEN:</strong><br>'ZES Technical Discussion'</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="translation-container">
+    <button class="translation-btn" id="transBtn" onclick="toggleTranslation()">🔍 スクリプトの和訳と学習ポイントを見る</button>
+    <div class="translation-content" id="transContent">
+        
+        <div class="trans-item">
+            <div class="trans-title" style="background: var(--vision-blue); color: white; padding: 10px 20px; border-radius: 5px;">
+                Case 1: Thermal Intelligence in the AI Era
+            </div>
+            <p style="font-weight: bold; margin-top: 15px;">（AI時代の熱インテリジェンス）</p>
+            <p><b>A (クロニクス):</b> 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。クライアントはラック全体の温度分布を監視する方法を必要としていますが、プライバシーも非常に懸念しています。</p>
+            <p><b>B (Calumino):</b> だからこそ弊社のプライバシー保護型熱センサが注目されています。個人の顔を特定することなく熱異常を検知でき、気流の「熱フットプリント」を捉えるボロメータ配列を使用しています。</p>
+            <p><b>A:</b> 統合が鍵です。熱データを使用してファンの回転数を上げたり、故障前にワークロードを移動させたい。電磁妨害（EMI）対策はどうなっていますか？シャットダウン前に一時的な熱スパイクを捉える必要があります。</p>
+
+            <div style="background: #f0f7ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px;">💡 実践フレーズ / Useful Phrases</h4>
+                <p><b>1. 課題（ホットスポットや異常）を伝える</b><br>
+                "We need to detect thermal anomalies before they lead to hardware failure."<br>
+                <small>（ハードウェアの故障につながる前に、熱の異常を検知する必要があります。）</small><br>
+                "Traditional sensors have too many blind spots."<br>
+                <small>（従来のセンサーには死角が多すぎます。）</small></p>
+                
+                <p><b>2. プライバシーやセキュリティについて</b><br>
+                "Does it comply with privacy regulations?"<br>
+                <small>（プライバシー規制に準拠していますか？）</small><br>
+                "It captures thermal signatures without compromising privacy."<br>
+                <small>（プライバシーを侵害せずに、熱の兆候を捉えます。）</small></p>
+
+                <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px; margin-top: 20px;">🛠️ 単語帳 / Technical Vocabulary</h4>
+                <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid #ccc; text-align: left;">
+                        <th style="padding: 8px;">英語</th><th style="padding: 8px;">日本語</th><th style="padding: 8px;">解説</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;"><b>Hot spot</b></td><td style="padding: 8px;">ホットスポット</td><td style="padding: 8px;">局所的に温度が高い危険な場所</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;"><b>Thermal anomaly</b></td><td style="padding: 8px;">熱の異常</td><td style="padding: 8px;">通常とは異なる温度上昇</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;"><b>Scalability</b></td><td style="padding: 8px;">拡張性</td><td style="padding: 8px;">規模を拡大しやすいかどうか</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
+
+        <div class="trans-item">
+            <div class="trans-title" style="background: var(--space-orange); color: white; padding: 10px 20px; border-radius: 5px;">
+                Case 2: ZES Technical Discussion (🛰️ ZES技術ディスカッション)
+            </div>
+            <p style="font-weight: bold; margin-top: 15px;">（和訳パート1：COTS（民生品）のジレンマ）</p>
+            <p><b>A（クロニクス社員）：</b>「『New Space（民間宇宙開発）』分野の顧客は、あるジレンマに直面しています。彼らは COTS（民生品） コンポーネントの高いパフォーマンスと低コストを求めていますが、放射線量の多い軌道上での SEE（シングルイベント効果） によるシステムクラッシュを許容することができません。御社の技術は、具体的にどのようにして標準的なチップをこのような過酷な環境で生き残らせるのでしょうか？」</p>
+            <p><b>B（ZES担当者）：</b>「それはハイブリッドなアプローチによるものです。我々は単に（物理的な）遮蔽だけに頼りません。ZESのテクノロジーは、物理レイヤーの保護と、インテリジェントな ラッチアップ 検知・復旧機能を統合しています。電流をリアルタイムで監視しており、放射線誘発によるサージ（急激な電流変化）を検知すると、システムは ナノ秒 単位で反応して永久的な損傷を防ぎます。同時に、TMR（3重系冗長構成） を通じて データの整合性 を維持するのです。」</p>
+            
+            <p style="font-weight: bold; margin-top: 15px;">（和訳パート2：復旧とデータの継続性）</p>
+            <p><b>A（クロニクス社員）：</b>「なるほど、期待できそうですね。しかし、高速処理を要するミッションでは、たとえ数ミリ秒の ダウンタイム であっても致命的になりかねません。もし放射線イベントがラッチアップ保護を起動させた場合、復旧時間はどのくらいでしょうか？ また、システムの状態をサージ発生直前の状態に確実に復元するにはどうすればよいのですか？」</p>
+            <p><b>B（ZES担当者）：</b>「検知と隔離は 100ナノ秒未満 で行われます。電源の再投入（パワーサイクリング） と復旧プロセスは、電源レールの容量にもよりますが、通常は数ミリ秒です。データ損失を確実に防ぐため、我々はシステムのステート（状態）を定期的に保存する 非揮発性メモリ・ブリッジ（チェックポイント設定） を採用しています。これにより、イベントが解消された後、ほぼ瞬時に ウォームブート（高速再起動） を実行することが可能です。」</p>
+
+            <div style="background: #fff5eb; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px;">💡 実践フレーズ集 / Useful Phrases</h4>
+                <p style="font-size: 0.9rem;">
+                    <b>1. 放射線耐性と信頼性の確認</b><br>
+                    "How does this chip handle Single Event Upsets (SEU)?" <small>（このチップはSEU［放射線によるデータ反転］にどう対処しますか？）</small><br>
+                    "Is it latch-up immune?" <small>（ラッチアップ耐性はありますか？）</small><br>
+                    "Can we achieve 'Space Grade' reliability with these standard parts?" <small>（これらの標準パーツで「宇宙グレード」の信頼性を実現できますか？）</small><br><br>
+                    <b>2. 復旧性能とデータ保護</b><br>
+                    "How much downtime should we expect during a radiation event?" <small>（放射線イベント中、どのくらいのダウンタイムを想定すべきですか？）</small><br>
+                    "We need to ensure zero data loss during the power cycle." <small>（電源再投入時にデータ損失がゼロであることを保証する必要があります。）</small><br>
+                    "Does the protection circuit require a manual reset?" <small>（保護回路は手動のリセットが必要ですか？）</small>
+                </p>
+                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px; margin-top: 20px;">🛠️ 専門用語・単語帳 / Technical Vocabulary</h4>
+                <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
+                    <tr style="border-bottom: 1px solid #ccc; text-align: left;">
+                        <th style="padding: 8px;">英語 / 日本語</th><th style="padding: 8px;">解説</th>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;"><b>COTS</b> / 民生品</td><td style="padding: 8px;">Commercial Off-The-Shelf。一般産業向けに出回っている安価な部品。</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;"><b>SEE / SEU</b> / 放射線影響</td><td style="padding: 8px;">Single Event Effects / Upsets。一時的な誤作動やデータ反転。</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;"><b>Latch-up</b> / ラッチアップ</td><td style="padding: 8px;">放射線などにより回路に過電流が流れ続け、破壊される現象。</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;"><b>TMR</b> / 3重系冗長構成</td><td style="padding: 8px;">Triple Modular Redundancy。3つの回路で多数決により正解を決める。</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;"><b>Checkpointing</b> / 設定</td><td style="padding: 8px;">実行中のデータを定期保存し、異常発生直前の状態から再開すること。</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;"><b>Warm boot</b> / ウォームブート</td><td style="padding: 8px;">最小限の手順で高速に再起動すること。</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="archive-section">
+    <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
+    <div class="archive-grid">
+        
+        <a href="archive/20260515/index.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="archive-card">
+                <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
+                    <span style="font-size: 0.7rem; opacity: 0.8;">SPACE ARCHIVE</span>
+                    <h4 style="margin: 10px 0 0 0;">FPGA SiP and Evolvable Hardware</h4>
+                </div>
+                <div style="padding: 20px; font-size: 0.85rem; color: #666;">
+                    メンテナンス不能な環境での「進化する回路」。
+                </div>
             </div>
         </a>
-    </nav>
 
-    <header class="hero">
-        <div class="hero-text">
-            <img src="logo.png" alt="Chronix" class="hero-logo">
-            <span class="label">TECHNICAL ANALYSIS</span>
-            <h1>高密度コンピューティングにおける<br>熱・放射線管理の物理的考察</h1>
-            <p style="color: #cbd5e1;">AIサーバの熱流体解析から宇宙空間でのラッチアップ保護まで、物理的限界に挑む技術原理を概説します。</p>
-        </div>
-    </header>
-
-    <section id="thermal">
-        <h2>1. 高密度AI環境における熱管理（点から面への転換）</h2>
-        <div class="grid-layout">
-            <div class="card">
-                <span class="label">背景・課題</span>
-                <h3>マイクロ・ホットスポットの物理的限界</h3>
-                <p>
-                    高密度AIサーバの普及に伴い、従来のシングルポイント（単一地点）温度センサでは、秒単位で発生・消失する「マイクロ・ホットスポット」の捕捉が困難となっている。測定の死角は、熱暴走によるコンポーネントの物理的損傷やシステムの停止（Thermal Shutdown）に直結する。
-                </p>
-            </div>
-            <div class="card">
-                <span class="label">解決策</span>
-                <h3>ボロメータ配列による熱分布の可視化</h3>
-                <p>
-                    個体識別を行わないプライバシー保護型熱センサ（ボロメータ・ベースのアレイ）を採用することで、ラック全体の「熱フットプリント（気流の熱痕跡）」を面として捉えることが可能となる。これにより、EMI（電磁妨害）の影響下においても、過渡的な熱スパイクをナノ秒単位の分解能で監視できる。
-                </p>
-            </div>
-            <div class="card">
-                <span class="label">産業的インパクト</span>
-                <h3>能動的ワークロード管理の実現</h3>
-                <p>
-                    取得されたリアルタイム熱データは、冷却ファンの回転数制御だけでなく、故障予測に基づくワークロードの動的移動をトリガーする。これにより、エネルギー効率の最適化と、ハードウェア故障に起因するダウンタイムのゼロ化に寄与する。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="space" style="background: #fff; border-top: 1px solid #e2e8f0;">
-        <h2>2. 宇宙環境下におけるCOTS活用とラッチアップ保護</h2>
-        <div class="grid-layout">
-            <div class="card">
-                <span class="label">背景・課題</span>
-                <h3>SEE（シングルイベント効果）の脅威</h3>
-                <p>
-                    New Space分野におけるコスト削減の要となるCOTS（民生品）コンポーネントは、高放射線軌道下においてSEE（Single Event Effects）の影響を免れない。特に過電流が流れ続ける「ラッチアップ」は、物理的回路の破壊を引き起こす致命的な事象である。
-                </p>
-            </div>
-            <div class="card">
-                <span class="label">解決策</span>
-                <h3>ZES技術によるナノ秒単位の電流監視</h3>
-                <p>
-                    ZES（Zero Error Systems）技術は、物理レイヤーでの保護とTMR（3重系冗長構成）を統合したハイブリッド・アプローチをとる。放射線誘発による電流サージを100ナノ秒未満で検出し、即座にパワーサイクリングを実行することで、回路の永久損傷を回避する。
-                </p>
-            </div>
-            <div class="card">
-                <span class="label">産業的インパクト</span>
-                <h3>宇宙空間でのハイスペック処理の民主化</h3>
-                <p>
-                    非揮発性メモリ・ブリッジを用いたチェックポイント設定により、復旧後のウォームブート（高速再起動）を数ミリ秒で完了させる。これにより、これまで宇宙グレード品に限定されていた高負荷処理を、安価な標準パーツで安定的に運用可能とする。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
-        <div class="footer-info">
-            <p class="company-name" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px;">クロニクス株式会社</p>
-            <address class="footer-address" style="font-style: normal; line-height: 1.8; color: #cbd5e1;">
-                <p>〒160-0023 東京都新宿区西新宿3-2-11 新宿三井ビルディング二号館 904室</p>
-                <div class="contact-grid" style="display: flex; justify-content: center; gap: 20px; margin: 20px 0;">
-                    <p><strong>TEL</strong> 03-5322-7191</p>
-                    <p><strong>FAX</strong> 03-5322-7790</p>
+        <a href="archive/20260514/index.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="archive-card">
+                <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
+                    <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
+                    <h4 style="margin: 10px 0 0 0;">Beyond the Physical Limits</h4>
                 </div>
-            </address>
-            <a href="mailto:sales@chronix.co.jp" class="btn-contact" style="display: inline-block; background: #f97316; color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; margin-top: 20px;">
-                メールでお問い合わせ
-            </a>
-            <p style="margin-top: 50px; font-size: 0.8rem; color: #64748b; letter-spacing: 0.05em;">
-                © 2026 CHRONIX
-            </p>
-        </div>
-    </footer>
+                <div style="padding: 20px; font-size: 0.85rem; color: #666;">可変形状ミラーと波面制御の最前線。</div>
+            </div>
+        </a>
 
-    <script>
-        const overlay = document.getElementById('overlay');
-        const images = document.querySelectorAll('img');
+    </div>
+</div>
 
-        images.forEach(img => {
-            img.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (img.classList.contains('zoomed')) {
-                    shrinkImage(img);
-                } else {
-                    expandImage(img);
-                }
-            });
-        });
+<div id="archiveModal" style="display:none;"></div>
 
-        function expandImage(img) {
-            // 他の拡大されている画像をリセット
-            images.forEach(i => i.classList.remove('zoomed'));
-            img.classList.add('zoomed');
-            overlay.style.display = 'block';
+<footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
+    <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">クロニクス株式会社</p>
+    <address style="font-style: normal; color: #cbd5e1; font-size: 0.9rem;">〒160-0023 東京都新宿区西新宿3-2-11</address>
+</footer>
+
+<script>
+    let currentAudio = null;
+    let currentBtnId = null;
+
+    // 音声再生ロジック（Heroセクション用）
+    function toggleAudio(fileName, btnId) {
+        const btn = document.getElementById(btnId);
+        const icon = btn.querySelector('.audio-icon') || btn; 
+        if (currentAudio && currentBtnId === btnId) {
+            if (!currentAudio.paused) { currentAudio.pause(); icon.innerText = '▶️'; }
+            else { currentAudio.play(); icon.innerText = '⏸️'; }
+            return;
         }
-
-        function shrinkImage(img) {
-            img.classList.remove('zoomed');
-            overlay.style.display = 'none';
+        if (currentAudio) {
+            currentAudio.pause();
+            const prevBtn = document.getElementById(currentBtnId);
+            if(prevBtn) (prevBtn.querySelector('.audio-icon') || prevBtn).innerText = '▶️';
         }
+        currentAudio = new Audio(fileName);
+        currentBtnId = btnId;
+        currentAudio.play().then(() => { icon.innerText = '⏸️'; }).catch(() => { console.log("Audio not found"); });
+        currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
+    }
 
-        // 背景クリックで縮小
-        overlay.addEventListener('click', () => {
-            images.forEach(img => shrinkImage(img));
-        });
+    function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
-        // ESCキーで縮小
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                images.forEach(img => shrinkImage(img));
-            }
-        });
-    </script>
+    // --- 変更点：別ページへ遷移させるためのリンク管理 ---
+    // HTML側の <a> タグで遷移させるため、JavaScriptでの遷移命令(openArchiveModal)は不要になりました。
+    // もし既存のonclickを残している場合は、以下の関数で対応します。
+    function openArchiveModal(id) {
+        if (id === 'sp_archive') window.location.href = 'archive/20260515/index.html';
+        if (id === 'mv_archive') window.location.href = 'archive/20260514/index.html';
+    }
+</script>
+
+<script>
+    let currentAudio = null;
+    let currentBtnId = null;
+
+    // 音声再生ロジック
+    function toggleAudio(fileName, btnId) {
+        const btn = document.getElementById(btnId);
+        const icon = btn.querySelector('.audio-icon') || btn; 
+        if (currentAudio && currentBtnId === btnId) {
+            if (!currentAudio.paused) { currentAudio.pause(); icon.innerText = '▶️'; }
+            else { currentAudio.play(); icon.innerText = '⏸️'; }
+            return;
+        }
+        if (currentAudio) {
+            currentAudio.pause();
+            const prevBtn = document.getElementById(currentBtnId);
+            if(prevBtn) (prevBtn.querySelector('.audio-icon') || prevBtn).innerText = '▶️';
+        }
+        currentAudio = new Audio(fileName);
+        currentBtnId = btnId;
+        currentAudio.play().then(() => { icon.innerText = '⏸️'; }).catch(() => { console.log("Audio not found"); });
+        currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
+    }
+
+    function toggleZoom(img) { img.classList.toggle('zoomed'); }
+
+    // ★和訳ボタンを動かすために、これを追加しました！
+    function toggleTranslation() {
+        const content = document.getElementById('transContent');
+        const btn = document.getElementById('transBtn');
+        
+        if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block';
+            btn.innerText = '🔼 和訳を閉じる';
+        } else {
+            content.style.display = 'none';
+            btn.innerText = '🔍 スクリプトの和訳と学習ポイントを見る';
+        }
+    }
+</script>
+
+    
 </body>
 </html>
