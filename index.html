@@ -301,6 +301,48 @@
     }
 </script>
 
+<script>
+    let currentAudio = null;
+    let currentBtnId = null;
+
+    // 音声再生ロジック
+    function toggleAudio(fileName, btnId) {
+        const btn = document.getElementById(btnId);
+        const icon = btn.querySelector('.audio-icon') || btn; 
+        if (currentAudio && currentBtnId === btnId) {
+            if (!currentAudio.paused) { currentAudio.pause(); icon.innerText = '▶️'; }
+            else { currentAudio.play(); icon.innerText = '⏸️'; }
+            return;
+        }
+        if (currentAudio) {
+            currentAudio.pause();
+            const prevBtn = document.getElementById(currentBtnId);
+            if(prevBtn) (prevBtn.querySelector('.audio-icon') || prevBtn).innerText = '▶️';
+        }
+        currentAudio = new Audio(fileName);
+        currentBtnId = btnId;
+        currentAudio.play().then(() => { icon.innerText = '⏸️'; }).catch(() => { console.log("Audio not found"); });
+        currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
+    }
+
+    function toggleZoom(img) { img.classList.toggle('zoomed'); }
+
+    // ★和訳ボタンを動かすために、これを追加しました！
+    function toggleTranslation() {
+        const content = document.getElementById('transContent');
+        const btn = document.getElementById('transBtn');
+        
+        if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block';
+            btn.innerText = '🔼 和訳を閉じる';
+        } else {
+            content.style.display = 'none';
+            btn.innerText = '🔍 スクリプトの和訳と学習ポイントを見る';
+        }
+    }
+</script>
+
+    
 </body>
 </html>
 
