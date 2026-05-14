@@ -3,46 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond the Physical Limits - Chronix Global Link</title>
-    
+    <title>Archive Detail | CEE</title>
     <style>
-        /* ここに、あなたがさっき見せてくれた <style> の中身を丸ごと貼り付けてください */
-        /* もし style.css というファイルに分けているなら、それを読み込んでもOKです */
+        :root {
+            --space-orange: #ff6b00;
+            --vision-blue: #003366;
+            --text-dark: #1e293b;
+        }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background: #f8fafc; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        h1 { border-left: 5px solid var(--vision-blue); padding-left: 15px; font-size: 1.5rem; color: var(--vision-blue); }
+        .audio-section { margin: 20px 0; padding: 15px; background: #f1f5f9; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; }
+        .audio-btn { background: var(--vision-blue); color: white; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; display: flex; align-items: center; }
+        .script-box { margin-top: 25px; }
+        .script-en { background: #fff; border: 1px solid #e2e8f0; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .script-jp { background: #f0fdf4; border: 1px solid #dcfce7; padding: 20px; border-radius: 10px; display: none; } /* 初期は非表示 */
+        .toggle-trans-btn { background: #64748b; color: white; border: none; padding: 8px 16px; border-radius: 5px; cursor: pointer; margin-bottom: 10px; }
+        .back-btn { display: inline-block; margin-bottom: 20px; color: #64748b; text-decoration: none; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="../../index.html" class="logo-link">
-        <div class="site-title">技術で学ぶ英語：Chronix Global Link</div>
-    </a>
-    <nav>
-        <a href="../../index.html">Home</a>
-    </nav>
-</header>
+<div class="container">
+    <a href="../" class="back-btn">← アーカイブ一覧に戻る</a>
+    
+    <h1 id="pageTitle">Loading...</h1>
 
-<main style="max-width: 800px; margin: 40px auto; padding: 0 5%;">
-    <article>
-        <div style="color: #003366; font-weight: bold; margin-bottom: 10px;">VISION ARCHIVE</div>
-        <h1>Beyond the Physical Limits</h1>
-        <p style="color: #666; border-bottom: 1px solid #ddd; padding-bottom: 20px;">
-            可変形状ミラーと波面制御の最前線
-        </p>
+    <div id="controlsArea">
+        </div>
 
-        <div class="content">
-            <p>ここに詳細な解説や、スクリプト、画像を自由に入れてください。</p>
-            
-            </div>
-    </article>
-
-    <div style="margin-top: 50px;">
-        <a href="../../index.html" style="color: #003366;">← アーカイブ一覧に戻る</a>
+    <div class="script-box">
+        <button class="toggle-trans-btn" onclick="toggleTranslation()">日本語訳を表示/非表示</button>
+        
+        <div id="enScript" class="script-en"></div>
+        <div id="jpScript" class="script-jp"></div>
     </div>
-</main>
+</div>
 
-<footer style="background: #091a2d; color: #fff; padding: 40px 20px; text-align: center; margin-top: 60px;">
-    <p>クロニクス株式会社</p>
-</footer>
+<script>
+    let currentAudio = null;
+
+    // --- データ本体（一切変更なし） ---
+    const archiveData = {
+        'sp_archive': {
+            title: 'FPGA SiP and Evolvable Hardware',
+            audio: '3d.mp3',
+            en: `<p style="margin-bottom: 15px;"><b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</p>...`, // 中身はそのまま
+            jp: `<p style="margin-bottom: 15px;"><b>A（クロニクス・エンジニア）：</b> 火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。</p>...`,
+            study: `<div style="margin-top:20px; padding:20px; background:#fff5eb; border-radius:10px; border-top:5px solid var(--space-orange);">...</div>`
+        },
+        'mv_archive': {
+            title: 'Beyond the Physical Limits',
+            audio: 'nano.mp3',
+            en: `<p style="font-weight:bold; color:var(--vision-blue); margin-bottom:15px;">Main Theme: Beyond the Physical Limits...</p>...`,
+            jp: `<p style="font-weight:bold; color:var(--vision-blue); margin-bottom:15px;">メインテーマ：物理的限界を超えて...</p>...`
+        }
+    };
+
+    // --- 初期化処理 ---
+    window.onload = function() {
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const data = archiveData[id];
+
+        if (!data) {
+            document.getElementById('pageTitle').innerText = "Data Not Found";
+            return;
+        }
+
+        // データの流し込み
+        document.getElementById('pageTitle').innerText = data.title;
+        document.getElementById('enScript').innerHTML = data.en;
+        document.getElementById('jpScript').innerHTML = data.jp + (data.study || '');
+
+        // コントロール（音声・PDF）の生成
+        let controlsHtml = `
+            <div class="audio-section">
+                <div class="audio-btn" onclick="handleAudio('${data.audio}')">
+                    <span id="audioIcon">▶️</span> <span style="margin-left:10px;">LISTEN TO AUDIO</span>
+                </div>
+            </div>
+        `;
+
+        if (data.pdf) {
+            controlsHtml += `
+                <div style="margin: 20px 0; padding: 15px; border: 1px dashed #cbd5e1; border-radius: 10px;">
+                    <p style="margin:0 0 10px 0; font-weight:bold;">${data.pdfName}</p>
+                    <a href="${data.pdf}" download style="color:#2563eb; text-decoration:none;">📄 PDFダウンロード</a>
+                </div>
+            `;
+        }
+        document.getElementById('controlsArea').innerHTML = controlsHtml;
+    };
+
+    // 音声再生ロジック
+    function handleAudio(fileName) {
+        const icon = document.getElementById('audioIcon');
+        if (currentAudio) {
+            if (!currentAudio.paused) {
+                currentAudio.pause();
+                icon.innerText = '▶️';
+            } else {
+                currentAudio.play();
+                icon.innerText = '⏸️';
+            }
+        } else {
+            currentAudio = new Audio(fileName);
+            currentAudio.play();
+            icon.innerText = '⏸️';
+            currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; };
+        }
+    }
+
+    // 翻訳切り替え
+    function toggleTranslation() {
+        const jp = document.getElementById('jpScript');
+        jp.style.display = (jp.style.display === 'block') ? 'none' : 'block';
+    }
+</script>
 
 </body>
 </html>
