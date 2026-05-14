@@ -50,9 +50,9 @@
         <p><b>A:</b> Precisely. This technology isn't just for semiconductors; we are applying the same principle to deep-space laser communication. Whether it's a wafer or a satellite, our priority remains the same: Reliability is a non-negotiable priority, and it starts at the physical contact point of light.</p>
     </div>
 
-    <button class="btn-toggle" onclick="toggleJp()">日本語訳を表示/非表示</button>
+   <button class="btn-toggle" onclick="toggleJp()">日本語訳を表示/非表示</button>
 
-    <div class="jp-box" id="jpBox">
+    <div class="jp-box" id="jpBox" style="display: none;">
         <h3 style="margin-top: 0; color: var(--space-orange);">2. Full Japanese Translation</h3>
         <p><b>A:</b> 当社は、次世代の2nm検査ラインに補償光学（AO）システムを統合しています。このサブナノスケール領域において、回折限界への対処はもはや選択肢ではなく、必須事項です。単にセンサーの解像度を上げるだけでは、もはや十分ではありません。</p>
         <p><b>B:</b> 2nmノードにおける物理的な制約については理解しています。しかしコストの観点から、その「ボケ」をAIベースの後処理で補正することはできないのでしょうか？</p>
@@ -60,68 +60,20 @@
         <p><b>B:</b> つまり、入力データそのものが不完全なため、ソフトウェアには限界があるということですね？</p>
         <p><b>A:</b> その通りです。このギャップを埋めるために、当社のAOシステムは可変形状ミラーを採用しています。収差をリアルタイムで中和することで、AIが真に信頼性を発揮するために必要な、高忠実度なデータを提供します。</p>
         <p><b>B:</b> 物理レイヤーで「完璧な一枚」を担保することで、AIが推測やハルシネーションに頼ることなく、目標歩留まりを達成できるようにするわけですね。</p>
-        <p><b>A:</b> まさに。この技術は半導体だけでなく深宇宙レーザー通信にも応用しています。信頼性は譲れない優先事項であり、それは光が物理的に接触するその起点から始まるのです。</p>
+        <p><b>A:</b> まさに。この技術は半導体だけではありません。私たちは同じ原理を深宇宙レーザー通信にも応用しています。信頼性は譲れない優先事項であり、それは光が物理的に接触するその起点から始まるのです。</p>
     </div>
 
-    <div class="study-container">
-        <h3 style="color: var(--vision-blue);">3. Technical Vocabulary（重要単語）</h3>
-        <table class="vocab-table">
-            <thead>
-                <tr>
-                    <th>単語</th>
-                    <th>意味</th>
-                    <th>解説</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td><b>Adaptive Optics (AO)</b></td><td>補償光学</td><td>光の波面のゆがみをリアルタイムで測定・補正する技術。</td></tr>
-                <tr><td><b>Diffraction limit</b></td><td>回折限界</td><td>光の回折現象により、光学系で解像できる最小サイズの物理的限界。</td></tr>
-                <tr><td><b>Indispensable</b></td><td>不可欠な</td><td>"Necessary" よりも強く、「これがなければ成り立たない」という響き。</td></tr>
-                <tr><td><b>Misconception</b></td><td>誤解・思い込み</td><td>相手の認識を正す際によく使われる。</td></tr>
-                <tr><td><b>Wavefront</b></td><td>波面</td><td>光の波が伝わる面の形。これが歪むと画像がボケる。</td></tr>
-                <tr><td><b>Deformable mirror</b></td><td>可変形状ミラー</td><td>形状を高速に変えて波面の歪みを打ち消す鏡。</td></tr>
-                <tr><td><b>Neutralize</b></td><td>中和する</td><td>エラーやノイズ、収差などをゼロにする際に使われる。</td></tr>
-                <tr><td><b>High-fidelity</b></td><td>高忠実度</td><td>元の情報が劣化せずに保持・再現されていること。</td></tr>
-                <tr><td><b>Non-negotiable</b></td><td>交渉の余地がない</td><td>妥協できない条件（信頼性など）に使う。</td></tr>
-            </tbody>
-        </table>
-
-        <h3 style="color: var(--vision-blue);">4. Useful Phrases（実践フレーズ）</h3>
-        
-        <span class="phrase-title">💡 物理的・技術的な限界を説明する</span>
-        <div class="phrase-card">
-            <p style="margin: 0 0 5px 0;"><b>"Addressing [A] is no longer optional; it is indispensable."</b></p>
-            <p style="margin: 0; color: #666; font-size: 0.85rem;">「[A]への対処はもはや任意ではなく、不可欠です。」</p>
-        </div>
-        <div class="phrase-card">
-            <p style="margin: 0 0 5px 0;"><b>"AI cannot restore information that was never captured."</b></p>
-            <p style="margin: 0; color: #666; font-size: 0.85rem;">「AIは（物理的に）取り込まれなかった情報を復元することはできません。」</p>
-        </div>
-
-        <span class="phrase-title">💡 プロフェッショナルな主張</span>
-        <div class="phrase-card blue">
-            <p style="margin: 0 0 5px 0;"><b>"Reliability is a non-negotiable priority."</b></p>
-            <p style="margin: 0; color: #666; font-size: 0.85rem;">「信頼性は譲れない（交渉の余地のない）優先事項です。」</p>
-        </div>
-        <div class="phrase-card blue">
-            <p style="margin: 0 0 5px 0;"><b>"We are ensuring a 'perfect shot' at the physical layer."</b></p>
-            <p style="margin: 0; color: #666; font-size: 0.85rem;">「物理レイヤーにおいて『完璧な一枚』を確保（担保）しています。」</p>
-        </div>
-    </div>
-
-    <div class="download-box">
-        <h3 style="margin: 0 0 5px 0;">Adaptive Optics Solution Guide</h3>
-        <p style="font-size: 0.85rem; margin-bottom: 15px;">2nmプロセス検査およびレーザー通信向けの補償光学技術ガイドです。</p>
-        <a href="AO_Technical_Guide.pdf" style="color: #2563eb; font-weight: bold; text-decoration: none;">📄 AO_Technical_Guide.pdf (Download)</a>
-    </div>
-</div>
-
-<script>
-    function toggleJp() {
-        const jpBox = document.getElementById('jpBox');
-        jpBox.style.display = (jpBox.style.display === 'block') ? 'none' : 'block';
-    }
-</script>
+    <script>
+        function toggleJp() {
+            var jpBox = document.getElementById('jpBox');
+            // 現在の表示状態をチェックして、反対の状態に切り替え
+            if (jpBox.style.display === "none") {
+                jpBox.style.display = "block";
+            } else {
+                jpBox.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
