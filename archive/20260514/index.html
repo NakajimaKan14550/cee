@@ -3,18 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FPGA SiP and Evolvable Hardware | Chronix Archive</title>
+    <title>Beyond the Physical Limits | Chronix Archive</title>
     <style>
         :root { --vision-blue: #003366; --space-orange: #8a4a1d; --text-dark: #1e293b; }
         body { font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: var(--text-dark); background: #f8fafc; margin: 0; padding: 20px; }
         .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
-        h1 { border-left: 5px solid var(--space-orange); padding-left: 15px; font-size: 1.5rem; color: var(--text-dark); }
-        .audio-section { margin: 20px 0; padding: 15px; background: #f1f5f9; border-radius: 10px; display: flex; align-items: center; }
+        h1 { border-left: 5px solid var(--vision-blue); padding-left: 15px; font-size: 1.5rem; color: var(--text-dark); }
+        .audio-section { margin: 20px 0; padding: 15px; background: #f1f5f9; border-radius: 10px; }
         .script-box { background: #fff; border: 1px solid #e2e8f0; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
-        .jp-box { background: #fff7ed; border: 1px solid #ffedd5; padding: 20px; border-radius: 10px; display: none; } /* 初期状態は非表示 */
-        .btn-toggle { background: #64748b; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-bottom: 20px; }
-        .download-box { background: #f1f5f9; padding: 20px; border-radius: 10px; border-left: 5px solid #64748b; }
-        a.back-link { text-decoration: none; color: #64748b; font-size: 0.9rem; display: block; margin-bottom: 20px; }
+        .jp-box { background: #eff6ff; border: 1px solid #dbeafe; padding: 20px; border-radius: 10px; display: none; margin-top: 10px; }
+        .btn-toggle { background: #64748b; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-bottom: 20px; font-weight: bold; }
+        .download-box { background: #f1f5f9; padding: 20px; border-radius: 10px; border-left: 5px solid #64748b; margin-top: 30px; }
+        a.back-link { text-decoration: none; color: #64748b; font-size: 0.9rem; display: inline-block; margin-bottom: 20px; }
+        .study-list { font-size: 0.85rem; margin-top: 15px; }
+        .study-list b { color: var(--vision-blue); }
     </style>
 </head>
 <body>
@@ -22,35 +24,42 @@
 <div class="container">
     <a href="../../index.html" class="back-link">← アーカイブ一覧に戻る</a>
 
-    <h1>FPGA SiP and Evolvable Hardware</h1>
+    <h1>Beyond the Physical Limits</h1>
+    <p style="color: #64748b; font-size: 0.9rem;">Category: Machine Vision / AO</p>
 
     <div class="audio-section">
-        <audio controls src="../../3d.mp3" style="width: 100%;"></audio>
+        <p style="margin: 0 0 10px 0; font-weight: bold;">Listen to Audio:</p>
+        <audio controls src="../../nano.mp3" style="width: 100%;"></audio>
     </div>
 
-    <h3>English Script</h3>
     <div class="script-box">
-        <p><b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</p>
-        <p><b>B:</b> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</p>
-        <p><b>A:</b> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.</p>
-        <p><b>B:</b> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?</p>
-        <p><b>A:</b> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.</p>
+        <h3 style="margin-top: 0; color: var(--vision-blue);">English Script</h3>
+        <p><b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable.</p>
+        <p><b>B:</b> From a cost perspective, can't we compensate for that blur using AI-based post-processing?</p>
+        <p><b>A:</b> That’s a common misconception. AI cannot restore "information that was never captured" due to high-frequency vibrations. If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed.</p>
+        <p><b>B:</b> I see. So you are ensuring a "perfect shot" at the physical layer?</p>
+        <p><b>A:</b> Exactly. Reliability is a non-negotiable priority.</p>
     </div>
 
     <button class="btn-toggle" onclick="toggleJp()">日本語訳を表示/非表示</button>
 
     <div class="jp-box" id="jpBox">
-        <p><b>A:</b> 火星探査ミッションに向けて、3D積層技術を統合したFPGA SiPを提案しています。</p>
-        <p><b>B:</b> 標準的な放射線耐性ASICを使わないのはなぜですか？</p>
-        <p><b>A:</b> 深宇宙では物理メンテナンスが不可能です。FPGAなら遠隔で回路を再構成でき、予期せぬ故障にも対応できます。</p>
-        <hr>
-        <p><b>💡 重要単語:</b> Diffraction limit (回折限界), High-fidelity (高忠実度), Robustness (堅牢性)</p>
+        <h3>日本語訳と解説</h3>
+        <p><b>A:</b> 次世代の2nm検査ラインに補償光学（AO）システムを統合しています。この領域では、回折限界への対処は必須事項です。</p>
+        <p><b>B:</b> AIの後処理で補正はできませんか？</p>
+        <p><b>A:</b> それは誤解です。AIは「キャプチャされなかった情報」を復元することはできません。波面が歪めば、データは根本的に欠陥を抱えます。</p>
+        
+        <div class="study-list">
+            <p><b>💡 Indispensable:</b> 不可欠な（"Necessary"より強い表現）</p>
+            <p><b>💡 Misconception:</b> 誤解（論理的に訂正する際に便利）</p>
+            <p><b>📝 "AI cannot restore information that was never captured."</b><br>AIの限界と物理層の重要性を説明する際の決め台詞です。</p>
+        </div>
     </div>
 
-    <div class="download-box" style="margin-top: 30px;">
-        <h3>FPGA SiP 導入ガイド</h3>
-        <p>技術仕様と導入メリットを網羅しています。</p>
-        <a href="../../fpga-sip-guide.pdf" download style="color: #2563eb; font-weight: bold;">📄 fpga-sip-guide.pdf (Download)</a>
+    <div class="download-box">
+        <h3 style="margin: 0 0 5px 0;">エッジAI導入ガイド</h3>
+        <p style="font-size: 0.85rem; margin-bottom: 15px;">スマートカメラによるPCレス検品の仕組みとメリットを解説。</p>
+        <a href="../../hik-edge.pdf" download style="color: #2563eb; font-weight: bold; text-decoration: none;">📄 hik-edge.pdf (Download)</a>
     </div>
 </div>
 
