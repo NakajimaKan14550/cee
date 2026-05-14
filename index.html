@@ -233,52 +233,33 @@
 <div class="archive-section">
     <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
     <div class="archive-grid">
-       
-     <a href="archive/20260515/index.html" style="text-decoration: none; color: inherit; display: block;">
-    <div class="archive-card">
-        <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
-            <span style="font-size: 0.7rem; opacity: 0.8;">SPACE ARCHIVE</span>
-            <h4 style="margin: 10px 0 0 0;">FPGA SiP and Evolvable Hardware</h4>
-        </div>
-        <div style="padding: 20px; font-size: 0.85rem; color: #666;">
-            メンテナンス不能な環境での「進化する回路」。
-        </div>
-    </div>
-</a>
-   
-            
+        
+        <a href="archive/20260515/index.html" style="text-decoration: none; color: inherit; display: block;">
             <div class="archive-card">
-        <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
-            <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
-            <h4 style="margin: 10px 0 0 0;">Beyond the Physical Limits</h4>
-        </div>
-        <div style="padding: 20px; font-size: 0.85rem; color: #666;">可変形状ミラーと波面制御の最前線。</div>
-    </div>
-</a>
-
-                <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
-                <h4 style="margin: 10px 0 0 0;">Beyond the Physical Limits</h4>
+                <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
+                    <span style="font-size: 0.7rem; opacity: 0.8;">SPACE ARCHIVE</span>
+                    <h4 style="margin: 10px 0 0 0;">FPGA SiP and Evolvable Hardware</h4>
+                </div>
+                <div style="padding: 20px; font-size: 0.85rem; color: #666;">
+                    メンテナンス不能な環境での「進化する回路」。
+                </div>
             </div>
-            <div style="padding: 20px; font-size: 0.85rem; color: #666;">可変形状ミラーと波面制御の最前線。</div>
-        </div>
+        </a>
+
+        <a href="archive/20260514/index.html" style="text-decoration: none; color: inherit; display: block;">
+            <div class="archive-card">
+                <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
+                    <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
+                    <h4 style="margin: 10px 0 0 0;">Beyond the Physical Limits</h4>
+                </div>
+                <div style="padding: 20px; font-size: 0.85rem; color: #666;">可変形状ミラーと波面制御の最前線。</div>
+            </div>
+        </a>
+
     </div>
 </div>
 
-<div id="archiveModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:3000; padding:20px; overflow-y:auto;">
-    <div style="max-width:800px; margin:40px auto; background:#fff; border-radius:15px; padding:40px; position:relative;">
-        <span onclick="closeArchiveModal()" style="position:absolute; top:20px; right:25px; font-size:35px; cursor:pointer; color:#999;">&times;</span>
-        <h2 id="modalTitle" style="color:var(--vision-blue); margin-top:0;"></h2>
-        <div id="modalAudioBtn" class="audio-btn" style="background:#f1f5f9; color:#333; margin: 20px 0;"></div>
-        <div style="background:#f8fafc; padding:20px; border-radius:10px; margin-bottom: 15px;">
-            <h4 style="margin:0 0 10px 0; color:#444;">English Script</h4>
-            <div id="modalEnScript" style="font-size:0.95rem; line-height:1.6;"></div>
-        </div>
-        <div style="background:#fff7ed; padding:20px; border-radius:10px;">
-            <h4 style="margin:0 0 10px 0; color:#c2410c;">Japanese Translation</h4>
-            <div id="modalJpScript" style="font-size:0.9rem; line-height:1.6;"></div>
-        </div>
-    </div>
-</div>
+<div id="archiveModal" style="display:none;"></div>
 
 <footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
     <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">クロニクス株式会社</p>
@@ -289,7 +270,7 @@
     let currentAudio = null;
     let currentBtnId = null;
 
-    // 音声再生ロジック（一覧ページでも音声を使う場合のために保持）
+    // 音声再生ロジック（Heroセクション用）
     function toggleAudio(fileName, btnId) {
         const btn = document.getElementById(btnId);
         const icon = btn.querySelector('.audio-icon') || btn; 
@@ -300,11 +281,8 @@
         }
         if (currentAudio) {
             currentAudio.pause();
-            if (currentBtnId && document.getElementById(currentBtnId)) {
-                const prevBtn = document.getElementById(currentBtnId);
-                const prevIcon = prevBtn.querySelector('.audio-icon') || prevBtn;
-                if(prevIcon) prevIcon.innerText = '▶️';
-            }
+            const prevBtn = document.getElementById(currentBtnId);
+            if(prevBtn) (prevBtn.querySelector('.audio-icon') || prevBtn).innerText = '▶️';
         }
         currentAudio = new Audio(fileName);
         currentBtnId = btnId;
@@ -312,70 +290,14 @@
         currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
     }
 
-    // ズーム機能
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 
-    // 【データ本体】中身は一切変更していません
-    const archiveData = {
-        'sp_archive': {
-            title: 'FPGA SiP and Evolvable Hardware',
-            audio: '3d.mp3',
-            en: `
-                <p style="margin-bottom: 15px;"><b>A (Chronix):</b> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</p>
-                <p style="margin-bottom: 15px;"><b>B:</b> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</p>
-                <p style="margin-bottom: 15px;"><b>A:</b> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.</p>
-                <p style="margin-bottom: 15px;"><b>B:</b> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?</p>
-                <p style="margin-bottom: 15px;"><b>A:</b> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.</p>
-            `,
-            jp: `
-                <p style="margin-bottom: 15px;"><b>A（クロニクス・エンジニア）：</b> 火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。</p>
-                <p style="margin-bottom: 15px;"><b>B：</b> 標準的な放射線耐性ASICを使わないのはなぜですか？ 通常そちらの方が電力効率が良いはずですが。</p>
-                <p style="margin-bottom: 15px;"><b>A：</b> その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。</p>
-                <p style="margin-bottom: 15px;"><b>B：</b> なるほど。つまり3D統合技術によって、放射線遮蔽された極小の設置面積の中に、高密度な処理機能を詰め込めるということですね？</p>
-                <p style="margin-bottom: 15px;"><b>A：</b> まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。</p>
-            `,
-            study: `
-                <div style="margin-top:20px; padding:20px; background:#fff5eb; border-radius:10px; border-top:5px solid var(--space-orange);">
-                    <h4 style="color:var(--space-orange); margin-top:0;">💡 今日の重要単語 / Key Vocabulary</h4>
-                    <ul style="font-size:0.9rem; line-height:1.8; padding-left:20px;">
-                        <li><b>Diffraction limit:</b> 回折限界</li>
-                        <li><b>High-fidelity:</b> 高忠実度</li>
-                        <li><b>Stringent:</b> 厳格な、厳しい</li>
-                        <li><b>Robustness:</b> 堅牢性</li>
-                        <li><b>Non-negotiable:</b> 交渉の余地のない</li>
-                    </ul>
-                </div>`
-        },
-        'mv_archive': {
-            title: 'Beyond the Physical Limits',
-            audio: 'nano.mp3',
-            en: `
-                <p style="font-weight:bold; color:var(--vision-blue); margin-bottom:15px;">Main Theme: Beyond the Physical Limits — Deformable Mirrors and Wavefront Control</p>
-                <p style="margin-bottom: 15px;"><b>A:</b> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable. Simply increasing sensor resolution is no longer sufficient.</p>
-                <p style="margin-bottom: 15px;"><b>B:</b> I understand the physical constraints of the 2nm node. But from a cost perspective, can't we compensate for that blur using AI-based post-processing? AI sharpening has come a long way recently.</p>
-                <p style="margin-bottom: 15px;"><b>A:</b> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence. If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.</p>
-                <p style="margin-bottom: 15px;"><b>B:</b> So, you’re saying software has its limits because the input data itself is "empty" or corrupted?</p>
-                <p style="margin-bottom: 15px;"><b>A:</b> Exactly. To bridge this gap, our AO system uses deformable mirrors that change shape in the kHz-order. By neutralizing these aberrations in real-time at the speed of light, we provide the high-fidelity data that your AI needs to actually be reliable.</p>
-                <p style="margin-bottom: 15px;"><b>B:</b> I see. So you are ensuring a "perfect shot" at the physical layer so that our analysis AI can achieve the target yield without having to guess or hallucinate details.</p>
-                <p style="margin-bottom: 15px;"><b>A:</b> Precisely. This technology isn't just for semiconductors; we are applying the same principle to deep-space laser communication. Whether it's a wafer or a satellite, our priority remains the same: Reliability is a non-negotiable priority, and it starts at the physical contact point of light.</p>
-            `,
-            jp: `
-                <p style="font-weight:bold; color:var(--vision-blue); margin-bottom:15px;">メインテーマ：物理的限界を超えて — 可変形状ミラーと波面制御</p>
-                <p style="margin-bottom: 15px;"><b>A：</b> 当社は、次世代の2nm検査ラインに補償光学（AO：Adaptive Optics）システムを統合しています。このサブナノスケールの領域において、回折限界への対処はもはや選択肢ではなく、必須事項です。単にセンサーの解像度を上げるだけでは、もう十分ではありません。</p>
-                <p style="margin-bottom: 15px;"><b>B：</b> 2nmノードにおける物理的な制約については理解しています。しかしコストの観点から、その「ボケ」をAIベースの後処理で補正することはできないのでしょうか？ 最近のAIシャープニング技術の進歩は目覚ましいものがありますが。</p>
-                <p style="margin-bottom: 15px;"><b>A：</b> それはよくある誤解です。AIは「そこにあるべき姿」を予測することには長けていますが、高周波振動や大気のゆらぎによって「最初からキャプチャされなかった情報」を復元することはできません。センサーに届く前に波面が歪んでしまえば、そのデータはソースの段階で根本的に欠陥を抱えていることになります。</p>
-                <p style="margin-bottom: 15px;"><b>B：</b> つまり、入力データそのものが「空っぽ」だったり破損していたりするため、ソフトウェアには限界があるということですね。</p>
-                <p style="margin-bottom: 15px;"><b>A：</b> その通りです。このギャップを埋めるために、当社のAOシステムはkHz（キロヘルツ）オーダーで形状を変化させる可変形状ミラーを採用しています。これらの収差を光速に近いリアルタイムで打ち消すことで、貴社の解析AIが真に信頼性を発揮するために必要な、高忠実度なデータを提供します。</p>
-                <p style="margin-bottom: 15px;"><b>B：</b> なるほど。物理レイヤーで「完璧な一枚」を担保することで、解析AIが推測や「ハルシネーション（幻覚）」に頼ることなく、目標歩留まりを達成できるようにするわけですね。</p>
-                <p style="margin-bottom: 15px;"><b>A：</b> まさに。この技術は半導体だけではありません。私たちは同じ原理を深宇宙レーザー通信にも応用しています。ウェハーであれ人工衛星であれ、私たちの優先事項は変わりません。「信頼性」は譲れない条件であり、それは光が物理的に接触するその起点から始まるのです。</p>
-            `
-        }
-    };
-
-    // --- 変更点：モーダルを開く代わりに別ページへ遷移させる ---
+    // --- 変更点：別ページへ遷移させるためのリンク管理 ---
+    // HTML側の <a> タグで遷移させるため、JavaScriptでの遷移命令(openArchiveModal)は不要になりました。
+    // もし既存のonclickを残している場合は、以下の関数で対応します。
     function openArchiveModal(id) {
-        // detail.html というファイルに id を付けて飛ばします
-        window.location.href = 'detail.html?id=' + id;
+        if (id === 'sp_archive') window.location.href = 'archive/20260515/index.html';
+        if (id === 'mv_archive') window.location.href = 'archive/20260514/index.html';
     }
 </script>
 
