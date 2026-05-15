@@ -85,10 +85,7 @@
         .speaker { font-weight: bold; color: var(--accent-orange); margin-right: 10px; }
         .script-line { margin-bottom: 15px; }
 
-        /* Translation Toggle Container */
-        .translation-container {
-            margin-top: 30px;
-        }
+        /* Translation Toggle */
         .btn-toggle { 
             background: var(--main-navy); 
             color: white; 
@@ -104,6 +101,7 @@
             justify-content: center;
             gap: 10px;
             font-size: 1rem;
+            margin-top: 30px;
         }
         .btn-toggle:hover { opacity: 0.9; background-color: #1e293b; }
 
@@ -132,73 +130,134 @@
             margin-bottom: 10px; 
             border-radius: 4px;
         }
-        .phrase-card.blue { border-left-color: var(--vision-blue); }
-        .phrase-card.orange { border-left-color: var(--space-orange); }
-        .phrase-card .en { font-weight: bold; display: block; color: var(--main-navy); }
+        .phrase-card .en { font-weight: bold; display: block; color: var(--main-navy); margin-bottom: 5px; }
         .phrase-card .jp { color: var(--text-slate); font-size: 0.85rem; }
 
-        /* Download Box */
-        .download-box { 
-            background: #f1f5f9; 
-            padding: 25px; 
-            border-radius: 10px; 
-            border-left: 5px solid var(--main-navy); 
-            margin-top: 50px; 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #eee;
         }
-        .download-btn {
+        .contact-btn {
+            display: inline-block;
             background: var(--accent-orange);
             color: white;
-            padding: 12px 24px;
-            border-radius: 6px;
+            padding: 12px 30px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            transition: background 0.2s;
-        }
-        .download-btn:hover { background: #ea580c; }
-
-        @media (max-width: 600px) {
-            .container { padding: 20px; }
-            .download-box { flex-direction: column; text-align: center; gap: 15px; }
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <a href="archive/20260514/index.html" class="back-link">← ARCHIVE LIST</a>
+    <a href="../../index.html" class="back-link">← ARCHIVE LIST</a>
 
     <h1>Beyond the Physical Limits (Machivision)</h1>
-    <span class="category-tag">Optical Engineering / AI Thermal Intelligence / Space Tech</span>
+    <span class="category-tag">Adaptive Optics / Next-Gen Semiconductor / Diffraction Limit</span>
 
     <div class="audio-section">
         <p class="audio-label">Technical Listening Module:</p>
-        <audio controls src="../../nano.mp3"></audio>
+        <audio controls src="nano.mp3"></audio>
     </div>
 
     <div class="script-box">
-        <h3>Main Technical Discussion</h3>
-        <div class="script-line"><span class="speaker">A:</span> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable.</div>
-        <div class="script-line"><span class="speaker">B:</span> I understand the physical constraints of the 2nm node. But can't we compensate for that blur using AI-based post-processing?</div>
-        <div class="script-line"><span class="speaker">A:</span> That’s a common misconception. AI cannot restore "information that was never captured." If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.</div>
+        <h3>1. Full English Script</h3>
+        <div class="script-line"><span class="speaker">A:</span> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable. Simply increasing sensor resolution is no longer sufficient.</div>
+        <div class="script-line"><span class="speaker">B:</span> I understand the physical constraints of the 2nm node. But from a cost perspective, can't we compensate for that blur using AI-based post-processing? AI sharpening has come a long way recently.</div>
+        <div class="script-line"><span class="speaker">A:</span> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence. If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.</div>
+        <div class="script-line"><span class="speaker">B:</span> So, you’re saying software has its limits because the input data itself is "empty" or corrupted?</div>
+        <div class="script-line"><span class="speaker">A:</span> Exactly. To bridge this gap, our AO system uses deformable mirrors that change shape in the kHz-order. By neutralizing these aberrations in real-time at the speed of light, we provide the high-fidelity data that your AI needs to actually be reliable.</div>
+        <div class="script-line"><span class="speaker">B:</span> I see. So you are ensuring a "perfect shot" at the physical layer so that our analysis AI can achieve the target yield without having to guess or hallucinate details.</div>
+        <div class="script-line"><span class="speaker">A:</span> Precisely. This technology isn't just for semiconductors; we are applying the same principle to deep-space laser communication. Whether it's a wafer or a satellite, our priority remains the same: Reliability is a non-negotiable priority, and it starts at the physical contact point of light.</div>
     </div>
 
-    <div class="translation-container">
-        <button class="btn-toggle" id="transBtn" onclick="toggleTranslation()">🔍 スクリプトの和訳と学習ポイントを見る</button>
-        
-        <div class="translation-content" id="transContent">
-            
-            <div class="trans-item">
-                <div style="background: var(--vision-blue); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
-                    Case 1: Thermal Intelligence in the AI Era
-                </div>
-                <p style="font-weight: bold; margin-top: 15px;">（AI時代の熱インテリジェンス）</p>
-                <p><b>A (クロニクス):</b> 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。</p>
-                <p><b>B (Calumino):</b> だからこそ弊社のプライバシー保護型熱センサが注目されています。顔を特定することなく熱異常を検知でき、ボロメータ配列を使用しています。</p>
+    <button class="btn-toggle" id="transBtn" onclick="toggleTranslation()">🔍 スクリプトの和訳と学習ポイントを見る</button>
 
-                <div style="background: #f0f7ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                    <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px; margin: 0;">💡 実践フレーズ</h4>
-                    <div class="phrase-card blue">
-                        <span class="en">"We need to detect thermal anomalies before they
+    <div class="translation-content" id="transContent">
+        
+        <div class="section-block">
+            <h3 style="color: var(--main-navy); border-bottom: 2px solid #eee; padding-bottom: 8px;">2. 全和訳</h3>
+            <p style="font-size: 0.95rem;">
+                <b>A:</b> 当社は、次世代の2nm検査ラインに補償光学（AO）システムを統合しています。このサブナノスケール領域において、回折限界への対処はもはや選択肢ではなく、必須事項です。単にセンサーの解像度を上げるだけでは、もはや十分ではありません。<br><br>
+                <b>B:</b> 2nmノードにおける物理的な制約については理解しています。しかしコストの観点から、その「ボケ」をAIベースの後処理で補正することはできないのでしょうか？<br><br>
+                <b>A:</b> それはよくある誤解です。AIは「そこにあるべき姿」を予測することには長けていますが、高周波振動や大気のゆらぎによって「最初からキャプチャされなかった情報」を復元することはできません。センサーに届く前に波面が歪んでしまえば、そのデータはソースの段階で根本的に欠陥を抱えていることになります。<br><br>
+                <b>B:</b> つまり、入力データそのものが「空っぽ」だったり破損していたりするため、ソフトウェアには限界があるということですね？<br><br>
+                <b>A:</b> その通りです。このギャップを埋めるために、当社のAOシステムはkHzオーダーで形状を変化させる可変形状ミラーを採用しています。これらの収差をリアルタイムで打ち消すことで、貴社の解析AIが信頼性を発揮するために必要な、高忠実度（ハイフィデリティ）なデータを提供します。<br><br>
+                <b>B:</b> 物理レイヤーで「完璧な一枚」を担保することで、解析AIがハルシネーション（幻覚）に頼ることなく、目標歩留まりを達成できるようにするわけですね。<br><br>
+                <b>A:</b> まさに。この技術は半導体だけではありません。深宇宙レーザー通信にも応用しています。ウェハーであれ衛星であれ、信頼性は譲れない優先事項であり、それは光が物理的に接触する起点から始まるのです。
+            </p>
+        </div>
+
+        <div class="section-block" style="margin-top: 40px;">
+            <h3 style="color: var(--main-navy); border-bottom: 2px solid #eee; padding-bottom: 8px;">3. 重要単語</h3>
+            <table class="vocab-table">
+                <thead>
+                    <tr><th>単語</th><th>意味・解説</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Adaptive Optics (AO)</td><td><b>補償光学</b>：光の波面のゆがみをリアルタイムで測定・補正する技術。</td></tr>
+                    <tr><td>Diffraction limit</td><td><b>回折限界</b>：光の回折現象により解像できる最小サイズの物理的な限界。</td></tr>
+                    <tr><td>Indispensable</td><td><b>不可欠な</b>："Necessary" よりも強く「これがなければ成立しない」という語感。</td></tr>
+                    <tr><td>Misconception</td><td><b>誤解・思い込み</b>：相手の認識を正す際によく使われる。</td></tr>
+                    <tr><td>Wavefront</td><td><b>波面</b>：光の波が伝わる面の形。これが歪むと画像がボケる原因に。</td></tr>
+                    <tr><td>Deformable mirror</td><td><b>可変形状ミラー</b>：形状を高速に変えて波面の歪みを打ち消す鏡。</td></tr>
+                    <tr><td>Neutralize</td><td><b>打ち消す</b>：エラーや収差などをゼロにする際に使われる。</td></tr>
+                    <tr><td>High-fidelity</td><td><b>高忠実度</b>：元の情報が劣化せずに再現されている状態。</td></tr>
+                    <tr><td>Non-negotiable</td><td><b>交渉の余地がない</b>：妥協できない条件（信頼性、安全など）に使用。</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-block" style="margin-top: 40px;">
+            <h3 style="color: var(--main-navy); border-bottom: 2px solid #eee; padding-bottom: 8px;">4. 実践フレーズ</h3>
+            
+            <p style="font-weight: bold; font-size: 0.9rem; color: var(--accent-orange);">💡 物理的・技術的な限界を説明する</p>
+            <div class="phrase-card">
+                <span class="en">"Addressing [A] is no longer optional; it is indispensable."</span>
+                <span class="jp">「[A]への対処はもはや任意ではなく、不可欠です。」（業界の基準が変わったことを強調）</span>
+            </div>
+            <div class="phrase-card">
+                <span class="en">"AI cannot restore information that was never captured."</span>
+                <span class="jp">「AIは（物理的に）取り込まれなかった情報を復元することはできません。」</span>
+            </div>
+
+            <p style="font-weight: bold; font-size: 0.9rem; color: var(--accent-orange); margin-top: 20px;">💡 プロフェッショナルな主張</p>
+            <div class="phrase-card">
+                <span class="en">"Reliability is a non-negotiable priority."</span>
+                <span class="jp">「信頼性は譲れない（交渉の余地のない）優先事項です。」</span>
+            </div>
+            <div class="phrase-card">
+                <span class="en">"We are ensuring a 'perfect shot' at the physical layer."</span>
+                <span class="jp">「物理レイヤーにおいて『完璧な一枚』を確保（担保）しています。」</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p style="font-weight: bold; color: var(--main-navy);">技術詳細やデモのご依頼についてはこちら</p>
+        <a href="https://www.chronix.co.jp/contact/" class="contact-btn">📩 お問い合わせフォーム</a>
+        <p style="font-size: 0.8rem; color: var(--text-slate);">〒160-0023 東京都新宿区西新宿3-2-11 クロニクス株式会社</p>
+    </footer>
+</div>
+
+<script>
+    function toggleTranslation() {
+        const content = document.getElementById('transContent');
+        const btn = document.getElementById('transBtn');
+        
+        if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block';
+            btn.innerHTML = '▲ スクリプトの和訳と学習ポイントを閉じる';
+        } else {
+            content.style.display = 'none';
+            btn.innerHTML = '🔍 スクリプトの和訳と学習ポイントを見る';
+        }
+    }
+</script>
+
+</body>
+</html>
