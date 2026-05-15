@@ -130,104 +130,116 @@
     </div>
 </div>
 
-<div class="translation-container">
-    <button class="translation-btn" id="transBtn" onclick="toggleTranslation()">🔍 スクリプトの和訳と学習ポイントを見る</button>
+<div class="translation-container" style="margin-top: 30px; font-family: 'Helvetica Neue', Arial, sans-serif;">
+    
+    <style>
+        :root {
+            --vision-blue: #3b82f6;
+            --space-orange: #ea580c;
+            --text-dark: #1e293b;
+            --text-slate: #64748b;
+        }
+        .translation-btn {
+            cursor: pointer;
+            width: 100%;
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            color: var(--text-dark);
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .translation-btn:hover { background-color: #f1f5f9; }
+        
+        .translation-content {
+            display: none; /* 初期状態は非表示 */
+            margin-top: 20px;
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            background-color: #fff;
+            animation: transFadeIn 0.4s ease;
+        }
+        @keyframes transFadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .trans-item { margin-bottom: 40px; }
+        .vocab-table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
+        .vocab-table th, .vocab-table td { border-bottom: 1px solid #eee; padding: 10px; text-align: left; }
+    </style>
+
+    <button class="translation-btn" id="transBtn" onclick="toggleTranslation()">
+        🔍 スクリプトの和訳と学習ポイントを見る
+    </button>
+
     <div class="translation-content" id="transContent">
         
         <div class="trans-item">
-            <div class="trans-title" style="background: var(--vision-blue); color: white; padding: 10px 20px; border-radius: 5px;">
+            <div class="trans-title" style="background: var(--vision-blue); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
                 Case 1: Thermal Intelligence in the AI Era
             </div>
-            <p style="font-weight: bold; margin-top: 15px;">（AI時代の熱インテリジェンス）</p>
-            <p><b>A (クロニクス):</b> 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。クライアントはラック全体の温度分布を監視する方法を必要としていますが、プライバシーも非常に懸念しています。</p>
-            <p><b>B (Calumino):</b> だからこそ弊社のプライバシー保護型熱センサが注目されています。個人の顔を特定することなく熱異常を検知でき、気流の「熱フットプリント」を捉えるボロメータ配列を使用しています。</p>
-            <p><b>A:</b> 統合が鍵です。熱データを使用してファンの回転数を上げたり、故障前にワークロードを移動させたい。電磁妨害（EMI）対策はどうなっていますか？シャットダウン前に一時的な熱スパイクを捉える必要があります。</p>
+            <p style="font-weight: bold; margin-top: 15px; color: var(--vision-blue);">（AI時代の熱インテリジェンス）</p>
+            <p style="font-size: 0.95rem;">
+                <b>A (クロニクス):</b> 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。クライアントはラック全体の温度分布を監視する方法を必要としていますが、プライバシーも非常に懸念しています。<br><br>
+                <b>B (Calumino):</b> だからこそ弊社のプライバシー保護型熱センサが注目されています。個人の顔を特定することなく熱異常を検知でき、気流の「熱フットプリント」を捉えるボロメータ配列を使用しています。<br><br>
+                <b>A:</b> 統合が鍵です。熱データを使用してファンの回転数を上げたり、故障前にワークロードを移動させたい。電磁妨害（EMI）対策はどうなっていますか？シャットダウン前に一時的な熱スパイクを捉える必要があります。
+            </p>
 
             <div style="background: #f0f7ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px;">💡 実践フレーズ / Useful Phrases</h4>
-                <p><b>1. 課題（ホットスポットや異常）を伝える</b><br>
-                "We need to detect thermal anomalies before they lead to hardware failure."<br>
-                <small>（ハードウェアの故障につながる前に、熱の異常を検知する必要があります。）</small><br>
-                "Traditional sensors have too many blind spots."<br>
-                <small>（従来のセンサーには死角が多すぎます。）</small></p>
-                
-                <p><b>2. プライバシーやセキュリティについて</b><br>
-                "Does it comply with privacy regulations?"<br>
-                <small>（プライバシー規制に準拠していますか？）</small><br>
-                "It captures thermal signatures without compromising privacy."<br>
-                <small>（プライバシーを侵害せずに、熱の兆候を捉えます。）</small></p>
-
-                <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px; margin-top: 20px;">🛠️ 単語帳 / Technical Vocabulary</h4>
-                <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
-                    <tr style="border-bottom: 1px solid #ccc; text-align: left;">
-                        <th style="padding: 8px;">英語</th><th style="padding: 8px;">日本語</th><th style="padding: 8px;">解説</th>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>Hot spot</b></td><td style="padding: 8px;">ホットスポット</td><td style="padding: 8px;">局所的に温度が高い危険な場所</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>Thermal anomaly</b></td><td style="padding: 8px;">熱の異常</td><td style="padding: 8px;">通常とは異なる温度上昇</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 8px;"><b>Scalability</b></td><td style="padding: 8px;">拡張性</td><td style="padding: 8px;">規模を拡大しやすいかどうか</td>
-                    </tr>
-                </table>
+                <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px; margin: 0;">💡 実践フレーズ</h4>
+                <p style="font-size: 0.9rem;">
+                    "We need to detect thermal anomalies before they lead to hardware failure."<br>
+                    <small>（故障につながる前に、熱の異常を検知する必要があります。）</small><br>
+                    "It captures thermal signatures without compromising privacy."<br>
+                    <small>（プライバシーを侵害せずに、熱の兆候を捉えます。）</small>
+                </p>
             </div>
         </div>
 
-        <hr style="margin: 40px 0; border: 0; border-top: 1px dashed #ccc;">
+        <hr style="margin: 30px 0; border: 0; border-top: 1px dashed #ccc;">
 
         <div class="trans-item">
-            <div class="trans-title" style="background: var(--space-orange); color: white; padding: 10px 20px; border-radius: 5px;">
-                Case 2: ZES Technical Discussion (🛰️ ZES技術ディスカッション)
+            <div class="trans-title" style="background: var(--space-orange); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+                Case 2: ZES Technical Discussion (🛰️ 宇宙用チップ)
             </div>
-            <p style="font-weight: bold; margin-top: 15px;">（和訳パート1：COTS（民生品）のジレンマ）</p>
-            <p><b>A（クロニクス社員）：</b>「『New Space（民間宇宙開発）』分野の顧客は、あるジレンマに直面しています。彼らは COTS（民生品） コンポーネントの高いパフォーマンスと低コストを求めていますが、放射線量の多い軌道上での SEE（シングルイベント効果） によるシステムクラッシュを許容することができません。御社の技術は、具体的にどのようにして標準的なチップをこのような過酷な環境で生き残らせるのでしょうか？」</p>
-            <p><b>B（ZES担当者）：</b>「それはハイブリッドなアプローチによるものです。我々は単に（物理的な）遮蔽だけに頼りません。ZESのテクノロジーは、物理レイヤーの保護と、インテリジェントな ラッチアップ 検知・復旧機能を統合しています。電流をリアルタイムで監視しており、放射線誘発によるサージ（急激な電流変化）を検知すると、システムは ナノ秒 単位で反応して永久的な損傷を防ぎます。同時に、TMR（3重系冗長構成） を通じて データの整合性 を維持するのです。」</p>
-            
-            <p style="font-weight: bold; margin-top: 15px;">（和訳パート2：復旧とデータの継続性）</p>
-            <p><b>A（クロニクス社員）：</b>「なるほど、期待できそうですね。しかし、高速処理を要するミッションでは、たとえ数ミリ秒の ダウンタイム であっても致命的になりかねません。もし放射線イベントがラッチアップ保護を起動させた場合、復旧時間はどのくらいでしょうか？ また、システムの状態をサージ発生直前の状態に確実に復元するにはどうすればよいのですか？」</p>
-            <p><b>B（ZES担当者）：</b>「検知と隔離は 100ナノ秒未満 で行われます。電源の再投入（パワーサイクリング） と復旧プロセスは、電源レールの容量にもよりますが、通常は数ミリ秒です。データ損失を確実に防ぐため、我々はシステムのステート（状態）を定期的に保存する 非揮発性メモリ・ブリッジ（チェックポイント設定） を採用しています。これにより、イベントが解消された後、ほぼ瞬時に ウォームブート（高速再起動） を実行することが可能です。」</p>
+            <p style="font-weight: bold; margin-top: 15px; color: var(--space-orange);">（和訳：COTSのジレンマと復旧）</p>
+            <p style="font-size: 0.95rem;">
+                <b>A:</b> 「New Space」の顧客は、民生品（COTS）の高いパフォーマンスを求めつつ、宇宙放射線によるシステムクラッシュを許容できないというジレンマにいます。御社の技術はどう標準チップを保護するのですか？<br><br>
+                <b>B:</b> 我々は物理遮蔽だけでなく、ナノ秒単位のラッチアップ検知・復旧を統合しています。TMR（3重冗長）でデータの整合性を守り、非揮発性メモリへの定期保存により、異常後もほぼ瞬時に「ウォームブート（高速再起動）」が可能です。
+            </p>
 
             <div style="background: #fff5eb; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px;">💡 実践フレーズ集 / Useful Phrases</h4>
-                <p style="font-size: 0.9rem;">
-                    <b>1. 放射線耐性と信頼性の確認</b><br>
-                    "How does this chip handle Single Event Upsets (SEU)?" <small>（このチップはSEU［放射線によるデータ反転］にどう対処しますか？）</small><br>
-                    "Is it latch-up immune?" <small>（ラッチアップ耐性はありますか？）</small><br>
-                    "Can we achieve 'Space Grade' reliability with these standard parts?" <small>（これらの標準パーツで「宇宙グレード」の信頼性を実現できますか？）</small><br><br>
-                    <b>2. 復旧性能とデータ保護</b><br>
-                    "How much downtime should we expect during a radiation event?" <small>（放射線イベント中、どのくらいのダウンタイムを想定すべきですか？）</small><br>
-                    "We need to ensure zero data loss during the power cycle." <small>（電源再投入時にデータ損失がゼロであることを保証する必要があります。）</small><br>
-                    "Does the protection circuit require a manual reset?" <small>（保護回路は手動のリセットが必要ですか？）</small>
-                </p>
-                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px; margin-top: 20px;">🛠️ 専門用語・単語帳 / Technical Vocabulary</h4>
-                <table style="width: 100%; font-size: 0.85rem; border-collapse: collapse;">
-                    <tr style="border-bottom: 1px solid #ccc; text-align: left;">
-                        <th style="padding: 8px;">英語 / 日本語</th><th style="padding: 8px;">解説</th>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>COTS</b> / 民生品</td><td style="padding: 8px;">Commercial Off-The-Shelf。一般産業向けに出回っている安価な部品。</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>SEE / SEU</b> / 放射線影響</td><td style="padding: 8px;">Single Event Effects / Upsets。一時的な誤作動やデータ反転。</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>Latch-up</b> / ラッチアップ</td><td style="padding: 8px;">放射線などにより回路に過電流が流れ続け、破壊される現象。</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>TMR</b> / 3重系冗長構成</td><td style="padding: 8px;">Triple Modular Redundancy。3つの回路で多数決により正解を決める。</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px;"><b>Checkpointing</b> / 設定</td><td style="padding: 8px;">実行中のデータを定期保存し、異常発生直前の状態から再開すること。</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 8px;"><b>Warm boot</b> / ウォームブート</td><td style="padding: 8px;">最小限の手順で高速に再起動すること。</td>
-                    </tr>
+                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px; margin: 0;">🛠️ 専門用語集</h4>
+                <table class="vocab-table" style="font-size: 0.85rem;">
+                    <tr><th>用語</th><th>意味</th></tr>
+                    <tr><td><b>COTS</b></td><td>民生品。一般産業向けの安価な部品。</td></tr>
+                    <tr><td><b>Latch-up</b></td><td>放射線等で過電流が流れ続け、回路が破壊される現象。</td></tr>
+                    <tr><td><b>Warm boot</b></td><td>最小限の手順で高速に再起動すること。</td></tr>
                 </table>
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleTranslation() {
+            const content = document.getElementById('transContent');
+            const btn = document.getElementById('transBtn');
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                btn.innerHTML = '▲ スクリプトの和訳と学習ポイントを閉じる';
+            } else {
+                content.style.display = 'none';
+                btn.innerHTML = '🔍 スクリプトの和訳と学習ポイントを見る';
+            }
+        }
+    </script>
 </div>
 
 <div class="archive-section">
