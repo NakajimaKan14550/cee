@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond the Physical Limits | Chronix Technical Archive</title>
+    <title>FPGA SiP and Evolvable Hardware | Chronix Technical Archive</title>
     <style>
         :root { 
             --main-navy: #091a2d; 
@@ -46,7 +46,7 @@
         .back-link:hover { color: var(--accent-orange); }
 
         h1 { 
-            border-left: 6px solid var(--accent-orange); 
+            border-left: 6px solid var(--space-orange); 
             padding-left: 20px; 
             font-size: 1.75rem; 
             color: var(--main-navy);
@@ -82,7 +82,7 @@
             margin-bottom: 20px;
         }
         .script-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--main-navy); border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        .speaker { font-weight: bold; color: var(--accent-orange); margin-right: 10px; }
+        .speaker { font-weight: bold; color: var(--space-orange); margin-right: 10px; }
         .script-line { margin-bottom: 15px; }
 
         /* Translation Toggle */
@@ -106,7 +106,7 @@
         .btn-toggle:hover { opacity: 0.9; background-color: #1e293b; }
 
         .translation-content { 
-            display: none;
+            display: none; /* 初期状態は非表示 */
             background: #fff;
             border: 1px solid #e2e8f0; 
             padding: 30px; 
@@ -125,13 +125,13 @@
         .phrase-card { 
             background-color: #f8fafc; 
             border: 1px solid #e2e8f0;
-            border-left: 4px solid var(--accent-orange); 
+            border-left: 4px solid var(--space-orange); 
             padding: 15px; 
-            margin-bottom: 10px; 
+            margin-bottom: 15px; 
             border-radius: 4px;
         }
         .phrase-card .en { font-weight: bold; display: block; color: var(--main-navy); margin-bottom: 5px; }
-        .phrase-card .jp { color: var(--text-slate); font-size: 0.85rem; }
+        .phrase-card .jp { color: var(--text-slate); font-size: 0.85rem; line-height: 1.5; display: block; }
 
         footer {
             margin-top: 60px;
@@ -154,25 +154,23 @@
 <body>
 
 <div class="container">
-    <a href="../../index.html" class="back-link">← ARCHIVE LIST</a>
+    <a href="../../index.html" class="back-link">← BACK TO ARCHIVE LIST</a>
 
-    <h1>Beyond the Physical Limits (Machivision)</h1>
-    <span class="category-tag">Adaptive Optics / Next-Gen Semiconductor / Diffraction Limit</span>
+    <h1>FPGA SiP and Evolvable Hardware</h1>
+    <span class="category-tag">Space Tech / Semiconductor / 3D Stacking</span>
 
     <div class="audio-section">
         <p class="audio-label">Technical Listening Module:</p>
-        <audio controls src="beyond.mp3"></audio>
+        <audio controls src="fpga_sip.mp3"></audio>
     </div>
 
     <div class="script-box">
         <h3>1. Full English Script</h3>
-        <div class="script-line"><span class="speaker">A:</span> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable. Simply increasing sensor resolution is no longer sufficient.</div>
-        <div class="script-line"><span class="speaker">B:</span> I understand the physical constraints of the 2nm node. But from a cost perspective, can't we compensate for that blur using AI-based post-processing? AI sharpening has come a long way recently.</div>
-        <div class="script-line"><span class="speaker">A:</span> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence. If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.</div>
-        <div class="script-line"><span class="speaker">B:</span> So, you’re saying software has its limits because the input data itself is "empty" or corrupted?</div>
-        <div class="script-line"><span class="speaker">A:</span> Exactly. To bridge this gap, our AO system uses deformable mirrors that change shape in the kHz-order. By neutralizing these aberrations in real-time at the speed of light, we provide the high-fidelity data that your AI needs to actually be reliable.</div>
-        <div class="script-line"><span class="speaker">B:</span> I see. So you are ensuring a "perfect shot" at the physical layer so that our analysis AI can achieve the target yield without having to guess or hallucinate details.</div>
-        <div class="script-line"><span class="speaker">A:</span> Precisely. This technology isn't just for semiconductors; we are applying the same principle to deep-space laser communication. Whether it's a wafer or a satellite, our priority remains the same: Reliability is a non-negotiable priority, and it starts at the physical contact point of light.</div>
+        <div class="script-line"><span class="speaker">A (Chronix):</span> For the Mars mission, we’re proposing the FPGA SiP (System-in-Package) integrated with 3D stacking technology.</div>
+        <div class="script-line"><span class="speaker">B:</span> Why not use a standard radiation-hardened ASIC? It’s usually more power-efficient.</div>
+        <div class="script-line"><span class="speaker">A:</span> True, but in deep space, physical maintenance is impossible. With FPGA, we can remotely reconfigure the hardware logic to adapt to unexpected sensor failures or new mission requirements.</div>
+        <div class="script-line"><span class="speaker">B:</span> I see. So the 3D integration allows you to pack high-density processing into a tiny, radiation-shielded footprint?</div>
+        <div class="script-line"><span class="speaker">A:</span> Exactly. It’s about creating "evolvable hardware" that can survive and optimize itself in the most extreme environments.</div>
     </div>
 
     <button class="btn-toggle" id="transBtn" onclick="toggleTranslation()">🔍 スクリプトの和訳と学習ポイントを見る</button>
@@ -182,32 +180,29 @@
         <div class="section-block">
             <h3 style="color: var(--main-navy); border-bottom: 2px solid #eee; padding-bottom: 8px;">2. 全和訳</h3>
             <p style="font-size: 0.95rem;">
-                <b>A:</b> 当社は、次世代の2nm検査ラインに補償光学（AO）システムを統合しています。このサブナノスケール領域において、回折限界への対処はもはや選択肢ではなく、必須事項です。単にセンサーの解像度を上げるだけでは、もはや十分ではありません。<br><br>
-                <b>B:</b> 2nmノードにおける物理的な制約については理解しています。しかしコストの観点から、その「ボケ」をAIベースの後処理で補正することはできないのでしょうか？<br><br>
-                <b>A:</b> それはよくある誤解です。AIは「そこにあるべき姿」を予測することには長けていますが、高周波振動や大気のゆらぎによって「最初からキャプチャされなかった情報」を復元することはできません。センサーに届く前に波面が歪んでしまえば、そのデータはソースの段階で根本的に欠陥を抱えていることになります。<br><br>
-                <b>B:</b> つまり、入力データそのものが「空っぽ」だったり破損していたりするため、ソフトウェアには限界があるということですね？<br><br>
-                <b>A:</b> その通りです。このギャップを埋めるために、当社のAOシステムはkHzオーダーで形状を変化させる可変形状ミラーを採用しています。これらの収差をリアルタイムで打ち消すことで、貴社の解析AIが信頼性を発揮するために必要な、高忠実度（ハイフィデリティ）なデータを提供します。<br><br>
-                <b>B:</b> 物理レイヤーで「完璧な一枚」を担保することで、解析AIがハルシネーション（幻覚）に頼ることなく、目標歩留まりを達成できるようにするわけですね。<br><br>
-                <b>A:</b> まさに。この技術は半導体だけではありません。深宇宙レーザー通信にも応用しています。ウェハーであれ衛星であれ、信頼性は譲れない優先事項であり、それは光が物理的に接触する起点から始まるのです。
+                <b>A（クロニクス）:</b> 火星探査ミッションに向けて、3D積層技術を統合したFPGA SiP（システム・イン・パッケージ）を提案しています。<br><br>
+                <b>B:</b> 標準的な放射線耐性ASICを使わないのはなぜですか？ 通常、そちらの方が電力効率が良いはずですが。<br><br>
+                <b>A:</b> その通りですが、深宇宙では物理的なメンテナンスが不可能です。FPGAであれば、ハードウェア・ロジックを遠隔で再構成（リコンフィギュレーション）できるため、予期せぬセンサーの故障や、新しいミッション要件にも柔軟に適応させることができます。<br><br>
+                <b>B:</b> なるほど。つまり3D統合技術によって、放射線遮蔽された極小の設置面積（フットプリント）の中に、高密度な処理機能を詰め込めるということですね？<br><br>
+                <b>A:</b> まさにその通りです。最も過酷な環境下で生き残り、自律的に最適化し続ける「進化するハードウェア（Evolvable Hardware）」を構築することが、我々の狙いです。
             </p>
         </div>
 
         <div class="section-block" style="margin-top: 40px;">
             <h3 style="color: var(--main-navy); border-bottom: 2px solid #eee; padding-bottom: 8px;">3. 重要単語</h3>
+            
             <table class="vocab-table">
                 <thead>
                     <tr><th>単語</th><th>意味・解説</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Adaptive Optics (AO)</td><td><b>補償光学</b>：光の波面のゆがみをリアルタイムで測定・補正する技術。</td></tr>
-                    <tr><td>Diffraction limit</td><td><b>回折限界</b>：光の回折現象により解像できる最小サイズの物理的な限界。</td></tr>
-                    <tr><td>Indispensable</td><td><b>不可欠な</b>："Necessary" よりも強く「これがなければ成立しない」という語感。</td></tr>
-                    <tr><td>Misconception</td><td><b>誤解・思い込み</b>：相手の認識を正す際によく使われる。</td></tr>
-                    <tr><td>Wavefront</td><td><b>波面</b>：光の波が伝わる面の形。これが歪むと画像がボケる原因に。</td></tr>
-                    <tr><td>Deformable mirror</td><td><b>可変形状ミラー</b>：形状を高速に変えて波面の歪みを打ち消す鏡。</td></tr>
-                    <tr><td>Neutralize</td><td><b>打ち消す</b>：エラーや収差などをゼロにする際に使われる。</td></tr>
-                    <tr><td>High-fidelity</td><td><b>高忠実度</b>：元の情報が劣化せずに再現されている状態。</td></tr>
-                    <tr><td>Non-negotiable</td><td><b>交渉の余地がない</b>：妥協できない条件（信頼性、安全など）に使用。</td></tr>
+                    <tr><td>FPGA</td><td>製造後にユーザーが内部回路を書き換えられる集積回路。</td></tr>
+                    <tr><td>SiP (System-in-Package)</td><td>複数のチップを一つのパッケージ内に封入し、一つの部品として機能させる技術。</td></tr>
+                    <tr><td>3D Stacking</td><td>チップを垂直に積み重ねる技術。省スペース化と高速化に寄与。</td></tr>
+                    <tr><td>Radiation-hardened</td><td>放射線耐性を高めた仕様。宇宙空間での誤作動を防ぐ。</td></tr>
+                    <tr><td>Reconfigure</td><td>回路構成を後から書き換えること（再構成）。</td></tr>
+                    <tr><td>Footprint</td><td>機器の設置面積。基板上での占有サイズのこと。</td></tr>
+                    <tr><td>Evolvable Hardware</td><td>環境の変化に合わせて、自ら回路構成を最適化できるハードウェア。</td></tr>
                 </tbody>
             </table>
         </div>
@@ -215,30 +210,34 @@
         <div class="section-block" style="margin-top: 40px;">
             <h3 style="color: var(--main-navy); border-bottom: 2px solid #eee; padding-bottom: 8px;">4. 実践フレーズ</h3>
             
-            <p style="font-weight: bold; font-size: 0.9rem; color: var(--accent-orange);">💡 物理的・技術的な限界を説明する</p>
+            <p style="font-weight: bold; font-size: 0.9rem; color: var(--space-orange);">💡 提案・技術説明で使える表現</p>
             <div class="phrase-card">
-                <span class="en">"Addressing [A] is no longer optional; it is indispensable."</span>
-                <span class="jp">「[A]への対処はもはや任意ではなく、不可欠です。」（業界の基準が変わったことを強調）</span>
+                <span class="en">"We’re proposing [A] integrated with [B]."</span>
+                <span class="jp">「[B]を統合した[A]を提案しています。」<br><small>例：We're proposing a sensor integrated with AI.</small></span>
             </div>
             <div class="phrase-card">
-                <span class="en">"AI cannot restore information that was never captured."</span>
-                <span class="jp">「AIは（物理的に）取り込まれなかった情報を復元することはできません。」</span>
+                <span class="en">"Physical maintenance is impossible."</span>
+                <span class="jp">「物理的なメンテナンスは不可能です。」<br><small>修理に行けない極限環境製品の重要性を説く際の重要表現。</small></span>
+            </div>
+            <div class="phrase-card">
+                <span class="en">"It allows you to pack high-density processing into a tiny footprint."</span>
+                <span class="jp">「これにより、高密度な処理機能を極小の面積に詰め込むことができます。」</span>
             </div>
 
-            <p style="font-weight: bold; font-size: 0.9rem; color: var(--accent-orange); margin-top: 20px;">💡 プロフェッショナルな主張</p>
+            <p style="font-weight: bold; font-size: 0.9rem; color: var(--space-orange); margin-top: 25px;">💡 理由や結論を述べる表現</p>
             <div class="phrase-card">
-                <span class="en">"Reliability is a non-negotiable priority."</span>
-                <span class="jp">「信頼性は譲れない（交渉の余地のない）優先事項です。」</span>
+                <span class="en">"To adapt to unexpected [failures/requirements]."</span>
+                <span class="jp">「予期せぬ[故障/要件]に適応するために。」<br><small>Flexibility（柔軟性）のメリットを伝える必須フレーズ。</small></span>
             </div>
             <div class="phrase-card">
-                <span class="en">"We are ensuring a 'perfect shot' at the physical layer."</span>
-                <span class="jp">「物理レイヤーにおいて『完璧な一枚』を確保（担保）しています。」</span>
+                <span class="en">"Reliability is a non-negotiable priority."</span>
+                <span class="jp">「信頼性は譲れない優先事項です。」<br><small>Non-negotiable（交渉の余地がない）でプロ意識を伝えます。</small></span>
             </div>
         </div>
     </div>
 
     <footer>
-        <p style="font-weight: bold; color: var(--main-navy);">技術詳細やデモのご依頼についてはこちら</p>
+        <p style="font-weight: bold; color: var(--main-navy);">深宇宙探査・高信頼性デバイスに関するお問い合わせ</p>
         <a href="https://www.chronix.co.jp/contact/" class="contact-btn">📩 お問い合わせフォーム</a>
         <p style="font-size: 0.8rem; color: var(--text-slate);">〒160-0023 東京都新宿区西新宿3-2-11 クロニクス株式会社</p>
     </footer>
@@ -249,6 +248,7 @@
         const content = document.getElementById('transContent');
         const btn = document.getElementById('transBtn');
         
+        // style.displayが空、あるいはnoneの場合にblockへ切り替え
         if (content.style.display === 'none' || content.style.display === '') {
             content.style.display = 'block';
             btn.innerHTML = '▲ スクリプトの和訳と学習ポイントを閉じる';
