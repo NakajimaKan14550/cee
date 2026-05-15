@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -52,26 +51,39 @@
         .audio-btn:hover { background: rgba(255,255,255,0.3); transform: translateY(-2px); }
         .audio-icon { margin-right: 12px; font-size: 1.2rem; }
 
-        .translation-container { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
+        /* 和訳セクションのスタイル */
+        .translation-container { max-width: 1200px; margin: 40px auto; padding: 0 5%; font-family: 'Helvetica Neue', Arial, sans-serif; }
         .translation-btn {
-            width: 100%; background: #fff; border: 2px solid var(--vision-blue); padding: 15px;
-            font-weight: bold; cursor: pointer; border-radius: 8px; color: var(--vision-blue);
-            transition: all 0.3s; font-size: 1rem; text-align: center;
+            width: 100%; background: #f8fafc; border: 1px solid #e2e8f0; padding: 15px;
+            font-weight: bold; cursor: pointer; border-radius: 8px; color: #1e293b;
+            transition: all 0.2s; font-size: 1rem; text-align: center;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
         }
-        .translation-btn:hover { background: var(--vision-blue); color: #fff; }
-        .translation-content { display: none; background: #fcfcfc; border: 1px solid #eee; padding: 30px; margin-top: 15px; border-radius: 12px; }
+        .translation-btn:hover { background: #f1f5f9; }
+        .translation-content { 
+            display: none; 
+            background: #fff; border: 1px solid #e2e8f0; padding: 25px; 
+            margin-top: 15px; border-radius: 12px; 
+            animation: transFadeIn 0.4s ease;
+        }
+        @keyframes transFadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         .archive-section { padding: 60px 5%; background-color: #f8f9fa; }
         .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .archive-card { border: none; background: #fff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; overflow: hidden;}
         .archive-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-
         .zoomed { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(2); z-index: 2000; cursor: zoom-out; }
 
         @media (max-width: 900px) {
             .hero-container { flex-direction: column; height: auto; }
             .hero-section { height: 500px; }
         }
+
+        .vocab-table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
+        .vocab-table th, .vocab-table td { border-bottom: 1px solid #eee; padding: 10px; text-align: left; }
     </style>
 </head>
 <body>
@@ -99,9 +111,7 @@
         <div class="script-window">
             <div class="script-line"><span class="speaker">A (Chronix):</span> With the rise of high-density AI servers, traditional temperature sensors—which only measure a single point—are no longer enough. We are seeing 'micro-hotspots' that appear and disappear in seconds. Our clients need a way to monitor the thermal distribution across the entire rack in real-time.</div>
             <div class="script-line"><span class="speaker">B (Calumino):</span> That is exactly why our privacy-protected thermal sensors are gaining traction. Unlike standard high-resolution thermography, our technology detects anomalies without identifying individual faces. We use a bolometer-based array that captures the 'thermal footprint' of the airflow.</div>
-            <div class="script-line"><span class="speaker">A (Chronix Employee):</span> 
-
-"Integration is key. We want to use the thermal data to trigger an immediate increase in fan speed or to shift workloads before a component fails. However, the environment is electrically noisy. How do your sensors handle Electromagnetic Interference (EMI), and what is the refresh rate? We need to capture those transient heat spikes before they lead to a thermal shutdown." </div>
+            <div class="script-line"><span class="speaker">A:</span> "Integration is key. We want to use the thermal data to trigger an immediate increase in fan speed or to shift workloads before a component fails. However, the environment is electrically noisy. How do your sensors handle Electromagnetic Interference (EMI), and what is the refresh rate? We need to capture those transient heat spikes before they lead to a thermal shutdown." </div>
         </div>
         <div class="meta-footer">
             <div id="btn-thermal" class="audio-btn" onclick="toggleAudio('thermal.mp3', 'btn-thermal')">
@@ -118,8 +128,7 @@
         <div class="script-window">
             <div class="script-line"><span class="speaker">A (Chronix):</span> Our clients in the 'New Space' sector are struggling with a dilemma. They want the high performance and low cost of COTS components, but they can't afford a system crash due to SEE (Single Event Effects) in high-radiation orbits. How exactly does your technology allow standard chips to survive in such a harsh environment?</div>
             <div class="script-line"><span class="speaker">B (ZES):</span> It’s about a hybrid approach. We don't just rely on shielding. Our ZES technology integrates physical-layer protection with intelligent latch-up detection and recovery. We monitor the current in real-time. If we detect a radiation-induced surge, our system reacts in nanoseconds to prevent permanent damage, while maintaining data integrity through TMR (Triple Modular Redundancy).</div>
-            <div class="script-line"><span class="speaker">A (Chronix):</span> That sounds promising. But in a high-speed processing mission, even a few milliseconds of downtime can be critical. If a radiation event triggers your latch-up protection, how fast is the recovery time? And how do you ensure that the system state is restored to exactly where it was before the surge?</div>
-            <div class="script-line"><span class="speaker">B (ZES):</span> Our detection and isolation happen in less than 100 nanoseconds. The power-cycling and recovery process typically take a few milliseconds. To ensure no data is lost, we use a non-volatile memory bridge that periodically checkpoints the system state. This means we can perform a warm boot almost instantly after the event is cleared.</div>
+            <div class="script-line"><span class="speaker">A:</span> That sounds promising. But in a high-speed processing mission, even a few milliseconds of downtime can be critical. If a radiation event triggers your latch-up protection, how fast is the recovery time? And how do you ensure that the system state is restored to exactly where it was before the surge?</div>
         </div>
         <div class="meta-footer">
             <div id="btn-zes" class="audio-btn" onclick="toggleAudio('zes.mp3', 'btn-zes')">
@@ -130,148 +139,52 @@
     </div>
 </div>
 
-<div class="translation-container" style="margin-top: 30px; font-family: 'Helvetica Neue', Arial, sans-serif;">
-    
-    <style>
-        :root {
-            --vision-blue: #3b82f6;
-            --space-orange: #ea580c;
-            --text-dark: #1e293b;
-            --text-slate: #64748b;
-        }
-        .translation-btn {
-            cursor: pointer;
-            width: 100%;
-            padding: 15px;
-            font-size: 1rem;
-            font-weight: bold;
-            border-radius: 8px;
-            background-color: #f8fafc;
-            color: var(--text-dark);
-            border: 1px solid #e2e8f0;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .translation-btn:hover { background-color: #f1f5f9; }
-        
-        .translation-content {
-            display: none; /* 初期状態は非表示 */
-            margin-top: 20px;
-            padding: 25px;
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            background-color: #fff;
-            animation: transFadeIn 0.4s ease;
-        }
-        @keyframes transFadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .trans-item { margin-bottom: 40px; }
-        .vocab-table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
-        .vocab-table th, .vocab-table td { border-bottom: 1px solid #eee; padding: 10px; text-align: left; }
-    </style>
-
+<div class="translation-container">
     <button class="translation-btn" id="transBtn" onclick="toggleTranslation()">
         🔍 スクリプトの和訳と学習ポイントを見る
     </button>
 
     <div class="translation-content" id="transContent">
-        
         <div class="trans-item">
-            <div class="trans-title" style="background: var(--vision-blue); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            <div style="background: #003366; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
                 Case 1: Thermal Intelligence in the AI Era
             </div>
-            <p style="font-weight: bold; margin-top: 15px; color: var(--vision-blue);">（AI時代の熱インテリジェンス）</p>
+            <p style="font-weight: bold; margin-top: 15px; color: #003366;">（AI時代の熱インテリジェンス）</p>
             <p style="font-size: 0.95rem;">
-                <b>A (クロニクス):</b> 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。クライアントはラック全体の温度分布を監視する方法を必要としていますが、プライバシーも非常に懸念しています。<br><br>
-                <b>B (Calumino):</b> だからこそ弊社のプライバシー保護型熱センサが注目されています。個人の顔を特定することなく熱異常を検知でき、気流の「熱フットプリント」を捉えるボロメータ配列を使用しています。<br><br>
-                <b>A:</b> 統合が鍵です。熱データを使用してファンの回転数を上げたり、故障前にワークロードを移動させたい。電磁妨害（EMI）対策はどうなっていますか？シャットダウン前に一時的な熱スパイクを捉える必要があります。
+                <b>A:</b> 高密度AIサーバの台頭により、従来の一点計測センサでは不十分です。秒単位の「マイクロ・ホットスポット」をリアルタイムで監視する必要があります。<br><br>
+                <b>B:</b> 弊社のセンサは顔を特定せず、ボロメータ配列で「熱フットプリント」を捉えるため、プライバシー保護と異常検知を両立します。
             </p>
-
-            <div style="background: #f0f7ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px; margin: 0;">💡 実践フレーズ</h4>
-                <p style="font-size: 0.9rem;">
-                    "We need to detect thermal anomalies before they lead to hardware failure."<br>
-                    <small>（故障につながる前に、熱の異常を検知する必要があります。）</small><br>
-                    "It captures thermal signatures without compromising privacy."<br>
-                    <small>（プライバシーを侵害せずに、熱の兆候を捉えます。）</small>
-                </p>
-            </div>
         </div>
 
         <hr style="margin: 30px 0; border: 0; border-top: 1px dashed #ccc;">
 
         <div class="trans-item">
-            <div class="trans-title" style="background: var(--space-orange); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
-                Case 2: ZES Technical Discussion (🛰️ 宇宙用チップ)
+            <div style="background: #8a4a1d; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+                Case 2: ZES Technical Discussion
             </div>
-            <p style="font-weight: bold; margin-top: 15px; color: var(--space-orange);">（和訳：COTSのジレンマと復旧）</p>
+            <p style="font-weight: bold; margin-top: 15px; color: #8a4a1d;">（COTSのジレンマと復旧）</p>
             <p style="font-size: 0.95rem;">
-                <b>A:</b> 「New Space」の顧客は、民生品（COTS）の高いパフォーマンスを求めつつ、宇宙放射線によるシステムクラッシュを許容できないというジレンマにいます。御社の技術はどう標準チップを保護するのですか？<br><br>
-                <b>B:</b> 我々は物理遮蔽だけでなく、ナノ秒単位のラッチアップ検知・復旧を統合しています。TMR（3重冗長）でデータの整合性を守り、非揮発性メモリへの定期保存により、異常後もほぼ瞬時に「ウォームブート（高速再起動）」が可能です。
+                <b>A:</b> 宇宙分野では民生品（COTS）の高性能さが求められますが、放射線によるラッチアップが課題です。<br><br>
+                <b>B:</b> ZES技術はナノ秒で異常を検知し、TMR（3重冗長）と非揮発性メモリへの保存により、瞬時の復旧を可能にします。
             </p>
-
-            <div style="background: #fff5eb; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px; margin: 0;">🛠️ 専門用語集</h4>
-                <table class="vocab-table" style="font-size: 0.85rem;">
-                    <tr><th>用語</th><th>意味</th></tr>
-                    <tr><td><b>COTS</b></td><td>民生品。一般産業向けの安価な部品。</td></tr>
-                    <tr><td><b>Latch-up</b></td><td>放射線等で過電流が流れ続け、回路が破壊される現象。</td></tr>
-                    <tr><td><b>Warm boot</b></td><td>最小限の手順で高速に再起動すること。</td></tr>
-                </table>
-            </div>
         </div>
     </div>
-
-    <script>
-        function toggleTranslation() {
-            const content = document.getElementById('transContent');
-            const btn = document.getElementById('transBtn');
-            if (content.style.display === 'none' || content.style.display === '') {
-                content.style.display = 'block';
-                btn.innerHTML = '▲ スクリプトの和訳と学習ポイントを閉じる';
-            } else {
-                content.style.display = 'none';
-                btn.innerHTML = '🔍 スクリプトの和訳と学習ポイントを見る';
-            }
-        }
-    </script>
 </div>
 
 <div class="archive-section">
     <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
     <div class="archive-grid">
-        
-        <a href="archive/20260515/index.html" style="text-decoration: none; color: inherit; display: block;">
+        <a href="archive/20260515/index.html" style="text-decoration: none; color: inherit;">
             <div class="archive-card">
                 <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
                     <span style="font-size: 0.7rem; opacity: 0.8;">SPACE ARCHIVE</span>
                     <h4 style="margin: 10px 0 0 0;">FPGA SiP and Evolvable Hardware</h4>
                 </div>
-                <div style="padding: 20px; font-size: 0.85rem; color: #666;">
-                    メンテナンス不能な環境での「進化する回路」。
-                </div>
+                <div style="padding: 20px; font-size: 0.85rem; color: #666;">メンテナンス不能な環境での「進化する回路」。</div>
             </div>
         </a>
-
-        <a href="archive/20260514/index.html" style="text-decoration: none; color: inherit; display: block;">
-            <div class="archive-card">
-                <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
-                    <span style="font-size: 0.7rem; opacity: 0.8;">VISION ARCHIVE</span>
-                    <h4 style="margin: 10px 0 0 0;">Beyond the Physical Limits</h4>
-                </div>
-                <div style="padding: 20px; font-size: 0.85rem; color: #666;">可変形状ミラーと波面制御の最前線。</div>
-            </div>
-        </a>
-
     </div>
 </div>
-
-<div id="archiveModal" style="display:none;"></div>
 
 <footer style="background: #091a2d; color: #fff; padding: 60px 20px; text-align: center;">
     <p style="font-size: 1.5rem; font-weight: bold; margin-bottom: 10px;">クロニクス株式会社</p>
@@ -282,10 +195,10 @@
     let currentAudio = null;
     let currentBtnId = null;
 
-    // 音声再生ロジック（Heroセクション用）
+    // 音声再生
     function toggleAudio(fileName, btnId) {
         const btn = document.getElementById(btnId);
-        const icon = btn.querySelector('.audio-icon') || btn; 
+        const icon = btn.querySelector('.audio-icon'); 
         if (currentAudio && currentBtnId === btnId) {
             if (!currentAudio.paused) { currentAudio.pause(); icon.innerText = '▶️'; }
             else { currentAudio.play(); icon.innerText = '⏸️'; }
@@ -294,7 +207,7 @@
         if (currentAudio) {
             currentAudio.pause();
             const prevBtn = document.getElementById(currentBtnId);
-            if(prevBtn) (prevBtn.querySelector('.audio-icon') || prevBtn).innerText = '▶️';
+            if(prevBtn) prevBtn.querySelector('.audio-icon').innerText = '▶️';
         }
         currentAudio = new Audio(fileName);
         currentBtnId = btnId;
@@ -302,58 +215,22 @@
         currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
     }
 
-    function toggleZoom(img) { img.classList.toggle('zoomed'); }
-
-    // --- 変更点：別ページへ遷移させるためのリンク管理 ---
-    // HTML側の <a> タグで遷移させるため、JavaScriptでの遷移命令(openArchiveModal)は不要になりました。
-    // もし既存のonclickを残している場合は、以下の関数で対応します。
-    function openArchiveModal(id) {
-        if (id === 'sp_archive') window.location.href = 'archive/20260515/index.html';
-        if (id === 'mv_archive') window.location.href = 'archive/20260514/index.html';
-    }
-</script>
-
-<script>
-    let currentAudio = null;
-    let currentBtnId = null;
-
-    // 音声再生ロジック
-    function toggleAudio(fileName, btnId) {
-        const btn = document.getElementById(btnId);
-        const icon = btn.querySelector('.audio-icon') || btn; 
-        if (currentAudio && currentBtnId === btnId) {
-            if (!currentAudio.paused) { currentAudio.pause(); icon.innerText = '▶️'; }
-            else { currentAudio.play(); icon.innerText = '⏸️'; }
-            return;
-        }
-        if (currentAudio) {
-            currentAudio.pause();
-            const prevBtn = document.getElementById(currentBtnId);
-            if(prevBtn) (prevBtn.querySelector('.audio-icon') || prevBtn).innerText = '▶️';
-        }
-        currentAudio = new Audio(fileName);
-        currentBtnId = btnId;
-        currentAudio.play().then(() => { icon.innerText = '⏸️'; }).catch(() => { console.log("Audio not found"); });
-        currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
-    }
-
-    function toggleZoom(img) { img.classList.toggle('zoomed'); }
-
-    // ★和訳ボタンを動かすために、これを追加しました！
+    // 和訳の切り替え（ここを1つに統合）
     function toggleTranslation() {
         const content = document.getElementById('transContent');
         const btn = document.getElementById('transBtn');
         
         if (content.style.display === 'none' || content.style.display === '') {
             content.style.display = 'block';
-            btn.innerText = '🔼 和訳を閉じる';
+            btn.innerText = '▲ スクリプトの和訳と学習ポイントを閉じる';
         } else {
             content.style.display = 'none';
             btn.innerText = '🔍 スクリプトの和訳と学習ポイントを見る';
         }
     }
+
+    function toggleZoom(img) { img.classList.toggle('zoomed'); }
 </script>
 
-    
 </body>
 </html>
