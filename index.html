@@ -140,7 +140,6 @@
 </div>
 
 <div class="translation-container" style="margin-top: 30px; font-family: 'Helvetica Neue', Arial, sans-serif;">
-    
     <style>
         :root {
             --vision-blue: #3b82f6;
@@ -167,7 +166,7 @@
         .translation-btn:hover { background-color: #f1f5f9; }
         
         .translation-content {
-            display: none; /* 初期状態は非表示 */
+            display: none;
             margin-top: 20px;
             padding: 25px;
             border: 1px solid #e2e8f0;
@@ -179,9 +178,25 @@
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .trans-item { margin-bottom: 40px; }
-        .vocab-table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; }
-        .vocab-table th, .vocab-table td { border-bottom: 1px solid #eee; padding: 10px; text-align: left; }
+        .trans-item { margin-bottom: 50px; }
+        .section-title { 
+            font-size: 1.1rem; 
+            font-weight: bold; 
+            margin: 25px 0 10px 0; 
+            border-left: 4px solid var(--text-dark);
+            padding-left: 10px;
+        }
+        .vocab-table { width: 100%; border-collapse: collapse; margin-top: 10px; background: #fff; font-size: 0.85rem; }
+        .vocab-table th { background: #f8fafc; border-bottom: 2px solid #e2e8f0; padding: 12px; text-align: left; }
+        .vocab-table td { border-bottom: 1px solid #eee; padding: 12px; text-align: left; vertical-align: top; }
+        .phrase-card { 
+            background: #f0f7ff; 
+            padding: 20px; 
+            border-radius: 10px; 
+            margin-top: 15px;
+        }
+        .phrase-card.orange { background: #fff5eb; }
+        .phrase-bold { font-weight: bold; color: var(--text-dark); display: block; margin-bottom: 5px; }
     </style>
 
     <button class="translation-btn" id="transBtn" onclick="toggleTranslation()">
@@ -191,47 +206,83 @@
     <div class="translation-content" id="transContent">
         
         <div class="trans-item">
-            <div class="trans-title" style="background: var(--vision-blue); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
-                Case 1: Thermal Intelligence in the AI Era
+            <div style="background: var(--vision-blue); color: white; padding: 12px 20px; border-radius: 5px; font-weight: bold; font-size: 1.2rem;">
+                Thermal Intelligence in the AI Era
             </div>
-            <p style="font-weight: bold; margin-top: 15px; color: var(--vision-blue);">（AI時代の熱インテリジェンス）</p>
-            <p style="font-size: 0.95rem;">
-                <b>A (クロニクス):</b> 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。クライアントはラック全体の温度分布を監視する方法を必要としていますが、プライバシーも非常に懸念しています。<br><br>
-                <b>B (Calumino):</b> だからこそ弊社のプライバシー保護型熱センサが注目されています。個人の顔を特定することなく熱異常を検知でき、気流の「熱フットプリント」を捉えるボロメータ配列を使用しています。<br><br>
-                <b>A:</b> 統合が鍵です。熱データを使用してファンの回転数を上げたり、故障前にワークロードを移動させたい。電磁妨害（EMI）対策はどうなっていますか？シャットダウン前に一時的な熱スパイクを捉える必要があります。
+
+            <div class="section-title">1. Full English Script（全英文）</div>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.7;">
+                <b>A (Chronix):</b> With the rise of high-density AI servers, traditional temperature sensors—which only measure a single point—are no longer enough. We are seeing 'micro-hotspots' that appear and disappear in seconds. Our clients need a way to monitor the thermal distribution across the entire rack in real-time.<br><br>
+                <b>B (Calumino):</b> That is exactly why our privacy-protected thermal sensors are gaining traction. Unlike standard high-resolution thermography, our technology detects anomalies without identifying individual faces. We use a bolometer-based array that captures the 'thermal footprint' of the airflow.<br><br>
+                <b>A (Chronix):</b> Integration is key. We want to use the thermal data to trigger an immediate increase in fan speed or to shift workloads before a component fails. However, the environment is electrically noisy. How do your sensors handle Electromagnetic Interference (EMI), and what is the refresh rate? We need to capture those transient heat spikes before they lead to a thermal shutdown.
             </p>
 
-            <div style="background: #f0f7ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px; margin: 0;">💡 実践フレーズ</h4>
-                <p style="font-size: 0.9rem;">
-                    "We need to detect thermal anomalies before they lead to hardware failure."<br>
-                    <small>（故障につながる前に、熱の異常を検知する必要があります。）</small><br>
-                    "It captures thermal signatures without compromising privacy."<br>
-                    <small>（プライバシーを侵害せずに、熱の兆候を捉えます。）</small>
-                </p>
+            <div class="section-title">2. Full Japanese Translation（全和訳）</div>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.7;">
+                <b>A (クロニクス):</b> 高密度なAIサーバーの台頭により、単一の点しか測定できない従来の温度センサーではもはや不十分です。数秒単位で発生しては消える「マイクロ・ホットスポット」が確認されるようになっています。当社のお客様は、ラック全体の熱分布をリアルタイムで監視する方法を必要としています。<br><br>
+                <b>B (カルミノ):</b> まさにそれが、当社のプライバシー保護型熱センサーが支持を得ている（注目されている）理由です。標準的な高解像度サーモグラフィとは異なり、当社の技術は個人の顔を特定することなく異常を検知します。ボロメータ・ベースのアレイを使用し、気流の「サーマル・フットプリント（熱の足跡）」を捉えるのです。<br><br>
+                <b>A (クロニクス):</b> 統合（インテグレーション）が鍵ですね。熱データを利用して、コンポーネントが故障する前にファンの回転数を即座に上げたり、ワークロードを分散（シフト）させたりしたいと考えています。しかし、サーバー環境は電気的ノイズが非常に多いです。貴社のセンサーは電磁妨害（EMI）にどう対処していますか？また、リフレッシュレートはどのくらいでしょうか？熱によるシャットダウンに至る前に、それら過渡的な熱スパイクを捉える必要があります。
+            </p>
+
+            <div class="section-title">3. Technical Vocabulary（重要単語）</div>
+            <table class="vocab-table">
+                <tr><th style="width: 30%;">単語</th><th style="width: 20%;">意味</th><th>解説</th></tr>
+                <tr><td>Gaining traction</td><td>支持を得る / 浸透する</td><td>新しい技術やアイディアが市場で受け入れられ始めた時に使う。</td></tr>
+                <tr><td>Anomalies</td><td>異常 / 例外</td><td>正常なパターンから外れた数値や事象。</td></tr>
+                <tr><td>Bolometer-based</td><td>ボロメータ方式の</td><td>赤外線の熱作用を利用した感熱素子。非接触温度測定の核心技術。</td></tr>
+                <tr><td>Trigger</td><td>誘発する</td><td>あるデータをきっかけに、次の動作を自動起動させること。</td></tr>
+                <tr><td>EMI</td><td>電磁妨害</td><td>他の機器の電磁波が、電子機器の動作を邪魔すること。</td></tr>
+                <tr><td>Transient spikes</td><td>過渡的なスパイク</td><td>一時的に、かつ急激に発生する突出した数値。</td></tr>
+            </table>
+
+            <div class="section-title">4. Useful Phrases（実践フレーズ）</div>
+            <div class="phrase-card">
+                <span class="phrase-bold">"That is exactly why [A] is gaining traction."</span>
+                <small>「まさにそれが、[A]が支持を得ている理由です。」（技術の必要性を強調する強力な表現）</small><br><br>
+                <span class="phrase-bold">"How do your sensors handle [EMI]?"</span>
+                <small>「貴社のセンサーは[EMI]にどう対処していますか？」（特定の課題への対策を問う実戦的フレーズ）</small>
             </div>
         </div>
 
-        <hr style="margin: 30px 0; border: 0; border-top: 1px dashed #ccc;">
+        <hr style="border: 0; border-top: 1px dashed #cbd5e1; margin: 40px 0;">
 
         <div class="trans-item">
-            <div class="trans-title" style="background: var(--space-orange); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
-                Case 2: ZES Technical Discussion (🛰️ 宇宙用チップ)
+            <div style="background: var(--space-orange); color: white; padding: 12px 20px; border-radius: 5px; font-weight: bold; font-size: 1.2rem;">
+                ZES: Radiation Protection for COTS
             </div>
-            <p style="font-weight: bold; margin-top: 15px; color: var(--space-orange);">（和訳：COTSのジレンマと復旧）</p>
-            <p style="font-size: 0.95rem;">
-                <b>A:</b> 「New Space」の顧客は、民生品（COTS）の高いパフォーマンスを求めつつ、宇宙放射線によるシステムクラッシュを許容できないというジレンマにいます。御社の技術はどう標準チップを保護するのですか？<br><br>
-                <b>B:</b> 我々は物理遮蔽だけでなく、ナノ秒単位のラッチアップ検知・復旧を統合しています。TMR（3重冗長）でデータの整合性を守り、非揮発性メモリへの定期保存により、異常後もほぼ瞬時に「ウォームブート（高速再起動）」が可能です。
+
+            <div class="section-title">1. Full English Script（全英文）</div>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.7;">
+                <b>A (Chronix):</b> Our clients in the 'New Space' sector are struggling with a dilemma. They want the high performance and low cost of COTS components, but they can't afford a system crash due to SEE (Single Event Effects) in high-radiation orbits. How exactly does your technology allow standard chips to survive in such a harsh environment?<br><br>
+                <b>B (ZES):</b> It’s about a hybrid approach. We don't just rely on shielding. Our ZES technology integrates physical-layer protection with intelligent latch-up detection and recovery. We monitor the current in real-time. If we detect a radiation-induced surge, our system reacts in nanoseconds to prevent permanent damage, while maintaining data integrity through TMR (Triple Modular Redundancy).<br><br>
+                <b>A (Chronix):</b> That sounds promising. But in a high-speed processing mission, even a few milliseconds of downtime can be critical. If a radiation event triggers your latch-up protection, how fast is the recovery time? And how do you ensure that the system state is restored to exactly where it was before the surge?<br><br>
+                <b>B (ZES):</b> Our detection and isolation happen in less than 100 nanoseconds. The power-cycling and recovery process typically take a few milliseconds. To ensure no data is lost, we use a non-volatile memory bridge that periodically checkpoints the system state. This means we can perform a warm boot almost instantly after the event is cleared.
             </p>
 
-            <div style="background: #fff5eb; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                <h4 style="color: var(--space-orange); border-bottom: 2px solid var(--space-orange); padding-bottom: 5px; margin: 0;">🛠️ 専門用語集</h4>
-                <table class="vocab-table" style="font-size: 0.85rem;">
-                    <tr><th>用語</th><th>意味</th></tr>
-                    <tr><td><b>COTS</b></td><td>民生品。一般産業向けの安価な部品。</td></tr>
-                    <tr><td><b>Latch-up</b></td><td>放射線等で過電流が流れ続け、回路が破壊される現象。</td></tr>
-                    <tr><td><b>Warm boot</b></td><td>最小限の手順で高速に再起動すること。</td></tr>
-                </table>
+            <div class="section-title">2. Full Japanese Translation（全和訳）</div>
+            <p style="font-size: 0.95rem; color: #334155; line-height: 1.7;">
+                <b>A (クロニクス):</b> 「ニュー・スペース（民間宇宙開発）」分野の当社のお客様は、あるジレンマに直面しています。彼らはCOTS（民生品）コンポーネントの高性能さと低コストを求めていますが、高放射線軌道でのSEE（シングルイベント効果）によるシステムクラッシュは許容できません。貴社の技術は、具体的にどのようにして標準的なチップをこのような過酷な環境で生き残らせるのですか？<br><br>
+                <b>B (ZES):</b> それはハイブリッド・アプローチによるものです。単にシールド（遮蔽）に頼るだけではありません。当社のZES技術は、物理層の保護にインテリジェントなラッチアップ検知・復旧機能を統合しています。電流をリアルタイムで監視し、放射線誘発サージを検知すると、システムはナノ秒単位で反応して永久的な損傷を防ぎます。同時に、TMR（3重モジュール冗長）によってデータ整合性を維持します。<br><br>
+                <b>A (クロニクス):</b> それは有望そうですね。しかし、高速処理が必要なミッションでは、わずか数ミリ秒のダウンタイムすら致命的になり得ます。放射線イベントによってラッチアップ保護が作動した場合、復旧時間はどのくらいですか？ また、サージが発生する直前の状態にシステムが正確に復元されることをどう保証するのですか？<br><br>
+                <b>B (ZES):</b> 検知と隔離は100ナノ秒未満で行われます。パワーサイクリング（電源の再投入）と復旧プロセスには通常数ミリ秒かかります。データ損失を防ぐため、システムの状態を定期的にチェックポイント（保存）する不揮発性メモリ・ブリッジを使用しています。これにより、イベントがクリアされた後、ほぼ瞬時にウォームブート（再起動）を実行できるのです。
+            </p>
+
+            <div class="section-title">3. Technical Vocabulary（重要単語）</div>
+            <table class="vocab-table">
+                <tr><th style="width: 30%;">単語</th><th style="width: 20%;">意味</th><th>解説</th></tr>
+                <tr><td>Latch-up</td><td>ラッチアップ</td><td>放射線等により回路に異常な大電流が流れ、破壊に繋がる現象。</td></tr>
+                <tr><td>Data integrity</td><td>データ整合性</td><td>データが破壊されず、一貫性と正確さが保たれている状態。</td></tr>
+                <tr><td>TMR</td><td>3重モジュール冗長</td><td>3つの回路で同じ計算をし、多数決で正解を決める冗長化手法。</td></tr>
+                <tr><td>Power-cycling</td><td>パワーサイクリング</td><td>一度電源を切り、再度投入すること。異常解除の基本操作。</td></tr>
+                <tr><td>Warm boot</td><td>ウォームブート</td><td>電源を切らずに（または一瞬で）OSやプログラムを再起動すること。</td></tr>
+            </table>
+
+            <div class="section-title">4. Useful Phrases（実践フレーズ）</div>
+            <div class="phrase-card orange">
+                <span class="phrase-bold">"Our clients are struggling with a dilemma."</span>
+                <small>「当社のお客様はあるジレンマに直面しています。」（相反するニーズの導入に便利）</small><br><br>
+                <span class="phrase-bold">"Checkpoints the system state to ensure no data is lost."</span>
+                <small>「データ損失を確実に防ぐため、システム状態をチェックポイント（保存）します。」</small>
             </div>
         </div>
     </div>
@@ -250,7 +301,6 @@
         }
     </script>
 </div>
-
 
 <div class="archive-section">
     <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
