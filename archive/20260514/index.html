@@ -8,6 +8,8 @@
         :root { 
             --main-navy: #091a2d; 
             --accent-orange: #f97316; 
+            --vision-blue: #3b82f6;
+            --space-orange: #ea580c;
             --text-dark: #1e293b; 
             --text-slate: #64748b;
             --bg-light: #f8fafc;
@@ -31,6 +33,7 @@
             box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); 
         }
 
+        /* Navigation */
         .back-link { 
             text-decoration: none; 
             color: var(--text-slate); 
@@ -59,6 +62,7 @@
             display: block;
         }
 
+        /* Audio Section */
         .audio-section { 
             margin: 30px 0; 
             padding: 25px; 
@@ -69,60 +73,71 @@
         .audio-label { margin: 0 0 15px 0; font-weight: bold; font-size: 0.9rem; opacity: 0.9; }
         audio { width: 100%; filter: invert(10%) sepia(20%) saturate(500%) hue-rotate(180deg); }
 
-        .script-container { display: grid; gap: 20px; margin-bottom: 30px; }
+        /* Content Blocks */
         .script-box { 
             background: #fff; 
             border: 1px solid #e2e8f0; 
             padding: 30px; 
             border-radius: 12px; 
+            margin-bottom: 20px;
         }
         .script-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--main-navy); border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        
         .speaker { font-weight: bold; color: var(--accent-orange); margin-right: 10px; }
         .script-line { margin-bottom: 15px; }
 
-        .jp-box { 
-            background: #fff7ed; 
-            border: 1px solid #ffedd5; 
-            padding: 30px; 
-            border-radius: 12px; 
-            display: none; 
-            animation: fadeIn 0.4s ease;
+        /* Translation Toggle Container */
+        .translation-container {
+            margin-top: 30px;
         }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-
         .btn-toggle { 
             background: var(--main-navy); 
             color: white; 
             border: none; 
-            padding: 12px 24px; 
-            border-radius: 6px; 
+            padding: 15px 24px; 
+            border-radius: 8px; 
             cursor: pointer; 
-            margin: 20px 0; 
+            width: 100%;
             font-weight: bold; 
-            transition: opacity 0.2s;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1rem;
         }
-        .btn-toggle:hover { opacity: 0.9; }
+        .btn-toggle:hover { opacity: 0.9; background-color: #1e293b; }
 
-        .vocab-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 30px 0; }
-        .vocab-table th { background-color: #f1f5f9; border-bottom: 2px solid var(--main-navy); text-align: left; padding: 15px; }
-        .vocab-table td { border-bottom: 1px solid #edf2f7; padding: 15px; vertical-align: top; }
-        .vocab-table b { color: var(--main-navy); }
+        .translation-content { 
+            display: none;
+            background: #fff;
+            border: 1px solid #e2e8f0; 
+            padding: 30px; 
+            border-radius: 12px; 
+            animation: fadeIn 0.4s ease;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .phrase-section { margin-top: 40px; }
+        /* Tables & Cards */
+        .vocab-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 20px 0; }
+        .vocab-table th { background-color: #f1f5f9; border-bottom: 2px solid var(--main-navy); text-align: left; padding: 12px; }
+        .vocab-table td { border-bottom: 1px solid #edf2f7; padding: 12px; vertical-align: top; }
+
         .phrase-card { 
-            background-color: #fff; 
+            background-color: #f8fafc; 
             border: 1px solid #e2e8f0;
             border-left: 4px solid var(--accent-orange); 
-            padding: 20px; 
-            margin-bottom: 15px; 
+            padding: 15px; 
+            margin-bottom: 10px; 
             border-radius: 4px;
         }
-        .phrase-card.blue { border-left-color: #3b82f6; }
-        .phrase-card p { margin: 0; }
-        .phrase-card .en { font-weight: bold; display: block; margin-bottom: 5px; color: var(--main-navy); }
+        .phrase-card.blue { border-left-color: var(--vision-blue); }
+        .phrase-card.orange { border-left-color: var(--space-orange); }
+        .phrase-card .en { font-weight: bold; display: block; color: var(--main-navy); }
         .phrase-card .jp { color: var(--text-slate); font-size: 0.85rem; }
 
+        /* Download Box */
         .download-box { 
             background: #f1f5f9; 
             padding: 25px; 
@@ -136,17 +151,17 @@
         .download-btn {
             background: var(--accent-orange);
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 24px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.85rem;
+            transition: background 0.2s;
         }
+        .download-btn:hover { background: #ea580c; }
 
         @media (max-width: 600px) {
             .container { padding: 20px; }
-            h1 { font-size: 1.4rem; }
-            .download-box { flex-direction: column; gap: 15px; text-align: center; }
+            .download-box { flex-direction: column; text-align: center; gap: 15px; }
         }
     </style>
 </head>
@@ -156,107 +171,34 @@
     <a href="archive/20260514/index.html" class="back-link">← ARCHIVE LIST</a>
 
     <h1>Beyond the Physical Limits (Machivision)</h1>
-    <span class="category-tag">Optical Engineering / Semiconductor Inspection / Deep-Space Laser Communication</span>
+    <span class="category-tag">Optical Engineering / AI Thermal Intelligence / Space Tech</span>
 
     <div class="audio-section">
         <p class="audio-label">Technical Listening Module:</p>
         <audio controls src="../../nano.mp3"></audio>
     </div>
 
-    <div class="script-container">
-        <div class="script-box">
-            <h3>1. Professional Script (English)</h3>
-            <div class="script-line"><span class="speaker">A:</span> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable. Simply increasing sensor resolution is no longer sufficient.</div>
-            <div class="script-line"><span class="speaker">B:</span> I understand the physical constraints of the 2nm node. But from a cost perspective, can't we compensate for that blur using AI-based post-processing? AI sharpening has come a long way recently.</div>
-            <div class="script-line"><span class="speaker">A:</span> That’s a common misconception. AI is excellent at "predicting" what should be there, but it cannot restore "information that was never captured" due to high-frequency vibrations or atmospheric turbulence. If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.</div>
-            <div class="script-line"><span class="speaker">B:</span> So, you’re saying software has its limits because the input data itself is "empty" or corrupted?</div>
-            <div class="script-line"><span class="speaker">A:</span> Exactly. To bridge this gap, our AO system uses deformable mirrors that change shape in the kHz-order. By neutralizing these aberrations in real-time at the speed of light, we provide the high-fidelity data that your AI needs to actually be reliable.</div>
-            <div class="script-line"><span class="speaker">B:</span> I see. So you are ensuring a "perfect shot" at the physical layer so that our analysis AI can achieve the target yield without having to guess or hallucinate details.</div>
-            <div class="script-line"><span class="speaker">A:</span> Precisely. This technology isn't just for semiconductors; we are applying the same principle to deep-space laser communication. Whether it's a wafer or a satellite, our priority remains the same: Reliability is a non-negotiable priority, and it starts at the physical contact point of light.</div>
-        </div>
-
-        <button class="btn-toggle" onclick="toggleJp()">日本語訳を表示/非表示</button>
-
-        <div class="jp-box" id="jpBox">
-            <h3>2. 日本語対訳</h3>
-            <div class="script-line"><b>A:</b> 当社は、次世代の2nm検査ラインに補償光学（AO）システムを統合しています。このサブナノスケール領域において、回折限界への対処はもはや選択肢ではなく、必須事項（不可欠）です。単にセンサーの解像度を上げるだけでは、もはや十分ではありません。</div>
-            <div class="script-line"><b>B:</b> 2nmノードにおける物理的な制約については理解しています。しかしコストの観点から、その「ボケ」をAIベースの後処理で補正することはできないのでしょうか？ 最近のAIシャープニング技術の進歩は目覚ましいものがありますが。</div>
-            <div class="script-line"><b>A:</b> それはよくある誤解です。AIは「そこにあるべき姿」を予測することには長けていますが、高周波振動や大気のゆらぎによって「最初からキャプチャされなかった情報」を復元することはできません。センサーに届く前に波面が歪んでしまえば、そのデータはソース（起点）の段階で根本的に欠陥を抱えていることになります。</div>
-            <div class="script-line"><b>B:</b> つまり、入力データそのものが「空っぽ」だったり破損していたりするため、ソフトウェアには限界があるということですね？</div>
-            <div class="script-line"><b>A:</b> その通りです。このギャップを埋めるために、当社のAOシステムはkHz（キロヘルツ）オーダーで形状を変化させる可変形状ミラーを採用しています。これらの収差を光速に近いリアルタイムで打ち消す（中和する）ことで、貴社の解析AIが真に信頼性を発揮するために必要な、高忠実度（ハイフィデリティ）なデータを提供します。</div>
-            <div class="script-line"><b>B:</b> なるほど。物理レイヤーで「完璧な一枚（パーフェクト・ショット）」を担保することで、解析AIが推測やハルシネーション（幻覚）に頼ることなく、目標歩留まりを達成できるようにするわけですね。</div>
-            <div class="script-line"><b>A:</b> まさに。この技術は半導体だけではありません。私たちは同じ原理を深宇宙レーザー通信にも応用しています。ウェハーであれ人工衛星であれ、私たちの優先事項は変わりません。信頼性は譲れない優先事項であり、それは光が物理的に接触するその起点から始まるのです。</div>
-        </div>
+    <div class="script-box">
+        <h3>Main Technical Discussion</h3>
+        <div class="script-line"><span class="speaker">A:</span> We are integrating the Adaptive Optics (AO) system into your next-gen 2nm inspection lines. In this sub-nanoscale domain, addressing the diffraction limit is no longer optional; it is indispensable.</div>
+        <div class="script-line"><span class="speaker">B:</span> I understand the physical constraints of the 2nm node. But can't we compensate for that blur using AI-based post-processing?</div>
+        <div class="script-line"><span class="speaker">A:</span> That’s a common misconception. AI cannot restore "information that was never captured." If the wavefront is distorted before hitting the sensor, the data is fundamentally flawed at the source.</div>
     </div>
 
-    <h3>3. Key Technical Vocabulary</h3>
-    <table class="vocab-table">
-        <thead>
-            <tr>
-                <th>Term</th>
-                <th>Definition</th>
-                <th>Explanation</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td><b>Adaptive Optics (AO)</b></td><td>補償光学</td><td>光の波面のゆがみをリアルタイムで測定・補正する技術。</td></tr>
-            <tr><td><b>Diffraction limit</b></td><td>回折限界</td><td>光の回折現象により、光学系で解像できる最小サイズの物理的な限界。</td></tr>
-            <tr><td><b>Indispensable</b></td><td>不可欠な</td><td>"Necessary" よりも強く、「これがなければ成り立たない」というニュアンス。</td></tr>
-            <tr><td><b>Misconception</b></td><td>誤解・思い込み</td><td>相手の認識を正す際によく使われる。</td></tr>
-            <tr><td><b>Wavefront</b></td><td>波面</td><td>光の波が伝わる面の形。これが歪むと画像がボケる。</td></tr>
-            <tr><td><b>Deformable mirror</b></td><td>可変形状ミラー</td><td>形状を高速に変えて波面の歪みを打ち消す鏡。</td></tr>
-            <tr><td><b>Neutralize</b></td><td>中和する・打ち消す</td><td>エラーやノイズ、収差などをゼロにする際に使われる。</td></tr>
-            <tr><td><b>High-fidelity</b></td><td>高忠実度</td><td>元の情報が劣化せずに保持・再現されていること。</td></tr>
-            <tr><td><b>Non-negotiable</b></td><td>交渉の余地がない</td><td>妥協できない条件（信頼性、納期、安全など）に使う。</td></tr>
-        </tbody>
-    </table>
+    <div class="translation-container">
+        <button class="btn-toggle" id="transBtn" onclick="toggleTranslation()">🔍 スクリプトの和訳と学習ポイントを見る</button>
+        
+        <div class="translation-content" id="transContent">
+            
+            <div class="trans-item">
+                <div style="background: var(--vision-blue); color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+                    Case 1: Thermal Intelligence in the AI Era
+                </div>
+                <p style="font-weight: bold; margin-top: 15px;">（AI時代の熱インテリジェンス）</p>
+                <p><b>A (クロニクス):</b> 高密度AIサーバの台頭により、一点のみを計測する従来の温度センサでは不十分になっています。秒単位で発生・消失する「マイクロ・ホットスポット」が見られます。</p>
+                <p><b>B (Calumino):</b> だからこそ弊社のプライバシー保護型熱センサが注目されています。顔を特定することなく熱異常を検知でき、ボロメータ配列を使用しています。</p>
 
-    <div class="phrase-section">
-        <h3>4. Practical Industry Phrases</h3>
-        <div class="phrase-card">
-            <span class="en">"Addressing [Challenge] is no longer optional; it is indispensable."</span>
-            <span class="jp">「[課題]への対処はもはや任意ではなく、不可欠です。」</span>
-            <p style="font-size: 0.8rem; color: var(--text-slate); margin-top: 5px;">※業界のスタンダードが変わったことを強調する強い表現。</p>
-        </div>
-        <div class="phrase-card">
-            <span class="en">"AI cannot restore information that was never captured."</span>
-            <span class="jp">「AIは（物理的に）取り込まれなかった情報を復元することはできません。」</span>
-            <p style="font-size: 0.8rem; color: var(--text-slate); margin-top: 5px;">※ソフトウェア万能論に対するハードウェアの重要性を説く際の決め台詞。</p>
-        </div>
-        <div class="phrase-card blue">
-            <span class="en">"Reliability is a non-negotiable priority."</span>
-            <span class="jp">「信頼性は譲れない（交渉の余地のない）優先事項です。」</span>
-            <p style="font-size: 0.8rem; color: var(--text-slate); margin-top: 5px;">※企業の姿勢や、製品の最も重要なポイントを伝えるときに。</p>
-        </div>
-        <div class="phrase-card blue">
-            <span class="en">"We are ensuring a 'perfect shot' at the physical layer."</span>
-            <span class="jp">「物理レイヤーにおいて『完璧な一枚』を確保（担保）しています。」</span>
-            <p style="font-size: 0.8rem; color: var(--text-slate); margin-top: 5px;">※後処理に頼らず、元データの質を高めるという自信を示す表現。</p>
-        </div>
-    </div>
-
-    <div class="download-box">
-        <div>
-            <h3 style="margin: 0; font-size: 1rem;">Supplementary Material</h3>
-            <p style="margin: 0; font-size: 0.8rem; color: var(--text-slate);">Detailed technical specifications for AO integration and Deep-Space application.</p>
-        </div>
-        <a href="AO_Technical_Guide_2026.pdf" class="download-btn">DOWNLOAD PDF</a>
-    </div>
-</div>
-
-<script>
-    function toggleJp() {
-        const jpBox = document.getElementById('jpBox');
-        const btn = document.querySelector('.btn-toggle');
-        if (jpBox.style.display === "none" || jpBox.style.display === "") {
-            jpBox.style.display = "block";
-            btn.textContent = "日本語訳を隠す";
-        } else {
-            jpBox.style.display = "none";
-            btn.textContent = "日本語訳を表示";
-        }
-    }
-</script>
-
-</body>
-</html>
+                <div style="background: #f0f7ff; padding: 20px; border-radius: 10px; margin-top: 20px;">
+                    <h4 style="color: var(--vision-blue); border-bottom: 2px solid var(--vision-blue); padding-bottom: 5px; margin: 0;">💡 実践フレーズ</h4>
+                    <div class="phrase-card blue">
+                        <span class="en">"We need to detect thermal anomalies before they
