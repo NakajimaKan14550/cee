@@ -1,1 +1,256 @@
 
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZES: Radiation Protection for COTS | Chronix Technical Archive</title>
+    <style>
+        :root { 
+            --main-navy: #091a2d; 
+            --accent-orange: #f97316; 
+            --text-dark: #1e293b; 
+            --text-slate: #64748b;
+            --bg-light: #f8fafc;
+        }
+
+        body { 
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; 
+            line-height: 1.8; 
+            color: var(--text-dark); 
+            background: var(--bg-light); 
+            margin: 0; 
+            padding: 40px 20px; 
+        }
+
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); 
+        }
+
+        /* Navigation link */
+        .back-link { 
+            text-decoration: none; 
+            color: var(--text-slate); 
+            font-size: 0.9rem; 
+            display: inline-flex; 
+            align-items: center;
+            margin-bottom: 30px; 
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-orange); }
+
+        h1 { 
+            border-left: 6px solid var(--accent-orange); 
+            padding-left: 20px; 
+            font-size: 1.75rem; 
+            color: var(--main-navy);
+            margin-bottom: 5px;
+        }
+
+        .category-tag { 
+            color: var(--text-slate); 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        /* Audio Player Styling */
+        .audio-section { 
+            margin: 30px 0; 
+            padding: 25px; 
+            background: var(--main-navy); 
+            border-radius: 10px; 
+            color: white;
+        }
+        .audio-label { margin: 0 0 15px 0; font-weight: bold; font-size: 0.9rem; opacity: 0.9; }
+        audio { width: 100%; filter: invert(10%) sepia(20%) saturate(500%) hue-rotate(180deg); }
+
+        /* Script Blocks */
+        .script-container { display: grid; gap: 20px; margin-bottom: 30px; }
+        .script-box { 
+            background: #fff; 
+            border: 1px solid #e2e8f0; 
+            padding: 30px; 
+            border-radius: 12px; 
+        }
+        .script-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--main-navy); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        .speaker { font-weight: bold; color: var(--accent-orange); margin-right: 10px; }
+        .script-line { margin-bottom: 15px; }
+
+        .jp-box { 
+            background: #fff7ed; 
+            border: 1px solid #ffedd5; 
+            padding: 30px; 
+            border-radius: 12px; 
+            display: none; 
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .btn-toggle { 
+            background: var(--main-navy); 
+            color: white; 
+            border: none; 
+            padding: 12px 24px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            margin: 20px 0; 
+            font-weight: bold; 
+            transition: opacity 0.2s;
+        }
+        .btn-toggle:hover { opacity: 0.9; }
+
+        /* Vocabulary and Phrases */
+        .vocab-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 30px 0; }
+        .vocab-table th { background-color: #f1f5f9; border-bottom: 2px solid var(--main-navy); text-align: left; padding: 15px; }
+        .vocab-table td { border-bottom: 1px solid #edf2f7; padding: 15px; vertical-align: top; }
+        .vocab-table b { color: var(--main-navy); }
+
+        .phrase-section { margin-top: 40px; }
+        .phrase-card { 
+            background-color: #fff; 
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--accent-orange); 
+            padding: 20px; 
+            margin-bottom: 15px; 
+            border-radius: 4px;
+        }
+        .phrase-card.blue { border-left-color: #3b82f6; }
+        .phrase-card p { margin: 0; }
+        .phrase-card .en { font-weight: bold; display: block; margin-bottom: 5px; color: var(--main-navy); }
+        .phrase-card .jp { color: var(--text-slate); font-size: 0.85rem; }
+
+        .download-box { 
+            background: #f1f5f9; 
+            padding: 25px; 
+            border-radius: 10px; 
+            border-left: 5px solid var(--main-navy); 
+            margin-top: 50px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .download-btn {
+            background: var(--accent-orange);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="../../index.html" class="back-link">← ARCHIVE LIST</a>
+
+    <h1>ZES: Radiation Protection for COTS (Space / Defense)</h1>
+    <span class="category-tag">Aerospace Engineering / New Space / Semiconductor Reliability</span>
+
+    <div class="audio-section">
+        <p class="audio-label">Technical Listening Module:</p>
+        <audio controls src="../../fpga.mp3"></audio>
+    </div>
+
+    <div class="script-container">
+        <div class="script-box">
+            <h3>1. Professional Script (English)</h3>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> Our clients in the 'New Space' sector are struggling with a dilemma. They want the high performance and low cost of COTS components, but they can't afford a system crash due to SEE (Single Event Effects) in high-radiation orbits. How exactly does your technology allow standard chips to survive in such a harsh environment?</div>
+            <div class="script-line"><span class="speaker">B (ZES):</span> It’s about a hybrid approach. We don't just rely on shielding. Our ZES technology integrates physical-layer protection with intelligent latch-up detection and recovery. We monitor the current in real-time. If we detect a radiation-induced surge, our system reacts in nanoseconds to prevent permanent damage, while maintaining data integrity through TMR (Triple Modular Redundancy).</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> That sounds promising. But in a high-speed processing mission, even a few milliseconds of downtime can be critical. If a radiation event triggers your latch-up protection, how fast is the recovery time? And how do you ensure that the system state is restored to exactly where it was before the surge?</div>
+            <div class="script-line"><span class="speaker">B (ZES):</span> Our detection and isolation happen in less than 100 nanoseconds. The power-cycling and recovery process typically take a few milliseconds. To ensure no data is lost, we use a non-volatile memory bridge that periodically checkpoints the system state. This means we can perform a warm boot almost instantly after the event is cleared.</div>
+        </div>
+
+        <button class="btn-toggle" onclick="toggleHtmlJp()">日本語訳を表示</button>
+
+        <div class="jp-box" id="jpBox">
+            <h3>2. 日本語対訳</h3>
+            <div class="script-line"><b>A (クロニクス):</b> 「ニュー・スペース（民間宇宙開発）」分野の当社のお客様は、あるジレンマに直面しています。彼らはCOTS（民生品）コンポーネントの高性能さと低コストを求めていますが、高放射線軌道でのSEE（シングルイベント効果）によるシステムクラッシュは許容できません。貴社の技術は、具体的にどのようにして標準的なチップをこのような過酷な環境で生き残らせるのですか？</div>
+            <div class="script-line"><b>B (ZES):</b> それはハイブリッド・アプローチによるものです。単にシールド（遮蔽）に頼るだけではありません。当社のZES技術は、物理層の保護にインテリジェントなラッチアップ検知・復旧機能を統合しています。電流をリアルタイムで監視し、放射線誘発サージを検知すると、システムはナノ秒単位で反応して永久的な損傷を防ぎます。同時に、TMR（3重モジュール冗長）によってデータ整合性を維持します。</div>
+            <div class="script-line"><b>A (クロニクス):</b> それは有望そうですね。しかし、高速処理が必要なミッションでは、わずか数ミリ秒のダウンタイムすら致命的になり得ます。放射線イベントによってラッチアップ保護が作動した場合、復旧時間はどのくらいですか？ また、サージが発生する直前の状態にシステムが正確に復元されることをどう保証するのですか？</div>
+            <div class="script-line"><b>B (ZES):</b> 検知と隔離は100ナノ秒未満で行われます。パワーサイクリング（電源の再投入）と復旧プロセスには通常数ミリ秒かかります。データ損失を防ぐため、システムの状態を定期的にチェックポイント（保存）する不揮発性メモリ・ブリッジを使用しています。これにより、イベントがクリアされた後、ほぼ瞬時にウォームブート（再起動）を実行できるのです。</div>
+        </div>
+    </div>
+
+    <h3>3. Key Technical Vocabulary</h3>
+    <table class="vocab-table">
+        <thead>
+            <tr>
+                <th style="width: 25%;">Term</th>
+                <th style="width: 25%;">意味</th>
+                <th style="width: 50%;">Contextual Usage / 解説</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><b>New Space</b></td><td>ニュー・スペース</td><td>民間企業主導の新しい宇宙開発ビジネススタイル。</td></tr>
+            <tr><td><b>Dilemma</b></td><td>ジレンマ</td><td>高性能・低コストと高信頼性のトレードオフなど、板挟みの状況を指す。</td></tr>
+            <tr><td><b>Latch-up</b></td><td>ラッチアップ</td><td>放射線等でCMOS回路に異常大電流が流れる現象。破壊に直結する。</td></tr>
+            <tr><td><b>Data integrity</b></td><td>データ整合性</td><td>データが書き換わることなく、一貫性と正確性が完全に保たれている状態。</td></tr>
+            <tr><td><b>TMR</b></td><td>3重モジュール冗長</td><td>Triple Modular Redundancy。3系統で同時計算を行い多数決で正解を判定。</td></tr>
+            <tr><td><b>Downtime</b></td><td>ダウンタイム</td><td>システムが稼働停止し、処理機能を利用できなくなっている時間。</td></tr>
+            <tr><td><b>Power-cycling</b></td><td>パワーサイクリング</td><td>回路のラッチアップ状態を解除するため、一度電源を遮断し再投入すること。</td></tr>
+            <tr><td><b>Non-volatile memory</b></td><td>不揮発性メモリ</td><td>電源の供給が途絶えても、内部データが消去されず維持されるメモリ。</td></tr>
+            <tr><td><b>Warm boot</b></td><td>ウォームブート</td><td>初期化処理（コールドブート）を省き、システム状態を復元して即座に再起動すること。</td></tr>
+        </tbody>
+    </table>
+
+    <div class="phrase-section">
+        <h3>4. Practical Industry Phrases</h3>
+        <div class="phrase-card">
+            <span class="en">"Our clients are struggling with a dilemma."</span>
+            <span class="jp">「当社のお客様はあるジレンマに直面しています。」</span>
+        </div>
+        <div class="phrase-card">
+            <span class="en">"Reacts in nanoseconds to prevent permanent damage."</span>
+            <span class="jp">「永久的な物理損傷を防ぐために、ナノ秒単位の超高速で反応します。」</span>
+        </div>
+        <div class="phrase-card blue">
+            <span class="en">"How do you ensure that the system state is restored?"</span>
+            <span class="jp">「サージ発生直前のシステム状態が正確に復元されることを、どのように保証しますか？」</span>
+        </div>
+        <div class="phrase-card blue">
+            <span class="en">"Checkpoints the system state to ensure no data is lost."</span>
+            <span class="jp">「データ損失を確実にゼロにするため、システム状態を定期的にチェックポイント保存します。」</span>
+        </div>
+    </div>
+
+    <div class="download-box">
+        <div>
+            <h3 style="margin: 0; font-size: 1rem;">Supplementary Material</h3>
+            <p style="margin: 0; font-size: 0.8rem; color: var(--text-slate);">Detailed technical brief for ZES Active Latch-up Protection integration on COTS hardware.</p>
+        </div>
+        <a href="ZES_Radiation_Protection_Guide.pdf" class="download-btn">DOWNLOAD PDF</a>
+    </div>
+</div>
+
+<script>
+    function toggleHtmlJp() {
+        const jpBox = document.getElementById('jpBox');
+        const btn = document.querySelector('.btn-toggle');
+        if (jpBox.style.display === "none" || jpBox.style.display === "") {
+            jpBox.style.display = "block";
+            btn.textContent = "日本語訳を隠す";
+        } else {
+            jpBox.style.display = "none";
+            btn.textContent = "日本語訳を表示";
+        }
+    }
+</script>
+
+</body>
+</html>
