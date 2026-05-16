@@ -387,5 +387,84 @@
     function toggleZoom(img) { img.classList.toggle('zoomed'); }
 </script>
 
+<div class="archive-section">
+    <h3 style="font-size: 1.5rem; border-left: 5px solid var(--vision-blue); padding-left: 15px; margin-bottom: 30px;">DAILY ARCHIVES</h3>
+    <div class="archive-grid">
+        
+        <a href="archive/0516/index.html" style="text-decoration: none; color: inherit;">
+            <div class="archive-card">
+                <div style="height: 120px; background: linear-gradient(45deg, #8a4a1d, #d48806); color: white; padding: 20px;">
+                    <span style="font-size: 0.7rem; opacity: 0.8;">Machine Vision ARCHIVE | 05.16</span>
+                    <h4 style="margin: 10px 0 0 0;">Beyond the Physical Limits</h4>
+                </div>
+                <div style="padding: 20px; font-size: 0.85rem; color: #666;">超極小チップへの挑戦【補償光学 ALPAO社】</div>
+            </div>
+        </a>
+
+        <a href="archive/0517/index.html" style="text-decoration: none; color: inherit;">
+            <div class="archive-card">
+                <div style="height: 120px; background: linear-gradient(45deg, #003366, #0055aa); color: white; padding: 20px;">
+                    <span style="font-size: 0.7rem; opacity: 0.8;">Space ARCHIVE | 05.17</span>
+                    <h4 style="margin: 10px 0 0 0;">FPGA SiP and Evolvable Hardware</h4>
+                </div>
+                <div style="padding: 20px; font-size: 0.85rem; color: #666;">メンテナンス不能な環境「進化する回路」【積層チップ 3Dplus社】</div>
+            </div>
+        </a>
+
+    </div>
+</div>
+
+<footer id="contact" style="background: #091a2d; color: #fff; padding: 80px 20px; text-align: center;">
+    <div style="max-width: 800px; margin: 0 auto;">
+        <p style="font-size: 1.8rem; font-weight: bold; margin-bottom: 20px;">クロニクス株式会社</p>
+        <p style="color: #cbd5e1; margin-bottom: 30px;">製品の技術詳細やデモのご依頼など、お気軽にお問い合わせください。</p>
+        
+        <a href="https://www.chronix.co.jp/contact/" style="display: inline-block; background: var(--accent-orange); color: white; text-decoration: none; padding: 15px 40px; border-radius: 50px; font-weight: bold; transition: 0.3s; margin-bottom: 40px;">
+            📩 お問い合わせフォーム
+        </a>
+
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; font-size: 0.9rem; color: #94a3b8;">
+            <address style="font-style: normal; margin-bottom: 10px;">
+                〒160-0023 東京都新宿区西新宿3-2-11<br>
+                TEL: 03-XXXX-XXXX / Email: info@chronix.co.jp
+            </address>
+            <p>&copy; 2026 Chronix Global Link. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let currentAudio = null;
+    let currentBtnId = null;
+
+    // 音声再生（トップページのメインヒーローエリアなどで使用する場合に動作します）
+    function toggleAudio(fileName, btnId) {
+        const btn = document.getElementById(btnId);
+        if (!btn) return;
+        const icon = btn.querySelector('.audio-icon') || btn; 
+        
+        if (currentAudio && currentBtnId === btnId) {
+            if (!currentAudio.paused) { currentAudio.pause(); icon.innerText = '▶️'; }
+            else { currentAudio.play(); icon.innerText = '⏸️'; }
+            return;
+        }
+        if (currentAudio) {
+            currentAudio.pause();
+            const prevBtn = document.getElementById(currentBtnId);
+            if(prevBtn) {
+                const prevIcon = prevBtn.querySelector('.audio-icon') || prevBtn;
+                if (prevIcon) prevIcon.innerText = '▶️';
+            }
+        }
+        currentAudio = new Audio(fileName);
+        currentBtnId = btnId;
+        currentAudio.play().then(() => { icon.innerText = '⏸️'; }).catch(() => { console.log("Audio not found"); });
+        currentAudio.onended = () => { icon.innerText = '▶️'; currentAudio = null; currentBtnId = null; };
+    }
+
+    // 画像ズーム機能
+    function toggleZoom(img) { img.classList.toggle('zoomed'); }
+</script>
+    
 </body>
 </html>
