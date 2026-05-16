@@ -392,6 +392,78 @@
         border-color: #cbd5e1 !important;
     }
 </style>
+
+<script>
+    let currentAudio = null;
+    let currentBtnId = null;
+
+    // 3つのすべてのボタン（thermal.mp3, zes.mp3 など）に完全対応した再生ロジック
+    function toggleAudio(fileName, btnId) {
+        const btn = document.getElementById(btnId);
+        if (!btn) return;
+        
+        // アイコン（▶️ や ⏸️）が格納されている場所を探す
+        const icon = btn.querySelector('.audio-icon') || btn; 
+        
+        // まったく同じボタンがもう一度押された場合（一時停止 / 再開）
+        if (currentAudio && currentBtnId === btnId) {
+            if (!currentAudio.paused) { 
+                currentAudio.pause(); 
+                icon.innerText = '▶️'; 
+            } else { 
+                currentAudio.play(); 
+                icon.innerText = '⏸️'; 
+            }
+            return;
+        }
+        
+        // 別の音声が既に流れている場合は、それを止めてアイコンを「▶️」に戻す
+        if (currentAudio) {
+            currentAudio.pause();
+            const prevBtn = document.getElementById(currentBtnId);
+            if (prevBtn) {
+                const prevIcon = prevBtn.querySelector('.audio-icon') || prevBtn;
+                if (prevIcon) prevIcon.innerText = '▶️';
+            }
+        }
+        
+        // 新しい音声ファイルを読み込んで再生
+        currentAudio = new Audio(fileName);
+        currentBtnId = btnId;
+        
+        currentAudio.play().then(() => { 
+            icon.innerText = '⏸️'; 
+        }).catch((error) => { 
+            console.log("音声ファイルが見つからない、またはブロックされました:", fileName); 
+        });
+        
+        // 音声が最後まで流れ終わったら自動的に「▶️」に戻す
+        currentAudio.onended = () => { 
+            icon.innerText = '▶️'; 
+            currentAudio = null; 
+            currentBtnId = null; 
+        };
+    }
+
+    // 和訳アコーディオンのトグル機能
+    function toggleTranslation() {
+        const content = document.getElementById('transContent');
+        const btn = document.getElementById('transBtn');
+        if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block';
+            btn.innerHTML = '▲ スクリプトの和訳と学習ポイントを閉じる';
+        } else {
+            content.style.display = 'none';
+            btn.innerHTML = '🔍 スクリプトの和訳と学習ポイントを見る';
+        }
+    }
+
+    // 画像ズーム機能
+    function toggleZoom(img) { 
+        img.classList.toggle('zoomed'); 
+    }
+</script>
+
     
 </body>
 </html>
