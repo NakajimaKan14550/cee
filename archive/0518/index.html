@@ -3,712 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chronix Global Link - エンジニア向け英語学習サイト</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>Varioptic: Liquid Lens Fast AF for Manufacturing DX | Chronix Technical Archive</title>
     <style>
-        :root {
-            --primary: #0f172a;
-            --secondary: #2563eb;
-            --accent-1: #3b82f6;
-            --accent-2: #06b6d4;
-            --bg-dark: #020617;
+        :root { 
+            --main-navy: #091a2d; 
+            --accent-orange: #f97316; 
+            --text-dark: #1e293b; 
+            --text-slate: #64748b;
             --bg-light: #f8fafc;
-            --text-dark: #0f172a;
-            --text-light: #f8fafc;
-            --card-bg: #ffffff;
-            --border: #e2e8f0;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+        body { 
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; 
+            line-height: 1.8; 
+            color: var(--text-dark); 
+            background: var(--bg-light); 
+            margin: 0; 
+            padding: 40px 20px; 
         }
 
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); 
         }
 
-        header {
-            background-color: var(--primary);
-            color: var(--text-light);
-            padding: 1rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
+        /* Navigation link */
+        .back-link { 
+            text-decoration: none; 
+            color: var(--text-slate); 
+            font-size: 0.9rem; 
+            display: inline-flex; 
             align-items: center;
+            margin-bottom: 30px; 
+            transition: color 0.2s;
+        }
+        .back-link:hover { color: var(--accent-orange); }
+
+        h1 { 
+            border-left: 6px solid var(--accent-orange); 
+            padding-left: 20px; 
+            font-size: 1.75rem; 
+            color: var(--main-navy);
+            margin-bottom: 5px;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .category-tag { 
+            color: var(--text-slate); 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em;
+            margin-bottom: 30px;
+            display: block;
         }
 
-        .logo span {
-            color: var(--accent-2);
-        }
-
-        .main-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-        }
-
-        @media (max-width: 968px) {
-            .main-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ヒーローセクション */
-        .hero-section {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            color: var(--text-light);
-            padding: 2.5rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 100%;
-            background-image: url('cee.png');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: right center;
-            opacity: 0.15;
-            pointer-events: none;
-        }
-
-        .topic-label {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: var(--text-light);
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .hero-title {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #ffffff;
-        }
-
-        .intro-text {
-            color: #cbd5e1;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* スクリプトエリア */
-        .script-container {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .sub-block-title {
-            font-size: 1.1rem;
-            color: var(--secondary);
-            margin: 1.5rem 0 1rem 0;
-            padding-left: 0.5rem;
-            border-left: 4px solid var(--secondary);
-            font-weight: bold;
-        }
-
-        .audio-controls {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .btn-audio {
-            background-color: var(--secondary);
+        /* Audio Player Styling */
+        .audio-section { 
+            margin: 30px 0; 
+            padding: 25px; 
+            background: var(--main-navy); 
+            border-radius: 10px; 
             color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s;
         }
+        .audio-label { margin: 0 0 15px 0; font-weight: bold; font-size: 0.9rem; opacity: 0.9; }
+        audio { width: 100%; filter: invert(10%) sepia(20%) saturate(500%) hue-rotate(180deg); }
 
-        .btn-audio:hover {
-            background-color: var(--accent-1);
+        /* Script Blocks */
+        .script-container { display: grid; gap: 20px; margin-bottom: 30px; }
+        .script-box { 
+            background: #fff; 
+            border: 1px solid #e2e8f0; 
+            padding: 30px; 
+            border-radius: 12px; 
         }
+        .script-box h3 { margin-top: 0; font-size: 1.1rem; color: var(--main-navy); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        
+        .speaker { font-weight: bold; color: var(--accent-orange); margin-right: 10px; }
+        .script-line { margin-bottom: 15px; }
 
-        .dialogue-turn {
-            margin-bottom: 1.2rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 1px dashed var(--border);
+        .jp-box { 
+            background: #fff7ed; 
+            border: 1px solid #ffedd5; 
+            padding: 30px; 
+            border-radius: 12px; 
+            display: none; 
+            animation: fadeIn 0.4s ease;
         }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
-        .dialogue-turn:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .btn-toggle { 
+            background: var(--main-navy); 
+            color: white; 
+            border: none; 
+            padding: 12px 24px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            margin: 20px 0; 
+            font-weight: bold; 
+            transition: opacity 0.2s;
         }
+        .btn-toggle:hover { opacity: 0.9; }
 
-        .speaker-info {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
+        /* Vocabulary and Phrases */
+        .vocab-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 30px 0; }
+        .vocab-table th { background-color: #f1f5f9; border-bottom: 2px solid var(--main-navy); text-align: left; padding: 15px; }
+        .vocab-table td { border-bottom: 1px solid #edf2f7; padding: 15px; vertical-align: top; }
+        .vocab-table b { color: var(--main-navy); }
 
-        .speaker-badge {
-            font-weight: bold;
-            font-size: 0.85rem;
-            padding: 0.2rem 0.5rem;
+        .phrase-section { margin-top: 40px; }
+        .phrase-card { 
+            background-color: #fff; 
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--accent-orange); 
+            padding: 20px; 
+            margin-bottom: 15px; 
             border-radius: 4px;
         }
+        .phrase-card.blue { border-left-color: #3b82f6; }
+        .phrase-card p { margin: 0; }
+        .phrase-card .en { font-weight: bold; display: block; margin-bottom: 5px; color: var(--main-navy); }
+        .phrase-card .jp { color: var(--text-slate); font-size: 0.85rem; }
 
-        .badge-a { background-color: #dbeafe; color: #1e40af; }
-        .badge-b { background-color: #fee2e2; color: #991b1b; }
-
-        .speaker-name {
-            font-size: 0.9rem;
-            color: #64748b;
-            font-weight: 500;
-        }
-
-        .text-en {
-            font-size: 1.1rem;
-            color: var(--primary);
-            font-weight: 500;
-        }
-
-        .text-ja {
-            font-size: 0.95rem;
-            color: #475569;
-        }
-
-        .translation-toggle-wrapper {
-            margin-top: 1rem;
-            text-align: right;
-        }
-
-        .btn-toggle-block {
-            background-color: #f1f5f9;
-            border: 1px solid var(--border);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-weight: bold;
-            transition: all 0.2s;
-        }
-
-        .btn-toggle-block:hover {
-            background-color: #e2e8f0;
-        }
-
-        .ja-block-container {
-            display: none;
-            background-color: #f8fafc;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            margin-top: 1rem;
-        }
-
-        /* 学習コンテンツ */
-        .learning-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        .learning-card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-        }
-
-        .vocab-list, .phrase-list {
-            list-style: none;
-        }
-
-        .vocab-item {
-            margin-bottom: 1.2rem;
-            padding-bottom: 1.2rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .vocab-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .vocab-word {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 0.25rem;
-        }
-
-        .vocab-meaning {
-            font-size: 0.95rem;
-            color: var(--text-dark);
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-        }
-
-        .vocab-desc {
-            font-size: 0.85rem;
-            color: #64748b;
-        }
-
-        .phrase-item {
-            background-color: #f8fafc;
-            padding: 1rem;
-            border-left: 4px solid var(--accent-2);
-            border-radius: 0 8px 8px 0;
-            margin-bottom: 1rem;
-        }
-
-        .phrase-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .phrase-en {
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .phrase-ja {
-            font-size: 0.9rem;
-            color: #475569;
-        }
-
-        /* サイドバー・アーカイブ */
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .archive-section {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
-        }
-
-        .archive-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .archive-card {
-            padding: 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .archive-card:hover {
-            border-color: var(--secondary);
-            background-color: #f0f7ff;
-        }
-
-        .archive-date {
-            font-size: 0.75rem;
-            color: #94a3b8;
-            margin-bottom: 0.25rem;
-        }
-
-        .archive-title {
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        /* フッター */
-        footer {
-            background-color: var(--primary);
-            color: var(--text-light);
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            font-size: 0.9rem;
-        }
-
-        /* モーダル */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background-color: var(--card-bg);
-            padding: 2rem;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-        }
-
-        .modal-header {
+        .download-box { 
+            background: #f1f5f9; 
+            padding: 25px; 
+            border-radius: 10px; 
+            border-left: 5px solid var(--main-navy); 
+            margin-top: 50px; 
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0.5rem;
+        }
+        .download-btn {
+            background: var(--accent-orange);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.85rem;
         }
 
-        .btn-close {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #64748b;
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="header-container">
-            <a href="#" class="logo">Chronix <span>Global Link</span></a>
-            <div style="font-size: 0.9rem; color: #cbd5e1;">エンジニアのための実践英語学習</div>
-        </div>
-    </header>
+<div class="container">
+    <a href="../../index.html" class="back-link">← ARCHIVE LIST</a>
 
-    <div class="main-container">
+    <h1>Varioptic: Liquid Lens Technology for Manufacturing DX</h1>
+    <span class="category-tag">Industrial Imaging / Precision Optics / Automation / Semiconductor Inspection</span>
+
+    <div class="audio-section">
+        <p class="audio-label">Technical Listening Module:</p>
+        <audio controls src="../../varioptic.mp3"></audio>
+    </div>
+
+    <div style="background: var(--accent-orange); color: white; padding: 12px 20px; border-radius: 5px; font-weight: bold; font-size: 1.2rem;">
+        Variopticの液体レンズがもたらす高速AFと製造DX革命
+    </div>
+    <div style="padding: 15px 20px 5px 20px; font-size: 0.95rem; color: #475569; line-height: 1.6; border-left: 3px solid var(--accent-orange); margin-top: 10px;">
+        多品種混流の生産ラインにおいて、従来の機械式モーターによるフォーカス調整は速度と寿命のボトルネックでした。本レポートでは、Varioptic（フランス）が開発した、可動部を一切排除して電圧制御だけで超高速オートフォーカスを実現する革新的な「液体レンズ」技術を巡る、Chronix（クロニクス）社員と国内の自動化システムインテグレーター（顧客）との技術交渉を解説します。
+    </div>
+    
+    <div class="script-container">
+        <div class="script-box">
+            <h3>1. Professional Script (English)</h3>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> To resolve the cycle time bottleneck in your mixed-model production line, we highly recommend replacing your traditional motorized lenses with Varioptic liquid lenses. In partnership with Opt Engineering's telecentric optics, this setup allows your inspection system to change focus between parts of varying heights within milliseconds, completely eliminating mechanical wear.</div>
+            <div class="script-line"><span class="speaker">B (Customer):</span> Moving away from mechanical actuators sounds ideal for reducing maintenance costs. However, our main concern is optical stability. Since our automated inspection tools rely heavily on Hikrobot smart cameras for AI-driven defect detection, will the shape distortion of a liquid lens affect the image quality at the periphery of the Field of View (FOV)?</div>
+            <div class="script-line"><span class="speaker">A (Chronix):</span> Not at all. Varioptic's electrowetting technology ensures perfectly symmetrical oil-and-water interfaces, providing reliable optical performance that rivals standard glass elements. When combined with Opt Engineering’s precise telecentric design, the magnification remains completely constant even during active refocusing, ensuring maximum accuracy for your Hikrobot vision system.</div>
+        </div>
+
+        <button class="btn-toggle" onclick="toggleHtmlJp()">日本語訳を表示</button>
+
+        <div class="jp-box" id="jpBox">
+            <h3>2. 日本語対訳</h3>
+            <div class="script-line"><b>A (クロニクス社員):</b> 多品種混流生産ラインにおけるサイクルタイムのボトルネックを解消するため、従来のモーター駆動式レンズをVarioptic（ヴァリオプティック）の液体レンズに置き換えることを強く推奨いたします。Opt Engineering（オプト・エンジニアリング）のテレセントリック光学系と組み合わせることで、検査システムは異なる高さの部品間のピントをわずか数ミリ秒で切り替えることができ、機械的な摩耗を完全に排除できます。</div>
+            <div class="script-line"><b>B (国内顧客):</b> メンテナンスコストを削減するという観点から、機械式アクチュエータを排除するのは理想的に思えます。しかし、最大の懸念は光学的な安定性です。当社の自動検査ツールは、AI駆動の欠陥検出のためにHikrobot（ハイクロボット）のスマートカメラに大きく依存しているため、液体レンズの形状歪みが視野（FOV）の周辺部の画質に影響を与えないでしょうか？</div>
+            <div class="script-line"><b>A (クロニクス社員):</b> まったく問題ありません。Variopticのエレクトロウェッティング（電気潤滑）技術は、完全に非対称性のない油と水の界面を保証し、標準的なガラスレンズに匹敵する信頼性の高い光学性能を提供します。Opt Engineeringの精密なテレセントリック設計と組み合わせることで、アクティブな再フォーカス中であっても倍率は完全に一定に保たれ、Hikrobotビジョンシステムの精度を最大限に確保します。</div>
+        </div>
+    </div>
+
+    <h3>3. Key Technical Vocabulary</h3>
+    <table class="vocab-table">
+        <thead>
+            <tr>
+                <th style="width: 25%;">Term</th>
+                <th style="width: 25%;">意味</th>
+                <th style="width: 50%;">Contextual Usage / 解説</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><b>Varioptic</b></td><td>ヴァリオプティック</td><td>液体レンズ技術の世界的パイオニア企業。可動部なしで高速フォーカスを実現する。</td></tr>
+            <tr><td><b>Opt Engineering</b></td><td>オプト・エンジニアリング</td><td>産業用イメージングにおける精密光学レンズ（主にテレセントリックレンズ）の大手ブランド。</td></tr>
+            <tr><td><b>Hikrobot</b></td><td>ハイクロボット</td><td>高いROI（投資対効果）を誇る、産業用カメラやスマートカメラ、AI自動検査システムのリーディングブランド。</td></tr>
+            <tr><td><b>Mixed-model production line</b></td><td>多品種混流生産ライン</td><td>一つの生産ラインで、形状や高さの異なるさまざまな製品を同時に流して製造・検査する仕組み。</td></tr>
+            <tr><td><b>Mechanical wear</b></td><td>機械的摩耗</td><td>部品が擦れ合うことで物理的に削れたり劣化したりすること。液体レンズは可動部がないためこれが「ゼロ」になる。</td></tr>
+            <tr><td><b>Electrowetting</b></td><td>エレクトロウェッティング（電気潤滑）</td><td>電圧をかけることで、液体（水滴）が固体表面に広がる特性（濡れ性）をコントロールし、液滴の形状を変形させる技術。</td></tr>
+        </tbody>
+    </table>
+
+    <div class="phrase-section">
+        <h3>4. Practical Industry Phrases</h3>
+        <div class="phrase-card">
+            <span class="en">"This setup allows your inspection system to change focus within milliseconds."</span>
+            <span class="jp">「この構成により、検査システムはわずか数ミリ秒でピントを切り替えることが可能になります。」</span>
+        </div>
+        <div class="phrase-card">
+            <span class="en">"Will the shape distortion of a liquid lens affect the image quality at the periphery?"</span>
+            <span class="jp">「液体レンズの形状の歪みが、周辺部の画質に影響を及ぼすことはありませんか？」</span>
+        </div>
+        <div class="phrase-card blue">
+            <span class="en">"The magnification remains completely constant even during active refocusing."</span>
+            <span class="jp">「動的な再フォーカスを行っている最中であっても、倍率は完全に一定に保たれます。」</span>
+        </div>
+    </div>
+
+    <div class="download-box">
         <div>
-            <section class="hero-section" id="hero-area">
-                <span class="topic-label" id="hero-case">Case 1 (Machine Vision/Semiconductor/Thermal)</span>
-                <h2 class="hero-title" id="hero-title">5分トレンドレポート：Variopticの液体レンズがもたらす高速AFと製造DX革命</h2>
-                <p class="intro-text" id="hero-intro">
-                    多品種混流の生産ラインにおいて、従来の機械式モーターによるフォーカス調整は速度と寿命のボトルネックでした。本レポートでは、Varioptic（フランス）が開発した、可動部を一切排除して電圧制御だけで超高速オートフォーカスを実現する革新的な「液体レンズ」技術を巡る、Chronix（クロニクス）社員と国内の自動化システムインテグレーター（顧客）との技術交渉を解説します。
-                </p>
-            </section>
-
-            <section class="script-container">
-                <div class="section-title">
-                    <span><i class="fa-solid fa-comments"></i> Technical Dialogue</span>
-                    <div class="audio-controls">
-                        <button class="btn-audio" id="btn-ao" onclick="toggleAudio('ao', 'varioptic_discussion.mp3')">
-                            <i class="fa-solid fa-play"></i> <span>Listen to Audio</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="sub-block-title">English Script</div>
-                <div id="en-dialogue-block">
-                    <div class="dialogue-turn">
-                        <div class="speaker-info">
-                            <span class="speaker-badge badge-a">A</span>
-                            <span class="speaker-name">Chronix Engineer</span>
-                        </div>
-                        <p class="text-en">To resolve the cycle time bottleneck in your mixed-model production line, we highly recommend replacing your traditional motorized lenses with Varioptic liquid lenses. In partnership with Opt Engineering's telecentric optics, this setup allows your inspection system to change focus between parts of varying heights within milliseconds, completely eliminating mechanical wear.</p>
-                    </div>
-
-                    <div class="dialogue-turn">
-                        <div class="speaker-info">
-                            <span class="speaker-badge badge-b">B</span>
-                            <span class="speaker-name">Domestic Customer</span>
-                        </div>
-                        <p class="text-en">Moving away from mechanical actuators sounds ideal for reducing maintenance costs. However, our main concern is optical stability. Since our automated inspection tools rely heavily on Hikrobot smart cameras for AI-driven defect detection, will the shape distortion of a liquid lens affect the image quality at the periphery of the Field of View (FOV)?</p>
-                    </div>
-
-                    <div class="dialogue-turn">
-                        <div class="speaker-info">
-                            <span class="speaker-badge badge-a">A</span>
-                            <span class="speaker-name">Chronix Engineer</span>
-                        </div>
-                        <p class="text-en">Not at all. Varioptic's electrowetting technology ensures perfectly symmetrical oil-and-water interfaces, providing reliable optical performance that rivals standard glass elements. When combined with Opt Engineering’s precise telecentric design, the magnification remains completely constant even during active refocusing, ensuring maximum accuracy for your Hikrobot vision system.</p>
-                    </div>
-                </div>
-
-                <div class="translation-toggle-wrapper">
-                    <button class="btn-toggle-block" onclick="toggleBlockTranslation()">
-                        <i class="fa-solid fa-language"></i> 日本語訳を一括表示 / 非表示
-                    </button>
-                </div>
-
-                <div class="ja-block-container" id="ja-dialogue-block">
-                    <div class="sub-block-title" style="margin-top:0;">日本語訳</div>
-                    
-                    <div class="dialogue-turn">
-                        <div class="speaker-info">
-                            <span class="speaker-badge badge-a">A</span>
-                            <span class="speaker-name">クロニクス社員</span>
-                        </div>
-                        <p class="text-ja">「多品種混流生産ラインにおけるサイクルタイムのボトルネックを解消するため、従来のモーター駆動式レンズをVarioptic（ヴァリオプティック）の液体レンズに置き換えることを強く推奨いたします。Opt Engineering（オプト・エンジニアリング）のテレセントリック光学系と組み合わせることで、検査システムは異なる高さの部品間のピントをわずか数ミリ秒で切り替えることができ、機械的な摩耗を完全に排除できます。」</p>
-                    </div>
-
-                    <div class="dialogue-turn">
-                        <div class="speaker-info">
-                            <span class="speaker-badge badge-b">B</span>
-                            <span class="speaker-name">国内顧客</span>
-                        </div>
-                        <p class="text-ja">「メンテナンスコストを削減するという観点から、機械式アクチュエータを排除するのは理想的に思えます。しかし、最大の懸念は光学的な安定性です。当社の自動検査ツールは、AI駆動の欠陥検出のためにHikrobot（ハイクロボット）のスマートカメラに大きく依存しているため、液体レンズの形状歪みが視野（FOV）の周辺部の画質に影響を与えないでしょうか？」</p>
-                    </div>
-
-                    <div class="dialogue-turn">
-                        <div class="speaker-info">
-                            <span class="speaker-badge badge-a">A</span>
-                            <span class="speaker-name">クロニクス社員</span>
-                        </div>
-                        <p class="text-ja">「まったく問題ありません。Variopticのエレクトロウェッティング（電気潤滑）技術は、完全に非対称のない油と水の界面を保証し、標準的なガラスレンズに匹敵する信頼性の高い光学性能を提供します。Opt Engineeringの精密なテレセントリック設計と組み合わせることで、アクティブな再フォーカス中であっても倍率は完全に一定に保たれ、Hikrobotビジョンシステムの精度を最大限に確保します。」</p>
-                    </div>
-                </div>
-            </section>
-
-            <section class="learning-grid">
-                <div class="learning-card">
-                    <div class="section-title">
-                        <span><i class="fa-solid fa-book"></i> Key Vocabulary</span>
-                    </div>
-                    <ul class="vocab-list" id="vocab-container">
-                        <li class="vocab-item">
-                            <div class="vocab-word">Varioptic</div>
-                            <div class="vocab-meaning">ヴァリオプティック</div>
-                            <div class="vocab-desc">液体レンズ技術の世界的パイオニア企業。可動部なしで高速フォーカスを実現する。</div>
-                        </li>
-                        <li class="vocab-item">
-                            <div class="vocab-word">Opt Engineering</div>
-                            <div class="vocab-meaning">オプト・エンジニアリング</div>
-                            <div class="vocab-desc">産業用イメージングにおける精密光学レンズ（主にテレセントリックレンズ）の大手ブランド。</div>
-                        </li>
-                        <li class="vocab-item">
-                            <div class="vocab-word">Hikrobot</div>
-                            <div class="vocab-meaning">ハイクロボット</div>
-                            <div class="vocab-desc">高いROI（投資対効果）を誇る、産業用カメラやスマートカメラ、AI自動検査システムのリーディングブランド。</div>
-                        </li>
-                        <li class="vocab-item">
-                            <div class="vocab-word">Mixed-model production line</div>
-                            <div class="vocab-meaning">多品種混流生産ライン</div>
-                            <div class="vocab-desc">一つの生産ラインで、形状や高さの異なるさまざまな製品を同時に流して製造・検査する仕組み。</div>
-                        </li>
-                        <li class="vocab-item">
-                            <div class="vocab-word">Mechanical wear</div>
-                            <div class="vocab-meaning">機械的摩耗</div>
-                            <div class="vocab-desc">部品が擦れ合うことで物理的に削れたり劣化したりすること。液体レンズは可動部がないためこれが「ゼロ」になる。</div>
-                        </li>
-                        <li class="vocab-item">
-                            <div class="vocab-word">Electrowetting</div>
-                            <div class="vocab-meaning">エレクトロウェッティング（電気潤滑）</div>
-                            <div class="vocab-desc">電圧をかけることで、液体（水滴）が固体表面に広がる特性（濡れ性）をコントロールし、液滴の形状を変形させる技術。</div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="learning-card">
-                    <div class="section-title">
-                        <span><i class="fa-solid fa-pen-nib"></i> Key Phrases</span>
-                    </div>
-                    <div class="phrase-list" id="phrase-container">
-                        <div class="phrase-item">
-                            <div class="phrase-en">"This setup allows your inspection system to change focus within milliseconds."</div>
-                            <div class="phrase-ja">この構成により、検査システムはわずか数ミリ秒でピントを切り替えることが可能になります。</div>
-                        </div>
-                        <div class="phrase-item">
-                            <div class="phrase-en">"Will the shape distortion of a liquid lens affect the image quality at the periphery?"</div>
-                            <div class="phrase-ja">液体レンズの形状の歪みが、周辺部の画質に影響を及ぼすことはありませんか？</div>
-                        </div>
-                        <div class="phrase-item">
-                            <div class="phrase-en">"The magnification remains completely constant even during active refocusing."</div>
-                            <div class="phrase-ja">動的な再フォーカスを行っている最中であっても、倍率は完全に一定に保たれます。</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <h3 style="margin: 0; font-size: 1rem;">Supplementary Material</h3>
+            <p style="margin: 0; font-size: 0.8rem; color: var(--text-slate);">Technical guide for implementing Varioptic Liquid Lenses into automated inspection lines.</p>
         </div>
-
-        <div class="sidebar">
-            <div class="archive-section">
-                <div class="section-title" style="margin-bottom: 1rem; border: none; padding: 0;">
-                    <span><i class="fa-solid fa-box-archive"></i> Archives</span>
-                </div>
-                <div class="archive-list" id="archive-list-container">
-                    <div class="archive-card" onclick="openArchiveModal('space_fpga')">
-                        <div class="archive-date">Case 2 (Space/Defense)</div>
-                        <div class="archive-title">🚀FPGA・宇宙エッジ（軌道上遠隔書き換えによる進化）</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <a href="Varioptic_Liquid_Lens_Integration_Guide.pdf" class="download-btn">DOWNLOAD PDF</a>
     </div>
+</div>
 
-    <footer>
-        <p>&copy; 2026 Chronix Global Link. All Rights Reserved.</p>
-    </footer>
-
-    <div class="modal" id="archive-modal" onclick="closeArchiveModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <h3 id="modal-title">Archive Details</h3>
-                <button class="btn-close" onclick="closeArchiveModal(null)">&times;</button>
-            </div>
-            <div id="modal-body">
-                </div>
-        </div>
-    </div>
-
-    <script>
-        // 音声トグル機能
-        let currentAudio = null;
-        let currentBtnId = null;
-
-        function toggleAudio(btnId, fileName) {
-            const btn = document.getElementById('btn-' + btnId);
-            if (!btn) return;
-            
-            const icon = btn.querySelector('i');
-            const span = btn.querySelector('span');
-
-            if (currentBtnId && currentBtnId !== btnId) {
-                const oldBtn = document.getElementById('btn-' + currentBtnId);
-                if (oldBtn) {
-                    oldBtn.querySelector('i').className = 'fa-solid fa-play';
-                    oldBtn.querySelector('span').innerText = 'Listen to Audio';
-                }
-            }
-
-            if (icon.classList.contains('fa-play')) {
-                icon.className = 'fa-solid fa-pause';
-                span.innerText = 'Playing...';
-                currentBtnId = btnId;
-                console.log(`Playing audio: ${fileName}`);
-            } else {
-                icon.className = 'fa-solid fa-play';
-                span.innerText = 'Listen to Audio';
-                currentBtnId = null;
-                console.log(`Paused audio: ${fileName}`);
-            }
+<script>
+    function toggleHtmlJp() {
+        const jpBox = document.getElementById('jpBox');
+        const btn = document.querySelector('.btn-toggle');
+        if (jpBox.style.display === "none" || jpBox.style.display === "") {
+            jpBox.style.display = "block";
+            btn.textContent = "日本語訳を隠す";
+        } else {
+            jpBox.style.display = "none";
+            btn.textContent = "日本語訳を表示";
         }
+    }
+</script>
 
-        // ブロックごとの和訳表示切り替え
-        function toggleBlockTranslation() {
-            const jaBlock = document.getElementById('ja-dialogue-block');
-            if (jaBlock.style.display === 'block') {
-                jaBlock.style.display = 'none';
-            } else {
-                jaBlock.style.display = 'block';
-            }
-        }
-
-        // アーカイブデータ管理
-        const archiveData = {
-            'space_fpga': {
-                title: "🚀FPGA・宇宙エッジ（軌道上遠隔書き換えによる進化）",
-                caseLabel: "Case 2 (Space/Defense)",
-                intro: "昨日の夕方は、極限環境でのAI判定を支える高速コネクタ技術「Nicomatic 8KLink」を取り上げました。今朝のテーマは、そのインターコネクトの上で実際にデータの演算処理を行う、宇宙開発の最前線「🚀FPGA・宇宙エッジ（軌道上遠隔書き換えによる進化）」です。今回は、シンガポール発の革新的ベンチャー ZES（Zero Error Systems） のコア技術を念頭に置きながら、A（クロニクス社員）と、新型観測衛星のシステムを設計するB（国内防衛・宇宙メーカーのシニアエンジニア）の対話形式で、宇宙用演算処理の未来について学びましょう。",
-                dialogue: [
-                    {
-                        speaker: "A (Chronix)",
-                        en: "To implement robust AI on the edge for the upcoming Earth observation satellite, integrating radiation-hardened components with reconfigurable FPGAs is highly critical.",
-                        ja: "次世代の地球観測衛星向けに堅牢なエッジAIを実装するには、耐放射線コンポーネントと再構成可能なFPGAを統合することが極めて重要です。"
-                    },
-                    {
-                        speaker: "B (Engineer)",
-                        en: "Agreed. However, traditional rad-hard processors lack the computing power required for real-time onboard data analysis. How do we mitigate Single Event Upsets (SEUs) without sacrificing performance?",
-                        ja: "同感です。しかし、従来の耐放射線プロセッサは、リアルタイムの軌道上データ分析に必要な演算能力が不足しています。パフォーマンスを犠牲にすることなく、シングルイベントアップセット（SEU）をどのように抑制すればよいでしょうか？"
-                    },
-                    {
-                        speaker: "A (Chronix)",
-                        en: "That is where ZES (Zero Error Systems) technology excels. Their patented radiation hardening-by-design solutions can guard standard commercial FPGAs against severe space radiation, ensuring zero-error operation while allowing remote logical reconfiguration while in orbit.",
-                        ja: "そこがZES（Zero Error Systems）技術の強みです。特許取得済みのRHBD（設計による耐放射線強化）ソリューションにより、民生用の高性能FPGAを過酷な宇宙放射線から保護し、軌道上での遠隔論理再書き換えを可能にしながら、エラーフリーの動作を保証します。"
-                    }
-                ]
-            }
-        };
-
-        // モーダルを開く
-        function openArchiveModal(key) {
-            const data = archiveData[key];
-            if (!data) return;
-
-            document.getElementById('modal-title').innerText = data.title;
-            
-            let htmlContent = `<p style="margin-bottom: 1.5rem; color:#475569; font-size:0.95rem;"><strong>概要:</strong> ${data.intro}</p>`;
-            htmlContent += `<h4 style="margin-bottom:1rem; color:var(--primary);"><i class="fa-solid fa-comments"></i> Dialogue</h4>`;
-            
-            data.dialogue.forEach(turn => {
-                htmlContent += `
-                    <div style="margin-bottom: 1.2rem; padding-bottom: 1.2rem; border-bottom: 1px dashed var(--border);">
-                        <div style="font-weight:bold; font-size:0.85rem; margin-bottom:0.25rem; color:var(--secondary);">${turn.speaker}</div>
-                        <p style="font-size:1rem; font-weight:500; color:var(--primary); margin-bottom:0.25rem;">${turn.en}</p>
-                        <p style="font-size:0.9rem; color:#475569; background-color:#f8fafc; padding:0.5rem; border-radius:4px;">${turn.ja}</p>
-                    </div>
-                `;
-            });
-
-            document.getElementById('modal-body').innerHTML = htmlContent;
-            document.getElementById('archive-modal').style.display = 'flex';
-        }
-
-        // モーダルを閉じる
-        function closeArchiveModal(event) {
-            if (!event || event.target.id === 'archive-modal' || event.target.className === 'btn-close') {
-                document.getElementById('archive-modal').style.display = 'none';
-            }
-        }
-    </script>
 </body>
 </html>
